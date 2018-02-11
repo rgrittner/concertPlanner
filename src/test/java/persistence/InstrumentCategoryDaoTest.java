@@ -2,7 +2,10 @@ package persistence;
 
 import entity.InstrumentCategory;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.Database;
+
+import java.util.List;
 
 /**
  * CRUD test class for Instrument_Category table
@@ -13,7 +16,7 @@ public class InstrumentCategoryDaoTest {
 
     /**
      * Set up.
-     * Reset the Nationality table to a known state.
+     * Reset the Instrument_Category table to a known state.
      */
     @BeforeEach
     void setUp(){
@@ -22,4 +25,6 @@ public class InstrumentCategoryDaoTest {
 
         dao = new InstrumentCategoryDao();
     }
+
+
 }
