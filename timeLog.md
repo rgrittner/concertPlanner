@@ -9,3 +9,5 @@
 2/6/18 | Wireframes mostly completed, need to show to Sean to go over flow. | 2 | |
 2/8/18 | Disussed updated ERD with Tom Steele again, looks good | 15 min | |
 2/9/18| Implemented DB designed using Vertabelo, also created test DB| 10 min| |
+2/10/18 | Created Musician and Nationality POJO's, DAO's and DAO Tests| 2 | |
+
