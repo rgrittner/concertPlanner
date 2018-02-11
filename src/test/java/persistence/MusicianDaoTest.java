@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MusicianDaoTest {
@@ -28,5 +30,28 @@ public class MusicianDaoTest {
         assertEquals("Sean", retrievedMusician.getFirstName());
         assertEquals("Kleve", retrievedMusician.getLastName());
         assertEquals("440-123-1234", retrievedMusician.getPhoneNumber());
+    }
+
+    /**
+     * Verify successful retrieval of all nationalities.
+     */
+    @Test
+    void getAllSuccess(){
+        List<Musician> nationalityList = dao.getAll();
+        assertEquals(4, nationalityList.size());
+    }
+
+    @Test
+    void getByPropertyEqualOnLastNameSuccess(){
+        List<Musician> musicians = dao.getByPropertyEqual("lastName", "Kleve");
+        assertEquals(1, musicians.size());
+        assertEquals(1, musicians.get(0).getId());
+
+    }
+
+    @Test
+    void getByPropertyLikeOnLastNameSuccess(){
+        List<Musician> musicians = dao.getByPropertyLike("lastName", "e");
+        assertEquals(4, musicians.size());
     }
 }
