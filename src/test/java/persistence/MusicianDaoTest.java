@@ -33,7 +33,7 @@ public class MusicianDaoTest {
     }
 
     /**
-     * Verify successful retrieval of all nationalities.
+     * Verify successful retrieval of all musicians.
      */
     @Test
     void getAllSuccess(){

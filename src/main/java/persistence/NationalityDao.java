@@ -13,13 +13,23 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- *  CRUD controller for the Nationality entity
- *  @author Renee Grittner
+ * CRUD controller for the Nationality entity
+ *
+ * @author Renee Grittner
  */
 public class NationalityDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The Session factory.
+     */
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
+    /**
+     * Get by id nationality.
+     *
+     * @param id the id
+     * @return the nationality
+     */
     public Nationality getById(int id){
         Session session = sessionFactory.openSession();
         Nationality nationality = session.get(Nationality.class, id);
@@ -28,6 +38,12 @@ public class NationalityDao {
 
     }
 
+    /**
+     * Insert a new nationality.
+     *
+     * @param nationality the nationality
+     * @return the newly created id
+     */
     public int insert(Nationality nationality) {
         int id = 0;
         Session session = sessionFactory.openSession();
@@ -39,6 +55,11 @@ public class NationalityDao {
         return id;
     }
 
+    /**
+     * Save or update an existing nationality.
+     *
+     * @param nationality the nationality
+     */
     public void saveOrUpdate(Nationality nationality) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -48,6 +69,11 @@ public class NationalityDao {
 
     }
 
+    /**
+     * Delete an existing nationality.
+     *
+     * @param nationality the nationality
+     */
     public void delete(Nationality nationality) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -56,6 +82,11 @@ public class NationalityDao {
         session.close();
     }
 
+    /**
+     * Gets all the nationalities.
+     *
+     * @return the all
+     */
     public List<Nationality> getAll() {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
