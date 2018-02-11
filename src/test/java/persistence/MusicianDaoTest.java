@@ -8,8 +8,15 @@ import util.Database;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+/**
+ * The type Musician dao test.
+ */
 public class MusicianDaoTest {
+    /**
+     * The Dao.
+     */
     MusicianDao dao;
 
     /**
@@ -24,6 +31,9 @@ public class MusicianDaoTest {
         dao = new MusicianDao();
     }
 
+    /**
+     * Verify successful retrieval of musician by id.
+     */
     @Test
     void getByIdSuccess(){
         Musician retrievedMusician = dao.getById(1);
@@ -41,6 +51,9 @@ public class MusicianDaoTest {
         assertEquals(4, nationalityList.size());
     }
 
+    /**
+     * Verify successful retrieval of musician searching by property (equal match)
+     */
     @Test
     void getByPropertyEqualOnLastNameSuccess(){
         List<Musician> musicians = dao.getByPropertyEqual("lastName", "Kleve");
@@ -49,9 +62,34 @@ public class MusicianDaoTest {
 
     }
 
+    /**
+     * Verify successful retrieval of musician searching by property (like match)
+     */
     @Test
     void getByPropertyLikeOnLastNameSuccess(){
         List<Musician> musicians = dao.getByPropertyLike("lastName", "e");
         assertEquals(4, musicians.size());
+    }
+
+    /**
+     * Verify successful save or update of musician
+     */
+    @Test
+    void saveOrUpdateSuccess(){
+        String newLastName = "testing";
+        Musician musicianToUpdate = dao.getById(2);
+        musicianToUpdate.setLastName(newLastName);
+        dao.saveOrUpdate(musicianToUpdate);
+        Musician retrievedMusician = dao.getById(2);
+        assertEquals(newLastName, retrievedMusician.getLastName());
+    }
+
+    /**
+     * Verify successful delete of musician
+     */
+    @Test
+    void deleteSuccess(){
+        dao.delete(dao.getById(1));
+        assertNull(dao.getById(1));
     }
 }

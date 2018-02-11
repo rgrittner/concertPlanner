@@ -60,6 +60,7 @@ public class NationalityDao {
      *
      * @param nationality the nationality
      */
+    @SuppressWarnings("Duplicates")
     public void saveOrUpdate(Nationality nationality) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -74,6 +75,7 @@ public class NationalityDao {
      *
      * @param nationality the nationality
      */
+    @SuppressWarnings("Duplicates")
     public void delete(Nationality nationality) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
