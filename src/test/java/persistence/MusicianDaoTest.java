@@ -8,6 +8,7 @@ import util.Database;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
@@ -31,6 +32,20 @@ public class MusicianDaoTest {
 
 
         genericDao = new GenericDao(Musician.class);
+    }
+
+    /**
+     *  Verify successful insert of nationality.
+     */
+    @Test
+    void insertSuccess() {
+        Musician newMusician = new Musician("New", "Musician", "123-125-3456");
+        int id = genericDao.insert(newMusician);
+        assertNotEquals(0, id);
+        Musician insertedMusician = (Musician) genericDao.getById(id);
+        assertEquals("New", insertedMusician.getFirstName());
+        assertEquals("Musician", insertedMusician.getLastName());
+        assertEquals("123-125-3456", insertedMusician.getPhoneNumber());
     }
 
     /**

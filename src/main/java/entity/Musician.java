@@ -41,8 +41,8 @@ public class Musician {
      * @param lastName    the last name
      * @param phoneNumber the phone number
      */
-    public Musician(int id, String firstName, String lastName, String phoneNumber) {
-        this.id = id;
+    public Musician(String firstName, String lastName, String phoneNumber) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;

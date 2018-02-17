@@ -19,6 +19,24 @@ public class GenericDao<T> {
         this.type = type;
     }
 
+
+    /**
+     * Insert a new nationality.
+     *
+     * @param entity the entity to be created
+     * @return the newly created id
+     */
+    public int insert(T entity) {
+        int id = 0;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        id = (int)session.save(entity);
+        logger.debug("id from DAO: " + id);
+        transaction.commit();
+        session.close();
+        return id;
+    }
+
     /**
      * Gets all.
      *

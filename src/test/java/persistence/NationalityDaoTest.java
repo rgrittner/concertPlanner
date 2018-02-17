@@ -17,6 +17,7 @@ public class NationalityDaoTest {
      * The Dao.
      */
     NationalityDao dao;
+    GenericDao genericDao;
 
     /**
      * Set up.
@@ -28,6 +29,7 @@ public class NationalityDaoTest {
         database.runSQL("cleanNationalityTable.sql");
 
         dao = new NationalityDao();
+        genericDao = new GenericDao(Nationality.class);
     }
 
     /**
@@ -35,7 +37,7 @@ public class NationalityDaoTest {
      */
     @Test
     void getByIdSuccess(){
-        Nationality retrievedNationality = dao.getById(1);
+        Nationality retrievedNationality = (Nationality) genericDao.getById(1);
         assertEquals("American", retrievedNationality.getNationality());
     }
 
@@ -44,7 +46,7 @@ public class NationalityDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Nationality> nationalityList = dao.getAll();
+        List<Nationality> nationalityList = genericDao.getAll();
         assertEquals(3, nationalityList.size());
     }
 
@@ -54,9 +56,9 @@ public class NationalityDaoTest {
     @Test
     void insertSuccess() {
         Nationality newNationality = new Nationality("English");
-        int id = dao.insert(newNationality);
+        int id = genericDao.insert(newNationality);
         assertNotEquals(0, id);
-        Nationality insertedNationality = dao.getById(id);
+        Nationality insertedNationality = (Nationality) genericDao.getById(id);
         assertEquals("English", insertedNationality.getNationality());
     }
 
