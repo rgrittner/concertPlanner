@@ -1,7 +1,8 @@
 package contorller;
 
 
-import persistence.MusicianDao;
+import entity.Musician;
+import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ import java.io.IOException;
 public class DisplayMusicians extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MusicianDao dao = new MusicianDao();
+        GenericDao dao = new GenericDao(Musician.class);
         req.setAttribute("musicians", dao.getAll());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/musician.jsp");

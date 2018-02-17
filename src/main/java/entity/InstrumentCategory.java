@@ -31,11 +31,10 @@ public class InstrumentCategory {
     /**
      * Instantiates a new Instrument category.
      *
-     * @param id       the id
      * @param category the category
      */
-    public InstrumentCategory(int id, String category) {
-        this.id = id;
+    public InstrumentCategory(String category) {
+
         this.category = category;
     }
 

@@ -23,7 +23,7 @@ public class MusicianDaoTest {
 
     /**
      * Set up.
-     * Reset the Nationality table to a known state.
+     * Reset the Musician table to a known state.
      */
     @BeforeEach
     void setUp(){
@@ -64,8 +64,8 @@ public class MusicianDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Musician> nationalityList = genericDao.getAll();
-        assertEquals(4, nationalityList.size());
+        List<Musician> MusicianList = genericDao.getAll();
+        assertEquals(4, MusicianList.size());
     }
 
     /**

@@ -1,5 +1,6 @@
 package persistence;
 
+
 import entity.Nationality;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ public class NationalityDaoTest {
     /**
      * The Dao.
      */
-    NationalityDao dao;
+
     GenericDao genericDao;
 
     /**
@@ -28,7 +29,7 @@ public class NationalityDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleanNationalityTable.sql");
 
-        dao = new NationalityDao();
+
         genericDao = new GenericDao(Nationality.class);
     }
 

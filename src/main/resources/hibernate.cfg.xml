@@ -19,6 +19,7 @@
         <mapping class="entity.Nationality"/>
         <mapping class="entity.Musician"/>
         <mapping class="entity.Composer"/>
+        <mapping class="entity.InstrumentCategory"/>
 
     </session-factory>
 
