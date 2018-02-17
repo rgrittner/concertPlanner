@@ -68,10 +68,10 @@ public class NationalityDaoTest {
     @Test
     void saveOrUpdateSuccess(){
         String newNationality = "testing";
-        Nationality nationalityToUpdate = dao.getById(2);
+        Nationality nationalityToUpdate = (Nationality) genericDao.getById(2);
         nationalityToUpdate.setNationality(newNationality);
-        dao.saveOrUpdate(nationalityToUpdate);
-        Nationality retrievedNationality = dao.getById(2);
+        genericDao.saveOrUpdate(nationalityToUpdate);
+        Nationality retrievedNationality = (Nationality) genericDao.getById(2);
         assertEquals(newNationality, retrievedNationality.getNationality());
     }
 
@@ -80,7 +80,7 @@ public class NationalityDaoTest {
      */
     @Test
     void deleteSuccess(){
-        dao.delete(dao.getById(1));
-        assertNull(dao.getById(1));
+        genericDao.delete(genericDao.getById(1));
+        assertNull(genericDao.getById(1));
     }
 }
