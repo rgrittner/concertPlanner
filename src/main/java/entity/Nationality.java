@@ -3,6 +3,8 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * The type Nationality.
@@ -20,6 +22,9 @@ public class Nationality {
 
     @Column(name = "nationality")
     private String nationality;
+
+    @OneToMany(mappedBy = "nationality", orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Composer> composers = new HashSet<>();
 
     /**
      * Instantiates a new Nationality.
@@ -71,6 +76,19 @@ public class Nationality {
      */
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    /**
+     * Gets composers.
+     *
+     * @return the composers
+     */
+    public Set<Composer> getComposers() {
+        return composers;
+    }
+
+    public void setComposers(Set<Composer> composers) {
+        this.composers = composers;
     }
 
     @Override

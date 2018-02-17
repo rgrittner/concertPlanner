@@ -17,7 +17,8 @@ public class MusicianDaoTest {
     /**
      * The Dao.
      */
-    MusicianDao dao;
+
+    GenericDao genericDao;
 
     /**
      * Set up.
@@ -28,7 +29,8 @@ public class MusicianDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleanMusicianTable.sql");
 
-        dao = new MusicianDao();
+
+        genericDao = new GenericDao(Musician.class);
     }
 
     /**
@@ -36,7 +38,7 @@ public class MusicianDaoTest {
      */
     @Test
     void getByIdSuccess(){
-        Musician retrievedMusician = dao.getById(1);
+        Musician retrievedMusician = (Musician)genericDao.getById(1);
         assertEquals("Sean", retrievedMusician.getFirstName());
         assertEquals("Kleve", retrievedMusician.getLastName());
         assertEquals("440-123-1234", retrievedMusician.getPhoneNumber());
@@ -47,7 +49,7 @@ public class MusicianDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Musician> nationalityList = dao.getAll();
+        List<Musician> nationalityList = genericDao.getAll();
         assertEquals(4, nationalityList.size());
     }
 
@@ -56,7 +58,7 @@ public class MusicianDaoTest {
      */
     @Test
     void getByPropertyEqualOnLastNameSuccess(){
-        List<Musician> musicians = dao.getByPropertyEqual("lastName", "Kleve");
+        List<Musician> musicians = genericDao.getByPropertyEqual("lastName", "Kleve");
         assertEquals(1, musicians.size());
         assertEquals(1, musicians.get(0).getId());
 
@@ -67,20 +69,20 @@ public class MusicianDaoTest {
      */
     @Test
     void getByPropertyLikeOnLastNameSuccess(){
-        List<Musician> musicians = dao.getByPropertyLike("lastName", "e");
+        List<Musician> musicians = genericDao.getByPropertyLike("lastName", "e");
         assertEquals(4, musicians.size());
     }
 
     /**
-     * Verify successful save or update of musician
+     * Verify successful save or update of musician last name
      */
     @Test
     void saveOrUpdateSuccess(){
         String newLastName = "testing";
-        Musician musicianToUpdate = dao.getById(2);
+        Musician musicianToUpdate = (Musician) genericDao.getById(2);
         musicianToUpdate.setLastName(newLastName);
-        dao.saveOrUpdate(musicianToUpdate);
-        Musician retrievedMusician = dao.getById(2);
+        genericDao.saveOrUpdate(musicianToUpdate);
+        Musician retrievedMusician = (Musician) genericDao.getById(2);
         assertEquals(newLastName, retrievedMusician.getLastName());
     }
 
@@ -89,7 +91,7 @@ public class MusicianDaoTest {
      */
     @Test
     void deleteSuccess(){
-        dao.delete(dao.getById(1));
-        assertNull(dao.getById(1));
+        genericDao.delete(genericDao.getById(1));
+        assertNull(genericDao.getById(1));
     }
 }
