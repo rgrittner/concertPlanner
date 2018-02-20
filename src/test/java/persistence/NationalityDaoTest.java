@@ -1,6 +1,7 @@
 package persistence;
 
 
+import entity.Composer;
 import entity.Nationality;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,6 +62,25 @@ public class NationalityDaoTest {
         assertNotEquals(0, id);
         Nationality insertedNationality = (Nationality) genericDao.getById(id);
         assertEquals("English", insertedNationality.getNationality());
+    }
+
+
+    /**
+     *  Verify successful insert of nationality.
+     */
+    @Test
+    void insertWithComposerSuccess() {
+        Nationality newNationality = new Nationality("English");
+
+        Composer composer = new Composer("New", "Composer", newNationality);
+
+        newNationality.addComposer(composer);
+
+        int id = genericDao.insert(newNationality);
+        assertNotEquals(0, id);
+        Nationality insertedNationality = (Nationality) genericDao.getById(id);
+        assertEquals("English", insertedNationality.getNationality());
+        assertEquals(1, insertedNationality.getComposers().size());
     }
 
     /**

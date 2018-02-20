@@ -9,6 +9,7 @@ import java.util.Set;
 /**
  * The type Nationality.
  * Only Composers have a nationality option.
+ *
  * @author Renee Grittner
  */
 @Entity(name = "Nationality")
@@ -23,7 +24,7 @@ public class Nationality {
     @Column(name = "nationality")
     private String nationality;
 
-    @OneToMany(mappedBy = "nationality", orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Composer> composers = new HashSet<>();
 
     /**
@@ -87,6 +88,11 @@ public class Nationality {
         return composers;
     }
 
+    /**
+     * Sets composers.
+     *
+     * @param composers the composers
+     */
     public void setComposers(Set<Composer> composers) {
         this.composers = composers;
     }
@@ -97,4 +103,13 @@ public class Nationality {
     }
 
 
+    /**
+     * Add composer.
+     *
+     * @param composer the composer
+     */
+    public void addComposer(Composer composer) {
+        composers.add(composer);
+        composer.setNationality(this);
+    }
 }

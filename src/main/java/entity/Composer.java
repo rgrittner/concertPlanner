@@ -39,15 +39,13 @@ public class Composer {
      *
      * @param firstName   the first name
      * @param lastName    the last name
-     * @param birthYear   the birth year
-     * @param deathYear   the death year
+
      * @param nationality the nationality
      */
-    public Composer(String firstName, String lastName, int birthYear, int deathYear, Nationality nationality) {
+    public Composer(String firstName, String lastName, Nationality nationality) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthYear = birthYear;
-        this.deathYear = deathYear;
+
     }
 
     /**
@@ -169,4 +167,6 @@ public class Composer {
                 ", nationality=" + nationality +
                 '}';
     }
+
+
 }

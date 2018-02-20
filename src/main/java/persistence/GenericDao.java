@@ -21,7 +21,7 @@ public class GenericDao<T> {
 
 
     /**
-     * Insert a new nationality.
+     * Insert a new entity.
      *
      * @param entity the entity to be created
      * @return the newly created id
