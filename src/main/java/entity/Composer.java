@@ -45,7 +45,7 @@ public class Composer {
     public Composer(String firstName, String lastName, Nationality nationality) {
         this.firstName = firstName;
         this.lastName = lastName;
-
+        this.nationality = nationality;
     }
 
     /**

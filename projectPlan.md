@@ -2,47 +2,42 @@
 
 ### Week 3
 - [x] Create project repository on GitHub
-- [ ] Create project structure in intellij and push
+- [x] Create project structure in intellij and push
 - [x] Add link to list of indie projects in student repo.
 - [x] Complete Problem Statement
 - [ ] Determine possible Web Services or APIs to use
 - [x] Weekly journal entry
-- [ ] Write project plan
+- [x] Write project plan
 - [x] Document application flow in text and pictures - I'll use wireframes that have clickable links for the screen design. 
-- [ ] Triple-check for Checkpoint 1: Problem statement, project plan, screen design and time log pushed to GitHub. 
+- [x] Triple-check for Checkpoint 1: Problem statement, project plan, screen design and time log pushed to GitHub. 
 
 ### Week 4
 - [ ] List technologies, versions and how they will be used
-- [ ] Complete database design
-- [ ] Create the database and user table
-- [ ] Create the user entity class and annotate for hibernate
-- [ ] Create user dao
-- [ ] Create the test database
-- [ ] Create user dao unit tests
+- [x] Complete database design
+- [x] Create the database
+- [x] Create the Nationality, Composer, Musician, InstrumentCategory, Instrument entity class and annotate for hibernate
+- [x] Create the test database
 - [ ] Weekly journal entry
-- [ ] Set up logging
+- [x] Set up logging
 - [ ] Create class uml diagram
-- [ ] Prepare for Week 5 peer design/code review
+- [x] Prepare for Week 5 peer design/code review
 
 
 ### Week 5
 
 - [ ] Create the template for all jsps using bootstrap or materialize
 - [ ] Weekly journal entry
-- [ ] Add the role table
-- [ ] Add the role entity
-- [ ] Create the role dao
-- [ ] Create the role dao unit tests
-- [ ] Add a jsp to display user and role
-- [ ] Add jsp to add a user
+- [x] Create the generic dao
+- [x] Create the nationality, composer dao unit tests
+- [x] Add a jsp to display musician information 
+- [ ] Add jsp to add a musician 
 
 ### Week 6
 
 - [ ] Create db on AWS
 - [ ] Deploy to AWS for first time
 - [ ] Weekly journal entry
-- [ ] Realize that these daos are repetitive. Refactor into a generic dao!
-- [ ] Add update and delete functionality in jsp for user and role
+- [ ] Add update and delete functionality in jsp for nationality, composer & musician
 - [ ] Build the composer search jsp
 - [ ] Build the composer add/update/delete jsp
 - [ ] Build the composition search jsp
@@ -51,7 +46,7 @@
 
 
 ### Week 7
-
+- [ ] Create the user and role tables
 - [ ] Build the program search jsp
 - [ ] Build the program add/update/delete jsp
 - [ ] Weekly journal entry
