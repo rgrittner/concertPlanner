@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ComposerDaoTest {
     GenericDao genericDao;
@@ -21,7 +22,7 @@ public class ComposerDaoTest {
     @BeforeEach
     void setUp(){
         Database database = Database.getInstance();
-        database.runSQL("cleanComposerTable.sql");
+        database.runSQL("cleanAll.sql");
 
         genericDao = new GenericDao(Composer.class);
     }
@@ -54,7 +55,7 @@ public class ComposerDaoTest {
     @Test
     void getAllSuccess(){
         List<Composer> nationalityList = genericDao.getAll();
-        assertEquals(3, nationalityList.size());
+        assertEquals(6, nationalityList.size());
     }
 
     /**
@@ -62,9 +63,32 @@ public class ComposerDaoTest {
      */
     @Test
     void getByIdSuccess(){
-        Composer retrievedComposer = (Composer) genericDao.getById(1);
+        Composer retrievedComposer = (Composer) genericDao.getById(3);
         assertEquals("John", retrievedComposer.getFirstName());
         assertEquals("Cage", retrievedComposer.getLastName());
         //assertEquals(1, retrievedComposer.getNationality());
+    }
+
+    /**
+     * Verify successful save or update of Composer
+     */
+    @Test
+    void saveOrUpdateBirthYearSuccess(){
+        Integer newBirthYear = 1976;
+        Composer composerToUpdate = (Composer) genericDao.getById(4);
+        composerToUpdate.setBirthYear(newBirthYear);
+        genericDao.saveOrUpdate(composerToUpdate);
+        Composer retrievedComposer = (Composer) genericDao.getById(4);
+        assertEquals(newBirthYear, retrievedComposer.getBirthYear());
+    }
+
+
+    /**
+     * Verify successful delete of nationality
+     */
+    @Test
+    void deleteSuccess(){
+        genericDao.delete(genericDao.getById(1));
+        assertNull(genericDao.getById(1));
     }
 }
