@@ -23,10 +23,10 @@ public class Composer {
     private String lastName;
 
     @Column(name = "birth_year")
-    private int birthYear;
+    private Integer birthYear;
 
     @Column(name = "death_year")
-    private int deathYear;
+    private Integer deathYear;
 
     @ManyToOne
     private Nationality nationality;
@@ -107,7 +107,7 @@ public class Composer {
      *
      * @return the birth year
      */
-    public int getBirthYear() {
+    public Integer getBirthYear() {
         return birthYear;
     }
 
@@ -116,7 +116,7 @@ public class Composer {
      *
      * @param birthYear the birth year
      */
-    public void setBirthYear(int birthYear) {
+    public void setBirthYear(Integer birthYear) {
         this.birthYear = birthYear;
     }
 
@@ -125,7 +125,7 @@ public class Composer {
      *
      * @return the death year
      */
-    public int getDeathYear() {
+    public Integer getDeathYear() {
         return deathYear;
     }
 
@@ -134,7 +134,7 @@ public class Composer {
      *
      * @param deathYear the death year
      */
-    public void setDeathYear(int deathYear) {
+    public void setDeathYear(Integer deathYear) {
         this.deathYear = deathYear;
     }
 

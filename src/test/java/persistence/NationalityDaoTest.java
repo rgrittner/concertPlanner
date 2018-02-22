@@ -28,7 +28,7 @@ public class NationalityDaoTest {
     @BeforeEach
     void setUp(){
         Database database = Database.getInstance();
-        database.runSQL("cleanNationalityTable.sql");
+        database.runSQL("cleanAll.sql");
 
 
         genericDao = new GenericDao(Nationality.class);
