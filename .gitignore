@@ -50,3 +50,4 @@ fabric.properties
 *.log
 logs/hibernate.log
 *.log
+*.log
