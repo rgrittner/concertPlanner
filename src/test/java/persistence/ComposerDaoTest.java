@@ -70,6 +70,26 @@ public class ComposerDaoTest {
     }
 
     /**
+     * Verify successful get by property (equal match)
+     */
+    @Test
+    void getByPropertyEqualSuccess() {
+        List<Composer> composers = genericDao.getByPropertyEqual("firstName", "John");
+        assertEquals(3, composers.size());
+        assertEquals(2, composers.get(0).getId());
+    }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Composer> composers = genericDao.getByPropertyLike("lastName", "b");
+        assertEquals(1, composers.size());
+    }
+
+
+    /**
      * Verify successful save or update of Composer
      */
     @Test

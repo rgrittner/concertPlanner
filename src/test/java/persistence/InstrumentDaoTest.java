@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class InstrumentDaoTest {
     GenericDao genericDao;
@@ -52,5 +53,38 @@ public class InstrumentDaoTest {
     void getAllSuccess(){
         List<Instrument> instrumentList = genericDao.getAll();
         assertEquals(20, instrumentList.size());
+    }
+
+    /**
+     * Verify successful retrieval of composer by id.
+     */
+    @Test
+    void getByIdSuccess(){
+        Instrument retrievedComposer = (Instrument) genericDao.getById(3);
+        assertEquals("Marimba - Quarter Tone", retrievedComposer.getName());
+
+
+    }
+
+    /**
+     * Verify successful save or update of Instrument
+     */
+    @Test
+    void saveOrUpdateSuccess(){
+        String newInstrumentName = "TaDa!";
+        Instrument instrumentToUpdate = (Instrument) genericDao.getById(4);
+        instrumentToUpdate.setName(newInstrumentName);
+        genericDao.saveOrUpdate(instrumentToUpdate);
+        Instrument retrievedInstrument = (Instrument) genericDao.getById(4);
+        assertEquals(instrumentToUpdate, retrievedInstrument);
+    }
+
+    /**
+     * Verify successful delete of nationality
+     */
+    @Test
+    void deleteSuccess(){
+        genericDao.delete(genericDao.getById(1));
+        assertNull(genericDao.getById(1));
     }
 }
