@@ -25,8 +25,8 @@ public class InstrumentCategory {
     @Column(name = "category")
     private String category;
 
-//    @OneToMany(mappedBy = "instrumentCategory", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-//    private Set<Instrument> instruments = new HashSet<>();
+ //   @OneToMany(mappedBy = "instrumentCategory", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+  //  private Set<Instrument> instruments = new HashSet<>();
 
     /**
      * Instantiates a new Instrument category.
@@ -80,7 +80,7 @@ public class InstrumentCategory {
         this.category = category;
     }
 
-
+//
 //    /**
 //     * Add Instrument.
 //     *

@@ -21,8 +21,8 @@ public class Instrument {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    private InstrumentCategory instrumentCategory;
+//    @ManyToOne
+//    private InstrumentCategory instrumentCategory;
 
     /**
      * Instantiates a new Instrument.
@@ -37,11 +37,12 @@ public class Instrument {
      * @param name               the name
    //  * @param instrumentCategory the instrument category
      */
-    public Instrument(int id, String name, InstrumentCategory instrumentCategory) {
+    public Instrument(int id, String name) {
         this.id = id;
         this.name = name;
-        this.instrumentCategory = instrumentCategory;
+        //this.instrumentCategory = instrumentCategory;
     }
+
 
     /**
      * Gets id.
@@ -84,18 +85,18 @@ public class Instrument {
      *
      * @return the instrument category
      */
-    public InstrumentCategory getInstrumentCategory() {
-        return instrumentCategory;
-    }
-
-    /**
-     * Sets instrument category.
-     *
-     * @param instrumentCategory the instrument category
-     */
-    public void setInstrumentCategory(InstrumentCategory instrumentCategory) {
-        this.instrumentCategory = instrumentCategory;
-    }
+//    public InstrumentCategory getInstrumentCategory() {
+//        return instrumentCategory;
+//    }
+//
+//    /**
+//     * Sets instrument category.
+//     *
+//     * @param instrumentCategory the instrument category
+//     */
+//    public void setInstrumentCategory(InstrumentCategory instrumentCategory) {
+//        this.instrumentCategory = instrumentCategory;
+//    }
 
     @Override
     public String toString() {
