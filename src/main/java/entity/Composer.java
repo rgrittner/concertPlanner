@@ -3,6 +3,7 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * The type Composer.
@@ -168,5 +169,22 @@ public class Composer {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Composer composer = (Composer) o;
+        return id == composer.id &&
+                Objects.equals(firstName, composer.firstName) &&
+                Objects.equals(lastName, composer.lastName) &&
+                Objects.equals(birthYear, composer.birthYear) &&
+                Objects.equals(deathYear, composer.deathYear) &&
+                Objects.equals(nationality, composer.nationality);
+    }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstName, lastName, birthYear, deathYear, nationality);
+    }
 }
