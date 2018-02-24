@@ -61,7 +61,7 @@ public class NationalityDaoTest {
         int id = genericDao.insert(newNationality);
         assertNotEquals(0, id);
         Nationality insertedNationality = (Nationality) genericDao.getById(id);
-        assertEquals("English", insertedNationality.getNationality());
+        assertEquals(newNationality, insertedNationality);
     }
 
 
