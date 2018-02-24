@@ -67,6 +67,27 @@ public class InstrumentDaoTest {
     }
 
     /**
+     * Verify successful get by property (equal match)
+     */
+    @Test
+    void getByPropertyEqualSuccess() {
+        List<Instrument> instruments = genericDao.getByPropertyEqual("name", "Marimba");
+        assertEquals(1, instruments.size());
+        assertEquals(1, instruments.get(0).getId());
+    }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Instrument> instruments = genericDao.getByPropertyLike("name", "marimba");
+        assertEquals(2, instruments.size());
+    }
+
+
+
+    /**
      * Verify successful save or update of Instrument
      */
     @Test
