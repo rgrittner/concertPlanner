@@ -66,20 +66,20 @@ public class ComposerDaoTest {
         Composer retrievedComposer = (Composer) genericDao.getById(3);
         assertEquals("John", retrievedComposer.getFirstName());
         assertEquals("Cage", retrievedComposer.getLastName());
-        //assertEquals(1, retrievedComposer.getNationality());
+
     }
 
     /**
      * Verify successful save or update of Composer
      */
     @Test
-    void saveOrUpdateBirthYearSuccess(){
+    void saveOrUpdateSuccess(){
         Integer newBirthYear = 1976;
         Composer composerToUpdate = (Composer) genericDao.getById(4);
         composerToUpdate.setBirthYear(newBirthYear);
         genericDao.saveOrUpdate(composerToUpdate);
         Composer retrievedComposer = (Composer) genericDao.getById(4);
-        assertEquals(newBirthYear, retrievedComposer.getBirthYear());
+        assertEquals(composerToUpdate, retrievedComposer);
     }
 
 
