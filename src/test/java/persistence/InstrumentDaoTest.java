@@ -61,13 +61,13 @@ public class InstrumentDaoTest {
     /**
      * Verify successful retrieval of instrument by id.
      */
-//    @Test
-//    void getByIdSuccess(){
-//        Instrument retrievedInstrument = (Instrument) genericDao.getById(3);
-//        assertEquals("John", retrievedInstrument.getFirstName());
-//        assertEquals("Cage", retrievedInstrument.getLastName());
-//
-//    }
+    @Test
+    void getByIdSuccess(){
+        Instrument retrievedInstrument = (Instrument) genericDao.getById(3);
+        assertEquals("Marimba - Quarter Tone", retrievedInstrument.getName());
+
+
+    }
 
     /**
      * Verify successful save or update of Instrument
