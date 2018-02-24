@@ -1,29 +1,53 @@
 package entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity(name = "Composition")
+@Table(name = "Composition")
 public class Composition {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     private int id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "arranger")
     private String arranger;
+
+    @Column(name = "duration")
     private Integer duration;
+
+    @Column(name = "year")
     private String yearComposed;
+
+    @Column(name = "number_of_players")
+    private Integer numberOfPlayers;
+
+    @Column(name = "notes")
     private String notes;
+
+    @Column(name = "clocks_commission")
     private boolean clocksCommission;
 
-    private int composerId;
+
 
 
     public Composition() {
     }
 
-    public Composition(String title, String arranger, Integer duration, String yearComposed, String notes, boolean clocksCommission, int composerId) {
+    public Composition(String title, String arranger, Integer duration, String yearComposed, String notes, boolean clocksCommission) {
         this.title = title;
         this.arranger = arranger;
         this.duration = duration;
         this.yearComposed = yearComposed;
         this.notes = notes;
         this.clocksCommission = clocksCommission;
-        this.composerId = composerId;
+
     }
 
     public int getId() {
@@ -66,6 +90,14 @@ public class Composition {
         this.yearComposed = yearComposed;
     }
 
+    public Integer getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
+    public void setNumberOfPlayers(Integer numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
+    }
+
     public String getNotes() {
         return notes;
     }
@@ -82,13 +114,6 @@ public class Composition {
         this.clocksCommission = clocksCommission;
     }
 
-    public int getComposerId() {
-        return composerId;
-    }
-
-    public void setComposerId(int composerId) {
-        this.composerId = composerId;
-    }
 
     @Override
     public String toString() {
@@ -98,9 +123,9 @@ public class Composition {
                 ", arranger='" + arranger + '\'' +
                 ", duration=" + duration +
                 ", yearComposed='" + yearComposed + '\'' +
+                ", numberOfPlayers=" + numberOfPlayers +
                 ", notes='" + notes + '\'' +
                 ", clocksCommission=" + clocksCommission +
-                ", composerId=" + composerId +
                 '}';
     }
 }
