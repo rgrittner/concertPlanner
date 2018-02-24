@@ -41,9 +41,9 @@ public class ComposerDaoTest {
 
         int id = genericDao.insert(newComposer);
         assertNotEquals(0, id);
-        Composer insertedMusician = (Composer) genericDao.getById(id);
-        assertEquals("New", insertedMusician.getFirstName());
-        assertEquals("Musician", insertedMusician.getLastName());
+        Composer insertedComposer = (Composer) genericDao.getById(id);
+        assertEquals(newComposer, insertedComposer);
+        //assertEquals("Musician", insertedMusician.getLastName());
 
     }
 
