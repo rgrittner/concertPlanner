@@ -52,3 +52,4 @@ logs/hibernate.log
 *.log
 *.log
 *.log
+logs/hibernate.log
