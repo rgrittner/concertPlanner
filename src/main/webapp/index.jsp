@@ -45,6 +45,7 @@
 <body>
 <h1>Home Page Testing</h1>
 <a href="musicians">Get All Musicians</a>
+<a href="composers">Get All Composers</a>
 
 </body>
 </div>
