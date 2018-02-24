@@ -54,8 +54,8 @@ public class ComposerDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Composer> nationalityList = genericDao.getAll();
-        assertEquals(6, nationalityList.size());
+        List<Composer> composerList = genericDao.getAll();
+        assertEquals(6, composerList.size());
     }
 
     /**
