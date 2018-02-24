@@ -4,30 +4,30 @@
     <root id="1">
       <DefaultCasing>mixed/mixed</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="concertPlanner">
+    <schema id="2" parent="1" name="BookSeller">
+      <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <schema id="3" parent="1" name="concertPlanner">
       <Current>1</Current>
       <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="information_schema">
+    <schema id="4" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="4" parent="1" name="mysql">
+    <schema id="5" parent="1" name="mysql">
       <Collation>latin1_swedish_ci</Collation>
     </schema>
-    <schema id="5" parent="1" name="performance_schema">
+    <schema id="6" parent="1" name="performance_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="6" parent="1" name="sample">
+    <schema id="7" parent="1" name="sample">
       <Collation>latin1_swedish_ci</Collation>
     </schema>
-    <schema id="7" parent="1" name="sys">
+    <schema id="8" parent="1" name="sys">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="8" parent="1" name="test_concertPlanner">
-      <Collation>latin1_swedish_ci</Collation>
-    </schema>
-    <schema id="9" parent="1" name="test_sample">
+    <schema id="9" parent="1" name="test_concertPlanner">
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <collation id="10" parent="1" name="armscii8_bin">
@@ -918,37 +918,38 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="232" parent="2" name="Composer">
+    <table id="232" parent="3" name="Composer">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="233" parent="2" name="Composition">
+    <table id="233" parent="3" name="Composition">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="234" parent="2" name="Composition_Instrument">
+    <table id="234" parent="3" name="Composition_Instrument">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="235" parent="2" name="Composition_Program">
+    <table id="235" parent="3" name="Composition_Program">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="236" parent="2" name="Instrument">
+    <table id="236" parent="3" name="Instrument">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="237" parent="2" name="Instrument_Category">
+    <table id="237" parent="3" name="Instrument_Category">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="238" parent="2" name="Musician">
+    <table id="238" parent="3" name="Musician">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="239" parent="2" name="Nationality">
+    <table id="239" parent="3" name="Nationality">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="240" parent="2" name="Program">
+    <table id="240" parent="3" name="Program">
       <Engine>InnoDB</Engine>
     </table>
     <column id="241" parent="232" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="242" parent="232" name="first_name">
@@ -989,7 +990,7 @@
     </key>
     <foreign-key id="249" parent="232" name="Composer_Nationality">
       <ColNames>Nationality_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Nationality</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
@@ -997,6 +998,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="251" parent="233" name="title">
@@ -1055,7 +1057,7 @@
     </key>
     <foreign-key id="261" parent="233" name="Composition_Composer">
       <ColNames>Composer_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Composer</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
@@ -1063,6 +1065,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="263" parent="234" name="qty">
@@ -1102,13 +1105,13 @@
     </key>
     <foreign-key id="270" parent="234" name="Composition_Instrument_Instrument">
       <ColNames>Instrument_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Instrument</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
     <foreign-key id="271" parent="234" name="Composition_Instrument_Composition">
       <ColNames>Composition_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Composition</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
@@ -1116,6 +1119,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="273" parent="235" name="player">
@@ -1158,19 +1162,19 @@
     </key>
     <foreign-key id="281" parent="235" name="Composition_Program_Composition">
       <ColNames>Composition_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Composition</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
     <foreign-key id="282" parent="235" name="Composition_Program_Musician">
       <ColNames>Musician_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Musician</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
     <foreign-key id="283" parent="235" name="Composition_Program_Program">
       <ColNames>Program_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Program</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
@@ -1178,6 +1182,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="285" parent="236" name="name">
@@ -1202,7 +1207,7 @@
     </key>
     <foreign-key id="289" parent="236" name="Instrument_Instrument_Category">
       <ColNames>Instrument_Category_Id</ColNames>
-      <RefSchemaName>concertplanner</RefSchemaName>
+      <RefSchemaName>concertPlanner</RefSchemaName>
       <RefTableName>Instrument_Category</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
@@ -1210,6 +1215,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="291" parent="237" name="category">
@@ -1227,6 +1233,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="294" parent="238" name="first_name">
@@ -1255,6 +1262,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="299" parent="239" name="nationality">
@@ -1272,6 +1280,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="302" parent="240" name="date">

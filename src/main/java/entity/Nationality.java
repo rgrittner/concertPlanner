@@ -24,7 +24,7 @@ public class Nationality {
     @Column(name = "nationality")
     private String nationality;
 
-    @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Composer> composers = new HashSet<>();
 
     /**
@@ -111,5 +111,10 @@ public class Nationality {
     public void addComposer(Composer composer) {
         composers.add(composer);
         composer.setNationality(this);
+    }
+
+    public void removeComposer(Composer composer) {
+        composers.remove( composer );
+        composer.setNationality( null );
     }
 }

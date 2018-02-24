@@ -3,6 +3,8 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents the different types of instruments that may be encountered.
@@ -21,6 +23,9 @@ public class InstrumentCategory {
 
     @Column(name = "category")
     private String category;
+
+    @OneToMany(mappedBy = "instrumentCategory", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<Instrument> instruments = new HashSet<>();
 
     /**
      * Instantiates a new Instrument category.
@@ -73,6 +78,29 @@ public class InstrumentCategory {
     public void setCategory(String category) {
         this.category = category;
     }
+
+
+    /**
+     * Add Instrument.
+     *
+     * @param instrument the composer
+     */
+    public void addInstrument(Instrument instrument) {
+        instruments.add(instrument);
+        instrument.setInstrumentCategory(this);
+    }
+
+    /**
+     * Remove instrument.
+     *
+     * @param instrument the instrument
+     */
+    public void removeInstrument(Instrument instrument) {
+        instruments.remove( instrument );
+        instrument.setInstrumentCategory( null );
+    }
+
+
 
     @Override
     public String toString(){

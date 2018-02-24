@@ -1,0 +1,1406 @@
+[DEBUG] 2018-02-22 14:26:58.048 [main] IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+[DEBUG] 2018-02-22 14:26:58.052 [main] IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+[DEBUG] 2018-02-22 14:26:58.056 [main] IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+[INFO ] 2018-02-22 14:26:58.161 [main] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-02-22 14:26:58.163 [main] Environment - HHH000206: hibernate.properties not found
+[DEBUG] 2018-02-22 14:26:58.214 [main] LocalXmlResourceResolver - Interpreting public/system identifier : [-//Hibernate/Hibernate Configuration DTD//EN] - [http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd]
+[DEBUG] 2018-02-22 14:26:58.215 [main] LocalXmlResourceResolver - Recognized hibernate-configuration identifier; attempting to resolve on classpath under org/hibernate/
+[DEBUG] 2018-02-22 14:26:58.223 [main] JaxbCfgProcessor - cfg.xml document did not define namespaces; wrapping in custom event reader to introduce namespace information
+[DEBUG] 2018-02-22 14:26:58.512 [main] ServiceBinding - Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+[DEBUG] 2018-02-22 14:26:58.546 [main] RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+[INFO ] 2018-02-22 14:26:58.561 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[DEBUG] 2018-02-22 14:26:58.591 [main] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@7b993c65
+[DEBUG] 2018-02-22 14:26:58.591 [main] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@7b993c65
+[DEBUG] 2018-02-22 14:26:58.591 [main] BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@7b993c65
+[DEBUG] 2018-02-22 14:26:58.592 [main] BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@407a7f2a
+[DEBUG] 2018-02-22 14:26:58.594 [main] BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@5f0fd5a0
+[DEBUG] 2018-02-22 14:26:58.595 [main] BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@4fa1c212
+[DEBUG] 2018-02-22 14:26:58.598 [main] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@2e32ccc5
+[DEBUG] 2018-02-22 14:26:58.599 [main] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@2e32ccc5
+[DEBUG] 2018-02-22 14:26:58.599 [main] BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@2e32ccc5
+[DEBUG] 2018-02-22 14:26:58.602 [main] BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@5f77d0f9
+[DEBUG] 2018-02-22 14:26:58.602 [main] BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@5f77d0f9
+[DEBUG] 2018-02-22 14:26:58.602 [main] BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@5f77d0f9
+[DEBUG] 2018-02-22 14:26:58.605 [main] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@4dd6fd0a
+[DEBUG] 2018-02-22 14:26:58.606 [main] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@4dd6fd0a
+[DEBUG] 2018-02-22 14:26:58.606 [main] BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@4dd6fd0a
+[DEBUG] 2018-02-22 14:26:58.607 [main] BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@589da3f3
+[DEBUG] 2018-02-22 14:26:58.608 [main] BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@589da3f3
+[DEBUG] 2018-02-22 14:26:58.608 [main] BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@589da3f3
+[DEBUG] 2018-02-22 14:26:58.610 [main] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@4c012563
+[DEBUG] 2018-02-22 14:26:58.611 [main] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@4c012563
+[DEBUG] 2018-02-22 14:26:58.611 [main] BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@4c012563
+[DEBUG] 2018-02-22 14:26:58.613 [main] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@11d8ae8b
+[DEBUG] 2018-02-22 14:26:58.614 [main] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@11d8ae8b
+[DEBUG] 2018-02-22 14:26:58.614 [main] BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@11d8ae8b
+[DEBUG] 2018-02-22 14:26:58.616 [main] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@2fba3fc4
+[DEBUG] 2018-02-22 14:26:58.616 [main] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@2fba3fc4
+[DEBUG] 2018-02-22 14:26:58.617 [main] BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@2fba3fc4
+[DEBUG] 2018-02-22 14:26:58.620 [main] BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@13b3d178
+[DEBUG] 2018-02-22 14:26:58.620 [main] BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@13b3d178
+[DEBUG] 2018-02-22 14:26:58.622 [main] BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@51c693d
+[DEBUG] 2018-02-22 14:26:58.622 [main] BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@51c693d
+[DEBUG] 2018-02-22 14:26:58.623 [main] BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@7fc4780b
+[DEBUG] 2018-02-22 14:26:58.624 [main] BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@7fc4780b
+[DEBUG] 2018-02-22 14:26:58.625 [main] BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@6b6776cb
+[DEBUG] 2018-02-22 14:26:58.626 [main] BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@53b7f657
+[DEBUG] 2018-02-22 14:26:58.627 [main] BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@6b58b9e9
+[DEBUG] 2018-02-22 14:26:58.628 [main] BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@6b58b9e9
+[DEBUG] 2018-02-22 14:26:58.629 [main] BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@2d9caaeb
+[DEBUG] 2018-02-22 14:26:58.629 [main] BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@2d9caaeb
+[DEBUG] 2018-02-22 14:26:58.652 [main] BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@127a7a2e
+[DEBUG] 2018-02-22 14:26:58.652 [main] BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@127a7a2e
+[DEBUG] 2018-02-22 14:26:58.654 [main] BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@6d7fc27
+[DEBUG] 2018-02-22 14:26:58.655 [main] BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@6d7fc27
+[DEBUG] 2018-02-22 14:26:58.658 [main] BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@58594a11
+[DEBUG] 2018-02-22 14:26:58.658 [main] BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@58594a11
+[DEBUG] 2018-02-22 14:26:58.661 [main] BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@57ad2aa7
+[DEBUG] 2018-02-22 14:26:58.661 [main] BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@57ad2aa7
+[DEBUG] 2018-02-22 14:26:58.663 [main] BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@275bf9b3
+[DEBUG] 2018-02-22 14:26:58.663 [main] BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@275bf9b3
+[DEBUG] 2018-02-22 14:26:58.666 [main] BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@2049a9c1
+[DEBUG] 2018-02-22 14:26:58.666 [main] BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@2049a9c1
+[DEBUG] 2018-02-22 14:26:58.671 [main] BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@31920ade
+[DEBUG] 2018-02-22 14:26:58.671 [main] BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@31920ade
+[DEBUG] 2018-02-22 14:26:58.673 [main] BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@27adc16e
+[DEBUG] 2018-02-22 14:26:58.673 [main] BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@27adc16e
+[DEBUG] 2018-02-22 14:26:58.675 [main] BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@4066c471
+[DEBUG] 2018-02-22 14:26:58.675 [main] BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@4066c471
+[DEBUG] 2018-02-22 14:26:58.677 [main] BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@7d3d101b
+[DEBUG] 2018-02-22 14:26:58.677 [main] BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@7d3d101b
+[DEBUG] 2018-02-22 14:26:58.677 [main] BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@7d3d101b
+[DEBUG] 2018-02-22 14:26:58.679 [main] BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@6d026701
+[DEBUG] 2018-02-22 14:26:58.680 [main] BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@6304101a
+[DEBUG] 2018-02-22 14:26:58.681 [main] BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@6304101a
+[DEBUG] 2018-02-22 14:26:58.681 [main] BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@6304101a
+[DEBUG] 2018-02-22 14:26:58.682 [main] BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@df6620a
+[DEBUG] 2018-02-22 14:26:58.683 [main] BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@5e403b4a
+[DEBUG] 2018-02-22 14:26:58.684 [main] BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@5e403b4a
+[DEBUG] 2018-02-22 14:26:58.685 [main] BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@19e7a160
+[DEBUG] 2018-02-22 14:26:58.685 [main] BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@19e7a160
+[DEBUG] 2018-02-22 14:26:58.687 [main] BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@6cb6decd
+[DEBUG] 2018-02-22 14:26:58.687 [main] BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@6cb6decd
+[DEBUG] 2018-02-22 14:26:58.689 [main] BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@3e6f3f28
+[DEBUG] 2018-02-22 14:26:58.689 [main] BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@3e6f3f28
+[DEBUG] 2018-02-22 14:26:58.691 [main] BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@40317ba2
+[DEBUG] 2018-02-22 14:26:58.691 [main] BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@40317ba2
+[DEBUG] 2018-02-22 14:26:58.692 [main] BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@727eb8cb
+[DEBUG] 2018-02-22 14:26:58.695 [main] BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@2ce6c6ec
+[DEBUG] 2018-02-22 14:26:58.696 [main] BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@2ce6c6ec
+[DEBUG] 2018-02-22 14:26:58.696 [main] BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@2ce6c6ec
+[DEBUG] 2018-02-22 14:26:58.700 [main] BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@1672fe87
+[DEBUG] 2018-02-22 14:26:58.701 [main] BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@1672fe87
+[DEBUG] 2018-02-22 14:26:58.703 [main] BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@1672fe87
+[DEBUG] 2018-02-22 14:26:58.705 [main] BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@73a8da0f
+[DEBUG] 2018-02-22 14:26:58.707 [main] BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@732d0d24
+[DEBUG] 2018-02-22 14:26:58.708 [main] BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@18e36d14
+[DEBUG] 2018-02-22 14:26:58.708 [main] BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@18e36d14
+[DEBUG] 2018-02-22 14:26:58.708 [main] BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@18e36d14
+[DEBUG] 2018-02-22 14:26:58.709 [main] BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@75d2da2d
+[DEBUG] 2018-02-22 14:26:58.710 [main] BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@75d2da2d
+[DEBUG] 2018-02-22 14:26:58.710 [main] BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@75d2da2d
+[DEBUG] 2018-02-22 14:26:58.711 [main] BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@63eef88a
+[DEBUG] 2018-02-22 14:26:58.715 [main] BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@5a9f4771
+[DEBUG] 2018-02-22 14:26:58.724 [main] BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@225129c
+[DEBUG] 2018-02-22 14:26:58.724 [main] BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@225129c
+[DEBUG] 2018-02-22 14:26:58.725 [main] BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@479ceda0
+[DEBUG] 2018-02-22 14:26:58.734 [main] BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@341814d3
+[DEBUG] 2018-02-22 14:26:58.734 [main] BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@341814d3
+[DEBUG] 2018-02-22 14:26:58.740 [main] BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@79dc5318
+[DEBUG] 2018-02-22 14:26:58.741 [main] BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@79dc5318
+[DEBUG] 2018-02-22 14:26:58.741 [main] BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@6f7923a5
+[DEBUG] 2018-02-22 14:26:58.742 [main] BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@45a37759
+[DEBUG] 2018-02-22 14:26:58.744 [main] BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@7d9e8ef7
+[DEBUG] 2018-02-22 14:26:58.748 [main] BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@600b9d27
+[DEBUG] 2018-02-22 14:26:58.749 [main] BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@600b9d27
+[DEBUG] 2018-02-22 14:26:58.749 [main] BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@7922d892
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@457c9034
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@345f69f3
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@50de186c
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@3f57bcad
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@1e8b7643
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@51549490
+[DEBUG] 2018-02-22 14:26:58.750 [main] BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@71e9ebae
+[INFO ] 2018-02-22 14:26:58.763 [main] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test_concertPlanner
+[INFO ] 2018-02-22 14:26:58.764 [main] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-02-22 14:26:58.764 [main] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-02-22 14:26:58.964 [main] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[DEBUG] 2018-02-22 14:26:59.063 [main] JdbcEnvironmentInitiator - Database ->
+       name : MySQL
+    version : 5.7.20
+      major : 5
+      minor : 7
+[DEBUG] 2018-02-22 14:26:59.064 [main] JdbcEnvironmentInitiator - Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.39 ( Revision: 3289a357af6d09ecc1a10fd3c26e95183e5790ad )
+      major : 5
+      minor : 1
+[DEBUG] 2018-02-22 14:26:59.064 [main] JdbcEnvironmentInitiator - JDBC version : 4.0
+[INFO ] 2018-02-22 14:26:59.077 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[DEBUG] 2018-02-22 14:26:59.158 [main] IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in more than one case
+[DEBUG] 2018-02-22 14:26:59.161 [main] IdentifierHelperBuilder - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [MIXED]; that will likely lead to problems in schema update and validation if using quoted identifiers
+[DEBUG] 2018-02-22 14:26:59.243 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+[DEBUG] 2018-02-22 14:26:59.245 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+[DEBUG] 2018-02-22 14:26:59.246 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+[DEBUG] 2018-02-22 14:26:59.246 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+[DEBUG] 2018-02-22 14:26:59.249 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+[DEBUG] 2018-02-22 14:26:59.252 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+[DEBUG] 2018-02-22 14:26:59.253 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+[DEBUG] 2018-02-22 14:26:59.254 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[DEBUG] 2018-02-22 14:26:59.255 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+[DEBUG] 2018-02-22 14:26:59.256 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+[DEBUG] 2018-02-22 14:26:59.257 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+[DEBUG] 2018-02-22 14:26:59.257 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+[DEBUG] 2018-02-22 14:26:59.257 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[DEBUG] 2018-02-22 14:26:59.258 [main] DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+[DEBUG] 2018-02-22 14:26:59.297 [main] Namespace - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+[DEBUG] 2018-02-22 14:26:59.330 [main] AnnotationBinder - Binding entity from annotated class: entity.Nationality
+[DEBUG] 2018-02-22 14:26:59.355 [main] Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+[DEBUG] 2018-02-22 14:26:59.361 [main] EntityBinder - Import with entity name Nationality
+[DEBUG] 2018-02-22 14:26:59.365 [main] EntityBinder - Bind entity entity.Nationality on table Nationality
+[DEBUG] 2018-02-22 14:26:59.398 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Nationality), mappingColumn=id, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.401 [main] PropertyBinder - MetadataSourceProcessor property id with lazy=false
+[DEBUG] 2018-02-22 14:26:59.409 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Nationality:id]
+[DEBUG] 2018-02-22 14:26:59.411 [main] SimpleValueBinder - building SimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.413 [main] PropertyBinder - Building property id
+[DEBUG] 2018-02-22 14:26:59.421 [main] Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='nationality'}
+[DEBUG] 2018-02-22 14:26:59.422 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Nationality), mappingColumn=composers, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.424 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Nationality), mappingColumn=null, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.433 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Nationality), mappingColumn=element, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.434 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Nationality), mappingColumn=composers_KEY, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.434 [main] Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='composers_KEY', referencedColumn='null', mappedBy='null'}
+[DEBUG] 2018-02-22 14:26:59.435 [main] Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='nationality'}
+[DEBUG] 2018-02-22 14:26:59.435 [main] Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='nationality'}
+[DEBUG] 2018-02-22 14:26:59.436 [main] CollectionBinder - Collection role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:26:59.438 [main] PropertyBinder - Building property composers
+[DEBUG] 2018-02-22 14:26:59.439 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Nationality), mappingColumn=nationality, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.439 [main] PropertyBinder - MetadataSourceProcessor property nationality with lazy=false
+[DEBUG] 2018-02-22 14:26:59.439 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Nationality:nationality]
+[DEBUG] 2018-02-22 14:26:59.439 [main] SimpleValueBinder - building SimpleValue for nationality
+[DEBUG] 2018-02-22 14:26:59.440 [main] PropertyBinder - Building property nationality
+[DEBUG] 2018-02-22 14:26:59.441 [main] AnnotationBinder - Binding entity from annotated class: entity.Musician
+[DEBUG] 2018-02-22 14:26:59.441 [main] Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+[DEBUG] 2018-02-22 14:26:59.441 [main] EntityBinder - Import with entity name Musician
+[DEBUG] 2018-02-22 14:26:59.441 [main] EntityBinder - Bind entity entity.Musician on table Musician
+[DEBUG] 2018-02-22 14:26:59.442 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Musician), mappingColumn=id, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.442 [main] PropertyBinder - MetadataSourceProcessor property id with lazy=false
+[DEBUG] 2018-02-22 14:26:59.442 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Musician:id]
+[DEBUG] 2018-02-22 14:26:59.443 [main] SimpleValueBinder - building SimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.443 [main] PropertyBinder - Building property id
+[DEBUG] 2018-02-22 14:26:59.443 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Musician), mappingColumn=first_name, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.443 [main] PropertyBinder - MetadataSourceProcessor property firstName with lazy=false
+[DEBUG] 2018-02-22 14:26:59.443 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Musician:firstName]
+[DEBUG] 2018-02-22 14:26:59.443 [main] SimpleValueBinder - building SimpleValue for firstName
+[DEBUG] 2018-02-22 14:26:59.443 [main] PropertyBinder - Building property firstName
+[DEBUG] 2018-02-22 14:26:59.443 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Musician), mappingColumn=last_name, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.444 [main] PropertyBinder - MetadataSourceProcessor property lastName with lazy=false
+[DEBUG] 2018-02-22 14:26:59.444 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Musician:lastName]
+[DEBUG] 2018-02-22 14:26:59.444 [main] SimpleValueBinder - building SimpleValue for lastName
+[DEBUG] 2018-02-22 14:26:59.444 [main] PropertyBinder - Building property lastName
+[DEBUG] 2018-02-22 14:26:59.444 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Musician), mappingColumn=phone_number, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.444 [main] PropertyBinder - MetadataSourceProcessor property phoneNumber with lazy=false
+[DEBUG] 2018-02-22 14:26:59.444 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Musician:phoneNumber]
+[DEBUG] 2018-02-22 14:26:59.444 [main] SimpleValueBinder - building SimpleValue for phoneNumber
+[DEBUG] 2018-02-22 14:26:59.444 [main] PropertyBinder - Building property phoneNumber
+[DEBUG] 2018-02-22 14:26:59.444 [main] AnnotationBinder - Binding entity from annotated class: entity.Composer
+[DEBUG] 2018-02-22 14:26:59.445 [main] Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+[DEBUG] 2018-02-22 14:26:59.445 [main] EntityBinder - Import with entity name Composer
+[DEBUG] 2018-02-22 14:26:59.445 [main] EntityBinder - Bind entity entity.Composer on table Composer
+[DEBUG] 2018-02-22 14:26:59.447 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Composer), mappingColumn=id, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.447 [main] PropertyBinder - MetadataSourceProcessor property id with lazy=false
+[DEBUG] 2018-02-22 14:26:59.448 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Composer:id]
+[DEBUG] 2018-02-22 14:26:59.448 [main] SimpleValueBinder - building SimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.448 [main] PropertyBinder - Building property id
+[DEBUG] 2018-02-22 14:26:59.448 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Composer), mappingColumn=birth_year, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.448 [main] PropertyBinder - MetadataSourceProcessor property birthYear with lazy=false
+[DEBUG] 2018-02-22 14:26:59.448 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Composer:birthYear]
+[DEBUG] 2018-02-22 14:26:59.448 [main] SimpleValueBinder - building SimpleValue for birthYear
+[DEBUG] 2018-02-22 14:26:59.449 [main] PropertyBinder - Building property birthYear
+[DEBUG] 2018-02-22 14:26:59.449 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Composer), mappingColumn=death_year, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.449 [main] PropertyBinder - MetadataSourceProcessor property deathYear with lazy=false
+[DEBUG] 2018-02-22 14:26:59.449 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Composer:deathYear]
+[DEBUG] 2018-02-22 14:26:59.449 [main] SimpleValueBinder - building SimpleValue for deathYear
+[DEBUG] 2018-02-22 14:26:59.449 [main] PropertyBinder - Building property deathYear
+[DEBUG] 2018-02-22 14:26:59.449 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Composer), mappingColumn=first_name, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.449 [main] PropertyBinder - MetadataSourceProcessor property firstName with lazy=false
+[DEBUG] 2018-02-22 14:26:59.449 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Composer:firstName]
+[DEBUG] 2018-02-22 14:26:59.450 [main] SimpleValueBinder - building SimpleValue for firstName
+[DEBUG] 2018-02-22 14:26:59.450 [main] PropertyBinder - Building property firstName
+[DEBUG] 2018-02-22 14:26:59.450 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Composer), mappingColumn=last_name, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.450 [main] PropertyBinder - MetadataSourceProcessor property lastName with lazy=false
+[DEBUG] 2018-02-22 14:26:59.450 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.Composer:lastName]
+[DEBUG] 2018-02-22 14:26:59.450 [main] SimpleValueBinder - building SimpleValue for lastName
+[DEBUG] 2018-02-22 14:26:59.450 [main] PropertyBinder - Building property lastName
+[DEBUG] 2018-02-22 14:26:59.450 [main] Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='null'}
+[DEBUG] 2018-02-22 14:26:59.450 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Composer), mappingColumn=nationality, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.452 [main] PropertyBinder - Building property nationality
+[DEBUG] 2018-02-22 14:26:59.452 [main] AnnotationBinder - Binding entity from annotated class: entity.InstrumentCategory
+[DEBUG] 2018-02-22 14:26:59.453 [main] Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+[DEBUG] 2018-02-22 14:26:59.453 [main] EntityBinder - Import with entity name InstrumentCategory
+[DEBUG] 2018-02-22 14:26:59.453 [main] EntityBinder - Bind entity entity.InstrumentCategory on table Instrument_Category
+[DEBUG] 2018-02-22 14:26:59.454 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Instrument_Category), mappingColumn=id, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.454 [main] PropertyBinder - MetadataSourceProcessor property id with lazy=false
+[DEBUG] 2018-02-22 14:26:59.454 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.InstrumentCategory:id]
+[DEBUG] 2018-02-22 14:26:59.454 [main] SimpleValueBinder - building SimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.454 [main] PropertyBinder - Building property id
+[DEBUG] 2018-02-22 14:26:59.454 [main] Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Instrument_Category), mappingColumn=category, insertable=true, updatable=true, unique=false}
+[DEBUG] 2018-02-22 14:26:59.454 [main] PropertyBinder - MetadataSourceProcessor property category with lazy=false
+[DEBUG] 2018-02-22 14:26:59.455 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [entity.InstrumentCategory:category]
+[DEBUG] 2018-02-22 14:26:59.455 [main] SimpleValueBinder - building SimpleValue for category
+[DEBUG] 2018-02-22 14:26:59.455 [main] PropertyBinder - Building property category
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for nationality
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for firstName
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for lastName
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for phoneNumber
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for birthYear
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for deathYear
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for firstName
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for lastName
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for id
+[DEBUG] 2018-02-22 14:26:59.456 [main] SimpleValueBinder - Starting fillSimpleValue for category
+[DEBUG] 2018-02-22 14:26:59.461 [main] PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [nationality]
+[DEBUG] 2018-02-22 14:26:59.462 [main] PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [musician]
+[DEBUG] 2018-02-22 14:26:59.462 [main] PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [composer]
+[DEBUG] 2018-02-22 14:26:59.462 [main] PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [instrument_category]
+[DEBUG] 2018-02-22 14:26:59.462 [main] CollectionSecondPass - Second pass for collection: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:26:59.463 [main] CollectionBinder - Binding a OneToMany: entity.Nationality.composers through a foreign key
+[DEBUG] 2018-02-22 14:26:59.464 [main] CollectionBinder - Mapping collection: entity.Nationality.composers -> Composer
+[DEBUG] 2018-02-22 14:26:59.465 [main] TableBinder - Retrieving property entity.Composer.nationality
+[DEBUG] 2018-02-22 14:26:59.465 [main] CollectionSecondPass - Mapped collection key: nationality_id, one-to-many: entity.Composer
+[DEBUG] 2018-02-22 14:26:59.465 [main] InFlightMetadataCollectorImpl - Resolving reference to class: entity.Nationality
+[DEBUG] 2018-02-22 14:26:59.468 [main] InFlightMetadataCollectorImpl - Resolving reference to class: entity.Nationality
+[DEBUG] 2018-02-22 14:26:59.506 [main] SessionFactoryImpl - Building session factory
+[DEBUG] 2018-02-22 14:26:59.507 [main] Settings - SessionFactory name : null
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Automatic flush during beforeCompletion(): enabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Automatic session close at end of transaction: disabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Statistics: disabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Deleted entity synthetic identifier rollback: disabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Default entity-mode: pojo
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Allow initialization of lazy state outside session : disabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Using BatchFetchStyle : LEGACY
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Default batch fetch size: -1
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Maximum outer join fetch depth: 2
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Default null ordering: NONE
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Order SQL updates by primary key: disabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - Order SQL inserts for batching: disabled
+[DEBUG] 2018-02-22 14:26:59.508 [main] Settings - multi-tenancy strategy : NONE
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - JTA Track by Thread: enabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Query language substitutions: {}
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - JPA query language strict compliance: disabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Named query checking : enabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Second-level cache: enabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Second-level query cache: disabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Second-level query cache factory: org.hibernate.cache.internal.StandardQueryCacheFactory@60cf80e7
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Second-level cache region prefix: null
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Optimize second-level cache for minimal puts: disabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Structured second-level cache entries: disabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Second-level cache direct-reference entries: disabled
+[DEBUG] 2018-02-22 14:26:59.509 [main] Settings - Automatic eviction of collection cache: disabled
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - JDBC batch size: 15
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - JDBC batch updates for versioned data: enabled
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - Scrollable result sets: enabled
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - Wrap result sets: disabled
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - JDBC3 getGeneratedKeys(): enabled
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - JDBC result set fetch size: null
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - Connection release mode: AFTER_TRANSACTION
+[DEBUG] 2018-02-22 14:26:59.510 [main] Settings - Generate SQL with comments: disabled
+[DEBUG] 2018-02-22 14:26:59.574 [main] SessionFactoryImpl - Session factory constructed with filter configurations : {}
+[DEBUG] 2018-02-22 14:26:59.574 [main] SessionFactoryImpl - Instantiating session factory with properties: {gopherProxySet=false, awt.toolkit=sun.lwawt.macosx.LWCToolkit, file.encoding.pkg=sun.io, java.specification.version=1.8, hibernate.c3p0.idle_test_period=3000, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, hibernate.c3p0.min_size=5, java.class.path=/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar:/Applications/IntelliJ IDEA.app/Contents/plugins/junit/lib/junit-rt.jar:/Applications/IntelliJ IDEA.app/Contents/plugins/junit/lib/junit5-rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/tools.jar:/Users/reneegrittner/IdeaProjects/concertPlanner/target/test-classes:/Users/reneegrittner/IdeaProjects/concertPlanner/target/classes:/Users/reneegrittner/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.0/junit-jupiter-engine-5.0.0.jar:/Users/reneegrittner/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/junit/platform/junit-platform-engine/1.0.0/junit-platform-engine-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/junit/platform/junit-platform-commons/1.0.0/junit-platform-commons-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.0/junit-jupiter-api-5.0.0.jar:/Users/reneegrittner/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/reneegrittner/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/reneegrittner/.m2/repository/org/junit/platform/junit-platform-runner/1.0.0/junit-platform-runner-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.0/junit-platform-launcher-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/junit/platform/junit-platform-suite-api/1.0.0/junit-platform-suite-api-1.0.0.jar:/Users/reneegrittner/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.0/junit-vintage-engine-4.12.0.jar:/Users/reneegrittner/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar:/Users/reneegrittner/.m2/repository/org/apache/logging/log4j/log4j-api/2.10.0/log4j-api-2.10.0.jar:/Users/reneegrittner/.m2/repository/org/apache/logging/log4j/log4j-core/2.10.0/log4j-core-2.10.0.jar:/Users/reneegrittner/.m2/repository/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar:/Users/reneegrittner/.m2/repository/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar:/Users/reneegrittner/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar:/Users/reneegrittner/.m2/repository/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/Users/reneegrittner/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/Users/reneegrittner/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.1.Final/jboss-transaction-api_1.2_spec-1.0.1.Final.jar:/Users/reneegrittner/.m2/repository/org/jboss/jandex/2.0.3.Final/jandex-2.0.3.Final.jar:/Users/reneegrittner/.m2/repository/com/fasterxml/classmate/1.3.0/classmate-1.3.0.jar:/Users/reneegrittner/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/Users/reneegrittner/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.0.1.Final/hibernate-commons-annotations-5.0.1.Final.jar:/Users/reneegrittner/.m2/repository/org/hibernate/hibernate-c3p0/5.2.12.Final/hibernate-c3p0-5.2.12.Final.jar:/Users/reneegrittner/.m2/repository/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2.jar:/Users/reneegrittner/.m2/repository/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11.jar:/Users/reneegrittner/.m2/repository/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar:/Users/reneegrittner/.m2/repository/jstl/jstl/1.2/jstl-1.2.jar:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, idea.test.cyclic.buffer.size=1048576, java.vendor.url=http://java.oracle.com/, user.timezone=America/Chicago, os.name=Mac OS X, java.vm.specification.version=1.8, user.country=US, sun.java.launcher=SUN_STANDARD, sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib, sun.java.command=com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 -junit5 persistence.ComposerDaoTest, http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16, sun.cpu.endian=little, hibernate.c3p0.max_statements=50, user.home=/Users/reneegrittner, user.language=en, java.specification.vendor=Oracle Corporation, java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre, file.separator=/, line.separator=
+, hibernate.c3p0.timeout=300, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, java.awt.graphicsenv=sun.awt.CGraphicsEnvironment, sun.boot.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/classes, connection.password=wreb7ce, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, hibernate.c3p0.max_size=20, ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16, java.runtime.version=1.8.0_151-b12, user.name=reneegrittner, path.separator=:, hibernate.connection.username=root, os.version=10.13.3, java.endorsed.dirs=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/endorsed, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.connection.url=jdbc:mysql://localhost:3306/test_concertPlanner, file.encoding=UTF-8, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.connection.driver_class=com.mysql.jdbc.Driver, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, java.io.tmpdir=/var/folders/cw/448f4z55699dhs8wrlljzz0h0000gn/T/, java.version=1.8.0_151, user.dir=/Users/reneegrittner/IdeaProjects/concertPlanner, os.arch=x86_64, connection.username=root, java.vm.specification.name=Java Virtual Machine Specification, hibernate.connection.password=****, java.awt.printerjob=sun.lwawt.macosx.CPrinterJob, sun.os.patch.level=unknown, connection.driver_class=com.mysql.jdbc.Driver, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@71e9a896, java.library.path=/Users/reneegrittner/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:., java.vm.info=mixed mode, java.vendor=Oracle Corporation, java.vm.version=25.151-b12, hibernate.bytecode.use_reflection_optimizer=false, java.ext.dirs=/Users/reneegrittner/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java, sun.io.unicode.encoding=UnicodeBig, connection.url=jdbc:mysql://localhost:3306/test_concertPlanner, java.class.version=52.0, socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16}
+[DEBUG] 2018-02-22 14:26:59.596 [main] TypeSafeActivator - Unable to acquire Bean Validation ValidatorFactory, skipping activation
+[DEBUG] 2018-02-22 14:26:59.596 [main] JaccIntegrator - Skipping JACC integration as it was not enabled
+[DEBUG] 2018-02-22 14:26:59.597 [main] SessionFactoryImpl - Instantiated session factory
+[DEBUG] 2018-02-22 14:26:59.653 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.InstrumentCategory] is safe
+[DEBUG] 2018-02-22 14:26:59.653 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.InstrumentCategory
+[DEBUG] 2018-02-22 14:26:59.674 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.InstrumentCategory] is safe
+[DEBUG] 2018-02-22 14:26:59.674 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.InstrumentCategory
+[DEBUG] 2018-02-22 14:26:59.741 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.Composer] is safe
+[DEBUG] 2018-02-22 14:26:59.741 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.Composer
+[DEBUG] 2018-02-22 14:26:59.743 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.Composer] is safe
+[DEBUG] 2018-02-22 14:26:59.743 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.Composer
+[DEBUG] 2018-02-22 14:26:59.749 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.Nationality] is safe
+[DEBUG] 2018-02-22 14:26:59.749 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.Nationality
+[DEBUG] 2018-02-22 14:26:59.751 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.Nationality] is safe
+[DEBUG] 2018-02-22 14:26:59.752 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.Nationality
+[DEBUG] 2018-02-22 14:26:59.755 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.Musician] is safe
+[DEBUG] 2018-02-22 14:26:59.755 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.Musician
+[DEBUG] 2018-02-22 14:26:59.756 [main] ClassLoaderAccessImpl - Not known whether passed class name [entity.Musician] is safe
+[DEBUG] 2018-02-22 14:26:59.756 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : entity.Musician
+[DEBUG] 2018-02-22 14:26:59.769 [main] AbstractCollectionPersister - Static SQL for collection: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:26:59.769 [main] AbstractCollectionPersister -  Row insert: update Composer set nationality_id=? where id=?
+[DEBUG] 2018-02-22 14:26:59.769 [main] AbstractCollectionPersister -  Row update: update Composer set  where id=?
+[DEBUG] 2018-02-22 14:26:59.769 [main] AbstractCollectionPersister -  Row delete: update Composer set nationality_id=null where nationality_id=? and id=?
+[DEBUG] 2018-02-22 14:26:59.769 [main] AbstractCollectionPersister -  One-shot delete: update Composer set nationality_id=null where nationality_id=?
+[DEBUG] 2018-02-22 14:26:59.774 [main] AbstractEntityPersister - Static SQL for entity: entity.InstrumentCategory
+[DEBUG] 2018-02-22 14:26:59.774 [main] AbstractEntityPersister -  Version select: select id from Instrument_Category where id =?
+[DEBUG] 2018-02-22 14:26:59.774 [main] AbstractEntityPersister -  Snapshot select: select instrument_.id, instrument_.category as category2_1_ from Instrument_Category instrument_ where instrument_.id=?
+[DEBUG] 2018-02-22 14:26:59.774 [main] AbstractEntityPersister -  Insert 0: insert into Instrument_Category (category, id) values (?, ?)
+[DEBUG] 2018-02-22 14:26:59.774 [main] AbstractEntityPersister -  Update 0: update Instrument_Category set category=? where id=?
+[DEBUG] 2018-02-22 14:26:59.775 [main] AbstractEntityPersister -  Delete 0: delete from Instrument_Category where id=?
+[DEBUG] 2018-02-22 14:26:59.775 [main] AbstractEntityPersister -  Identity insert: insert into Instrument_Category (category) values (?)
+[DEBUG] 2018-02-22 14:26:59.795 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4925f4f5]
+[DEBUG] 2018-02-22 14:26:59.796 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.797 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.813 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.820 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.827 [main] EntityLoader - Static select for entity entity.InstrumentCategory [NONE]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=?
+[DEBUG] 2018-02-22 14:26:59.827 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4f7c0be3]
+[DEBUG] 2018-02-22 14:26:59.828 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.828 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.828 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.828 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.829 [main] EntityLoader - Static select for entity entity.InstrumentCategory [READ]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=?
+[DEBUG] 2018-02-22 14:26:59.829 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1d2644e3]
+[DEBUG] 2018-02-22 14:26:59.829 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.829 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.830 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.830 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.830 [main] EntityLoader - Static select for entity entity.InstrumentCategory [UPGRADE]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.830 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@602c4656]
+[DEBUG] 2018-02-22 14:26:59.830 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.831 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.831 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.831 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.831 [main] EntityLoader - Static select for entity entity.InstrumentCategory [UPGRADE_NOWAIT]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.831 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@705202d1]
+[DEBUG] 2018-02-22 14:26:59.833 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.834 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.834 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.835 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.835 [main] EntityLoader - Static select for entity entity.InstrumentCategory [UPGRADE_SKIPLOCKED]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.835 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3e58d65e]
+[DEBUG] 2018-02-22 14:26:59.835 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.836 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.836 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.836 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.836 [main] EntityLoader - Static select for entity entity.InstrumentCategory [FORCE]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.836 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@63998bf4]
+[DEBUG] 2018-02-22 14:26:59.837 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.837 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.837 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.837 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.838 [main] EntityLoader - Static select for entity entity.InstrumentCategory [PESSIMISTIC_READ]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? lock in share mode
+[DEBUG] 2018-02-22 14:26:59.838 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@61942c1]
+[DEBUG] 2018-02-22 14:26:59.838 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.838 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.838 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.839 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.839 [main] EntityLoader - Static select for entity entity.InstrumentCategory [PESSIMISTIC_WRITE]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.839 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@408a247c]
+[DEBUG] 2018-02-22 14:26:59.839 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.840 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.840 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.840 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.840 [main] EntityLoader - Static select for entity entity.InstrumentCategory [PESSIMISTIC_FORCE_INCREMENT]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.841 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2e6ba49a]
+[DEBUG] 2018-02-22 14:26:59.841 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.841 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.841 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.842 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.842 [main] EntityLoader - Static select for entity entity.InstrumentCategory [OPTIMISTIC]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=?
+[DEBUG] 2018-02-22 14:26:59.842 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4ee33af7]
+[DEBUG] 2018-02-22 14:26:59.842 [main] MetamodelGraphWalker - Visiting attribute path : category
+[DEBUG] 2018-02-22 14:26:59.843 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.843 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.843 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.InstrumentCategory)
+    - Returns
+       - EntityReturnImpl(entity=entity.InstrumentCategory, querySpaceUid=<gen:0>, path=entity.InstrumentCategory)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.InstrumentCategory)
+          - SQL table alias mapping - instrument0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+[DEBUG] 2018-02-22 14:26:59.843 [main] EntityLoader - Static select for entity entity.InstrumentCategory [OPTIMISTIC_FORCE_INCREMENT]: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=?
+[DEBUG] 2018-02-22 14:26:59.865 [main] Loader - Static select for action ACTION_MERGE on entity entity.InstrumentCategory: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=?
+[DEBUG] 2018-02-22 14:26:59.866 [main] Loader - Static select for action ACTION_REFRESH on entity entity.InstrumentCategory: select instrument0_.id as id1_1_0_, instrument0_.category as category2_1_0_ from Instrument_Category instrument0_ where instrument0_.id=?
+[DEBUG] 2018-02-22 14:26:59.866 [main] AbstractEntityPersister - Static SQL for entity: entity.Composer
+[DEBUG] 2018-02-22 14:26:59.866 [main] AbstractEntityPersister -  Version select: select id from Composer where id =?
+[DEBUG] 2018-02-22 14:26:59.866 [main] AbstractEntityPersister -  Snapshot select: select composer_.id, composer_.birth_year as birth_ye2_0_, composer_.death_year as death_ye3_0_, composer_.first_name as first_na4_0_, composer_.last_name as last_nam5_0_, composer_.nationality_id as national6_0_ from Composer composer_ where composer_.id=?
+[DEBUG] 2018-02-22 14:26:59.866 [main] AbstractEntityPersister -  Insert 0: insert into Composer (birth_year, death_year, first_name, last_name, nationality_id, id) values (?, ?, ?, ?, ?, ?)
+[DEBUG] 2018-02-22 14:26:59.867 [main] AbstractEntityPersister -  Update 0: update Composer set birth_year=?, death_year=?, first_name=?, last_name=?, nationality_id=? where id=?
+[DEBUG] 2018-02-22 14:26:59.867 [main] AbstractEntityPersister -  Delete 0: delete from Composer where id=?
+[DEBUG] 2018-02-22 14:26:59.867 [main] AbstractEntityPersister -  Identity insert: insert into Composer (birth_year, death_year, first_name, last_name, nationality_id) values (?, ?, ?, ?, ?)
+[DEBUG] 2018-02-22 14:26:59.867 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4564e94b]
+[DEBUG] 2018-02-22 14:26:59.867 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.867 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.867 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.867 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.867 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.874 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@291120f4]
+[DEBUG] 2018-02-22 14:26:59.877 [main] MetamodelGraphWalker - Visiting attribute path : nationality.composers
+[DEBUG] 2018-02-22 14:26:59.877 [main] MetamodelGraphWalker - Property path deemed to be circular : nationality.composers
+[DEBUG] 2018-02-22 14:26:59.877 [main] MetamodelGraphWalker - Visiting attribute path : nationality.nationality
+[DEBUG] 2018-02-22 14:26:59.878 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.878 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.880 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+          - JOIN (JoinDefinedByMetadata(nationality)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=entity.Nationality)
+                - SQL table alias mapping - nationalit1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_3_1_}
+
+[DEBUG] 2018-02-22 14:26:59.880 [main] EntityLoader - Static select for entity entity.Composer [NONE]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_, nationalit1_.id as id1_3_1_, nationalit1_.nationality as national2_3_1_ from Composer composer0_ left outer join Nationality nationalit1_ on composer0_.nationality_id=nationalit1_.id where composer0_.id=?
+[DEBUG] 2018-02-22 14:26:59.880 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4e2c95ee]
+[DEBUG] 2018-02-22 14:26:59.880 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.880 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.880 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.880 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.880 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.881 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5a5c128]
+[DEBUG] 2018-02-22 14:26:59.881 [main] MetamodelGraphWalker - Visiting attribute path : nationality.composers
+[DEBUG] 2018-02-22 14:26:59.881 [main] MetamodelGraphWalker - Property path deemed to be circular : nationality.composers
+[DEBUG] 2018-02-22 14:26:59.881 [main] MetamodelGraphWalker - Visiting attribute path : nationality.nationality
+[DEBUG] 2018-02-22 14:26:59.881 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.881 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.882 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+          - JOIN (JoinDefinedByMetadata(nationality)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=entity.Nationality)
+                - SQL table alias mapping - nationalit1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_3_1_}
+
+[DEBUG] 2018-02-22 14:26:59.882 [main] EntityLoader - Static select for entity entity.Composer [READ]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_, nationalit1_.id as id1_3_1_, nationalit1_.nationality as national2_3_1_ from Composer composer0_ left outer join Nationality nationalit1_ on composer0_.nationality_id=nationalit1_.id where composer0_.id=?
+[DEBUG] 2018-02-22 14:26:59.882 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5942ee04]
+[DEBUG] 2018-02-22 14:26:59.883 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.883 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.883 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.883 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.883 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.883 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@757194dc]
+[DEBUG] 2018-02-22 14:26:59.883 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.884 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.884 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.884 [main] EntityLoader - Static select for entity entity.Composer [UPGRADE]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.884 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5a865416]
+[DEBUG] 2018-02-22 14:26:59.885 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.885 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.885 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.885 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.885 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.885 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7ff2b8d2]
+[DEBUG] 2018-02-22 14:26:59.885 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.885 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.886 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.886 [main] EntityLoader - Static select for entity entity.Composer [UPGRADE_NOWAIT]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.886 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6dc1484]
+[DEBUG] 2018-02-22 14:26:59.886 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.886 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.886 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.887 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.887 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.887 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2fb5fe30]
+[DEBUG] 2018-02-22 14:26:59.887 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.887 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.888 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.888 [main] EntityLoader - Static select for entity entity.Composer [UPGRADE_SKIPLOCKED]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.888 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@456be73c]
+[DEBUG] 2018-02-22 14:26:59.888 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.888 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.888 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.888 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.888 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.889 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5baaae4c]
+[DEBUG] 2018-02-22 14:26:59.889 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.889 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.889 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.889 [main] EntityLoader - Static select for entity entity.Composer [FORCE]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.890 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5b6e8f77]
+[DEBUG] 2018-02-22 14:26:59.890 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.890 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.890 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.890 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.890 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.890 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4f449e8f]
+[DEBUG] 2018-02-22 14:26:59.890 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.891 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.891 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.891 [main] EntityLoader - Static select for entity entity.Composer [PESSIMISTIC_READ]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? lock in share mode
+[DEBUG] 2018-02-22 14:26:59.891 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@411291e5]
+[DEBUG] 2018-02-22 14:26:59.891 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.892 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.892 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.892 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.892 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.892 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@19f040ba]
+[DEBUG] 2018-02-22 14:26:59.892 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.892 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.893 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.893 [main] EntityLoader - Static select for entity entity.Composer [PESSIMISTIC_WRITE]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.893 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@72ab05ed]
+[DEBUG] 2018-02-22 14:26:59.893 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.893 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.893 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.893 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.893 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.894 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@c3c4c1c]
+[DEBUG] 2018-02-22 14:26:59.895 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.895 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.896 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.896 [main] EntityLoader - Static select for entity entity.Composer [PESSIMISTIC_FORCE_INCREMENT]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.896 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@17d238b1]
+[DEBUG] 2018-02-22 14:26:59.896 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.896 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.896 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.896 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.896 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.896 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@35e478f]
+[DEBUG] 2018-02-22 14:26:59.897 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.897 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.897 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.897 [main] EntityLoader - Static select for entity entity.Composer [OPTIMISTIC]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=?
+[DEBUG] 2018-02-22 14:26:59.897 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6d6cb754]
+[DEBUG] 2018-02-22 14:26:59.898 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.898 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.898 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.898 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.898 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.898 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3044e9c7]
+[DEBUG] 2018-02-22 14:26:59.898 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.898 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.899 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Composer)
+    - Returns
+       - EntityReturnImpl(entity=entity.Composer, querySpaceUid=<gen:0>, path=entity.Composer)
+          - EntityAttributeFetchImpl(entity=entity.Nationality, querySpaceUid=<gen:1>, path=entity.Composer.nationality)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Composer)
+          - SQL table alias mapping - composer0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+[DEBUG] 2018-02-22 14:26:59.899 [main] EntityLoader - Static select for entity entity.Composer [OPTIMISTIC_FORCE_INCREMENT]: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=?
+[DEBUG] 2018-02-22 14:26:59.900 [main] Loader - Static select for action ACTION_MERGE on entity entity.Composer: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=?
+[DEBUG] 2018-02-22 14:26:59.900 [main] Loader - Static select for action ACTION_REFRESH on entity entity.Composer: select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_ from Composer composer0_ where composer0_.id=?
+[DEBUG] 2018-02-22 14:26:59.900 [main] AbstractEntityPersister - Static SQL for entity: entity.Nationality
+[DEBUG] 2018-02-22 14:26:59.901 [main] AbstractEntityPersister -  Version select: select id from Nationality where id =?
+[DEBUG] 2018-02-22 14:26:59.901 [main] AbstractEntityPersister -  Snapshot select: select nationalit_.id, nationalit_.nationality as national2_3_ from Nationality nationalit_ where nationalit_.id=?
+[DEBUG] 2018-02-22 14:26:59.901 [main] AbstractEntityPersister -  Insert 0: insert into Nationality (nationality, id) values (?, ?)
+[DEBUG] 2018-02-22 14:26:59.901 [main] AbstractEntityPersister -  Update 0: update Nationality set nationality=? where id=?
+[DEBUG] 2018-02-22 14:26:59.901 [main] AbstractEntityPersister -  Delete 0: delete from Nationality where id=?
+[DEBUG] 2018-02-22 14:26:59.901 [main] AbstractEntityPersister -  Identity insert: insert into Nationality (nationality) values (?)
+[DEBUG] 2018-02-22 14:26:59.901 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@41d7b27f]
+[DEBUG] 2018-02-22 14:26:59.901 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.902 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@213deac2]
+[DEBUG] 2018-02-22 14:26:59.904 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@70807224]
+[DEBUG] 2018-02-22 14:26:59.906 [main] MetamodelGraphWalker - Visiting attribute path : composers.birthYear
+[DEBUG] 2018-02-22 14:26:59.906 [main] MetamodelGraphWalker - Visiting attribute path : composers.deathYear
+[DEBUG] 2018-02-22 14:26:59.906 [main] MetamodelGraphWalker - Visiting attribute path : composers.firstName
+[DEBUG] 2018-02-22 14:26:59.906 [main] MetamodelGraphWalker - Visiting attribute path : composers.lastName
+[DEBUG] 2018-02-22 14:26:59.906 [main] MetamodelGraphWalker - Visiting attribute path : composers.nationality
+[DEBUG] 2018-02-22 14:26:59.906 [main] MetamodelGraphWalker - Property path deemed to be circular : composers.nationality
+[DEBUG] 2018-02-22 14:26:59.907 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.908 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.908 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.912 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+          - JOIN (JoinDefinedByMetadata(composers)) : <gen:0> -> <gen:1>
+             - CollectionQuerySpaceImpl(uid=<gen:1>, collection=entity.Nationality.composers)
+                - SQL table alias mapping - composers1_
+                - alias suffix - 1_
+                - suffixed key columns - {national6_0_1_}
+                - entity-element alias suffix - 2_
+                - 2_entity-element suffixed key columns - id1_0_2_
+                - JOIN (JoinDefinedByMetadata(elements)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=entity.Composer)
+                      - SQL table alias mapping - composers1_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id1_0_2_}
+
+[DEBUG] 2018-02-22 14:26:59.912 [main] EntityLoader - Static select for entity entity.Nationality [NONE]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_, composers1_.nationality_id as national6_0_1_, composers1_.id as id1_0_1_, composers1_.id as id1_0_2_, composers1_.birth_year as birth_ye2_0_2_, composers1_.death_year as death_ye3_0_2_, composers1_.first_name as first_na4_0_2_, composers1_.last_name as last_nam5_0_2_, composers1_.nationality_id as national6_0_2_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:26:59.912 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5a4c638d]
+[DEBUG] 2018-02-22 14:26:59.912 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.912 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@aed0151]
+[DEBUG] 2018-02-22 14:26:59.913 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@267bbe1a]
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Visiting attribute path : composers.birthYear
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Visiting attribute path : composers.deathYear
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Visiting attribute path : composers.firstName
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Visiting attribute path : composers.lastName
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Visiting attribute path : composers.nationality
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Property path deemed to be circular : composers.nationality
+[DEBUG] 2018-02-22 14:26:59.913 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.913 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.914 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.915 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+          - JOIN (JoinDefinedByMetadata(composers)) : <gen:0> -> <gen:1>
+             - CollectionQuerySpaceImpl(uid=<gen:1>, collection=entity.Nationality.composers)
+                - SQL table alias mapping - composers1_
+                - alias suffix - 1_
+                - suffixed key columns - {national6_0_1_}
+                - entity-element alias suffix - 2_
+                - 2_entity-element suffixed key columns - id1_0_2_
+                - JOIN (JoinDefinedByMetadata(elements)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=entity.Composer)
+                      - SQL table alias mapping - composers1_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id1_0_2_}
+
+[DEBUG] 2018-02-22 14:26:59.915 [main] EntityLoader - Static select for entity entity.Nationality [READ]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_, composers1_.nationality_id as national6_0_1_, composers1_.id as id1_0_1_, composers1_.id as id1_0_2_, composers1_.birth_year as birth_ye2_0_2_, composers1_.death_year as death_ye3_0_2_, composers1_.first_name as first_na4_0_2_, composers1_.last_name as last_nam5_0_2_, composers1_.nationality_id as national6_0_2_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:26:59.915 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5a101b1c]
+[DEBUG] 2018-02-22 14:26:59.915 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.915 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@29f0802c]
+[DEBUG] 2018-02-22 14:26:59.916 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3a60c416]
+[DEBUG] 2018-02-22 14:26:59.916 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.916 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.916 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.916 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.917 [main] EntityLoader - Static select for entity entity.Nationality [UPGRADE]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.917 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@60f2e0bd]
+[DEBUG] 2018-02-22 14:26:59.917 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.917 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@6b410923]
+[DEBUG] 2018-02-22 14:26:59.917 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@57bd2029]
+[DEBUG] 2018-02-22 14:26:59.917 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.917 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.918 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.918 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.918 [main] EntityLoader - Static select for entity entity.Nationality [UPGRADE_NOWAIT]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.918 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@203dd56b]
+[DEBUG] 2018-02-22 14:26:59.918 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.919 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@6d64b553]
+[DEBUG] 2018-02-22 14:26:59.919 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@53667cbe]
+[DEBUG] 2018-02-22 14:26:59.919 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.919 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.919 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.919 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.920 [main] EntityLoader - Static select for entity entity.Nationality [UPGRADE_SKIPLOCKED]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.920 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1d3e6d34]
+[DEBUG] 2018-02-22 14:26:59.920 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.920 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@26a94fa5]
+[DEBUG] 2018-02-22 14:26:59.920 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@464a4442]
+[DEBUG] 2018-02-22 14:26:59.920 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.920 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.921 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.921 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.921 [main] EntityLoader - Static select for entity entity.Nationality [FORCE]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.921 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2873d672]
+[DEBUG] 2018-02-22 14:26:59.921 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.922 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@577f9109]
+[DEBUG] 2018-02-22 14:26:59.922 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4303b7f0]
+[DEBUG] 2018-02-22 14:26:59.922 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.922 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.922 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.922 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.923 [main] EntityLoader - Static select for entity entity.Nationality [PESSIMISTIC_READ]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? lock in share mode
+[DEBUG] 2018-02-22 14:26:59.923 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@757529a4]
+[DEBUG] 2018-02-22 14:26:59.923 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.923 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@5c41d037]
+[DEBUG] 2018-02-22 14:26:59.923 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2234078]
+[DEBUG] 2018-02-22 14:26:59.923 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.923 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.924 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.924 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.924 [main] EntityLoader - Static select for entity entity.Nationality [PESSIMISTIC_WRITE]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.926 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5ec77191]
+[DEBUG] 2018-02-22 14:26:59.926 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.926 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@1450078a]
+[DEBUG] 2018-02-22 14:26:59.927 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@c68a5f8]
+[DEBUG] 2018-02-22 14:26:59.928 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.928 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.928 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.929 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.929 [main] EntityLoader - Static select for entity entity.Nationality [PESSIMISTIC_FORCE_INCREMENT]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.929 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@69c6161d]
+[DEBUG] 2018-02-22 14:26:59.930 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.930 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@2e1792e7]
+[DEBUG] 2018-02-22 14:26:59.930 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6719a5b8]
+[DEBUG] 2018-02-22 14:26:59.930 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.930 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.930 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.931 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.931 [main] EntityLoader - Static select for entity entity.Nationality [OPTIMISTIC]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:26:59.931 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3eb631b8]
+[DEBUG] 2018-02-22 14:26:59.931 [main] MetamodelGraphWalker - Visiting attribute path : composers
+[DEBUG] 2018-02-22 14:26:59.931 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@6bff19ff]
+[DEBUG] 2018-02-22 14:26:59.931 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@41e1455d]
+[DEBUG] 2018-02-22 14:26:59.931 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.932 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.934 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.935 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Nationality)
+    - Returns
+       - EntityReturnImpl(entity=entity.Nationality, querySpaceUid=<gen:0>, path=entity.Nationality)
+          - CollectionAttributeFetchImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:1>, path=entity.Nationality.composers)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:2>, path=entity.Nationality.composers.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Nationality)
+          - SQL table alias mapping - nationalit0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_3_0_}
+
+[DEBUG] 2018-02-22 14:26:59.935 [main] EntityLoader - Static select for entity entity.Nationality [OPTIMISTIC_FORCE_INCREMENT]: select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_ from Nationality nationalit0_ where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:26:59.937 [main] Loader - Static select for action ACTION_MERGE on entity entity.Nationality: select nationalit0_.id as id1_3_1_, nationalit0_.nationality as national2_3_1_, composers1_.nationality_id as national6_0_3_, composers1_.id as id1_0_3_, composers1_.id as id1_0_0_, composers1_.birth_year as birth_ye2_0_0_, composers1_.death_year as death_ye3_0_0_, composers1_.first_name as first_na4_0_0_, composers1_.last_name as last_nam5_0_0_, composers1_.nationality_id as national6_0_0_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:26:59.938 [main] Loader - Static select for action ACTION_REFRESH on entity entity.Nationality: select nationalit0_.id as id1_3_1_, nationalit0_.nationality as national2_3_1_, composers1_.nationality_id as national6_0_3_, composers1_.id as id1_0_3_, composers1_.id as id1_0_0_, composers1_.birth_year as birth_ye2_0_0_, composers1_.death_year as death_ye3_0_0_, composers1_.first_name as first_na4_0_0_, composers1_.last_name as last_nam5_0_0_, composers1_.nationality_id as national6_0_0_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister - Static SQL for entity: entity.Musician
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister -  Version select: select id from Musician where id =?
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister -  Snapshot select: select musician_.id, musician_.first_name as first_na2_2_, musician_.last_name as last_nam3_2_, musician_.phone_number as phone_nu4_2_ from Musician musician_ where musician_.id=?
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister -  Insert 0: insert into Musician (first_name, last_name, phone_number, id) values (?, ?, ?, ?)
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister -  Update 0: update Musician set first_name=?, last_name=?, phone_number=? where id=?
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister -  Delete 0: delete from Musician where id=?
+[DEBUG] 2018-02-22 14:26:59.938 [main] AbstractEntityPersister -  Identity insert: insert into Musician (first_name, last_name, phone_number) values (?, ?, ?)
+[DEBUG] 2018-02-22 14:26:59.939 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4d6f197e]
+[DEBUG] 2018-02-22 14:26:59.939 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.939 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.939 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.939 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.939 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.940 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.940 [main] EntityLoader - Static select for entity entity.Musician [NONE]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=?
+[DEBUG] 2018-02-22 14:26:59.940 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@64e1dd11]
+[DEBUG] 2018-02-22 14:26:59.940 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.940 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.940 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.940 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.941 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.941 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.941 [main] EntityLoader - Static select for entity entity.Musician [READ]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=?
+[DEBUG] 2018-02-22 14:26:59.941 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6999cd39]
+[DEBUG] 2018-02-22 14:26:59.941 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.942 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.942 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.942 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.942 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.942 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.942 [main] EntityLoader - Static select for entity entity.Musician [UPGRADE]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.943 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7ed9ae94]
+[DEBUG] 2018-02-22 14:26:59.943 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.943 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.943 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.943 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.943 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.943 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.944 [main] EntityLoader - Static select for entity entity.Musician [UPGRADE_NOWAIT]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.944 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@41477a6d]
+[DEBUG] 2018-02-22 14:26:59.944 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.944 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.944 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.944 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.944 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.945 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.945 [main] EntityLoader - Static select for entity entity.Musician [UPGRADE_SKIPLOCKED]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.945 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3122b117]
+[DEBUG] 2018-02-22 14:26:59.945 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.945 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.945 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.945 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.945 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.946 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.946 [main] EntityLoader - Static select for entity entity.Musician [FORCE]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.946 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@29a23c3d]
+[DEBUG] 2018-02-22 14:26:59.946 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.946 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.946 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.946 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.947 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.947 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.947 [main] EntityLoader - Static select for entity entity.Musician [PESSIMISTIC_READ]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? lock in share mode
+[DEBUG] 2018-02-22 14:26:59.947 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6fe46b62]
+[DEBUG] 2018-02-22 14:26:59.947 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.947 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.947 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.947 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.948 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.948 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.948 [main] EntityLoader - Static select for entity entity.Musician [PESSIMISTIC_WRITE]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.948 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@61e45f87]
+[DEBUG] 2018-02-22 14:26:59.948 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.949 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.949 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.949 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.949 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.949 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.949 [main] EntityLoader - Static select for entity entity.Musician [PESSIMISTIC_FORCE_INCREMENT]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=? for update
+[DEBUG] 2018-02-22 14:26:59.949 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3068b369]
+[DEBUG] 2018-02-22 14:26:59.950 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.950 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.950 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.950 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.950 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.950 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.951 [main] EntityLoader - Static select for entity entity.Musician [OPTIMISTIC]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=?
+[DEBUG] 2018-02-22 14:26:59.951 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5491f68b]
+[DEBUG] 2018-02-22 14:26:59.951 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.951 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.951 [main] MetamodelGraphWalker - Visiting attribute path : phoneNumber
+[DEBUG] 2018-02-22 14:26:59.951 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.951 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.952 [main] LoadPlanTreePrinter - LoadPlan(entity=entity.Musician)
+    - Returns
+       - EntityReturnImpl(entity=entity.Musician, querySpaceUid=<gen:0>, path=entity.Musician)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=entity.Musician)
+          - SQL table alias mapping - musician0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+
+[DEBUG] 2018-02-22 14:26:59.952 [main] EntityLoader - Static select for entity entity.Musician [OPTIMISTIC_FORCE_INCREMENT]: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=?
+[DEBUG] 2018-02-22 14:26:59.952 [main] Loader - Static select for action ACTION_MERGE on entity entity.Musician: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=?
+[DEBUG] 2018-02-22 14:26:59.952 [main] Loader - Static select for action ACTION_REFRESH on entity entity.Musician: select musician0_.id as id1_2_0_, musician0_.first_name as first_na2_2_0_, musician0_.last_name as last_nam3_2_0_, musician0_.phone_number as phone_nu4_2_0_ from Musician musician0_ where musician0_.id=?
+[DEBUG] 2018-02-22 14:26:59.957 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@648ee871]
+[DEBUG] 2018-02-22 14:26:59.957 [main] QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@375b5b7f]
+[DEBUG] 2018-02-22 14:26:59.958 [main] MetamodelGraphWalker - Visiting attribute path : birthYear
+[DEBUG] 2018-02-22 14:26:59.958 [main] MetamodelGraphWalker - Visiting attribute path : deathYear
+[DEBUG] 2018-02-22 14:26:59.958 [main] MetamodelGraphWalker - Visiting attribute path : firstName
+[DEBUG] 2018-02-22 14:26:59.958 [main] MetamodelGraphWalker - Visiting attribute path : lastName
+[DEBUG] 2018-02-22 14:26:59.958 [main] MetamodelGraphWalker - Visiting attribute path : nationality
+[DEBUG] 2018-02-22 14:26:59.958 [main] MetamodelGraphWalker - Property path deemed to be circular : nationality
+[DEBUG] 2018-02-22 14:26:59.958 [main] FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+[DEBUG] 2018-02-22 14:26:59.962 [main] LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+[DEBUG] 2018-02-22 14:26:59.962 [main] LoadPlanTreePrinter - LoadPlan(collection=entity.Nationality.composers)
+    - Returns
+       - CollectionReturnImpl(collection=entity.Nationality.composers, querySpaceUid=<gen:0>, path=[entity.Nationality.composers])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=entity.Composer, querySpaceUid=<gen:1>, path=[entity.Nationality.composers].<elements>)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=entity.Nationality.composers)
+          - SQL table alias mapping - composers0_
+          - alias suffix - 0_
+          - suffixed key columns - {national6_0_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_0_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=entity.Composer)
+                - SQL table alias mapping - composers0_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_0_1_}
+
+[DEBUG] 2018-02-22 14:26:59.963 [main] CollectionLoader - Static select for collection entity.Nationality.composers: select composers0_.nationality_id as national6_0_0_, composers0_.id as id1_0_0_, composers0_.id as id1_0_1_, composers0_.birth_year as birth_ye2_0_1_, composers0_.death_year as death_ye3_0_1_, composers0_.first_name as first_na4_0_1_, composers0_.last_name as last_nam5_0_1_, composers0_.nationality_id as national6_0_1_ from Composer composers0_ where composers0_.nationality_id=?
+[DEBUG] 2018-02-22 14:27:00.002 [main] SchemaManagementToolCoordinator - No actions specified; doing nothing
+[DEBUG] 2018-02-22 14:27:00.003 [main] JtaPlatformInitiator - No JtaPlatform was specified, checking resolver
+[DEBUG] 2018-02-22 14:27:00.003 [main] JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+[DEBUG] 2018-02-22 14:27:00.010 [main] StandardJtaPlatformResolver - Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[DEBUG] 2018-02-22 14:27:00.012 [main] NamedQueryRepository - Checking 0 named HQL queries
+[DEBUG] 2018-02-22 14:27:00.012 [main] NamedQueryRepository - Checking 0 named SQL queries
+[DEBUG] 2018-02-22 14:27:00.014 [main] SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@7fedfe27
+[DEBUG] 2018-02-22 14:27:00.017 [main] SessionFactoryRegistry - Registering SessionFactory: 44d10497-4733-49d7-824e-7ac5ac52ab10 (<unnamed>)
+[DEBUG] 2018-02-22 14:27:00.017 [main] SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+[DEBUG] 2018-02-22 14:27:00.139 [main] StatisticsInitiator - Statistics initialized [enabled=false]
+[DEBUG] 2018-02-22 14:27:00.175 [main] CriteriaQueryImpl - Rendered criteria query -> select generatedAlias0 from Composer as generatedAlias0
+[DEBUG] 2018-02-22 14:27:00.198 [main] QueryTranslatorFactoryInitiator - QueryTranslatorFactory : org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory@29f0c4f2
+[INFO ] 2018-02-22 14:27:00.198 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+[DEBUG] 2018-02-22 14:27:00.247 [main] QueryTranslatorImpl - parse() - HQL: select generatedAlias0 from entity.Composer as generatedAlias0
+[DEBUG] 2018-02-22 14:27:00.261 [main] ErrorCounter - throwQueryException() : no errors
+[DEBUG] 2018-02-22 14:27:00.264 [main] QueryTranslatorImpl - --- HQL AST ---
+ \-[QUERY] Node: 'query'
+    \-[SELECT_FROM] Node: 'SELECT_FROM'
+       +-[FROM] Node: 'from'
+       |  \-[RANGE] Node: 'RANGE'
+       |     +-[DOT] Node: '.'
+       |     |  +-[IDENT] Node: 'entity'
+       |     |  \-[IDENT] Node: 'Composer'
+       |     \-[ALIAS] Node: 'generatedAlias0'
+       \-[SELECT] Node: 'select'
+          \-[IDENT] Node: 'generatedAlias0'
+
+[DEBUG] 2018-02-22 14:27:00.346 [main] HqlSqlBaseWalker - select << begin [level=1, statement=select]
+[DEBUG] 2018-02-22 14:27:00.370 [main] FromElement - FromClause{level=1} : entity.Composer (generatedAlias0) -> composer0_
+[DEBUG] 2018-02-22 14:27:00.372 [main] FromReferenceNode - Resolved : generatedAlias0 -> composer0_.id
+[DEBUG] 2018-02-22 14:27:00.375 [main] HqlSqlBaseWalker - select : finishing up [level=1, statement=select]
+[DEBUG] 2018-02-22 14:27:00.375 [main] HqlSqlWalker - processQuery() :  ( SELECT ( {select clause} composer0_.id ) ( FromClause{level=1} Composer composer0_ ) )
+[DEBUG] 2018-02-22 14:27:00.388 [main] JoinProcessor - Using FROM fragment [Composer composer0_]
+[DEBUG] 2018-02-22 14:27:00.389 [main] HqlSqlBaseWalker - select >> end [level=1, statement=select]
+[DEBUG] 2018-02-22 14:27:00.390 [main] QueryTranslatorImpl - --- SQL AST ---
+ \-[SELECT] QueryNode: 'SELECT'  querySpaces (Composer)
+    +-[SELECT_CLAUSE] SelectClause: '{select clause}'
+    |  +-[ALIAS_REF] IdentNode: 'composer0_.id as id1_0_' {alias=generatedAlias0, className=entity.Composer, tableAlias=composer0_}
+    |  \-[SQL_TOKEN] SqlFragment: 'composer0_.birth_year as birth_ye2_0_, composer0_.death_year as death_ye3_0_, composer0_.first_name as first_na4_0_, composer0_.last_name as last_nam5_0_, composer0_.nationality_id as national6_0_'
+    \-[FROM] FromClause: 'from' FromClause{level=1, fromElementCounter=1, fromElements=1, fromElementByClassAlias=[generatedAlias0], fromElementByTableAlias=[composer0_], fromElementsByPath=[], collectionJoinFromElementsByPath=[], impliedElements=[]}
+       \-[FROM_FRAGMENT] FromElement: 'Composer composer0_' FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=generatedAlias0,role=null,tableName=Composer,tableAlias=composer0_,origin=null,columns={,className=entity.Composer}}
+
+[DEBUG] 2018-02-22 14:27:00.390 [main] ErrorCounter - throwQueryException() : no errors
+[DEBUG] 2018-02-22 14:27:00.401 [main] QueryTranslatorImpl - HQL: select generatedAlias0 from entity.Composer as generatedAlias0
+[DEBUG] 2018-02-22 14:27:00.402 [main] QueryTranslatorImpl - SQL: select composer0_.id as id1_0_, composer0_.birth_year as birth_ye2_0_, composer0_.death_year as death_ye3_0_, composer0_.first_name as first_na4_0_, composer0_.last_name as last_nam5_0_, composer0_.nationality_id as national6_0_ from Composer composer0_
+[DEBUG] 2018-02-22 14:27:00.402 [main] ErrorCounter - throwQueryException() : no errors
+[DEBUG] 2018-02-22 14:27:00.425 [main] SQL - select composer0_.id as id1_0_, composer0_.birth_year as birth_ye2_0_, composer0_.death_year as death_ye3_0_, composer0_.first_name as first_na4_0_, composer0_.last_name as last_nam5_0_, composer0_.nationality_id as national6_0_ from Composer composer0_
+[DEBUG] 2018-02-22 14:27:00.457 [main] Loader - Result set row: 0
+[DEBUG] 2018-02-22 14:27:00.461 [main] Loader - Result row: EntityKey[entity.Composer#1]
+[DEBUG] 2018-02-22 14:27:00.469 [main] Loader - Result set row: 1
+[DEBUG] 2018-02-22 14:27:00.470 [main] Loader - Result row: EntityKey[entity.Composer#2]
+[DEBUG] 2018-02-22 14:27:00.470 [main] Loader - Result set row: 2
+[DEBUG] 2018-02-22 14:27:00.470 [main] Loader - Result row: EntityKey[entity.Composer#3]
+[DEBUG] 2018-02-22 14:27:00.470 [main] Loader - Result set row: 3
+[DEBUG] 2018-02-22 14:27:00.470 [main] Loader - Result row: EntityKey[entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.471 [main] Loader - Result set row: 4
+[DEBUG] 2018-02-22 14:27:00.471 [main] Loader - Result row: EntityKey[entity.Composer#5]
+[DEBUG] 2018-02-22 14:27:00.471 [main] Loader - Result set row: 5
+[DEBUG] 2018-02-22 14:27:00.471 [main] Loader - Result row: EntityKey[entity.Composer#6]
+[DEBUG] 2018-02-22 14:27:00.473 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#1]
+[DEBUG] 2018-02-22 14:27:00.534 [main] SQL - select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_, composers1_.nationality_id as national6_0_1_, composers1_.id as id1_0_1_, composers1_.id as id1_0_2_, composers1_.birth_year as birth_ye2_0_2_, composers1_.death_year as death_ye3_0_2_, composers1_.first_name as first_na4_0_2_, composers1_.last_name as last_nam5_0_2_, composers1_.nationality_id as national6_0_2_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:27:00.540 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.543 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.544 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.556 [main] ResultSetProcessorImpl - Starting ResultSet row #1
+[DEBUG] 2018-02-22 14:27:00.556 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.556 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.556 [main] ResultSetProcessorImpl - Starting ResultSet row #2
+[DEBUG] 2018-02-22 14:27:00.556 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.556 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.557 [main] ResultSetProcessorImpl - Starting ResultSet row #3
+[DEBUG] 2018-02-22 14:27:00.557 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.557 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.557 [main] ResultSetProcessorImpl - Starting ResultSet row #4
+[DEBUG] 2018-02-22 14:27:00.557 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.557 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.557 [main] TwoPhaseLoad - Resolving associations for [entity.Nationality#1]
+[DEBUG] 2018-02-22 14:27:00.560 [main] TwoPhaseLoad - Done materializing entity [entity.Nationality#1]
+[DEBUG] 2018-02-22 14:27:00.560 [main] CollectionLoadContext - 1 collections were found in result set for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.564 [main] CollectionLoadContext - Collection fully initialized: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.564 [main] CollectionLoadContext - 1 collections initialized for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.565 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.565 [main] AbstractLoadPlanBasedEntityLoader - Done entity load : entity.Nationality#1
+[DEBUG] 2018-02-22 14:27:00.566 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#1]
+[DEBUG] 2018-02-22 14:27:00.566 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#2]
+[DEBUG] 2018-02-22 14:27:00.566 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#2]
+[DEBUG] 2018-02-22 14:27:00.566 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#3]
+[DEBUG] 2018-02-22 14:27:00.566 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#3]
+[DEBUG] 2018-02-22 14:27:00.566 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.566 [main] SQL - select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_, composers1_.nationality_id as national6_0_1_, composers1_.id as id1_0_1_, composers1_.id as id1_0_2_, composers1_.birth_year as birth_ye2_0_2_, composers1_.death_year as death_ye3_0_2_, composers1_.first_name as first_na4_0_2_, composers1_.last_name as last_nam5_0_2_, composers1_.nationality_id as national6_0_2_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:27:00.568 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.568 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.569 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.569 [main] TwoPhaseLoad - Resolving associations for [entity.Nationality#2]
+[DEBUG] 2018-02-22 14:27:00.569 [main] TwoPhaseLoad - Done materializing entity [entity.Nationality#2]
+[DEBUG] 2018-02-22 14:27:00.569 [main] CollectionLoadContext - 1 collections were found in result set for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.569 [main] CollectionLoadContext - Collection fully initialized: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.570 [main] CollectionLoadContext - 1 collections initialized for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.570 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.570 [main] AbstractLoadPlanBasedEntityLoader - Done entity load : entity.Nationality#2
+[DEBUG] 2018-02-22 14:27:00.570 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.570 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#5]
+[DEBUG] 2018-02-22 14:27:00.570 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#5]
+[DEBUG] 2018-02-22 14:27:00.570 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#6]
+[DEBUG] 2018-02-22 14:27:00.570 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#6]
+[DEBUG] 2018-02-22 14:27:00.574 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2018-02-22 14:27:00.756 [main] SQL - select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_, nationalit1_.id as id1_3_1_, nationalit1_.nationality as national2_3_1_ from Composer composer0_ left outer join Nationality nationalit1_ on composer0_.nationality_id=nationalit1_.id where composer0_.id=?
+[DEBUG] 2018-02-22 14:27:00.758 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.759 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.759 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#1]
+[DEBUG] 2018-02-22 14:27:00.759 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#1]
+[DEBUG] 2018-02-22 14:27:00.759 [main] TwoPhaseLoad - Resolving associations for [entity.Nationality#1]
+[DEBUG] 2018-02-22 14:27:00.760 [main] TwoPhaseLoad - Done materializing entity [entity.Nationality#1]
+[DEBUG] 2018-02-22 14:27:00.760 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.762 [main] AbstractLoadPlanBasedCollectionInitializer - Loading collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.762 [main] SQL - select composers0_.nationality_id as national6_0_0_, composers0_.id as id1_0_0_, composers0_.id as id1_0_1_, composers0_.birth_year as birth_ye2_0_1_, composers0_.death_year as death_ye3_0_1_, composers0_.first_name as first_na4_0_1_, composers0_.last_name as last_nam5_0_1_, composers0_.nationality_id as national6_0_1_ from Composer composers0_ where composers0_.nationality_id=?
+[DEBUG] 2018-02-22 14:27:00.764 [main] ResultSetProcessorImpl - Preparing collection intializer : [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.764 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.764 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.764 [main] ResultSetProcessorImpl - Starting ResultSet row #1
+[DEBUG] 2018-02-22 14:27:00.765 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.765 [main] ResultSetProcessorImpl - Starting ResultSet row #2
+[DEBUG] 2018-02-22 14:27:00.765 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.765 [main] ResultSetProcessorImpl - Starting ResultSet row #3
+[DEBUG] 2018-02-22 14:27:00.766 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.766 [main] ResultSetProcessorImpl - Starting ResultSet row #4
+[DEBUG] 2018-02-22 14:27:00.766 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#2]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#2]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#3]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#3]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#5]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#5]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#6]
+[DEBUG] 2018-02-22 14:27:00.767 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#6]
+[DEBUG] 2018-02-22 14:27:00.768 [main] CollectionLoadContext - 1 collections were found in result set for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.768 [main] CollectionLoadContext - Collection fully initialized: [entity.Nationality.composers#1]
+[DEBUG] 2018-02-22 14:27:00.768 [main] CollectionLoadContext - 1 collections initialized for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.768 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.768 [main] AbstractLoadPlanBasedCollectionInitializer - Done loading collection
+[DEBUG] 2018-02-22 14:27:00.768 [main] AbstractLoadPlanBasedEntityLoader - Done entity load : entity.Composer#1
+[DEBUG] 2018-02-22 14:27:00.768 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2018-02-22 14:27:00.931 [main] SQL - select nationalit0_.id as id1_3_0_, nationalit0_.nationality as national2_3_0_, composers1_.nationality_id as national6_0_1_, composers1_.id as id1_0_1_, composers1_.id as id1_0_2_, composers1_.birth_year as birth_ye2_0_2_, composers1_.death_year as death_ye3_0_2_, composers1_.first_name as first_na4_0_2_, composers1_.last_name as last_nam5_0_2_, composers1_.nationality_id as national6_0_2_ from Nationality nationalit0_ left outer join Composer composers1_ on nationalit0_.id=composers1_.nationality_id where nationalit0_.id=?
+[DEBUG] 2018-02-22 14:27:00.933 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.933 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.934 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.934 [main] TwoPhaseLoad - Resolving associations for [entity.Nationality#2]
+[DEBUG] 2018-02-22 14:27:00.934 [main] TwoPhaseLoad - Done materializing entity [entity.Nationality#2]
+[DEBUG] 2018-02-22 14:27:00.934 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.935 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.935 [main] CollectionLoadContext - 1 collections were found in result set for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.935 [main] CollectionLoadContext - Collection fully initialized: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.935 [main] CollectionLoadContext - 1 collections initialized for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.935 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.935 [main] AbstractLoadPlanBasedEntityLoader - Done entity load : entity.Nationality#2
+[DEBUG] 2018-02-22 14:27:00.935 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2018-02-22 14:27:00.939 [main] TransactionImpl - begin
+[DEBUG] 2018-02-22 14:27:00.949 [main] ActionQueue - Executing identity-insert immediately
+[DEBUG] 2018-02-22 14:27:00.951 [main] SQL - insert into Composer (birth_year, death_year, first_name, last_name, nationality_id) values (?, ?, ?, ?, ?)
+[DEBUG] 2018-02-22 14:27:00.956 [main] IdentifierGeneratorHelper - Natively generated identity: 7
+[DEBUG] 2018-02-22 14:27:00.956 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.958 [main] TransactionImpl - committing
+[DEBUG] 2018-02-22 14:27:00.959 [main] AbstractFlushingEventListener - Processing flush-time cascades
+[DEBUG] 2018-02-22 14:27:00.959 [main] AbstractFlushingEventListener - Dirty checking collections
+[DEBUG] 2018-02-22 14:27:00.962 [main] AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+[DEBUG] 2018-02-22 14:27:00.962 [main] AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+[DEBUG] 2018-02-22 14:27:00.963 [main] EntityPrinter - Listing entities:
+[DEBUG] 2018-02-22 14:27:00.964 [main] EntityPrinter - entity.Composer{firstName=New, lastName=Musician, nationality=entity.Nationality#2, birthYear=null, deathYear=null, id=7}
+[DEBUG] 2018-02-22 14:27:00.965 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2018-02-22 14:27:00.966 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2018-02-22 14:27:00.968 [main] SQL - select composer0_.id as id1_0_0_, composer0_.birth_year as birth_ye2_0_0_, composer0_.death_year as death_ye3_0_0_, composer0_.first_name as first_na4_0_0_, composer0_.last_name as last_nam5_0_0_, composer0_.nationality_id as national6_0_0_, nationalit1_.id as id1_3_1_, nationalit1_.nationality as national2_3_1_ from Composer composer0_ left outer join Nationality nationalit1_ on composer0_.nationality_id=nationalit1_.id where composer0_.id=?
+[DEBUG] 2018-02-22 14:27:00.969 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.970 [main] EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+[DEBUG] 2018-02-22 14:27:00.970 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#7]
+[DEBUG] 2018-02-22 14:27:00.970 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#7]
+[DEBUG] 2018-02-22 14:27:00.970 [main] TwoPhaseLoad - Resolving associations for [entity.Nationality#2]
+[DEBUG] 2018-02-22 14:27:00.971 [main] TwoPhaseLoad - Done materializing entity [entity.Nationality#2]
+[DEBUG] 2018-02-22 14:27:00.971 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.971 [main] AbstractLoadPlanBasedCollectionInitializer - Loading collection: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.971 [main] SQL - select composers0_.nationality_id as national6_0_0_, composers0_.id as id1_0_0_, composers0_.id as id1_0_1_, composers0_.birth_year as birth_ye2_0_1_, composers0_.death_year as death_ye3_0_1_, composers0_.first_name as first_na4_0_1_, composers0_.last_name as last_nam5_0_1_, composers0_.nationality_id as national6_0_1_ from Composer composers0_ where composers0_.nationality_id=?
+[DEBUG] 2018-02-22 14:27:00.972 [main] ResultSetProcessorImpl - Preparing collection intializer : [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.972 [main] ResultSetProcessorImpl - Starting ResultSet row #0
+[DEBUG] 2018-02-22 14:27:00.973 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.973 [main] ResultSetProcessorImpl - Starting ResultSet row #1
+[DEBUG] 2018-02-22 14:27:00.973 [main] CollectionReferenceInitializerImpl - Found row of collection: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.973 [main] TwoPhaseLoad - Resolving associations for [entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.973 [main] TwoPhaseLoad - Done materializing entity [entity.Composer#4]
+[DEBUG] 2018-02-22 14:27:00.973 [main] CollectionLoadContext - 1 collections were found in result set for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.973 [main] CollectionLoadContext - Collection fully initialized: [entity.Nationality.composers#2]
+[DEBUG] 2018-02-22 14:27:00.973 [main] CollectionLoadContext - 1 collections initialized for role: entity.Nationality.composers
+[DEBUG] 2018-02-22 14:27:00.974 [main] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2018-02-22 14:27:00.974 [main] AbstractLoadPlanBasedCollectionInitializer - Done loading collection
+[DEBUG] 2018-02-22 14:27:00.974 [main] AbstractLoadPlanBasedEntityLoader - Done entity load : entity.Composer#7
+[DEBUG] 2018-02-22 14:27:00.974 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
