@@ -25,8 +25,8 @@ public class InstrumentCategory {
     @Column(name = "category")
     private String category;
 
-//    @OneToMany(mappedBy = "instrumentCategory", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-//    private Set<Instrument> instruments = new HashSet<>();
+    @OneToMany(mappedBy = "instrumentCategory", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<Instrument> instruments = new HashSet<>();
 
     /**
      * Instantiates a new Instrument category.
@@ -81,25 +81,25 @@ public class InstrumentCategory {
     }
 
 
-//    /**
-//     * Add Instrument.
-//     *
-//     * @param instrument the composer
-//     */
-//    public void addInstrument(Instrument instrument) {
-//        instruments.add(instrument);
-//        instrument.setInstrumentCategory(this);
-//    }
-//
-//    /**
-//     * Remove instrument.
-//     *
-//     * @param instrument the instrument
-//     */
-//    public void removeInstrument(Instrument instrument) {
-//        instruments.remove( instrument );
-//        instrument.setInstrumentCategory( null );
-//    }
+    /**
+     * Add Instrument.
+     *
+     * @param instrument the composer
+     */
+    public void addInstrument(Instrument instrument) {
+        instruments.add(instrument);
+        instrument.setInstrumentCategory(this);
+    }
+
+    /**
+     * Remove instrument.
+     *
+     * @param instrument the instrument
+     */
+    public void removeInstrument(Instrument instrument) {
+        instruments.remove( instrument );
+        instrument.setInstrumentCategory( null );
+    }
 
     @Override
     public boolean equals(Object o) {
