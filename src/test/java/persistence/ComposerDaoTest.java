@@ -17,7 +17,7 @@ public class ComposerDaoTest {
 
     /**
      * Set up.
-     * Reset the Nationality table to a known state.
+     * Reset the Composer table to a known state.
      */
     @BeforeEach
     void setUp(){
@@ -28,7 +28,7 @@ public class ComposerDaoTest {
     }
 
     /**
-     *  Verify successful insert of nationality.
+     *  Verify successful insert of composer.
      */
     @Test
     void insertSuccess() {
