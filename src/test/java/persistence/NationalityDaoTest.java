@@ -93,7 +93,7 @@ public class NationalityDaoTest {
         nationalityToUpdate.setNationality(newNationality);
         genericDao.saveOrUpdate(nationalityToUpdate);
         Nationality retrievedNationality = (Nationality) genericDao.getById(2);
-        assertEquals(newNationality, retrievedNationality.getNationality());
+        assertEquals(nationalityToUpdate, retrievedNationality);
     }
 
     /**
