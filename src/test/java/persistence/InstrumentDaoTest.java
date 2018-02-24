@@ -84,11 +84,11 @@ public class InstrumentDaoTest {
 
 
     /**
-     * Verify successful delete of nationality
+     * Verify successful delete of Instrument
      */
-//    @Test
-//    void deleteSuccess(){
-//        genericDao.delete(genericDao.getById(1));
-//        assertNull(genericDao.getById(1));
-//    }
+    @Test
+    void deleteSuccess(){
+        genericDao.delete(genericDao.getById(1));
+        assertNull(genericDao.getById(1));
+    }
 }
