@@ -36,8 +36,8 @@ public class InstrumentCategoryDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<InstrumentCategory> nationalityList = genericDao.getAll();
-        assertEquals(6, nationalityList.size());
+        List<InstrumentCategory> instrumentCategoryList = genericDao.getAll();
+        assertEquals(6, instrumentCategoryList.size());
     }
 
     /**
@@ -70,8 +70,8 @@ public class InstrumentCategoryDaoTest {
         InstrumentCategory categoryToUpdate = (InstrumentCategory) genericDao.getById(6);
         categoryToUpdate.setCategory(newCategory);
         genericDao.saveOrUpdate(categoryToUpdate);
-        InstrumentCategory retrievedNationality = (InstrumentCategory) genericDao.getById(6);
-        assertEquals(newCategory, retrievedNationality.getCategory());
+        InstrumentCategory retrievedCategory = (InstrumentCategory) genericDao.getById(6);
+        assertEquals(newCategory, retrievedCategory.getCategory());
     }
 
     /**
