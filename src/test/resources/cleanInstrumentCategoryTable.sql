@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composition` (
 -- -----------------------------------------------------
 -- Table `test_concertPlanner`.`Instrument_Category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `test_concertPlanner`.`Instrument_Category`;
+DROP TABLE IF EXISTS `test_concertPlanner`.InstrumentCategory;
 
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Instrument_Category` (
   `Id`       INT(11)      NOT NULL AUTO_INCREMENT,
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Instrument` (
   INDEX `Instrument_Instrument_Category` (`Instrument_Category_Id` ASC),
   CONSTRAINT `Instrument_Instrument_Category`
   FOREIGN KEY (`Instrument_Category_Id`)
-  REFERENCES `test_concertPlanner`.`Instrument_Category` (`Id`)
+  REFERENCES `test_concertPlanner`.InstrumentCategory (`Id`)
 )
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = latin1;
