@@ -66,7 +66,7 @@ public class NationalityDaoTest {
 
 
     /**
-     *  Verify successful insert of nationality.
+     *  Verify successful insert of nationality with Composer.
      */
     @Test
     void insertWithComposerSuccess() {

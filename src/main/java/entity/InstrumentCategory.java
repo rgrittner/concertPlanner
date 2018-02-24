@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -106,5 +107,20 @@ public class InstrumentCategory {
     @Override
     public String toString(){
         return "Instrument Category {id= " + id + " category= " + category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InstrumentCategory that = (InstrumentCategory) o;
+        return id == that.id &&
+                Objects.equals(category, that.category);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, category);
     }
 }

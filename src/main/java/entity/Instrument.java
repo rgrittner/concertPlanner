@@ -3,6 +3,7 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Represents an Instrument.
@@ -34,12 +35,11 @@ public class Instrument {
     /**
      * Instantiates a new Instrument.
      *
-     * @param id                 the id
      * @param name               the name
      * @param instrumentCategory the instrument category
      */
-    public Instrument(int id, String name, InstrumentCategory instrumentCategory) {
-        this.id = id;
+    public Instrument(String name, InstrumentCategory instrumentCategory) {
+
         this.name = name;
         this.instrumentCategory = instrumentCategory;
     }
@@ -105,5 +105,21 @@ public class Instrument {
                 ", name='" + name + '\'' +
                 ", instrumentCategory=" + instrumentCategory +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Instrument that = (Instrument) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(instrumentCategory, that.instrumentCategory);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, instrumentCategory);
     }
 }

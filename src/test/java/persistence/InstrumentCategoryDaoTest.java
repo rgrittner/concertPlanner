@@ -1,5 +1,6 @@
 package persistence;
 
+import entity.Instrument;
 import entity.InstrumentCategory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class InstrumentCategoryDaoTest {
     @BeforeEach
     void setUp(){
         Database database = Database.getInstance();
-        database.runSQL("cleanInstrumentCategoryTable.sql");
+        database.runSQL("cleanAll.sql");
 
 
         genericDao = new GenericDao(InstrumentCategory.class);
@@ -58,11 +59,31 @@ public class InstrumentCategoryDaoTest {
         int id = genericDao.insert(newCategory);
         assertNotEquals(0, id);
         InstrumentCategory insertedCategory = (InstrumentCategory) genericDao.getById(id);
-        assertEquals("Test", insertedCategory.getCategory());
+        assertEquals(newCategory, insertedCategory);
     }
 
+
     /**
-     * Verify successful save or update of category
+     *  Verify successful insert of instrument category with Instrument.
+     */
+    @Test
+    void insertWithInstrumentSuccess() {
+        InstrumentCategory newInstrumentCategory = new InstrumentCategory("Bananas");
+
+        Instrument instrument = new Instrument("New Instrument", newInstrumentCategory);
+
+        newInstrumentCategory.addInstrument(instrument);
+
+        int id = genericDao.insert(newInstrumentCategory);
+        assertNotEquals(0, id);
+        InstrumentCategory insertedInstrumentCategory = (InstrumentCategory) genericDao.getById(id);
+        assertEquals(newInstrumentCategory, insertedInstrumentCategory);
+        //assertEquals(1, insertedInstrumentCategory.get);
+    }
+
+
+    /**
+     * Verify successful save or update of instrument category
      */
     @Test
     void saveOrUpdateSuccess(){
@@ -71,16 +92,18 @@ public class InstrumentCategoryDaoTest {
         categoryToUpdate.setCategory(newCategory);
         genericDao.saveOrUpdate(categoryToUpdate);
         InstrumentCategory retrievedInstrumentCategory = (InstrumentCategory) genericDao.getById(6);
-        assertEquals(newCategory, retrievedInstrumentCategory.getCategory());
+        assertEquals(categoryToUpdate, retrievedInstrumentCategory);
     }
 
     /**
      * Verify successful delete of category
      */
     @Test
-    void deleteSuccess(){
-        genericDao.delete(genericDao.getById(1));
-        assertNull(genericDao.getById(1));
+    void deleteItemWithNoFKConstraintSuccess(){
+        InstrumentCategory newCategory = new InstrumentCategory("Test");
+        int id = genericDao.insert(newCategory);
+        genericDao.delete(genericDao.getById(id));
+        assertNull(genericDao.getById(id));
     }
 
 
