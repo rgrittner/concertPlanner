@@ -46,7 +46,7 @@ public class InstrumentCategoryDaoTest {
     @Test
     void getByIdSuccess(){
         InstrumentCategory retrievedCategory = (InstrumentCategory) genericDao.getById(4);
-        assertEquals("Woods", retrievedCategory.getCategory());
+        assertEquals("Metals", retrievedCategory.getCategory());
     }
 
     /**
