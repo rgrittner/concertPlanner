@@ -46,7 +46,7 @@ public class InstrumentCategoryDaoTest {
     @Test
     void getByIdSuccess(){
         InstrumentCategory retrievedCategory = (InstrumentCategory) genericDao.getById(4);
-        assertEquals("Metals", retrievedCategory.getCategory());
+        assertEquals("Metals", retrievedCategory.getCategoryDescription());
     }
 
     /**
@@ -58,7 +58,7 @@ public class InstrumentCategoryDaoTest {
         int id = genericDao.insert(newCategory);
         assertNotEquals(0, id);
         InstrumentCategory insertedCategory = (InstrumentCategory) genericDao.getById(id);
-        assertEquals("Test", insertedCategory.getCategory());
+        assertEquals("Test", insertedCategory.getCategoryDescription());
     }
 
     /**
@@ -68,10 +68,10 @@ public class InstrumentCategoryDaoTest {
     void saveOrUpdateSuccess(){
         String newCategory = "testing";
         InstrumentCategory categoryToUpdate = (InstrumentCategory) genericDao.getById(6);
-        categoryToUpdate.setCategory(newCategory);
+        categoryToUpdate.setCategoryDescription(newCategory);
         genericDao.saveOrUpdate(categoryToUpdate);
         InstrumentCategory retrievedCategory = (InstrumentCategory) genericDao.getById(6);
-        assertEquals(newCategory, retrievedCategory.getCategory());
+        assertEquals(newCategory, retrievedCategory.getCategoryDescription());
     }
 
     /**

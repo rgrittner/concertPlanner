@@ -4,7 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -108,11 +107,6 @@ public class Nationality {
         composer.setNationality(this);
     }
 
-    /**
-     * Remove composer.
-     *
-     * @param composer the composer
-     */
     public void removeComposer(Composer composer) {
         composers.remove( composer );
         composer.setNationality( null );
@@ -124,18 +118,6 @@ public class Nationality {
         return "Nationality{ " + nationality + " }";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Nationality that = (Nationality) o;
-        return id == that.id &&
-                Objects.equals(nationality, that.nationality);
-    }
 
-    @Override
-    public int hashCode() {
 
-        return Objects.hash(id, nationality);
-    }
 }

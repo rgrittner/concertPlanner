@@ -3,11 +3,10 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
- * Represents an Instrument.
- *
- * @author Renee Grittner
+ * The type Instrument.
  */
 @Entity(name = "Instrument")
 @Table(name = "Instrument")
@@ -19,91 +18,52 @@ public class Instrument {
     private int id;
 
     @Column(name = "name")
-    private String name;
+    private String instrumentName;
 
-//    @ManyToOne
-//    private InstrumentCategory instrumentCategory;
+    @ManyToOne
+    private InstrumentCategory instrumentCategory;
 
-    /**
-     * Instantiates a new Instrument.
-     */
     public Instrument() {
     }
 
-    /**
-     * Instantiates a new Instrument.
-     *
-     * @param id                 the id
-     * @param name               the name
-   //  * @param instrumentCategory the instrument category
-     */
-    public Instrument(int id, String name) {
-        this.id = id;
-        this.name = name;
-        //this.instrumentCategory = instrumentCategory;
+    public Instrument(String instrumentName, InstrumentCategory instrumentCategory) {
+        this.instrumentName = instrumentName;
+        this.instrumentCategory = instrumentCategory;
     }
 
+    public int getId() { return id; }
 
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getInstrumentName() { return instrumentName; }
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+    public void setInstrumentName(String instrumentName) { this.instrumentName = instrumentName; }
 
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+    public InstrumentCategory getInstrumentCategory() { return instrumentCategory; }
 
-    /**
-     * Gets instrument category.
-     *
-     * @return the instrument category
-     */
-//    public InstrumentCategory getInstrumentCategory() {
-//        return instrumentCategory;
-//    }
-//
-//    /**
-//     * Sets instrument category.
-//     *
-//     * @param instrumentCategory the instrument category
-//     */
-//    public void setInstrumentCategory(InstrumentCategory instrumentCategory) {
-//        this.instrumentCategory = instrumentCategory;
-//    }
+    public void setInstrumentCategory(InstrumentCategory instrumentCategory) { this.instrumentCategory = instrumentCategory; }
 
     @Override
     public String toString() {
         return "Instrument{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", instrumentCategory=" +
+                ", instrumentName='" + instrumentName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Instrument that = (Instrument) o;
+        return id == that.id &&
+                Objects.equals(instrumentName, that.instrumentName) &&
+                Objects.equals(instrumentCategory, that.instrumentCategory);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, instrumentName, instrumentCategory);
     }
 }
