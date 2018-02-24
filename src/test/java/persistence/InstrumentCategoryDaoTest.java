@@ -25,7 +25,7 @@ public class InstrumentCategoryDaoTest {
     @BeforeEach
     void setUp(){
         Database database = Database.getInstance();
-        database.runSQL("cleanInstrumentCategoryTable.sql");
+        database.runSQL("cleanAll.sql");
 
 
         genericDao = new GenericDao(InstrumentCategory.class);
