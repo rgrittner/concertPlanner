@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Nationality` (`id` INT(11) NOT
 DROP TABLE IF EXISTS `test_concertPlanner`.`Composer`;
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composer` (`id` INT(11) NOT NULL AUTO_INCREMENT,`first_name` VARCHAR(100) NOT NULL, `last_name` VARCHAR(100) NOT NULL, `birth_year` INT(11) NULL DEFAULT NULL, `death_year` INT(11) NULL DEFAULT NULL, `Nationality_id` INT(11) NOT NULL, PRIMARY KEY (`id`), INDEX `Composer_Nationality` (`Nationality_id` ASC), CONSTRAINT `Composer_Nationality` FOREIGN KEY (`Nationality_id`) REFERENCES `test_concertPlanner`.`Nationality` (`id`) ON UPDATE CASCADE) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Composition`;
-CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composition` (`id` INT(11) NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `arranger` VARCHAR(100) NULL DEFAULT NULL, `duration` INT(11) NOT NULL, `year` INT(11) NOT NULL, `number_of_players` INT(11) NOT NULL, `notes` VARCHAR(300) NOT NULL, `Composer_id` INT(11) NOT NULL, `clocks_commission` TINYINT NULL, PRIMARY KEY (`id`), INDEX `Composition_Composer` (`Composer_id` ASC), CONSTRAINT `Composition_Composer` FOREIGN KEY (`Composer_id`) REFERENCES `test_concertPlanner`.`Composer` (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composition` (`id` INT(11) NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `arranger` VARCHAR(100) NULL DEFAULT NULL, `duration` INT(11) NOT NULL, `year` INT(11) NOT NULL, `number_of_players` INT(11) NOT NULL, `notes` VARCHAR(300) NULL, `Composer_id` INT(11) NOT NULL, `clocks_commission` TINYINT NULL, PRIMARY KEY (`id`), INDEX `Composition_Composer` (`Composer_id` ASC), CONSTRAINT `Composition_Composer` FOREIGN KEY (`Composer_id`) REFERENCES `test_concertPlanner`.`Composer` (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.InstrumentCategory;
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`InstrumentCategory` (`id` INT(11) NOT NULL AUTO_INCREMENT, `category` VARCHAR(100) NOT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Instrument`;
@@ -74,5 +74,13 @@ INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `
 INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (3, 'Andrew', 'Viet', '123');
 INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (4, 'Kyle', 'Flens', '123');
 INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (5, 'Garrett', 'Mendelow', '123');
+COMMIT;
+START TRANSACTION;
+USE `test_concertPlanner`;
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (1, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (2, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (3, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (4, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (5, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
 COMMIT;
 
