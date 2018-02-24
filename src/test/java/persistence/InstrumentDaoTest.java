@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -41,5 +43,14 @@ public class InstrumentDaoTest {
         assertEquals(newInstrument, insertedInstrument);
         //assertEquals("Musician", insertedMusician.getLastName());
 
+    }
+
+    /**
+     * Verify successful retrieval of all composers.
+     */
+    @Test
+    void getAllSuccess(){
+        List<Instrument> instrumentList = genericDao.getAll();
+        assertEquals(20, instrumentList.size());
     }
 }
