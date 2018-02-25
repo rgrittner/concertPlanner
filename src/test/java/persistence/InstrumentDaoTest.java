@@ -42,7 +42,6 @@ public class InstrumentDaoTest {
         assertNotEquals(0, id);
         Instrument insertedInstrument = (Instrument) genericDao.getById(id);
         assertEquals(newInstrument, insertedInstrument);
-        //assertEquals("Musician", insertedMusician.getLastName());
 
     }
 

@@ -1,0 +1,6 @@
+Thinking about inserts (Composer)
+
+When preparing data for insert, will I have to query the Nationality table to get back the object
+in order to then add the object Nationality with the rest of the composer information?
+
+--

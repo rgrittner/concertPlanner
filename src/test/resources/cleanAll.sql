@@ -77,10 +77,10 @@ INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `
 COMMIT;
 START TRANSACTION;
 USE `test_concertPlanner`;
-INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (1, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
-INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (2, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
-INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (3, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (1, 'Gravity', NULL, 1, 2010, 1, 4, NULL, 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (2, 'Red', NULL, 1, 2008, 1, 2, NULL, 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (3, 'Third Construction', NULL, 1, 2019, 1, 4, 'notes', 3);
 INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (4, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
-INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (5, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
+INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (5, 'title', 'arranger', 1, 2019, 0, 4, 'notes', 1);
 COMMIT;
 

@@ -61,13 +61,31 @@ public class GenericDao<T> {
 
 
     /**
-     * Get by property equal list.
+     * Get by property equal list when a String is the value.
      *
      * @param propertyName the property name
      * @param value        the value
      * @return the list
      */
     public List<T> getByPropertyEqual(String propertyName, String value){
+        Session session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root).where(builder.equal(root.get(propertyName), value));
+        List<T> list = session.createQuery(query).getResultList();
+        return list;
+    }
+
+    /**
+     * Get by property equal list when an Integer is the value.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the list
+     */
+    public List<T> getByPropertyEqual(String propertyName, Integer value){
         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -100,6 +118,12 @@ public class GenericDao<T> {
         session.close();
         return list;
     }
+
+
+
+
+
+
 
     /**
      * Save or update.

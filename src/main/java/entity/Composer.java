@@ -3,7 +3,9 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Composer.
@@ -32,6 +34,13 @@ public class Composer {
     @ManyToOne
     private Nationality nationality;
 
+    @OneToMany(mappedBy = "composer", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<Composition> compositions = new HashSet<>();
+
+
+    /**
+     * Instantiates a new Composer.
+     */
     public Composer() {
     }
 
@@ -155,6 +164,25 @@ public class Composer {
      */
     public void setNationality(Nationality nationality) {
         this.nationality = nationality;
+    }
+
+
+    public Set<Composition> getCompositions() {
+        return compositions;
+    }
+
+    public void setCompositions(Set<Composition> compositions) {
+        this.compositions = compositions;
+    }
+
+    public void addComposition(Composition composition) {
+        compositions.add(composition);
+        composition.setComposer(this);
+    }
+
+    public void removeComposition(Composition composition) {
+        compositions.add(composition);
+        composition.setComposer(null);
     }
 
     @Override

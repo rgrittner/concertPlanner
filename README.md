@@ -27,7 +27,7 @@ In future versions the concert planner will also allow functionality to:
 * Dependency Management
     * Maven
 * Web Services consumed using Java
-    --- TBD ---
+    * Google Drive REST API
 * CSS
     * Bootstrap
 * Data Validation

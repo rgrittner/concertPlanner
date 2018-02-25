@@ -35,8 +35,10 @@ public class Composition {
     @Column(name = "clocks_commission")
     private boolean clocksCommission;
 
-    @Column(name = "Composer_id")
-    private int composerId;
+
+    @ManyToOne
+    //@JoinColumn(name = "Composer_id", foreignKey = @ForeignKey(name = "Composition_Composer"))
+    private Composer composer;
 
 
 
@@ -44,7 +46,7 @@ public class Composition {
     public Composition() {
     }
 
-    public Composition(String title, String arranger, Integer duration, Integer yearComposed, Integer numberOfPlayers, String notes, boolean clocksCommission, int composerId) {
+    public Composition(String title, String arranger, Integer duration, Integer yearComposed, Integer numberOfPlayers, String notes, boolean clocksCommission, Composer composer) {
         this.title = title;
         this.arranger = arranger;
         this.duration = duration;
@@ -52,10 +54,8 @@ public class Composition {
         this.numberOfPlayers = numberOfPlayers;
         this.notes = notes;
         this.clocksCommission = clocksCommission;
-        this.composerId = composerId;
+        this.composer = composer;
     }
-
-
 
     public int getId() {
         return id;
@@ -121,6 +121,13 @@ public class Composition {
         this.clocksCommission = clocksCommission;
     }
 
+    public Composer getComposer() {
+        return composer;
+    }
+
+    public void setComposer(Composer composer) {
+        this.composer = composer;
+    }
 
     @Override
     public String toString() {
@@ -136,13 +143,6 @@ public class Composition {
                 '}';
     }
 
-    public int getComposerId() {
-        return composerId;
-    }
-
-    public void setComposerId(int composerId) {
-        this.composerId = composerId;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -151,18 +151,18 @@ public class Composition {
         Composition that = (Composition) o;
         return id == that.id &&
                 clocksCommission == that.clocksCommission &&
-                composerId == that.composerId &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(arranger, that.arranger) &&
                 Objects.equals(duration, that.duration) &&
                 Objects.equals(yearComposed, that.yearComposed) &&
                 Objects.equals(numberOfPlayers, that.numberOfPlayers) &&
-                Objects.equals(notes, that.notes);
+                Objects.equals(notes, that.notes) &&
+                Objects.equals(composer, that.composer);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, title, arranger, duration, yearComposed, numberOfPlayers, notes, clocksCommission, composerId);
+        return Objects.hash(id, title, arranger, duration, yearComposed, numberOfPlayers, notes, clocksCommission, composer);
     }
 }
