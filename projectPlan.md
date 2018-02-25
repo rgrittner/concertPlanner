@@ -12,12 +12,12 @@
 - [x] Triple-check for Checkpoint 1: Problem statement, project plan, screen design and time log pushed to GitHub. 
 
 ### Week 4
-- [ ] List technologies, versions and how they will be used
+- [x] List technologies, versions and how they will be used
 - [x] Complete database design
 - [x] Create the database
 - [x] Create the Nationality, Composer, Musician, InstrumentCategory, Instrument entity class and annotate for hibernate
 - [x] Create the test database
-- [ ] Weekly journal entry
+- [x] Weekly journal entry
 - [x] Set up logging
 - [ ] Create class uml diagram
 - [x] Prepare for Week 5 peer design/code review
@@ -26,11 +26,11 @@
 ### Week 5
 
 - [ ] Create the template for all jsps using bootstrap or materialize
-- [ ] Weekly journal entry
+- [x] Weekly journal entry
 - [x] Create the generic dao
 - [x] Create the nationality, composer dao unit tests
 - [x] Add a jsp to display musician information 
-- [ ] Add jsp to add a musician 
+- [x] Add jsp to add a musician 
 
 ### Week 6
 
@@ -38,7 +38,7 @@
 - [ ] Deploy to AWS for first time
 - [ ] Weekly journal entry
 - [ ] Add update and delete functionality in jsp for nationality, composer & musician
-- [ ] Build the composer search jsp
+- [x] Build the composer search jsp
 - [ ] Build the composer add/update/delete jsp
 - [ ] Build the composition search jsp
 - [ ] Build the composition add/update/delete jsp

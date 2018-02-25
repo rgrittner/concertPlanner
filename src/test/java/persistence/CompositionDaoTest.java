@@ -8,6 +8,7 @@ import util.Database;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class CompositionDaoTest {
     GenericDao genericDao;
@@ -31,5 +32,18 @@ public class CompositionDaoTest {
     void getAllSuccess(){
         List<Composition> instrumentList = genericDao.getAll();
         assertEquals(5, instrumentList.size());
+    }
+
+    /**
+     *  Verify successful insert of category.
+     */
+    @Test
+    void insertSuccess() {
+
+        Composition newCategory = new Composition("title", "arranger", 10, 2019, 4, "notes", true, 1);
+        int id = genericDao.insert(newCategory);
+        assertNotEquals(0, id);
+        Composition insertedCategory = (Composition) genericDao.getById(id);
+        assertEquals(newCategory, insertedCategory);
     }
 }

@@ -3,6 +3,7 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity(name = "Composition")
 @Table(name = "Composition")
@@ -23,7 +24,7 @@ public class Composition {
     private Integer duration;
 
     @Column(name = "year")
-    private String yearComposed;
+    private Integer yearComposed;
 
     @Column(name = "number_of_players")
     private Integer numberOfPlayers;
@@ -34,21 +35,27 @@ public class Composition {
     @Column(name = "clocks_commission")
     private boolean clocksCommission;
 
+    @Column(name = "Composer_id")
+    private int composerId;
+
 
 
 
     public Composition() {
     }
 
-    public Composition(String title, String arranger, Integer duration, String yearComposed, String notes, boolean clocksCommission) {
+    public Composition(String title, String arranger, Integer duration, Integer yearComposed, Integer numberOfPlayers, String notes, boolean clocksCommission, int composerId) {
         this.title = title;
         this.arranger = arranger;
         this.duration = duration;
         this.yearComposed = yearComposed;
+        this.numberOfPlayers = numberOfPlayers;
         this.notes = notes;
         this.clocksCommission = clocksCommission;
-
+        this.composerId = composerId;
     }
+
+
 
     public int getId() {
         return id;
@@ -82,11 +89,11 @@ public class Composition {
         this.duration = duration;
     }
 
-    public String getYearComposed() {
+    public Integer getYearComposed() {
         return yearComposed;
     }
 
-    public void setYearComposed(String yearComposed) {
+    public void setYearComposed(Integer yearComposed) {
         this.yearComposed = yearComposed;
     }
 
@@ -127,5 +134,35 @@ public class Composition {
                 ", notes='" + notes + '\'' +
                 ", clocksCommission=" + clocksCommission +
                 '}';
+    }
+
+    public int getComposerId() {
+        return composerId;
+    }
+
+    public void setComposerId(int composerId) {
+        this.composerId = composerId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Composition that = (Composition) o;
+        return id == that.id &&
+                clocksCommission == that.clocksCommission &&
+                composerId == that.composerId &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(arranger, that.arranger) &&
+                Objects.equals(duration, that.duration) &&
+                Objects.equals(yearComposed, that.yearComposed) &&
+                Objects.equals(numberOfPlayers, that.numberOfPlayers) &&
+                Objects.equals(notes, that.notes);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, title, arranger, duration, yearComposed, numberOfPlayers, notes, clocksCommission, composerId);
     }
 }
