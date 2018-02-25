@@ -18,6 +18,8 @@ In future versions the concert planner will also allow functionality to:
     * Guest role: view sample application
 * Database
     * MySQL
+    * MySQL Workbench
+    * Vertabelo
     * Stores users and roles
     * Stores Composers, Compositions, Instruments, Musicians, and Concert Program information
 * ORM Framework
@@ -42,9 +44,13 @@ In future versions the concert planner will also allow functionality to:
 * IDE: IntelliJ IDEA
 * Design and Layout
     * Balsamiq Mockups 3
+* Repository
+    * Github
+    
 
 ### Design
 [Wire Frames](concertPlanner.pdf)
+[ERD](concertPlannerDbDesign.pdf)
 
 ### [Project Plan](projectPlan.md)
 
