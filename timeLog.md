@@ -14,3 +14,4 @@
 |2/15/18 | Converted over to generic DAO, insured all unit tests and jsp's were corrected to reflect changes in DAO. | 1 | |
 |2/20/18 | Began implementing many to one relationship between Nationality and Composer. getAll, getById, and insert composer all functioning | 3 | Some struggles with cleaning sql|  
 |2/23/18 | Completed: InstrumentCategory & Instrument classes with relationships. Full testing passing. Display Composer w/ Nationality in jsp (44 commits!) | 5 | |
+|2/24/18 | Getting started with AWS, instance up, MySQL working and root password is changed. Updated ReadMe | 1 | |
