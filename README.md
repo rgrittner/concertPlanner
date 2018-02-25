@@ -40,8 +40,11 @@ In future versions the concert planner will also allow functionality to:
 * Unit Testing
     * JUnit tests to achieve 80% code coverage
 * IDE: IntelliJ IDEA
+* Design and Layout
+    * Balsamiq Mockups 3
 
 ### Design
+[Wire Frames](concertPlanner.pdf)
 
 ### [Project Plan](projectPlan.md)
 
