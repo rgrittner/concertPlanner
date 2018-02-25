@@ -53,3 +53,4 @@ logs/hibernate.log
 *.log
 *.log
 logs/hibernate.log
+*.pem
