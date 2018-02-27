@@ -32,6 +32,7 @@ public class GenericDao<T> {
         Transaction transaction = session.beginTransaction();
         id = (int)session.save(entity);
         logger.debug("id from DAO: " + id);
+        System.out.println("id from DAO " + id);
         transaction.commit();
         session.close();
         return id;
@@ -43,6 +44,7 @@ public class GenericDao<T> {
      * @return the all
      */
     public List<T> getAll() {
+        System.out.println("HELLO");
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);

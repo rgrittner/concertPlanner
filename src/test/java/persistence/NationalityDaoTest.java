@@ -72,7 +72,7 @@ public class NationalityDaoTest {
     void insertWithComposerSuccess() {
         Nationality newNationality = new Nationality("English");
 
-        Composer composer = new Composer("New", "Composer", newNationality);
+        Composer composer = new Composer("New", "Musician", 1912, 1983, newNationality);
 
         newNationality.addComposer(composer);
 

@@ -8,7 +8,7 @@
   <name>concertPlanner Maven Webapp</name>
   <url>http://maven.apache.org</url>
    <build>
-     <finalName>Concert Planner</finalName>
+     <finalName>ConcertPlanner</finalName>
      <plugins>
        <plugin>
          <groupId>org.apache.maven.plugins</groupId>

@@ -52,9 +52,17 @@ public class Composer {
 
      * @param nationality the nationality
      */
-    public Composer(String firstName, String lastName, Nationality nationality) {
+//    public Composer(String firstName, String lastName, Nationality nationality) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.nationality = nationality;
+//    }
+
+    public Composer(String firstName, String lastName, Integer birthYear, Integer deathYear, Nationality nationality) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthYear = birthYear;
+        this.deathYear = deathYear;
         this.nationality = nationality;
     }
 

@@ -2,6 +2,8 @@ package persistence;
 
 import entity.Composer;
 import entity.Nationality;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
@@ -14,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ComposerDaoTest {
     GenericDao genericDao;
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
      * Set up.
@@ -36,7 +39,7 @@ public class ComposerDaoTest {
         GenericDao localDao = new GenericDao(Nationality.class);
         Nationality nationality = (Nationality) localDao.getById(2);
 
-        Composer newComposer = new Composer("New", "Musician", nationality);
+        Composer newComposer = new Composer("New", "Musician", 1912, 1983, nationality);
         nationality.addComposer(newComposer);
 
         int id = genericDao.insert(newComposer);
@@ -54,6 +57,9 @@ public class ComposerDaoTest {
      */
     @Test
     void getAllSuccess(){
+        logger.debug("hello");
+        logger.info("hello");
+        logger.error("hello");
         List<Composer> composerList = genericDao.getAll();
         assertEquals(6, composerList.size());
     }
