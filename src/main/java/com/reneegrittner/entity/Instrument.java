@@ -23,7 +23,7 @@ public class Instrument {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "InstrumentCategory_id", foreignKey = @ForeignKey(name = "Instrument_InstrumentCategory"))
+    @JoinColumn(name = "Instrument_Category_id", foreignKey = @ForeignKey(name = "Instrument_Instrument_Category"))
     private InstrumentCategory instrumentCategory;
 
     /**

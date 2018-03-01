@@ -14,7 +14,7 @@ import java.util.Set;
  * @author Renee Grittner
  */
 @Entity(name = "InstrumentCategory")
-@Table(name = "InstrumentCategory")
+@Table(name = "Instrument_Category")
 public class InstrumentCategory {
 
     @Id
