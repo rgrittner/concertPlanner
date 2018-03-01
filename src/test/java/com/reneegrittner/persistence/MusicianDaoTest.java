@@ -28,7 +28,7 @@ public class MusicianDaoTest {
     @BeforeEach
     void setUp(){
         DatabaseTwo database = DatabaseTwo.getInstance();
-        database.runSQL("cleanMusicianTable.sql");
+        database.runSQL("cleanAll.sql");
 
 
         genericDao = new GenericDao(Musician.class);
@@ -65,7 +65,7 @@ public class MusicianDaoTest {
     @Test
     void getAllSuccess(){
         List<Musician> MusicianList = genericDao.getAll();
-        assertEquals(4, MusicianList.size());
+        assertEquals(5, MusicianList.size());
     }
 
     /**

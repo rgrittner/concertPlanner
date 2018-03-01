@@ -3,6 +3,7 @@ package com.reneegrittner.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * A class to represent a musician.
@@ -35,7 +36,6 @@ public class Musician {
     /**
      * Instantiates a new Musician.
      *
-     * @param id          the id
      * @param firstName   the first name
      * @param lastName    the last name
      * @param phoneNumber the phone number
@@ -125,5 +125,22 @@ public class Musician {
                 "first name = " + firstName + '\'' +
                 "last name = " + lastName + '\'' +
                 "phone = " + phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Musician musician = (Musician) o;
+        return id == musician.id &&
+                Objects.equals(firstName, musician.firstName) &&
+                Objects.equals(lastName, musician.lastName) &&
+                Objects.equals(phoneNumber, musician.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstName, lastName, phoneNumber);
     }
 }
