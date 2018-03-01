@@ -8,11 +8,10 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ComposerDaoTest {
     GenericDao genericDao;
@@ -109,12 +108,11 @@ public class ComposerDaoTest {
     }
 
 
-//    /**
-//     * Verify successful delete of nationality
-//     */
-//    @Test
-//    void deleteSuccess(){
-//        genericDao.delete(genericDao.getById(1));
-//        assertNull(genericDao.getById(1));
-//    }
+    @Test
+    void deleteExceptionTesting() {
+        Throwable exception = assertThrows(PersistenceException.class, () -> {
+            genericDao.delete(genericDao.getById(1));
+        });
+        assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
+    }
 }
