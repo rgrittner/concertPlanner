@@ -89,3 +89,4 @@ INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (2, 1, 2, 1, 1);
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (3, 1, 3, 2, 1);
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (4, 1, 4, 2, 1);
+COMMIT;
