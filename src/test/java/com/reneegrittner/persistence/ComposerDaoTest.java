@@ -56,9 +56,7 @@ public class ComposerDaoTest {
      */
     @Test
     void getAllSuccess(){
-        logger.debug("hello");
-        logger.info("hello");
-        logger.error("hello");
+
         List<Composer> composerList = genericDao.getAll();
         assertEquals(6, composerList.size());
     }
