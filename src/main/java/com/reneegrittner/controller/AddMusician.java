@@ -1,7 +1,7 @@
-package controller;
+package com.reneegrittner.controller;
 
-import entity.Musician;
-import persistence.GenericDao;
+import com.reneegrittner.entity.Musician;
+import com.reneegrittner.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,18 +30,34 @@ public class AddMusician extends HttpServlet {
         musicianToBeAdded.setFirstName(req.getParameter("firstName"));
         musicianToBeAdded.setLastName(req.getParameter("lastName"));
         musicianToBeAdded.setPhoneNumber(req.getParameter("phone"));
+        String musicianIdFromForm = req.getParameter("musicianId");
+        Integer musicianId = null;
+        GenericDao genericDao = new GenericDao(Musician.class);
+        if(musicianIdFromForm != null) {
+            musicianId = Integer.parseInt(musicianIdFromForm);
+            musicianToBeAdded.setId(musicianId);
+        }
+
+        if(musicianId == null){
+            genericDao.insert(musicianToBeAdded);
+        }
+
+        if(musicianId != null){
+            genericDao.saveOrUpdate(musicianToBeAdded);
+        }
+
 
         // Check for someone that already exists?
         // If not found then add?
 
         // Search by object? search by two parameters?
 
-        GenericDao genericDao = new GenericDao(Musician.class);
-
-        genericDao.insert(musicianToBeAdded);
 
 
-        String url = "/musicians";
+
+
+
+        String url = "/concertPlanner/musicians";
 
         resp.sendRedirect(url);
 

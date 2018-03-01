@@ -1,4 +1,4 @@
-package util;
+package com.reneegrittner.util;
 
 
 import org.apache.logging.log4j.LogManager;
@@ -21,18 +21,18 @@ import java.util.Properties;
  * @author pwaite
  */
 
-public class Database {
+public class DatabaseTwo {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-    // create an object of the class Database
-    private static Database instance = new Database();
+    // create an object of the class DatabaseTwo
+    private static DatabaseTwo instance = new DatabaseTwo();
 
     private Properties properties;
 
     private Connection connection;
 
     // private constructor prevents instantiating this class anywhere else
-    private Database() {
+    public DatabaseTwo() {
         loadProperties();
 
     }
@@ -42,17 +42,17 @@ public class Database {
         try {
             properties.load (this.getClass().getResourceAsStream("/database.properties"));
         } catch (IOException ioe) {
-            logger.error("Database.loadProperties()...Cannot load the properties file");
+            logger.error("DatabaseTwo.loadProperties()...Cannot load the properties file");
             ioe.printStackTrace();
         } catch (Exception e) {
-            logger.error("Database.loadProperties()..." + e);
+            logger.error("DatabaseTwo.loadProperties()..." + e);
             e.printStackTrace();
         }
 
     }
 
-    // get the only Database object available
-    public static Database getInstance() {
+    // get the only DatabaseTwo object available
+    public static DatabaseTwo getInstance() {
         return instance;
     }
 
@@ -67,7 +67,7 @@ public class Database {
         try {
             Class.forName(properties.getProperty("driver"));
         } catch (ClassNotFoundException e) {
-            throw new Exception("Database.connect()... Error: MySQL Driver not found");
+            throw new Exception("DatabaseTwo.connect()... Error: MySQL Driver not found");
         }
 
         String url = properties.getProperty("url");

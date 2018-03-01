@@ -1,10 +1,12 @@
-package persistence;
+package com.reneegrittner.persistence;
 
-import entity.Instrument;
-import entity.InstrumentCategory;
+import com.reneegrittner.entity.Instrument;
+import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.util.DatabaseTwo;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.Database;
+
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -25,7 +27,7 @@ public class InstrumentCategoryDaoTest {
      */
     @BeforeEach
     void setUp(){
-        Database database = Database.getInstance();
+        DatabaseTwo database = DatabaseTwo.getInstance();
         database.runSQL("cleanAll.sql");
 
 

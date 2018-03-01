@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label for="nationality" class="col-sm-2 control-label">Nationality </label>
                 <div class="col-sm-10">
-                    <select name="" id="nationality">
+                    <select name="nationality" id="nationality">
                     <c:forEach items="${nationality}" var="current">
                         <option value="${current.id}">${current.nationality}</option>
                     </c:forEach>

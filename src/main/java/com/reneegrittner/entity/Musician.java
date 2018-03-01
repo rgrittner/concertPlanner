@@ -1,6 +1,5 @@
-package entity;
+package com.reneegrittner.entity;
 
-import com.sun.tools.javah.Gen;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

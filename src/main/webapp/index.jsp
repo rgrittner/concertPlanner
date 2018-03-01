@@ -20,11 +20,11 @@
                         Aliquam porttit or mauris sit amet orci. Aenean dignissim pellentesque felis.</h4></li>
             </ul>
             <ul class="grid effect-8" id="grid">
-                <li><a href="musicians">Get All Musicians</a></li>
-                <li><a href="addMusician">Add a Musician</a></li>
-                <li><a href="composers">Get All Composers</a></li>
-                <li><a href="addComposer">Add a Composer</a></li>
-                <li><a href="compositions">Get All Compositions</a></li>
+                <li><a href="/concertPlanner/musicians">Get All Musicians</a></li>
+                <li><a href="/concertPlanner/addMusician">Add a Musician</a></li>
+                <li><a href="/concertPlanner/composers">Get All Composers</a></li>
+                <li><a href="/concertPlanner/addComposer">Add a Composer</a></li>
+                <li><a href="/concertPlanner/compositions">Get All Compositions</a></li>
             </ul>
 
         </div>

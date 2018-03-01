@@ -1,4 +1,5 @@
-package entity;
+package com.reneegrittner.entity;
+
 
 import org.hibernate.annotations.GenericGenerator;
 

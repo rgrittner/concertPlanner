@@ -1,7 +1,8 @@
-package controller;
+package com.reneegrittner.controller;
 
-import entity.Composer;
-import persistence.GenericDao;
+import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Nationality;
+import com.reneegrittner.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

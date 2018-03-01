@@ -1,12 +1,14 @@
-package persistence;
+package com.reneegrittner.persistence;
 
 
-import entity.Composer;
-import entity.Nationality;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+import com.reneegrittner.util.DatabaseTwo;
+import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Nationality;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.Database;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +29,7 @@ public class NationalityDaoTest {
      */
     @BeforeEach
     void setUp(){
-        Database database = Database.getInstance();
+        DatabaseTwo database = DatabaseTwo.getInstance();
         database.runSQL("cleanAll.sql");
 
 
@@ -96,12 +98,12 @@ public class NationalityDaoTest {
         assertEquals(nationalityToUpdate, retrievedNationality);
     }
 
-    /**
-     * Verify successful delete of nationality
-     */
+
     @Test
-    void deleteSuccess(){
-        genericDao.delete(genericDao.getById(1));
-        assertNull(genericDao.getById(1));
+    void exceptionTesting() {
+        Throwable exception = assertThrows(PersistenceException.class, () -> {
+            genericDao.delete(genericDao.getById(1));
+        });
+        assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
     }
 }

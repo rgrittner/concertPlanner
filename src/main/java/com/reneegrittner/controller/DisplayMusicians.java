@@ -1,7 +1,8 @@
-package controller;
+package com.reneegrittner.controller;
 
-import entity.Composition;
-import persistence.GenericDao;
+
+import com.reneegrittner.entity.Musician;
+import com.reneegrittner.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,18 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/compositions"}
+        urlPatterns = {"/musicians"}
 )
 
-
-public class DisplayCompositions extends HttpServlet {
+public class DisplayMusicians extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Composition.class);
-        req.setAttribute("compositions", dao.getAll());
+        GenericDao dao = new GenericDao(Musician.class);
+        req.setAttribute("musicians", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/Composition.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/musician.jsp");
         dispatcher.forward(req, resp);
     }
+
+
+
 
 }

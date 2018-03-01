@@ -16,12 +16,12 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-        <mapping class="entity.Nationality"/>
-        <mapping class="entity.Musician"/>
-        <mapping class="entity.Composer"/>
-        <mapping class="entity.InstrumentCategory"/>
-        <mapping class="entity.Instrument" />
-        <mapping class="entity.Composition" />
+        <mapping class="com.reneegrittner.entity.Nationality"/>
+        <mapping class="com.reneegrittner.entity.Musician"/>
+        <mapping class="com.reneegrittner.entity.Composer"/>
+        <mapping class="com.reneegrittner.entity.InstrumentCategory"/>
+        <mapping class="com.reneegrittner.entity.Instrument" />
+        <mapping class="com.reneegrittner.entity.Composition" />
 
 
     </session-factory>

@@ -1,10 +1,10 @@
-package persistence;
+package com.reneegrittner.persistence;
 
-import entity.Composer;
-import entity.Composition;
+import com.reneegrittner.util.DatabaseTwo;
+import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Composition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.Database;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class CompositionDaoTest {
      */
     @BeforeEach
     void setUp(){
-        Database database = Database.getInstance();
+        DatabaseTwo database = DatabaseTwo.getInstance();
         database.runSQL("cleanAll.sql");
 
         genericDao = new GenericDao(Composition.class);

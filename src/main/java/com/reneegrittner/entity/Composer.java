@@ -1,4 +1,4 @@
-package entity;
+package com.reneegrittner.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -33,6 +33,7 @@ public class Composer {
 
     @ManyToOne
     private Nationality nationality;
+
 
     @OneToMany(mappedBy = "composer", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Composition> compositions = new HashSet<>();
