@@ -13,4 +13,7 @@
 |2/12/18 | Created generic bare bones jsp for index and search Musician. Search all musicians is accurately getting and displaying data. | 2 | |
 |2/15/18 | Converted over to generic DAO, insured all unit tests and jsp's were corrected to reflect changes in DAO. | 1 | |
 |2/20/18 | Began implementing many to one relationship between Nationality and Composer. getAll, getById, and insert composer all functioning | 3 | Some struggles with cleaning sql|  
-
+|2/23/18 | Completed: InstrumentCategory & Instrument classes with relationships. Full testing passing. Display Composer w/ Nationality in jsp (44 commits!) | 5 | |
+|2/24/18 | Getting started with AWS, instance up, MySQL working and root password is changed. Updated ReadMe | 1 | |
+|2/25/18 | Getting Composition connected to Composer, able to display compositions and composer to website | 2 | |
+|2/26/18 | Getting UI set up, implemented better layout to pages. Added insert to Musician but no data verification | 3 | |
