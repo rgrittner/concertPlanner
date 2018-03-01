@@ -4,6 +4,7 @@ package com.reneegrittner.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "Composition")
@@ -38,9 +39,10 @@ public class Composition {
 
 
     @ManyToOne
-    //@JoinColumn(name = "Composer_id", foreignKey = @ForeignKey(name = "Composition_Composer"))
     private Composer composer;
 
+    @OneToMany(mappedBy = "composition", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CompositionInstrument> listOfInstruments;
 
 
 
@@ -128,6 +130,14 @@ public class Composition {
 
     public void setComposer(Composer composer) {
         this.composer = composer;
+    }
+
+    public List<CompositionInstrument> getListOfInstruments() {
+        return listOfInstruments;
+    }
+
+    public void setListOfInstruments(List<CompositionInstrument> listOfInstruments) {
+        this.listOfInstruments = listOfInstruments;
     }
 
     @Override
