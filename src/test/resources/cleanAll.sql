@@ -83,4 +83,9 @@ INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `dur
 INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (4, 'title', 'arranger', 1, 2019, 1, 4, 'notes', 1);
 INSERT INTO `test_concertPlanner`.`Composition` (`Id`, `title`, `arranger`, `duration`, `year`, `clocks_commission`, `number_of_players`, `notes`, `Composer_Id`) VALUES (5, 'title', 'arranger', 1, 2019, 0, 4, 'notes', 1);
 COMMIT;
-
+START TRANSACTION;
+USE `test_concertPlanner`;
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (1, 1, 1, 1, 1);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (2, 1, 2, 1, 1);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (3, 1, 3, 2, 1);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (4, 1, 4, 2, 1);
