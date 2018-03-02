@@ -99,6 +99,24 @@ public class GenericDao<T> {
     }
 
     /**
+     * Get by property equal list when an Integer is the value.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the list
+     */
+    public List<T> getByTwoPropertyEqual(String propertyName, Integer value, String propertyNameTwo, Integer valueTwo){
+        Session session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root).where(builder.equal(root.get("id"), 1)).where(builder.equal(root.get("playerNumber"), 1));
+        List<T> list = session.createQuery(query).getResultList();
+        return list;
+    }
+
+    /**
      * Gets by property like.
      *
      * @param propertyName the property name

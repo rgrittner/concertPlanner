@@ -36,4 +36,21 @@ public class CompositionInstrumentDaoTest {
         List<CompositionInstrument> compositionInstruments = genericDao.getAll();
         assertEquals(4, compositionInstruments.size());
     }
+
+    /**
+     * Verify successful retrieval of composer by id.
+     */
+    @Test
+    void getByIdSuccess(){
+        CompositionInstrument retrievedCompositionInstrument = (CompositionInstrument) genericDao.getById(3);
+        assertEquals("Mellits", retrievedCompositionInstrument.getComposition().getComposer().getLastName());
+
+    }
+
+    @Test
+    void getInstrumentListOfACompositionForPlayer4(){
+        List<CompositionInstrument> retrievedCompositionInstrument = genericDao.getByTwoPropertyEqual("dummytext", 1, "dummytext", 2);
+        assertEquals("Marimba", retrievedCompositionInstrument.get(0).getInstrument().getName());
+    }
+
 }
