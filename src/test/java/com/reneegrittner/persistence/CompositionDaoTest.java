@@ -6,10 +6,12 @@ import com.reneegrittner.entity.Composition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CompositionDaoTest {
     GenericDao genericDao;
@@ -72,4 +74,13 @@ public class CompositionDaoTest {
         List<Composition> compositions = genericDao.getByPropertyEqual("numberOfPlayers", value);
         assertEquals(4, compositions.size());
     }
+
+// Remove comment when there is a dependency to Composition.
+//    @Test
+//    void deleteExceptionTesting() {
+//        Throwable exception = assertThrows(PersistenceException.class, () -> {
+//            genericDao.delete(genericDao.getById(1));
+//        });
+//        assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
+//    }
 }

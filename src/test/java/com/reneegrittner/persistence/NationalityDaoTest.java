@@ -1,7 +1,6 @@
 package com.reneegrittner.persistence;
 
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import com.reneegrittner.util.DatabaseTwo;
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Nationality;
@@ -100,7 +99,7 @@ public class NationalityDaoTest {
 
 
     @Test
-    void exceptionTesting() {
+    void deleteExceptionTesting() {
         Throwable exception = assertThrows(PersistenceException.class, () -> {
             genericDao.delete(genericDao.getById(1));
         });

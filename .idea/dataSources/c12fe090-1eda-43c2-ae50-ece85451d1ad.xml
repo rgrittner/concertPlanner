@@ -933,7 +933,7 @@
     <table id="236" parent="9" name="Instrument">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="237" parent="9" name="InstrumentCategory">
+    <table id="237" parent="9" name="Instrument_Category">
       <Engine>InnoDB</Engine>
     </table>
     <table id="238" parent="9" name="Musician">
@@ -1044,7 +1044,7 @@
     </column>
     <column id="258" parent="233" name="clocks_commission">
       <Position>9</Position>
-      <DataType>tinyint(1)|0</DataType>
+      <DataType>tinyint(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="259" parent="233" name="Composition_Composer">
@@ -1191,24 +1191,24 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="236" name="InstrumentCategory_id">
+    <column id="286" parent="236" name="Instrument_Category_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="287" parent="236" name="Instrument_InstrumentCategory">
-      <ColNames>InstrumentCategory_id</ColNames>
+    <index id="287" parent="236" name="Instrument_Instrument_Category">
+      <ColNames>Instrument_Category_id</ColNames>
     </index>
     <key id="288" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="289" parent="236" name="Instrument_InstrumentCategory">
-      <ColNames>InstrumentCategory_id</ColNames>
+    <foreign-key id="289" parent="236" name="Instrument_Instrument_Category">
+      <ColNames>Instrument_Category_id</ColNames>
       <RefSchemaName>test_concertPlanner</RefSchemaName>
-      <RefTableName>InstrumentCategory</RefTableName>
+      <RefTableName>Instrument_Category</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="290" parent="237" name="id">

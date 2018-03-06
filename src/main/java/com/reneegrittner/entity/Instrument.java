@@ -3,6 +3,7 @@ package com.reneegrittner.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -23,8 +24,11 @@ public class Instrument {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "InstrumentCategory_id", foreignKey = @ForeignKey(name = "Instrument_InstrumentCategory"))
+    @JoinColumn(name = "Instrument_Category_id", foreignKey = @ForeignKey(name = "Instrument_Instrument_Category"))
     private InstrumentCategory instrumentCategory;
+
+    @OneToMany(mappedBy = "instrument", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CompositionInstrument> listOfCompositions;
 
     /**
      * Instantiates a new Instrument.
@@ -96,6 +100,24 @@ public class Instrument {
      */
     public void setInstrumentCategory(InstrumentCategory instrumentCategory) {
         this.instrumentCategory = instrumentCategory;
+    }
+
+    /**
+     * Gets list of compositions.
+     *
+     * @return the list of compositions
+     */
+    public List<CompositionInstrument> getListOfCompositions() {
+        return listOfCompositions;
+    }
+
+    /**
+     * Sets list of compositions.
+     *
+     * @param listOfCompositions the list of compositions
+     */
+    public void setListOfCompositions(List<CompositionInstrument> listOfCompositions) {
+        this.listOfCompositions = listOfCompositions;
     }
 
     @Override

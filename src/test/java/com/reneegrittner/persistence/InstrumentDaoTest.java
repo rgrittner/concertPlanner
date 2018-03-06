@@ -7,11 +7,10 @@ import com.reneegrittner.entity.Instrument;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InstrumentDaoTest {
     GenericDao genericDao;
@@ -38,7 +37,6 @@ public class InstrumentDaoTest {
 
         Instrument anotherInstrument = new Instrument("Instrument", instrumentCategory);
 
-        //Instrument newInstrument = new Instrument( "Instrument", instrumentCategory);
         instrumentCategory.addInstrument(anotherInstrument);
 
         int id = genericDao.insert(anotherInstrument);
@@ -73,13 +71,10 @@ public class InstrumentDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        //List<Instrument> instruments = genericDao.getByPropertyEqual("name", "Marimba");
-        //assertEquals(1, instruments.size());
-       // assertEquals(1, instruments.getId);
 
         List<Instrument> instruments = genericDao.getByPropertyEqual("name", "Marimba");
         assertEquals(1, instruments.size());
-        //assertEquals(1, instruments.ge);
+        assertEquals(1, instruments.get(0).getId());
     }
 
     /**
@@ -107,11 +102,13 @@ public class InstrumentDaoTest {
     }
 
 //    /**
-//     * Verify successful delete of nationality
+//     * Verify unable to delete an Instrument with a dependency.
 //     */
 //    @Test
-//    void deleteSuccess(){
-//        genericDao.delete(genericDao.getById(1));
-//        assertNull(genericDao.getById(1));
+//    void deleteExceptionTesting() {
+//        Throwable exception = assertThrows(PersistenceException.class, () -> {
+//            genericDao.delete(genericDao.getById(1));
+//        });
+//        assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
 //    }
 }

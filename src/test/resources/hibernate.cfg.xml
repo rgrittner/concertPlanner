@@ -22,6 +22,7 @@
         <mapping class="com.reneegrittner.entity.InstrumentCategory"/>
         <mapping class="com.reneegrittner.entity.Instrument" />
         <mapping class="com.reneegrittner.entity.Composition" />
+        <mapping class="com.reneegrittner.entity.CompositionInstrument" />
 
 
     </session-factory>
