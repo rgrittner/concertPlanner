@@ -1,14 +1,14 @@
 package com.reneegrittner.persistence;
 
+import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Composition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Root;
+
+import javax.persistence.criteria.*;
 import java.util.List;
 
 public class GenericDao<T> {
@@ -105,16 +105,19 @@ public class GenericDao<T> {
      * @param value        the value
      * @return the list
      */
-    public List<T> getByTwoPropertyEqual(String propertyName, Integer value, String propertyNameTwo, Integer valueTwo){
-        Session session = getSession();
-
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery(type);
-        Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get("id"), 1)).where(builder.equal(root.get("playerNumber"), 1));
-        List<T> list = session.createQuery(query).getResultList();
-        return list;
-    }
+//    public List<T> getByTwoPropertyEqual(String propertyName, Integer value, String propertyNameTwo, Integer valueTwo){
+//        Session session = getSession();
+//        Composition composition = new Composition();
+//        composition.getId();
+//        CriteriaBuilder builder = session.getCriteriaBuilder();
+//        CriteriaQuery<T> query = builder.createQuery(type);
+//        Root<T> root = query.from(type);
+//        Join<Composition, Object> join =
+//
+//        query.select(root).where(builder.equal(root.get("id"), 1)).where(builder.equal(root.get("playerNumber"), 1));
+//        List<T> list = session.createQuery(query).getResultList();
+//        return list;
+//    }
 
     /**
      * Gets by property like.
