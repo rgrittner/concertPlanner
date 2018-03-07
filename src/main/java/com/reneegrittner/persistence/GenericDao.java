@@ -99,25 +99,30 @@ public class GenericDao<T> {
     }
 
     /**
-     * Get by property equal list when an Integer is the value.
+     * Working on joins --- Starting point
      *
      * @param propertyName the property name
      * @param value        the value
      * @return the list
      */
-//    public List<T> getByTwoPropertyEqual(String propertyName, Integer value, String propertyNameTwo, Integer valueTwo){
-//        Session session = getSession();
-//        Composition composition = new Composition();
-//        composition.getId();
-//        CriteriaBuilder builder = session.getCriteriaBuilder();
-//        CriteriaQuery<T> query = builder.createQuery(type);
-//        Root<T> root = query.from(type);
-//        Join<Composition, Object> join =
-//
-//        query.select(root).where(builder.equal(root.get("id"), 1)).where(builder.equal(root.get("playerNumber"), 1));
-//        List<T> list = session.createQuery(query).getResultList();
-//        return list;
-//    }
+
+    /**
+     * Currently this method is not really accepting parameters. I'm thinking that eventually it will
+     * need one or more objects and the search string(s) for the passed in object(s).
+     */
+    public List<T> getByTwoPropertyEqual(String propertyName, Integer value, String propertyNameTwo, Integer valueTwo){
+        Session session = getSession();
+        Composition composition = new Composition();
+        composition.getId();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        //Join<Composition, Object> join =
+
+        query.select(root).where(builder.equal(root.get("id"), 1)).where(builder.equal(root.get("playerNumber"), 1));
+        List<T> list = session.createQuery(query).getResultList();
+        return list;
+    }
 
     /**
      * Gets by property like.
