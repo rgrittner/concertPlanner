@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/addComposer"}
+        urlPatterns = {"/ensemble/addComposer"}
 )
 
 public class AddComposer extends HttpServlet {
@@ -85,7 +85,7 @@ public class AddComposer extends HttpServlet {
         genericDao.insert(composerToBeAdded);
 
 
-        String url = "/concertPlanner/composers";
+        String url = "/protected/composers";
 
         resp.sendRedirect(url);
 

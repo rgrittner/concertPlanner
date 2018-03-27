@@ -30,6 +30,9 @@ public class Musician {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "status")
+    private String status;
+
     /**
      * Instantiates a new Musician.
      */
@@ -43,11 +46,13 @@ public class Musician {
      * @param lastName    the last name
      * @param phoneNumber the phone number
      */
-    public Musician(String firstName, String lastName, String phoneNumber, String email) {
+    public Musician(String firstName, String lastName, String phoneNumber, String email, String status) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.status = status;
     }
 
     /**
@@ -129,9 +134,28 @@ public class Musician {
      */
     public String getEmail() { return email; }
 
+    /**
+     * Sets email.
+     *
+     * @param email the email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * Gets status.
+     *
+     * @return the status
+     */
+    public String getStatus() { return status; }
+
+    /**
+     * Sets status.
+     *
+     * @param status the status
+     */
+    public void setStatus(String status) { this.status = status; }
 
     @Override
     public String toString(){
@@ -139,7 +163,8 @@ public class Musician {
                 "first name = " + firstName + '\'' +
                 "last name = " + lastName + '\'' +
                 "phone = " + phoneNumber + '\'' +
-                "email = " + email;
+                "email = " + email + '\'' +
+                "status = " + status;
     }
 
     @Override
@@ -151,12 +176,13 @@ public class Musician {
                 Objects.equals(firstName, musician.firstName) &&
                 Objects.equals(lastName, musician.lastName) &&
                 Objects.equals(phoneNumber, musician.phoneNumber) &&
-                Objects.equals(email, musician.email);
+                Objects.equals(email, musician.email) &&
+                Objects.equals(status, musician.status);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, phoneNumber, email);
+        return Objects.hash(id, firstName, lastName, phoneNumber, email, status);
     }
 }

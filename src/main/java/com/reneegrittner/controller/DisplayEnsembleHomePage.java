@@ -1,8 +1,6 @@
 package com.reneegrittner.controller;
 
-import com.reneegrittner.entity.Composer;
-import com.reneegrittner.entity.Nationality;
-import com.reneegrittner.persistence.GenericDao;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,17 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/ensemble/composers"}
+        urlPatterns = {"/ensemble/home"}
 )
 
-public class DisplayComposers extends HttpServlet {
+public class DisplayEnsembleHomePage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Composer.class);
-        req.setAttribute("composers", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composer.jsp");
+        String url = "/protected/ensembleHome.jsp";
+
+        RequestDispatcher dispatcher =
+                getServletContext().getRequestDispatcher(url);
         dispatcher.forward(req, resp);
     }
+
+
+
 
 }
