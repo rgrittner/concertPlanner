@@ -47,10 +47,10 @@ public class CompositionInstrumentDaoTest {
 
     }
 
-    @Test
-    void getInstrumentListOfACompositionForPlayer4(){
-        List<CompositionInstrument> retrievedCompositionInstrument = genericDao.getByTwoPropertyEqual("dummytext", 1, "dummytext", 2);
-        assertEquals("Marimba", retrievedCompositionInstrument.get(0).getInstrument().getName());
-    }
+//    @Test
+//    void getInstrumentListOfACompositionForPlayer4(){
+//        List<CompositionInstrument> retrievedCompositionInstrument = genericDao.getByTwoPropertyEqual("dummytext", 1, "dummytext", 2);
+//        assertEquals("Marimba", retrievedCompositionInstrument.get(0).getInstrument().getName());
+//    }
 
 }
