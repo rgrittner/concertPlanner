@@ -22,7 +22,7 @@ public class DisplayComposers extends HttpServlet {
         GenericDao dao = new GenericDao(Composer.class);
         req.setAttribute("composers", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/Composer.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composer.jsp");
         dispatcher.forward(req, resp);
     }
 

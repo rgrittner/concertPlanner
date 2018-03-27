@@ -28,7 +28,7 @@ public class AddComposer extends HttpServlet {
         req.setAttribute("nationality", dao.getAll());
         logger.info("hello?");
         logger.debug("hello?");
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/addComposer.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposer.jsp");
         dispatcher.forward(req, resp);
     }
 
@@ -85,7 +85,7 @@ public class AddComposer extends HttpServlet {
         genericDao.insert(composerToBeAdded);
 
 
-        String url = "/composers";
+        String url = "/concertPlanner/composers";
 
         resp.sendRedirect(url);
 

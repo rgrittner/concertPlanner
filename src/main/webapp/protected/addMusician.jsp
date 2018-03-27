@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="head.jsp" />
+<jsp:include page="../head.jsp" />
 <body>
 <div class="container page-styling">
     <div class="header-wrapper">
@@ -16,7 +16,7 @@
             <h1>Add Musician</h1>
         </div>
     </div>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="../nav.jsp" />
     <div class="form-horizontal">
         <form action="addMusician" method="post">
             <div class="form-group">
@@ -47,6 +47,6 @@
         </form>
     </div>
 </div>
-<jsp:include page="scripts.jsp" />
+<jsp:include page="../scripts.jsp" />
 </body>
 </html>

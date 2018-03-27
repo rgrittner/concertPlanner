@@ -39,13 +39,11 @@ public class MusicianDaoTest {
      */
     @Test
     void insertSuccess() {
-        Musician newMusician = new Musician("New", "Musician", "123-125-3456");
+        Musician newMusician = new Musician("New", "Musician", "123-125-3456", "new@newEmail.com");
         int id = genericDao.insert(newMusician);
         assertNotEquals(0, id);
         Musician insertedMusician = (Musician) genericDao.getById(id);
-        assertEquals("New", insertedMusician.getFirstName());
-        assertEquals("Musician", insertedMusician.getLastName());
-        assertEquals("123-125-3456", insertedMusician.getPhoneNumber());
+        assertEquals(newMusician, insertedMusician);
     }
 
     /**
@@ -57,6 +55,7 @@ public class MusicianDaoTest {
         assertEquals("Sean", retrievedMusician.getFirstName());
         assertEquals("Kleve", retrievedMusician.getLastName());
         assertEquals("123", retrievedMusician.getPhoneNumber());
+        assertEquals("sean@clocksinmotionpercussion.com", retrievedMusician.getEmail());
     }
 
     /**
@@ -101,12 +100,5 @@ public class MusicianDaoTest {
         assertEquals(musicianToUpdate, retrievedMusician);
     }
 
-//    /**
-//     * Verify successful delete of musician
-//     */
-//    @Test
-//    void deleteSuccess(){
-//        genericDao.delete(genericDao.getById(1));
-//        assertNull(genericDao.getById(1));
-//    }
+
 }

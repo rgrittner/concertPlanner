@@ -41,7 +41,7 @@ public class Composition {
     @ManyToOne
     private Composer composer;
 
-    @OneToMany(mappedBy = "composition", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "composition", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<CompositionInstrument> listOfInstruments;
 
 

@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="head.jsp" />
+<jsp:include page="../head.jsp" />
 
 <body>
 <div class="container page-styling">
@@ -16,7 +16,7 @@
         <div class="site-name">
             <h1>Composers  </h1>
         </div>
-<jsp:include page="nav.jsp" />
+<jsp:include page="../nav.jsp" />
 
 <div class="container">
     <h1>Composers</h1>
@@ -45,7 +45,7 @@
 </div>
     </div>
 </div>
-<jsp:include page="scripts.jsp" />
+<jsp:include page="../scripts.jsp" />
 
 </body>
 </html>
