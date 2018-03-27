@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/musicians"}
+        urlPatterns = {"/ensemble/musicians"}
 )
 
 public class DisplayMusicians extends HttpServlet {

@@ -12,15 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/addMusician"}
+        urlPatterns = {"/ensemble/addMusician"}
 )
 public class AddMusician extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //GenericDao dao = new GenericDao(Musician.class);
-        //req.setAttribute("musicians", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/addMusician.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addMusician.jsp");
         dispatcher.forward(req, resp);
     }
 
@@ -30,6 +28,8 @@ public class AddMusician extends HttpServlet {
         musicianToBeAdded.setFirstName(req.getParameter("firstName"));
         musicianToBeAdded.setLastName(req.getParameter("lastName"));
         musicianToBeAdded.setPhoneNumber(req.getParameter("phone"));
+        musicianToBeAdded.setEmail(req.getParameter("email"));
+        musicianToBeAdded.setStatus(req.getParameter("status"));
         String musicianIdFromForm = req.getParameter("musicianId");
         Integer musicianId = null;
         GenericDao genericDao = new GenericDao(Musician.class);
@@ -57,7 +57,7 @@ public class AddMusician extends HttpServlet {
 
 
 
-        String url = "/concertPlanner/musicians";
+        String url = "/concertPlanner/ensemble/musicians";
 
         resp.sendRedirect(url);
 

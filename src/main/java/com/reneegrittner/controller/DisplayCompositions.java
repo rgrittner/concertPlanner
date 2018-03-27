@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/compositions"}
+        urlPatterns = {"/ensemble/compositions"}
 )
 
 

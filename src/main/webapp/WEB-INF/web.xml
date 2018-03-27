@@ -13,11 +13,11 @@
     </form-login-config>
   </login-config>
 
-   Protect the musician search page.
+
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>musicianSearch</web-resource-name>
-      <url-pattern>/musicians</url-pattern>
+      <web-resource-name>ensembleHome</web-resource-name>
+      <url-pattern>/ensemble/home</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>registered-user</role-name>
