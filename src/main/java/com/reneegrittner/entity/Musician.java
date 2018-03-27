@@ -27,6 +27,9 @@ public class Musician {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "email")
+    private String email;
+
     /**
      * Instantiates a new Musician.
      */
@@ -40,7 +43,7 @@ public class Musician {
      * @param lastName    the last name
      * @param phoneNumber the phone number
      */
-    public Musician(String firstName, String lastName, String phoneNumber) {
+    public Musician(String firstName, String lastName, String phoneNumber, String email) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -119,12 +122,24 @@ public class Musician {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * Gets email.
+     *
+     * @return the email
+     */
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString(){
         return "Musician { " +
                 "first name = " + firstName + '\'' +
                 "last name = " + lastName + '\'' +
-                "phone = " + phoneNumber;
+                "phone = " + phoneNumber + '\'' +
+                "email = " + email;
     }
 
     @Override
@@ -135,12 +150,13 @@ public class Musician {
         return id == musician.id &&
                 Objects.equals(firstName, musician.firstName) &&
                 Objects.equals(lastName, musician.lastName) &&
-                Objects.equals(phoneNumber, musician.phoneNumber);
+                Objects.equals(phoneNumber, musician.phoneNumber) &&
+                Objects.equals(email, musician.email);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, phoneNumber);
+        return Objects.hash(id, firstName, lastName, phoneNumber, email);
     }
 }

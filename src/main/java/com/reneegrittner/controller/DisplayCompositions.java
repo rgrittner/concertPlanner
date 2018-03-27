@@ -22,7 +22,7 @@ public class DisplayCompositions extends HttpServlet {
         GenericDao dao = new GenericDao(Composition.class);
         req.setAttribute("compositions", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/Composition.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composition.jsp");
         dispatcher.forward(req, resp);
     }
 

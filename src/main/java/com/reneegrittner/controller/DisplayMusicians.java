@@ -22,7 +22,7 @@ public class DisplayMusicians extends HttpServlet {
         GenericDao dao = new GenericDao(Musician.class);
         req.setAttribute("musicians", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/musician.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/musician.jsp");
         dispatcher.forward(req, resp);
     }
 

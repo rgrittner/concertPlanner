@@ -2,12 +2,14 @@ package com.reneegrittner.persistence;
 
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
+import com.reneegrittner.entity.Instrument;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
+import javax.persistence.Tuple;
 import javax.persistence.criteria.*;
 import java.util.List;
 
@@ -67,7 +69,7 @@ public class GenericDao<T> {
      * @param value        the value
      * @return the list
      */
-    public List<T> getByPropertyEqual(String propertyName, String value){
+    public List<T> getByPropertyEqual(String propertyName, Object value){    /// Try replacing String with Object
         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -78,41 +80,31 @@ public class GenericDao<T> {
         return list;
     }
 
+
+
     /**
-     * Get by property equal list when an Integer is the value.
+     * Working on joins --- Starting point
      *
      * @param propertyName the property name
      * @param value        the value
      * @return the list
      */
-    public List<T> getByPropertyEqual(String propertyName, Integer value){
-        Session session = getSession();
-
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery(type);
-        Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get(propertyName), value));
-        List<T> list = session.createQuery(query).getResultList();
-        return list;
-    }
 
     /**
-     * Get by property equal list when an Integer is the value.
-     *
-     * @param propertyName the property name
-     * @param value        the value
-     * @return the list
+     * Currently this method is not really accepting parameters. I'm thinking that eventually it will
+     * need one or more objects and the search string(s) for the passed in object(s).
      */
-//    public List<T> getByTwoPropertyEqual(String propertyName, Integer value, String propertyNameTwo, Integer valueTwo){
+//    public List<T> getByTwoPropertyEqual(String compositionTitle, Integer playerNumber){
 //        Session session = getSession();
 //        Composition composition = new Composition();
 //        composition.getId();
 //        CriteriaBuilder builder = session.getCriteriaBuilder();
-//        CriteriaQuery<T> query = builder.createQuery(type);
+//        CriteriaQuery<Tuple> query = builder.createQuery(type);
 //        Root<T> root = query.from(type);
-//        Join<Composition, Object> join =
+//        //Root<Instrument> instrument = query.from();
+//        //Join<Composition, Object> join =
 //
-//        query.select(root).where(builder.equal(root.get("id"), 1)).where(builder.equal(root.get("playerNumber"), 1));
+////        query.select(root).where(builder.equal(root.get(""), 1)).where(builder.equal(root.get("playerNumber"), 1));
 //        List<T> list = session.createQuery(query).getResultList();
 //        return list;
 //    }
