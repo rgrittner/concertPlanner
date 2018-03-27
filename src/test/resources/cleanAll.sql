@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Instrument` (`id` INT(11) NOT 
 DROP TABLE IF EXISTS `test_concertPlanner`.`Composition_Instrument`;
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composition_Instrument` (`id` INT(11) NOT NULL AUTO_INCREMENT, `qty` INT(11) NOT NULL, `player` INT(11) NOT NULL, `Instrument_id` INT(11) NOT NULL, `Composition_id` INT(11) NOT NULL, PRIMARY KEY (`id`), INDEX `Composition_Instrument_Composition` (`Composition_id` ASC), INDEX `Composition_Instrument_Instrument` (`Instrument_id` ASC), CONSTRAINT `Composition_Instrument_Composition` FOREIGN KEY (`Composition_id`) REFERENCES `test_concertPlanner`.`Composition` (`id`), CONSTRAINT `Composition_Instrument_Instrument` FOREIGN KEY (`Instrument_id`) REFERENCES `test_concertPlanner`.`Instrument` (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Musician`;
-CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Musician` (`id` INT(11) NOT NULL AUTO_INCREMENT, `first_name` VARCHAR(50) NOT NULL, `last_name` VARCHAR(50) NOT NULL, `phone_number` VARCHAR(20) NULL DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Musician` (`id` INT(11) NOT NULL AUTO_INCREMENT, `first_name` VARCHAR(50) NOT NULL, `last_name` VARCHAR(50) NOT NULL, `phone_number` VARCHAR(20) NULL, `email` VARCHAR(50) NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Program`;
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Program` (`id` INT(11) NOT NULL AUTO_INCREMENT, `date` DATE NOT NULL, `title` VARCHAR(100) NOT NULL, `location` VARCHAR(100) NOT NULL, `address` VARCHAR(100) NOT NULL, `city` VARCHAR(100) NOT NULL, `state` VARCHAR(2) NOT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Composition_Program`;
@@ -69,11 +69,11 @@ INSERT INTO `test_concertPlanner`.`Instrument` (`id`, `name`, Instrument_Categor
 COMMIT;
 START TRANSACTION;
 USE `test_concertPlanner`;
-INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (1, 'Sean', 'Kleve', '123');
-INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (2, 'Matthew', 'Coley', '123');
-INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (3, 'Andrew', 'Viet', '123');
-INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (4, 'Kyle', 'Flens', '123');
-INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`) VALUES (5, 'Garrett', 'Mendelow', '123');
+INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`, `email`) VALUES (1, 'Sean', 'Kleve', '123', 'sean@clocksinmotionpercussion.com');
+INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`, `email`) VALUES (2, 'Matthew', 'Coley', '123', 'matthew@clocksinmotionpercussion.com');
+INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`, `email`) VALUES (3, 'Andrew', 'Viet', '123', 'matthew@clocksinmotionpercussion.com');
+INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`, `email`) VALUES (4, 'Kyle', 'Flens', '123', 'matthew@clocksinmotionpercussion.com');
+INSERT INTO `test_concertPlanner`.`Musician` (`id`, `first_name`, `last_name`, `phone_number`, `email`) VALUES (5, 'Garrett', 'Mendelow', '123', 'matthew@clocksinmotionpercussion.com');
 COMMIT;
 START TRANSACTION;
 USE `test_concertPlanner`;
