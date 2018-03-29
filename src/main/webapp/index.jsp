@@ -10,7 +10,7 @@
         <div class="site-name">
             <h1>Percussion Concert Planner</h1>
         </div>
-    </div>
+
         <jsp:include page="nav.jsp"/>
         <jsp:include page="banner.jsp"/>
         <div class="content-wrap">

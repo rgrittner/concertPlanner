@@ -14,26 +14,26 @@
   </login-config>
 
 
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>ensembleHome</web-resource-name>
-      <url-pattern>/ensemble/*</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>registered-user</role-name>
-      <role-name>admin</role-name>
-    </auth-constraint>
-  </security-constraint>
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>ensembleHome</web-resource-name>
-      <url-pattern>/protected/*</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>registered-user</role-name>
-      <role-name>admin</role-name>
-    </auth-constraint>
-  </security-constraint>
+  <!--<security-constraint>-->
+    <!--<web-resource-collection>-->
+      <!--<web-resource-name>ensembleHome</web-resource-name>-->
+      <!--<url-pattern>/ensemble/*</url-pattern>-->
+    <!--</web-resource-collection>-->
+    <!--<auth-constraint>-->
+      <!--<role-name>registered-user</role-name>-->
+      <!--<role-name>admin</role-name>-->
+    <!--</auth-constraint>-->
+  <!--</security-constraint>-->
+  <!--<security-constraint>-->
+    <!--<web-resource-collection>-->
+      <!--<web-resource-name>ensembleHome</web-resource-name>-->
+      <!--<url-pattern>/protected/*</url-pattern>-->
+    <!--</web-resource-collection>-->
+    <!--<auth-constraint>-->
+      <!--<role-name>registered-user</role-name>-->
+      <!--<role-name>admin</role-name>-->
+    <!--</auth-constraint>-->
+  <!--</security-constraint>-->
 
   <security-role>
     <role-name>registered-user</role-name>

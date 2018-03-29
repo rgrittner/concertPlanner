@@ -47,21 +47,11 @@ public class AddMusician extends HttpServlet {
         }
 
 
-        // Check for someone that already exists?
-        // If not found then add?
-
-        // Search by object? search by two parameters?
-
-
-
-
-
-
         String url = "/concertPlanner/ensemble/musicians";
 
         resp.sendRedirect(url);
 
-
+        //TODO Data verifications
     }
 
 }
