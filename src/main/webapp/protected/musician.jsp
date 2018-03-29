@@ -109,7 +109,7 @@
 
 
                     </td>
-                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                    <td><form action="/concertPlanner/ensemble/deleteMusician" method="get"><input type="hidden" value="${current.id}" name="idOfMusicianToBeDeleted"><button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span></button></form></td>
                 </tr>
             </c:forEach>
        </tbody>
