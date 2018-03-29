@@ -1,9 +1,9 @@
-[INFO ] 2018-03-28 16:01:05.393 [http-nio-8080-exec-2] Version - HHH000412: Hibernate Core {5.2.12.Final}
-[INFO ] 2018-03-28 16:01:05.397 [http-nio-8080-exec-2] Environment - HHH000206: hibernate.properties not found
-[INFO ] 2018-03-28 16:01:05.945 [http-nio-8080-exec-2] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-[INFO ] 2018-03-28 16:01:06.224 [http-nio-8080-exec-2] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
-[INFO ] 2018-03-28 16:01:06.225 [http-nio-8080-exec-2] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
-[INFO ] 2018-03-28 16:01:06.225 [http-nio-8080-exec-2] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
-[INFO ] 2018-03-28 16:01:06.567 [http-nio-8080-exec-2] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
-[INFO ] 2018-03-28 16:01:07.185 [http-nio-8080-exec-2] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-[INFO ] 2018-03-28 16:01:09.672 [http-nio-8080-exec-2] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2018-03-29 18:07:49.404 [http-nio-8080-exec-3] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-03-29 18:07:49.408 [http-nio-8080-exec-3] Environment - HHH000206: hibernate.properties not found
+[INFO ] 2018-03-29 18:07:49.891 [http-nio-8080-exec-3] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] 2018-03-29 18:07:50.142 [http-nio-8080-exec-3] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
+[INFO ] 2018-03-29 18:07:50.143 [http-nio-8080-exec-3] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-03-29 18:07:50.143 [http-nio-8080-exec-3] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-03-29 18:07:50.407 [http-nio-8080-exec-3] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[INFO ] 2018-03-29 18:07:51.030 [http-nio-8080-exec-3] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2018-03-29 18:07:52.896 [http-nio-8080-exec-3] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
