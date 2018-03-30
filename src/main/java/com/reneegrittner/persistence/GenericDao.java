@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
+import javax.persistence.Query;
 import javax.persistence.Tuple;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
 
@@ -69,7 +71,7 @@ public class GenericDao<T> {
      * @param value        the value
      * @return the list
      */
-    public List<T> getByPropertyEqual(String propertyName, Object value){    /// Try replacing String with Object
+    public List<T> getByPropertyEqual(String propertyName, Object value){
         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -78,6 +80,56 @@ public class GenericDao<T> {
         query.select(root).where(builder.equal(root.get(propertyName), value));
         List<T> list = session.createQuery(query).getResultList();
         return list;
+    }
+
+    public List<T> getByPropertyEqualComposition(Object value){
+        Session session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root).where(builder.equal(root.get("Composer.id"), value));
+        List<T> list = session.createQuery(query).getResultList();
+        logger.debug("mid pumping idea?" + list);
+        return list;
+    }
+
+    public List<T> getCompositionsByComposer() {
+        Session session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> criteriaQuery = builder.createQuery(Object[].class);
+        Root<Composition> compositionRoot = criteriaQuery.from(Composition.class);
+        Root<Composer> composerRoot = criteriaQuery.from(Composer.class);
+        criteriaQuery.multiselect(compositionRoot, composerRoot);
+        criteriaQuery.where(builder.equal(compositionRoot.get("composer"), composerRoot.get("id")));
+        Query query=session.createQuery(criteriaQuery);
+        List<Object[]> list = query.getResultList();
+
+//  https://www.boraji.com/hibernate-5-criteria-query-example
+//        query.select(root).where(builder.equal(root.get(propertyName), value));
+//        List<T> list = session.createQuery(query).getResultList();
+        logger.debug("what is this? " + list);
+        return (List<T>) list;
+
+    }
+
+    public List<Composition> tryingAgain(String lastName){
+        Composer Composer_ = new Composer();
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Composition> query = builder.createQuery(Composition.class);
+        Root<Composition> compositionRoot = query.from(Composition.class);
+        Join<Composition, Composer> composerJoin = compositionRoot.join("composer");
+
+        query.select(compositionRoot);
+        query.where(builder.equal(composerJoin.get(Composer_.getLastName()), lastName));
+
+        List<Composition> list = session.createQuery(query).getResultList();
+        logger.debug("from trying again: " + list);
+        return list;
+
+        //https://stackoverflow.com/questions/41982998/hibernate-criteriabuilder-to-join-multiple-tables
     }
 
 
