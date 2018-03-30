@@ -12,7 +12,6 @@
     <link href="../css/custom-styles.css" rel="stylesheet">
     <link href="../css/image-effects.css" rel="stylesheet">
 
-    <link href="../css/normalize.css" rel="stylesheet">
     <link href="../css/component.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../css/font-awesome-ie7.css">
@@ -28,6 +27,5 @@
     <!-- js for jquery datatables -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-    <script src="../concertPlanner.js"></script>
 
 </head>
