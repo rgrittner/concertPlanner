@@ -76,9 +76,9 @@
 
 
 body{background: url(../img/body-bg.jpg) repeat;}
-h1, h2, h3, h4, h5, h6{margin: 0;}
+h1, h3, h4, h5, h6{margin: 0;}
 h1{}
-h2{}
+
 h3{}
 h4{}
 h5{}
@@ -176,18 +176,16 @@ a{transition:all 1s; }
     .banner{overflow: hidden; border-radius: 10px 0 10px 10px; box-shadow: -8px 8px 0px 1px rgba(0, 0, 0, 0.1);}
     .banner:hover { border-radius: 10px 0 10px 10px; box-shadow: -8px 8px 0px 1px rgba(0, 0, 0, 0.1); transition:all 3s;}
     .carousel-caption{padding-top: 0px; padding-bottom: 0px;}
-    .banner .carousel-caption h1, h2{ opacity: 0; }
+    .banner .carousel-caption h1 { opacity: 0; }
     .banner .carousel-caption .btn{opacity: 0;}
     .banner .carousel-caption [class^="fw-icon-"]{opacity: 0;}
     .banner .carousel-inner:hover img{-webkit-filter: blur(10px); transition:all 3s; }
     .banner .carousel-inner:hover h1{ transition:all 1s; opacity: 0.9 !important;  }
-    .banner .carousel-inner:hover h2{ transition:all 1s; opacity: 0.9 !important;  }
     .banner .carousel-inner:hover [class^="fw-icon-"]{ transition:all 1s; opacity: 0.9 !important;  }
     .banner .carousel-inner:hover .btn{ transition:all 1s; opacity: 0.9 !important;  }
     .banner .carousel-caption{background: none; top:25%;}
     .banner .carousel-caption h1{color: #373435; text-shadow:none; font-size: 42px; padding-bottom: 25px; font-family: 'source_sans_probold'; text-transform: uppercase;}
-    .banner .carousel-caption h2{color: #373435; text-shadow:none; font-size: 32px; font-family: 'source_sans_probold'; font-weight: normal;}
-    .banner .carousel-caption [class^="fw-icon-"]{display: inline-block; margin-bottom: 25px; font-size: 50px; color: #fff; border-radius: 50%; background: #373435; 
+    .banner .carousel-caption [class^="fw-icon-"]{display: inline-block; margin-bottom: 25px; font-size: 50px; color: #fff; border-radius: 50%; background: #373435;
                 width: 80px; height: 80px; line-height: 80px;}
     .banner .carousel-caption .btn{border-radius: 3px; background: #373435; color: #ebebeb; font-size: 20px;
                                 font-family: 'source_sans_probold'; border: none !important; background-image: none; box-shadow: none; 
