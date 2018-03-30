@@ -1,6 +1,7 @@
 package com.reneegrittner.persistence;
 
 
+import com.reneegrittner.entity.Composition;
 import com.reneegrittner.util.DatabaseTwo;
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Nationality;
@@ -105,4 +106,6 @@ public class NationalityDaoTest {
         });
         assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
     }
+
+
 }

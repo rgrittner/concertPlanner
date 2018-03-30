@@ -75,6 +75,27 @@ public class CompositionDaoTest {
         assertEquals(4, compositions.size());
     }
 
+    @Test
+    void getBySomething() {
+        GenericDao localDao = new GenericDao<>(Composition.class);
+        localDao.getCompositionsByComposer();
+    }
+    @Test
+    void takeTwo() {
+        GenericDao localDao = new GenericDao<>(Composition.class);
+        Integer id = 1;
+        localDao.getByPropertyEqualComposition(id);
+    }
+
+    @Test
+    void tryingAgain(){
+        GenericDao localDao = new GenericDao<>(Composer.class);
+        Composer composer = (Composer) localDao.getById(1);
+
+        genericDao.tryingAgain("Mellits");
+    }
+
+
 // Remove comment when there is a dependency to Composition.
 //    @Test
 //    void deleteExceptionTesting() {
