@@ -47,6 +47,13 @@ public class CompositionInstrumentDaoTest {
 
     }
 
+    @Test
+    void getInstrumentsOfCompositionByPlayer(){
+       List<CompositionInstrument> instruments = genericDao.getByPropertyEqualCompositionInstrument(1, 1);
+       assertEquals(1, instruments.size());
+
+    }
+
 //    @Test
 //    void getInstrumentListOfACompositionForPlayer4(){
 //        List<CompositionInstrument> retrievedCompositionInstrument = genericDao.getByTwoPropertyEqual("dummytext", 1, "dummytext", 2);

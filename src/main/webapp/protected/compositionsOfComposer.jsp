@@ -19,7 +19,7 @@
     </div>
     <div class="content-wrap">
         <div class="container">
-        <h1>Composer Name</h1>
+        <h1>${composerName}</h1>
             <div>
                 <table id="resultTable" class="table table-sm">
                     <thead>
@@ -33,17 +33,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a href="/concertPlanner/protected/composition.jsp">Title</a></td>
-                        <td>10 </td>
-                        <td>1345</td>
-                        <td>4</td>
-                        <td>Yes</td>
 
-                    </tr>
                     <c:forEach items="${composerCompositions}" var="current">
                         <tr>
-                            <td>${current.title}</td>
+                            <td><a name="compositionId" value="${current.id}" href="/concertPlanner/ensemble/singleComposition?param=${current.id}">${current.title}</a></td>
                             <td>${current.duration}</td>
                             <td>${current.yearComposed}</td>
                             <td>${current.numberOfPlayers}</td>

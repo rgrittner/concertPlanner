@@ -24,16 +24,16 @@ public class ListOfCompositionsByComposer extends HttpServlet {
         String composerIdFromForm = req.getParameter("composerId");
         Integer idFromParam = Integer.parseInt(req.getParameter("param"));
 
-        logger.debug("Composer Id: " + composerIdFromForm);
-        logger.debug("Composer Id from param: " + idFromParam);
 
         GenericDao dao2 = new GenericDao<>(Composer.class);
         Composer composer = (Composer) dao2.getById(idFromParam);
+        String composerFullName = composer.getLastName() + ", " + composer.getFirstName();
 
         GenericDao dao = new GenericDao<>(Composition.class);
-        req.setAttribute("composerCompositions", dao.getByPropertyEqualComposition(composerIdFromForm));
-
+        req.setAttribute("composerCompositions", dao.getByPropertyEqualComposition(idFromParam));
+        req.setAttribute("composerName", composerFullName);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/compositionsOfComposer.jsp");
         dispatcher.forward(req, resp);
+        logger.debug("from servlet: " + dao.getByPropertyEqualComposition(idFromParam));
     }
 }
