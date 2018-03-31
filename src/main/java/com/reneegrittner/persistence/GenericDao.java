@@ -5,8 +5,11 @@ import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.Instrument;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 
 
 import javax.persistence.Query;
@@ -14,6 +17,8 @@ import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
+
+import static sun.security.ssl.HandshakeMessage.debug;
 
 public class GenericDao<T> {
     private Class<T> type;
@@ -79,6 +84,8 @@ public class GenericDao<T> {
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get(propertyName), value));
         List<T> list = session.createQuery(query).getResultList();
+
+        logger.debug("list from get By proerty equal after adding join annotation: " + list);
         return list;
     }
 
@@ -88,78 +95,14 @@ public class GenericDao<T> {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get("Composer.id"), value));
+        query.select(root).where(builder.equal(root.get("composer"), value));
         List<T> list = session.createQuery(query).getResultList();
         logger.debug("mid pumping idea?" + list);
         return list;
     }
 
-    public List<T> getCompositionsByComposer() {
-        Session session = getSession();
-
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = builder.createQuery(Object[].class);
-        Root<Composition> compositionRoot = criteriaQuery.from(Composition.class);
-        Root<Composer> composerRoot = criteriaQuery.from(Composer.class);
-        criteriaQuery.multiselect(compositionRoot, composerRoot);
-        criteriaQuery.where(builder.equal(compositionRoot.get("composer"), composerRoot.get("id")));
-        Query query=session.createQuery(criteriaQuery);
-        List<Object[]> list = query.getResultList();
-
-//  https://www.boraji.com/hibernate-5-criteria-query-example
-//        query.select(root).where(builder.equal(root.get(propertyName), value));
-//        List<T> list = session.createQuery(query).getResultList();
-        logger.debug("what is this? " + list);
-        return (List<T>) list;
-
-    }
-
-    public List<Composition> tryingAgain(String lastName){
-        Composer Composer_ = new Composer();
-        Session session = getSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Composition> query = builder.createQuery(Composition.class);
-        Root<Composition> compositionRoot = query.from(Composition.class);
-        Join<Composition, Composer> composerJoin = compositionRoot.join("composer");
-
-        query.select(compositionRoot);
-        query.where(builder.equal(composerJoin.get(Composer_.getLastName()), lastName));
-
-        List<Composition> list = session.createQuery(query).getResultList();
-        logger.debug("from trying again: " + list);
-        return list;
-
-        //https://stackoverflow.com/questions/41982998/hibernate-criteriabuilder-to-join-multiple-tables
-    }
 
 
-
-    /**
-     * Working on joins --- Starting point
-     *
-     * @param propertyName the property name
-     * @param value        the value
-     * @return the list
-     */
-
-    /**
-     * Currently this method is not really accepting parameters. I'm thinking that eventually it will
-     * need one or more objects and the search string(s) for the passed in object(s).
-     */
-//    public List<T> getByTwoPropertyEqual(String compositionTitle, Integer playerNumber){
-//        Session session = getSession();
-//        Composition composition = new Composition();
-//        composition.getId();
-//        CriteriaBuilder builder = session.getCriteriaBuilder();
-//        CriteriaQuery<Tuple> query = builder.createQuery(type);
-//        Root<T> root = query.from(type);
-//        //Root<Instrument> instrument = query.from();
-//        //Join<Composition, Object> join =
-//
-////        query.select(root).where(builder.equal(root.get(""), 1)).where(builder.equal(root.get("playerNumber"), 1));
-//        List<T> list = session.createQuery(query).getResultList();
-//        return list;
-//    }
 
     /**
      * Gets by property like.
@@ -183,12 +126,7 @@ public class GenericDao<T> {
         session.close();
         return list;
     }
-
-
-
-
-
-
+    
 
     /**
      * Save or update.
@@ -222,4 +160,6 @@ public class GenericDao<T> {
     private Session getSession(){
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
+
+
 }
