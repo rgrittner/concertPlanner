@@ -31,7 +31,7 @@ public class ListOfCompositionsByComposer extends HttpServlet {
         Composer composer = (Composer) dao2.getById(idFromParam);
 
         GenericDao dao = new GenericDao<>(Composition.class);
-        req.setAttribute("composerCompositions", dao.getByPropertyEqual("composerId", composer));
+        req.setAttribute("composerCompositions", dao.getByPropertyEqualComposition(composerIdFromForm));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/compositionsOfComposer.jsp");
         dispatcher.forward(req, resp);

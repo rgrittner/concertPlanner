@@ -71,39 +71,20 @@ public class CompositionDaoTest {
     @Test
     void getByPropertyEqualIntegerSuccess() {
         Integer value = 1;
-        List<Composition> compositions = genericDao.getByPropertyEqual("Composer_id", value);
+        List<Composition> compositions = genericDao.getByPropertyEqual("id", value);
         assertEquals(1, compositions.size());
     }
 
-    @Test
-    void getBySomething() {
-        GenericDao localDao = new GenericDao<>(Composition.class);
-        localDao.getCompositionsByComposer();
-    }
+
     @Test
     void takeTwo() {
         GenericDao localDao = new GenericDao<>(Composition.class);
         Integer id = 1;
-        localDao.getByPropertyEqualComposition(id);
+        List<Composition> list = localDao.getByPropertyEqualComposition(id);
+        assertEquals(2, list.size());
+
     }
 
-    @Test
-    void tryingAgain(){
-        GenericDao localDao = new GenericDao<>(Composer.class);
-        Composer composer = (Composer) localDao.getById(1);
-
-        genericDao.tryingAgain("Mellits");
-    }
-
-    @Test
-    void fridayAgernoon(){
-        genericDao.fridayAfternoon();
-    }
-
-    @Test
-    void attemptFromYoutube(){
-        genericDao.attemptFromYoutube();
-    }
 
 
 
