@@ -70,9 +70,9 @@ public class CompositionDaoTest {
      */
     @Test
     void getByPropertyEqualIntegerSuccess() {
-        Integer value = 4;
-        List<Composition> compositions = genericDao.getByPropertyEqual("numberOfPlayers", value);
-        assertEquals(4, compositions.size());
+        Integer value = 1;
+        List<Composition> compositions = genericDao.getByPropertyEqual("Composer_id", value);
+        assertEquals(1, compositions.size());
     }
 
     @Test
@@ -94,6 +94,17 @@ public class CompositionDaoTest {
 
         genericDao.tryingAgain("Mellits");
     }
+
+    @Test
+    void fridayAgernoon(){
+        genericDao.fridayAfternoon();
+    }
+
+    @Test
+    void attemptFromYoutube(){
+        genericDao.attemptFromYoutube();
+    }
+
 
 
 // Remove comment when there is a dependency to Composition.
