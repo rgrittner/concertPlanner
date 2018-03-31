@@ -33,7 +33,7 @@
             <tbody>
             <c:forEach items="${composers}" var="current">
                 <tr>
-                    <td ><a name="composerId" value="${current.id}" href="/concertPlanner/ensemble/compositionsByComposer?param=${current.id}">${current.lastName}, ${current.firstName}</a></td>
+                    <td><a name="composerId" value="${current.id}" href="/concertPlanner/ensemble/compositionsByComposer?param=${current.id}">${current.lastName}, ${current.firstName}</a></td>
                     <td>${current.birthYear}</td>
                     <td>${current.deathYear}</td>
                     <td>${current.nationality.nationality}</td>

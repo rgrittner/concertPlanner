@@ -18,7 +18,7 @@ public class CompositionInstrument {
     private int playerNumber;
 
     @Column(name = "qty")
-    private int instumentQuantity;
+    private int instrumentQuantity;
 
     @ManyToOne
     private Instrument instrument;
@@ -29,9 +29,9 @@ public class CompositionInstrument {
     public CompositionInstrument() {
     }
 
-    public CompositionInstrument(int playerNumber, int instumentQuantity, Instrument instrument, Composition composition) {
+    public CompositionInstrument(int playerNumber, int instrumentQuantity, Instrument instrument, Composition composition) {
         this.playerNumber = playerNumber;
-        this.instumentQuantity = instumentQuantity;
+        this.instrumentQuantity = instrumentQuantity;
         this.instrument = instrument;
         this.composition = composition;
     }
@@ -53,12 +53,12 @@ public class CompositionInstrument {
         this.playerNumber = playerNumber;
     }
 
-    public int getInstumentQuantity() {
-        return instumentQuantity;
+    public int getInstrumentQuantity() {
+        return instrumentQuantity;
     }
 
-    public void setInstumentQuantity(int instumentQuantity) {
-        this.instumentQuantity = instumentQuantity;
+    public void setInstrumentQuantity(int instumentQuantity) {
+        this.instrumentQuantity = instumentQuantity;
     }
 
     public Instrument getInstrument() {
@@ -84,7 +84,7 @@ public class CompositionInstrument {
         return "CompositionInstrument{" +
                 "id=" + id +
                 ", playerNumber=" + playerNumber +
-                ", instumentQuantity=" + instumentQuantity +
+                ", instumentQuantity=" + instrumentQuantity +
                 ", instrument=" + instrument +
                 ", composition=" + composition +
                 '}';
@@ -97,7 +97,7 @@ public class CompositionInstrument {
         CompositionInstrument that = (CompositionInstrument) o;
         return id == that.id &&
                 playerNumber == that.playerNumber &&
-                instumentQuantity == that.instumentQuantity &&
+                instrumentQuantity == that.instrumentQuantity &&
                 Objects.equals(instrument, that.instrument) &&
                 Objects.equals(composition, that.composition);
     }
@@ -105,6 +105,6 @@ public class CompositionInstrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, playerNumber, instumentQuantity, instrument, composition);
+        return Objects.hash(id, playerNumber, instrumentQuantity, instrument, composition);
     }
 }

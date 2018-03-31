@@ -9,49 +9,126 @@
     <div class="content-wrap">
         <div class="row">
 
-            <div class="col-sm-12"><h1>Third Construction</h1><br></div>
+            <div class="col-sm-12"><h1>${compositionInformation.title}</h1><br></div>
         </div>
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
-                    Composed: 1234 <br>
-                    Duration: 10 minutes<br>
-                    Players: 4<br>
+                <p>
+                 Composed: ${compositionInformation.yearComposed} <br>
+                 Duration: ${compositionInformation.duration} minutes<br>
+                Players: ${compositionInformation.numberOfPlayers}<br>
+                </p>
             </div>
             <div class="col-sm-3">
-                Composer: John Cage<br>
-                Born: 1912<br>
-                Death: 1992<br>
-                Nationality: American
+                <p>
+                Composer: ${composerInformation.lastName}, ${composerInformation.firstName}<br>
+                Born: ${composerInformation.birthYear}<br>
+                Death: ${composerInformation.deathYear}<br>
+                Nationality: ${composerInformation.nationality.nationality}
+                </p>
             </div>
             <div class="col-sm-5"></div>
 
         </div>
         <div class="row">
-            <div class="col-sm-12"><h2>Instrumentation</h2></div>
+            <div class="col-sm-12"><h3>Instrumentation</h3></div>
         </div>
+        <div class="row"><br></div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
             <h4>Player 1</h4>
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <td>Instrument</td>
+                            <td>Quantity</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${playerOneInstruments}" var="current">
+                            <tr>
+                                <td>${current.instrument.name}</td>
+                                <td>${current.instrumentQuantity}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <h4>Player 2</h4>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <td>Instrument</td>
+                        <td>Quantity</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${playerTwoInstruments}" var="current">
+                        <tr>
+                            <td>${current.instrument.name}</td>
+                            <td>${current.instrumentQuantity}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
+            <div class="col-sm-1"></div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
                 <h4>Player 3</h4>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <td>Instrument</td>
+                        <td>Quantity</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${playerThreeInstruments}" var="current">
+                        <tr>
+                            <td>${current.instrument.name}</td>
+                            <td>${current.instrumentQuantity}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <h4>Player 4</h4>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <td>Instrument</td>
+                        <td>Quantity</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${playerFourInstruments}" var="current">
+                        <tr>
+                            <td>${current.instrument.name}</td>
+                            <td>${current.instrumentQuantity}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
+            <div class="col-sm-1"></div>
         </div>
+        <div class="row"><br></div>
         <div class="row">
             <div class="col-sm-12"><h3>Attachments</h3></div>
+            <div class="row"><div class="col-sm-12">Coming Soon</div></div>
         </div>
         <br><br>
         <div class="row">
-            <div class="col-sm-12"><h3>Performance History</h3></div>
+            <div class="row"><div class="col-sm-12">Coming Soon</div></div>
+            <div class="row">         Coming Soon</div>
         </div>
     </div>
 
