@@ -1,24 +1,12 @@
 package com.reneegrittner.persistence;
 
-import com.reneegrittner.entity.Composer;
-import com.reneegrittner.entity.Composition;
-import com.reneegrittner.entity.Instrument;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
-
-
-import javax.persistence.Query;
-import javax.persistence.Tuple;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
-
-import static sun.security.ssl.HandshakeMessage.debug;
 
 public class GenericDao<T> {
     private Class<T> type;
@@ -126,7 +114,7 @@ public class GenericDao<T> {
         session.close();
         return list;
     }
-    
+
 
     /**
      * Save or update.
