@@ -39,7 +39,6 @@ public class Composition {
 
 
     @ManyToOne
-   // @JoinColumn(name="Composer_id")
     private Composer composer;
 
     @OneToMany(mappedBy = "composition", cascade = CascadeType.PERSIST, orphanRemoval = true)
