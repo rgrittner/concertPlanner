@@ -85,7 +85,6 @@ public class GenericDao<T> {
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get("composer"), value));
         List<T> list = session.createQuery(query).getResultList();
-        logger.debug("mid pumping idea?" + list);
         return list;
     }
 
@@ -96,7 +95,6 @@ public class GenericDao<T> {
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get("playerNumber"), playerNumber)).having(builder.equal(root.get("composition"), compositionId));
         List<T> list = session.createQuery(query).getResultList();
-        logger.debug("mid pumping idea?" + list);
         return list;
     }
 
