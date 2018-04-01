@@ -29,7 +29,10 @@
                 <label for="composer" class="col-sm-2 control-label">Composer</label>
                 <div class="col-sm-10">
                     <select id="composer">
-                        <option>composer here</option>
+                        <c:forEach items="${composers}" var="current">
+                            <option value="${current.id}">${current.nationality}</option>
+                        </c:forEach>
+                    </select>
                     </select>
                 </div>
             </div>
