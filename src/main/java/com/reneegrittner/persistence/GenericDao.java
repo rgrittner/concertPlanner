@@ -39,11 +39,24 @@ public class GenericDao<T> {
      *
      * @return the all
      */
+    public List<T> getAll(String columnToOrderOn) {
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.orderBy(builder.asc(root.get(columnToOrderOn)));
+
+        List<T> list = session.createQuery(query).getResultList();
+        session.close();
+        return list;
+    }
+
     public List<T> getAll() {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
+
         List<T> list = session.createQuery(query).getResultList();
         session.close();
         return list;
@@ -71,6 +84,8 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get(propertyName), value));
+
+
         List<T> list = session.createQuery(query).getResultList();
 
         logger.debug("list from get By proerty equal after adding join annotation: " + list);
@@ -84,6 +99,7 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get("composer"), value));
+
         List<T> list = session.createQuery(query).getResultList();
         return list;
     }

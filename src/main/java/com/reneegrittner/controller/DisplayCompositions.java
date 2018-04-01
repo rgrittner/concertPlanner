@@ -20,7 +20,7 @@ public class DisplayCompositions extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao(Composition.class);
-        req.setAttribute("compositions", dao.getAll());
+        req.setAttribute("compositions", dao.getAll("title"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/allCompositions.jsp");
         dispatcher.forward(req, resp);

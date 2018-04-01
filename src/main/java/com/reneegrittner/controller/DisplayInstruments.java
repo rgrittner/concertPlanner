@@ -24,8 +24,8 @@ public class DisplayInstruments extends HttpServlet {
         GenericDao dao = new GenericDao(Instrument.class);
         GenericDao dao2 = new GenericDao(InstrumentCategory.class);
 
-        req.setAttribute("instruments", dao.getAll());
-        req.setAttribute("categories", dao2.getAll());
+        req.setAttribute("instruments", dao.getAll("name"));
+        req.setAttribute("categories", dao2.getAll("category"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
         dispatcher.forward(req, resp);

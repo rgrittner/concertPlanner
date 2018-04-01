@@ -57,7 +57,7 @@ public class ComposerDaoTest {
     @Test
     void getAllSuccess(){
 
-        List<Composer> composerList = genericDao.getAll();
+        List<Composer> composerList = genericDao.getAll("lastName");
         assertEquals(6, composerList.size());
     }
 
@@ -77,9 +77,9 @@ public class ComposerDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<Composer> composers = genericDao.getByPropertyEqual("firstName", "John");
-        assertEquals(3, composers.size());
-        assertEquals(2, composers.get(0).getId());
+        List<Composer> composers = genericDao.getByPropertyEqual("lastName", "Cage");
+        assertEquals(1, composers.size());
+
     }
 
     /**

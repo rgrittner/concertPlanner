@@ -23,7 +23,7 @@ public class AddInstrument extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao<>(InstrumentCategory.class);
-        req.setAttribute("category", dao.getAll());
+        req.setAttribute("category", dao.getAll("category"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrument.jsp");
         dispatcher.forward(req, resp);
