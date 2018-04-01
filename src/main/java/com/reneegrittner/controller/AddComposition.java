@@ -22,7 +22,7 @@ public class AddComposition extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao<>(Composer.class);
-        req.setAttribute("composers", dao.getAll());
+        req.setAttribute("composers", dao.getAll("lastName"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposition.jsp");
         dispatcher.forward(req, resp);

@@ -25,7 +25,7 @@ public class AddComposer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao(Nationality.class);
-        req.setAttribute("nationality", dao.getAll());
+        req.setAttribute("nationality", dao.getAll("nationality"));
         logger.info("hello?");
         logger.debug("hello?");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposer.jsp");
