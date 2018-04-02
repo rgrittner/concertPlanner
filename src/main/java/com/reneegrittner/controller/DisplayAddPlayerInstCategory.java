@@ -3,6 +3,8 @@ package com.reneegrittner.controller;
 import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,31 +13,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(
-        urlPatterns = {"/ensemble/addPlayerInstrumentation/category"}
+        urlPatterns = {"/ensemble/PlayerInstrumentationCategory"}
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int categoryIdFromParam = Integer.parseInt(req.getParameter("categoryId"));
+        String categoryFromForm = req.getParameter("category");
+        int playerNumber = Integer.parseInt(req.getParameter("playerNumber"));
+        logger.debug("what is the categoru " + categoryFromForm);
+        GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
+        List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm);
+        logger.debug("Id? " + category);
+        int categoryId = category.get(0).getId();
+        logger.debug("category id as int? " + categoryId);
+
+
         GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
-        req.setAttribute("instrumentList", dao.getByPropertyEqual("instrumentCategory", categoryIdFromParam));
+
+        logger.debug("what came back from the dao? " + dao.getByPropertyEqual("instrumentCategory", categoryId));
+
+
+        req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));
+        req.setAttribute("playerNumber", playerNumber);
         String url = "";
-        switch (categoryIdFromParam) {
-            case 1: url = "/protected/addKeyboards.jsp";
+        switch (categoryFromForm) {
+            case "Keyboards": url = "/protected/addKeyboards.jsp";
                     break;
-            case 2: url = "/protected/addSkins.jsp";
+            case "Skins": url = "/protected/addSkins.jsp";
                     break;
-            case 3: url = "/protected/addWoods.jsp";
+            case "Woods": url = "/protected/addWoods.jsp";
                     break;
-            case 4: url = "/protected/addMetals.jsp";
+            case "Metals": url = "/protected/addMetals.jsp";
                     break;
-            case 5: url = "/protected/addOther.jsp";
+            case "Other": url = "/protected/addOther.jsp";
                     break;
-            case 6: url = "/protected/addTimpani.jsp";
+            case "Timpani": url = "/protected/addTimpani.jsp";
                     break;
-            case 7: url = "/protected/addAccessory.jsp";
+            case "Accessory": url = "/protected/addAccessory.jsp";
                     break;
         }
 
