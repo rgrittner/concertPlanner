@@ -1,5 +1,6 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.persistence.GenericDao;
@@ -23,27 +24,28 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
     GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        // Get compositionId, category and playerNumber
         String categoryFromForm = req.getParameter("category");
-        String compositionIdFromForm = req.getParameter("compositionId");
-
-        logger.debug("composition id " + compositionIdFromForm);
-
+        Integer compositionIdFromForm = Integer.parseInt(req.getParameter("compositionId"));
         int playerNumber = Integer.parseInt(req.getParameter("playerNumber"));
-       // logger.debug("what is the categoru " + categoryFromForm);
+
+        // Get the composition information to send along to jsp
+        GenericDao<Composition> compositionDao = new GenericDao<>(Composition.class);
+        Composition composition = (Composition) compositionDao.getById(compositionIdFromForm);
+        req.setAttribute("composition", composition);
+
+        // Get all instruments of given category and send along to the jsp
         GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
         List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm);
-        //logger.debug("Id? " + category);
         int categoryId = category.get(0).getId();
-        //logger.debug("category id as int? " + categoryId);
-
-
-
-
-        //logger.debug("what came back from the dao? " + dao.getByPropertyEqual("instrumentCategory", categoryId));
-
-
         req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));
+
+        // Send the playerNumber as well
         req.setAttribute("playerNumber", playerNumber);
+
+
+        // Redirect depending on which type... may be able to reduce this to a single page.
         String url = "";
         switch (categoryFromForm) {
             case "Keyboards": url = "/protected/addKeyboards.jsp";
