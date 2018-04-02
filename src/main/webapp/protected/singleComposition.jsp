@@ -50,17 +50,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <c:if test="${playerOneInstruments}">
                         <c:forEach items="${playerOneInstruments}" var="current">
-                           <c:if test="${not empty playerOneInstruments}">
+
                             <tr>
                                 <td>${current.instrument.name}</td>
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
+                        </c:forEach>
                         </c:if>
-                            <c:if test="${fn:length(playerOneInstruments) == 0}">
+                            <c:if test="${empty playerOneInstruments}">
                                 <tr><td>Add Instruments</td></tr>
                             </c:if>
-                        </c:forEach>
+
 
                     </tbody>
                 </table>
