@@ -38,7 +38,7 @@ public class SingleComposition extends HttpServlet {
         GenericDao dao = new GenericDao<>(Composition.class);
         Integer compositionId = composition.getId();
         GenericDao<CompositionInstrument> linkingDao = new GenericDao<>(CompositionInstrument.class);
-
+        logger.debug("what comes out in the insturment list? " + linkingDao.getByPropertyEqualCompositionInstrument(1, compositionId));
         req.setAttribute("compositionInformation", composition);
         req.setAttribute("composerInformation", composer);
         req.setAttribute("playerOneInstruments", linkingDao.getByPropertyEqualCompositionInstrument(1, compositionId));
