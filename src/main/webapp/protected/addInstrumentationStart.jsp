@@ -17,7 +17,7 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
-
+<h1>CompositionId: </h1> ${compositionId}
     <%-- Keyboard --%>
     <div class="row">
         <div class="col-sm-5"></div>
@@ -136,7 +136,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Timpani">
-                    <input type="hidden" name="compositionId" value="compositionId  ">
+                    <input type="hidden" name="compositionId" value="compositionId">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="button" class="btn">Timpani</button></a>
                 </div>
