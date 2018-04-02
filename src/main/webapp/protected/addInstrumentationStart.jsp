@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
   Created by IntelliJ IDEA.
   User: reneegrittner
@@ -7,10 +8,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<jsp:include page="head.jsp" />
 <body>
-<h1>Made it!</h1>
+<div class="container page-styling">
+    <div class="header-wrapper">
+        <div class="site-name">
+            <h1>Add Player x Instruments</h1>
+        </div>
+    </div>
+    <jsp:include page="nav.jsp" />
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2">Buttons Go Here</div>
+        <div class="col-sm-5"></div>
+
+    </div>
 </body>
 </html>
+<jsp:include page="../scripts.jsp" />
