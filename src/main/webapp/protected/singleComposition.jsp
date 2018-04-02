@@ -57,7 +57,7 @@
                             </tr>
                         </c:if>
                             <c:if test="${empty playerOneInstruments}">
-                                Add Instruments
+                                <tr><td>Add Instruments</td></tr>
                             </c:if>
                         </c:forEach>
                     </tbody>
