@@ -13,7 +13,7 @@
 <div class="container page-styling">
     <div class="header-wrapper">
         <div class="site-name">
-            <h1>Add Player x Instruments</h1>
+            <h1>Add Player ${playerNumber} Instruments</h1>
         </div>
     </div>
     <jsp:include page="nav.jsp" />
@@ -23,7 +23,7 @@
         <div class="col-sm-2 centering">
 
                 <div class="more-btn">
-                    <button type="button" class="btn">${current.category}</button><br/>
+                    <a href="/concertPlanner/ensemble/addPlayerInstrumentation/category?${current.category}"><button type="button" class="btn">${current.category}</button></a>
                 </div>
 
         </div>
