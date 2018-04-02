@@ -50,10 +50,15 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${playerOneInstruments}" var="current">
+                           <c:if test="${playerOneInstruments != null}">
                             <tr>
                                 <td>${current.instrument.name}</td>
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
+                        </c:if>
+                            <c:if test="playerOneInstruments">
+                                Add Instruments
+                            </c:if>
                         </c:forEach>
                     </tbody>
                 </table>
