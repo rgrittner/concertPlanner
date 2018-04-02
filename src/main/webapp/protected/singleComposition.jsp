@@ -50,7 +50,7 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${playerOneInstruments}" var="current">
-                           <c:if test="${playerOneInstruments != null}">
+                           <c:if test="${not empty playerOneInstruments}">
                             <tr>
                                 <td>${current.instrument.name}</td>
                                 <td>${current.instrumentQuantity}</td>
