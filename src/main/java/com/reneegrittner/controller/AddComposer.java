@@ -85,7 +85,7 @@ public class AddComposer extends HttpServlet {
         genericDao.insert(composerToBeAdded);
 
 
-        String url = "/protected/composers";
+        String url = "/ensemble/protected/composers";
 
         resp.sendRedirect(url);
 

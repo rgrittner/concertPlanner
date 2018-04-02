@@ -55,6 +55,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="duration" class="col-sm-2 control-label">Duration </label>
+                <div class="col-sm-10">
+                    <input type="text" id="duration" name="duration"/> minutes
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="clocksCommission" class="col-sm-2 control-label">Commissioned by Ensemble? </label>
                 <label class="radio-inline">
                     <input type="radio" name="clocksCommission" id="clocksCommission" value="0" checked> No

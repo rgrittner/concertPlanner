@@ -81,7 +81,7 @@ public class AddComposition extends HttpServlet {
         genericDao.insert(compositionToBeAdded);
 
 
-        String url = "/protected/compositions";
+        String url = "/concertPlanner/ensemble/compositions ";
 
         resp.sendRedirect(url);
 
