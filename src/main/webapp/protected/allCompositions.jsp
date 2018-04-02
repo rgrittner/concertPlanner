@@ -44,7 +44,7 @@
                             <td>${current.duration}</td>
                             <td>${current.yearComposed}</td>
                             <td>${current.numberOfPlayers}</td>
-                            <td><c:if test="${${current.clocksCommission} = 1}">Yes</c:if></td>
+                            <td><c:if test="${current.clocksCommission}">Yes</c:if></td>
                             <td>${current.notes}</td>
 
                         </tr>
