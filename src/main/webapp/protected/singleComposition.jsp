@@ -50,7 +50,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:if test="${playerOneInstruments}">
+                    <c:if test="${not empty playerOneInstruments}">
                         <c:forEach items="${playerOneInstruments}" var="current">
 
                             <tr>
@@ -66,7 +66,7 @@
 
                     </tbody>
                 </table>
-                Player one: ${playerOneInstruments}
+                
             </div>
             <div class="col-sm-5">
                 <h4>Player 2</h4>
