@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="head.jsp"/>
@@ -56,7 +57,7 @@
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
                         </c:if>
-                            <c:if test="${playerOneInstruments = []}">
+                            <c:if test="${fn:length(playerOneInstruments) == 0}">
                                 <tr><td>Add Instruments</td></tr>
                             </c:if>
                         </c:forEach>
