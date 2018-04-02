@@ -45,7 +45,7 @@ public class AddComposition extends HttpServlet {
         String numberOfPlayersFromForm = req.getParameter("numberOfPlayers");
         String notesFromform = "notes";
 
-        // Convert String data to correct data type for variable in entitiy
+        // Convert String data to correct data type for variable in entity
         Integer composerIdAsInteger = Integer.parseInt(composerIdFromForm);
         logger.debug("composer id as integer" + composerIdAsInteger);
         Integer durationAsInteger = Integer.parseInt(durationFromForm);
