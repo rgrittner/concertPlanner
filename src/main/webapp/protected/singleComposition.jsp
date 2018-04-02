@@ -60,7 +60,7 @@
                         </c:forEach>
                         </c:if>
                             <c:if test="${empty playerOneInstruments}">
-                                <tr><td><a href="/comncertPlanner/ensemble/addPlayerInstrumentation">Add Instruments</a></td></tr>
+                                <tr><td><a href="/concertPlanner/ensemble/addPlayerInstrumentation">Add Instruments</a></td></tr>
                             </c:if>
 
 
