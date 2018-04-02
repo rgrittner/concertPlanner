@@ -17,6 +17,7 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
+    <h1>Composition:</h1><h3>${composition.id}</h3>
     <form>
         <input type="hidden" name="playerNumber" value="${playerNumber}"/>
         <input type="hidden" name="compositionId"

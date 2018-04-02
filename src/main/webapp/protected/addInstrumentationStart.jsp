@@ -25,6 +25,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Keyboards">
+                    <input type="hidden" name="compositionId" value="${compositionId}">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="button" class="btn">Keyboards</button></a>
                 </div>
@@ -42,6 +43,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Metals">
+                    <input type="hidden" name="compositionId" value="compositionId">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="submit" class="btn">Metals</button></a>
                 </div>
@@ -59,6 +61,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Skins">
+                    <input type="hidden" name="compositionId" value="compositionId">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="button" class="btn">Skins</button></a>
                 </div>
@@ -76,6 +79,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Woods">
+                    <input type="hidden" name="compositionId" value="compositionId">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="button" class="btn">Woods</button></a>
                 </div>
@@ -94,6 +98,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Accessory">
+                    <input type="hidden" name="compositionId" value="compositionId">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="submit" class="btn">Accessory</button></a>
                 </div>
@@ -112,6 +117,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Other">
+                    <input type="hidden" name="compositionId" value="compositionId">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="button" class="btn">Other</button></a>
                 </div>
@@ -130,6 +136,7 @@
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
                     <input type="hidden" name="category" value="Timpani">
+                    <input type="hidden" name="compositionId" value="compositionId  ">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <button type="button" class="btn">Timpani</button></a>
                 </div>
