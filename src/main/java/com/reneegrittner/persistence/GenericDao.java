@@ -109,7 +109,9 @@ public class GenericDao<T> {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get("playerNumber"), playerNumber)).having(builder.equal(root.get("composition"), compositionId));
+        query.select(root).where(builder.and(builder.equal(root.get("composition"), compositionId), builder.equal(root.get("playerNumber"), playerNumber))); //https://stackoverflow.com/questions/46449407/how-to-use-and-in-hibernate-5-2-criteria
+
+                //where(builder.equal(root.get("composition"), compositionId)).where(builder.and(root.get("playerNumber"), (Predicate) playerNumber));
         List<T> list = session.createQuery(query).getResultList();
         return list;
     }
