@@ -56,12 +56,14 @@
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
                         </c:if>
-                            <c:if test="${playerOneInstruments == []}">
+                            <c:if test="${playerOneInstruments = []}">
                                 <tr><td>Add Instruments</td></tr>
                             </c:if>
                         </c:forEach>
+
                     </tbody>
                 </table>
+                Player one: ${playerOneInstruments}
             </div>
             <div class="col-sm-5">
                 <h4>Player 2</h4>
