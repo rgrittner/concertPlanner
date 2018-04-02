@@ -15,6 +15,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 <p>
+                    <c:if test="${compositionInformation.arranger != null}">Arranger: ${compositionInformation.arranger}</c:if>
                  Composed: ${compositionInformation.yearComposed} <br>
                  Duration: ${compositionInformation.duration} minutes<br>
                 Players: ${compositionInformation.numberOfPlayers}<br>
