@@ -18,7 +18,9 @@
     </div>
     <jsp:include page="nav.jsp" />
     <c:forEach items="${instruments}" var="current">
-    ${current.name}
+    <label for="${current.name}">${current.name}</label>
+    <input type="number" name="${current.id}" id="${current.name}" min="0"/><br>
+
     </c:forEach>
 </body>
 <jsp:include page="scripts.jsp" />

@@ -61,3 +61,8 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 }
+
+//TODO -- figure this shit out!
+// string valie from form
+// name = the instrument id, so we can find out how many instruments of a category there are.
+// in a while loop keep getting the next id up and then add it to the linking table?
