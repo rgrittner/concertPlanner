@@ -15,7 +15,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 <p>
-                    <c:if test="${compositionInformation.arranger != null}">Arranger: ${compositionInformation.arranger}</c:if>
+                    <c:if test="${compositionInformation.arranger != null}">Arranger: ${compositionInformation.arranger}<br/></c:if>
                  Composed: ${compositionInformation.yearComposed} <br>
                  Duration: ${compositionInformation.duration} minutes<br>
                 Players: ${compositionInformation.numberOfPlayers}<br>
@@ -25,7 +25,7 @@
                 <p>
                 Composer: ${composerInformation.lastName}, ${composerInformation.firstName}<br>
                 Born: ${composerInformation.birthYear}<br>
-                Death: ${composerInformation.deathYear}<br>
+                <c:if test="${composerInformation.deathYear != null}">Death: ${composerInformation.deathYear}<br></c:if>
                 Nationality: ${composerInformation.nationality.nationality}
                 </p>
             </div>
