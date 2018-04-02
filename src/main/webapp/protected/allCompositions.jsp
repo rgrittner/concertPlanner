@@ -25,8 +25,8 @@
                 <table id="resultTable" class="table table-sm">
                     <thead>
                     <tr>
-                        <th scope="col">Composer</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Composer</th>
                         <th scope="col">Arranger</th>
                         <th scope="col">Duration (minutes)</th>
                         <th scope="col">Year of Composition</th>
@@ -38,13 +38,13 @@
                     <tbody>
                     <c:forEach items="${compositions}" var="current">
                         <tr>
-                            <td>${current.composer.lastName}, ${current.composer.firstName}</td>
                             <td>${current.title}</td>
+                            <td>${current.composer.lastName}, ${current.composer.firstName}</td>
                             <td>${current.arranger}</td>
                             <td>${current.duration}</td>
                             <td>${current.yearComposed}</td>
                             <td>${current.numberOfPlayers}</td>
-                            <td>${current.clocksCommission}</td>
+                            <td><c:if test="${${current.clocksCommission} == true}">Yes</c:if></td>
                             <td>${current.notes}</td>
 
                         </tr>
