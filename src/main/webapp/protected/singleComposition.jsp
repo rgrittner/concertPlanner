@@ -56,7 +56,7 @@
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
                         </c:if>
-                            <c:if test="${empty playerOneInstruments}">
+                            <c:if test="${playerOneInstruments.size() < 1}">
                                 <tr><td>Add Instruments</td></tr>
                             </c:if>
                         </c:forEach>
