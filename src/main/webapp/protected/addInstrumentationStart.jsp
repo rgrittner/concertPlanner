@@ -17,18 +17,21 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
+    <c:forEach items="${instrumentCat}" var="current">
     <div class="row">
         <div class="col-sm-5"></div>
-        <div class="col-sm-2">
-            <c:forEach items="${instrumentCat}" var="current">
+        <div class="col-sm-2 centering">
+
                 <div class="more-btn">
-                    <button type="button" class="btn">${instrumentCat.category}</button>
+                    <button type="button" class="btn">${current.category}</button><br/>
                 </div>
-            </c:forEach>
+
         </div>
         <div class="col-sm-5"></div>
 
     </div>
+    <div class="row"><div class="col-sm-12">  <br/> </div></div>
+    </c:forEach>
 </body>
 </html>
 <jsp:include page="../scripts.jsp" />
