@@ -38,13 +38,13 @@
                     <tbody>
                     <c:forEach items="${compositions}" var="current">
                         <tr>
-                            <td>${current.title}</td>
+                            <td><a name="compositionId" value="${current.id}" href="/concertPlanner/ensemble/singleComposition?param=${current.id}">${current.title}</a></td>
                             <td>${current.composer.lastName}, ${current.composer.firstName}</td>
                             <td>${current.arranger}</td>
                             <td>${current.duration}</td>
                             <td>${current.yearComposed}</td>
                             <td>${current.numberOfPlayers}</td>
-                            <td><c:if test="${current.clocksCommission}">Yes</c:if></td>
+                            <td><c:if test="${current.clocksCommission}">Yes</c:if><c:if test="${current.clocksCommission == false}">No</c:if></td>
                             <td>${current.notes}</td>
 
                         </tr>
