@@ -24,18 +24,22 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String categoryFromForm = req.getParameter("category");
+        String compositionIdFromForm = req.getParameter("compositionId");
+
+        logger.debug("composition id " + compositionIdFromForm);
+
         int playerNumber = Integer.parseInt(req.getParameter("playerNumber"));
-        logger.debug("what is the categoru " + categoryFromForm);
+       // logger.debug("what is the categoru " + categoryFromForm);
         GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
         List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm);
-        logger.debug("Id? " + category);
+        //logger.debug("Id? " + category);
         int categoryId = category.get(0).getId();
-        logger.debug("category id as int? " + categoryId);
+        //logger.debug("category id as int? " + categoryId);
 
 
 
 
-        logger.debug("what came back from the dao? " + dao.getByPropertyEqual("instrumentCategory", categoryId));
+        //logger.debug("what came back from the dao? " + dao.getByPropertyEqual("instrumentCategory", categoryId));
 
 
         req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));

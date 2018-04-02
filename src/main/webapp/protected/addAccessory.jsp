@@ -17,11 +17,15 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
+    <form>
+        <input type="hidden" name="playerNumber" value="${playerNumber}"/>
+        <input type="hidden" name="compositionId"
     <c:forEach items="${instruments}" var="current">
     <label for="${current.name}">${current.name}</label>
     <input type="number" name="${current.id}" id="${current.name}" min="0"/><br>
 
     </c:forEach>
+    </form>
 </body>
 <jsp:include page="scripts.jsp" />
 </html>
