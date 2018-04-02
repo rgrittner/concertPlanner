@@ -20,7 +20,7 @@ public class AddInstrumentationStart extends HttpServlet {
         GenericDao dao = new GenericDao(InstrumentCategory.class);
         req.setAttribute("instrumentCat", dao.getAll());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/concertPlanner/protected/addInstrumentationStart.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrumentationStart.jsp");
         dispatcher.forward(req, resp);
     }
 }
