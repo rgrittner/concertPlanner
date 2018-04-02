@@ -66,7 +66,7 @@
 
                     </tbody>
                 </table>
-                
+
             </div>
             <div class="col-sm-5">
                 <h4>Player 2</h4>
