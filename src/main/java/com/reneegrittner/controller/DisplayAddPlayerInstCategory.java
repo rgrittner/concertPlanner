@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/ensemble/addPlayerInstrumentation"}
+        urlPatterns = {"/ensemble/addPlayerInstrumentation/category"}
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
     @Override
