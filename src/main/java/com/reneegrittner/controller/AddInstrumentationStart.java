@@ -17,8 +17,11 @@ import java.io.IOException;
 public class AddInstrumentationStart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer playerFromParam = Integer.parseInt(req.getParameter("player"));
+
         GenericDao dao = new GenericDao(InstrumentCategory.class);
-        req.setAttribute("instrumentCat", dao.getAll());
+        req.setAttribute("instrumentCat", dao.getAll("category"));
+        req.setAttribute("playerNumber", playerFromParam);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrumentationStart.jsp");
         dispatcher.forward(req, resp);
