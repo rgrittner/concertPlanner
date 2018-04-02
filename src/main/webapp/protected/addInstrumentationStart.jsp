@@ -23,7 +23,7 @@
         <div class="col-sm-2 centering">
 
                 <div class="more-btn">
-                    <a href="/concertPlanner/ensemble/addPlayerInstrumentation/category?${current.category}"><button type="button" class="btn">${current.category}</button></a>
+                    <a href="/concertPlanner/ensemble/addPlayerInstrumentation?categoryId=${current.id}"><button type="button" class="btn">${current.category}</button></a>
                 </div>
 
         </div>
