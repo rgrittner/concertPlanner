@@ -20,6 +20,7 @@ import java.util.List;
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String categoryFromForm = req.getParameter("category");
@@ -32,7 +33,7 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         logger.debug("category id as int? " + categoryId);
 
 
-        GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
+
 
         logger.debug("what came back from the dao? " + dao.getByPropertyEqual("instrumentCategory", categoryId));
 
@@ -59,6 +60,28 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);
         dispatcher.forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        // get player number
+
+        // get composition id
+
+
+        // Find out how many instruments there currently are in current category
+        int numberOfInstrumentsOfCategory = dao.getByPropertyEqual("category", 7).size();
+        int current = 0;
+        while(current <= numberOfInstrumentsOfCategory){
+            int idOfCurrentInstrument = Integer.parseInt(req.getParameter("current"));
+            //check if this instrument exists for this player for this composition
+                // if yes
+                    // saveOrUpdate
+                // if no
+                    // insert
+
+        }
+
     }
 }
 
