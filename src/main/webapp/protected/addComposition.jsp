@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label for="composer" class="col-sm-2 control-label">Composer</label>
                 <div class="col-sm-10">
-                    <select id="composer">
+                    <select id="composer" name="composer">
                         <c:forEach items="${composers}" var="current">
                             <option value="${current.id}">${current.lastName}, ${current.firstName}</option>
                         </c:forEach>
