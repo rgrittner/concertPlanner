@@ -19,7 +19,13 @@
     <jsp:include page="nav.jsp" />
     <div class="row">
         <div class="col-sm-5"></div>
-        <div class="col-sm-2">Buttons Go Here</div>
+        <div class="col-sm-2">
+            <c:forEach items="${instrumentCat}" var="current">
+                <div class="more-btn">
+                    <button type="button" class="btn">${instrumentCat.category}</button>
+                </div>
+            </c:forEach>
+        </div>
         <div class="col-sm-5"></div>
 
     </div>
