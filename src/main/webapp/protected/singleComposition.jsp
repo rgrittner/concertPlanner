@@ -136,3 +136,4 @@
 
 </body>
 </html>
+<jsp:include page="scripts.jsp" />
