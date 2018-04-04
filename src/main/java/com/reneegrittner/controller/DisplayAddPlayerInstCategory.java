@@ -40,6 +40,7 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm);
         int categoryId = category.get(0).getId();
         req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));
+        logger.info("This is what comes back: " + dao.getByPropertyEqual("instrumentCategory", categoryId));
 
         // Send the playerNumber as well
         req.setAttribute("playerNumber", playerNumber);
