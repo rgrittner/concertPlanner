@@ -17,8 +17,15 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
-
-<h1>CompositionId: </h1> ${compositionId}
+    <div class="lines">
+        <div class="more-btn">
+            <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn">Return to ${composition.title}</button></a>
+        </div>
+        <div class="more-btn">
+            <button type="button" class="btn" data-toggle="modal" data-target="#InstrumentModal">Add Instruments for player ${nextPlayer}</button>
+        </div>
+    </div>
+    <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3>
 
     <c:forEach items="${instrumentCat}" var="current">
     <div class="row">
@@ -40,14 +47,7 @@
 
     </c:forEach>
 
-    <div class="lines">
-        <div class="more-btn">
-            <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn">Return to ${composition.title}</button></a>
-        </div>
-        <div class="more-btn">
-            <button type="button" class="btn" data-toggle="modal" data-target="#InstrumentModal">Add Instruments for player ${nextPlayer}</button>
-        </div>
-    </div>
+
 
 </div>
 </body>
