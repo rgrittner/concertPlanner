@@ -49,8 +49,6 @@ public class AddInstrumentationStart extends HttpServlet {
 
         if(playerFromParam < maxNumberOfPlayers){
             nextPlayer = playerFromParam + 1;
-        }else if(playerFromParam == maxNumberOfPlayers){
-            nextPlayer = -1;
         }
 
 
@@ -59,6 +57,7 @@ public class AddInstrumentationStart extends HttpServlet {
         req.setAttribute("compositionId", req.getParameter("compositionId"));
         req.setAttribute("composition", currentComposition);
         req.setAttribute("nextPlayer", nextPlayer);
+        req.setAttribute("maxPlayer", maxNumberOfPlayers);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrumentationStart.jsp");
         dispatcher.forward(req, resp);

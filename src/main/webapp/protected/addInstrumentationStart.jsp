@@ -21,13 +21,15 @@
         <div class="more-btn">
             <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn">Return to ${composition.title}</button></a>
         </div>
-        <div class="more-btn">
-            <button type="button" class="btn" data-toggle="modal" data-target="#InstrumentModal">Add Instruments for player ${nextPlayer}</button>
-        </div>
+        <c:if test="${nextPlayer < maxPlayer}">
+            <div class="more-btn">
+                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><button type="button" class="btn">Add Instruments for player ${nextPlayer}</button></a>
+            </div>
+        </c:if>
     </div>
     <div class="row"><div class="col-sm-12">  <br/> <br></div></div>
     <div class="row"><div class="col-sm-12">  <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3> </div></div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
+    <div class="row"><div class="col-sm-12">  next player = ${nextPlayer}, max players = ${maxPlayer}<br/> </div></div>
 
     <c:forEach items="${instrumentCat}" var="current">
     <div class="row">
