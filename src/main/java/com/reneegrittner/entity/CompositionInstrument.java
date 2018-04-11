@@ -5,6 +5,10 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * The type Composition instrument.
+ * @author Renee Grittner
+ */
 @Entity(name = "CompositionInstrument")
 @Table(name = "Composition_Instrument")
 public class CompositionInstrument {
@@ -26,9 +30,20 @@ public class CompositionInstrument {
     @ManyToOne
     private Composition composition;
 
+    /**
+     * Instantiates a new Composition instrument.
+     */
     public CompositionInstrument() {
     }
 
+    /**
+     * Instantiates a new Composition instrument.
+     *
+     * @param playerNumber       the player number
+     * @param instrumentQuantity the instrument quantity
+     * @param instrument         the instrument
+     * @param composition        the composition
+     */
     public CompositionInstrument(int playerNumber, int instrumentQuantity, Instrument instrument, Composition composition) {
         this.playerNumber = playerNumber;
         this.instrumentQuantity = instrumentQuantity;
@@ -37,42 +52,92 @@ public class CompositionInstrument {
     }
 
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Gets player number.
+     *
+     * @return the player number
+     */
     public int getPlayerNumber() {
         return playerNumber;
     }
 
+    /**
+     * Sets player number.
+     *
+     * @param playerNumber the player number
+     */
     public void setPlayerNumber(int playerNumber) {
         this.playerNumber = playerNumber;
     }
 
+    /**
+     * Gets instrument quantity.
+     *
+     * @return the instrument quantity
+     */
     public int getInstrumentQuantity() {
         return instrumentQuantity;
     }
 
+    /**
+     * Sets instrument quantity.
+     *
+     * @param instumentQuantity the instument quantity
+     */
     public void setInstrumentQuantity(int instumentQuantity) {
         this.instrumentQuantity = instumentQuantity;
     }
 
+    /**
+     * Gets instrument.
+     *
+     * @return the instrument
+     */
     public Instrument getInstrument() {
         return instrument;
     }
 
+    /**
+     * Sets instrument.
+     *
+     * @param instrument the instrument
+     */
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
     }
 
+    /**
+     * Gets composition.
+     *
+     * @return the composition
+     */
     public Composition getComposition() {
         return composition;
     }
 
+    /**
+     * Sets composition.
+     *
+     * @param composition the composition
+     */
     public void setComposition(Composition composition) {
         this.composition = composition;
     }
