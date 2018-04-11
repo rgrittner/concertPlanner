@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet to handle adding a new Composer, contains a doGet and doPost method.
+ */
 @WebServlet(
         urlPatterns = {"/ensemble/addComposer"}
 )
@@ -22,17 +25,28 @@ import java.io.IOException;
 public class AddComposer extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * doGet method handles populating the Nationality select options with currently available nationalities
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao(Nationality.class);
         req.setAttribute("nationality", dao.getAll("nationality"));
-        logger.info("hello?");
-        logger.debug("hello?");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposer.jsp");
         dispatcher.forward(req, resp);
     }
 
-
+    /**
+     * doPost method handles adding the composer to the database
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Composer composerToBeAdded = new Composer();
@@ -41,7 +55,6 @@ public class AddComposer extends HttpServlet {
 
         // Get Id of selected Nationality from from, convert to Integer
         Integer nationalityIdFromForm = Integer.parseInt(req.getParameter("nationality"));
-        logger.debug("nationality Id from form: " + nationalityIdFromForm);
 
         // Get the correct Nationality object from the DAO
         nationalityToInsert = (Nationality)nationalityDao.getById(nationalityIdFromForm);
@@ -71,14 +84,8 @@ public class AddComposer extends HttpServlet {
         composerToBeAdded.setBirthYear(birthYear);
         composerToBeAdded.setDeathYear(deathYear);
 
-
-
-
-
-                // Check for someone that already exists?
-        // If not found then add?
-
-        // Search by object? search by two parameters?
+        //TODO add data verification
+        //TODO check for exisiting composer
 
         GenericDao genericDao = new GenericDao(Composer.class);
 

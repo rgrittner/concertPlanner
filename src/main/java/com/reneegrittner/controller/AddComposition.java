@@ -15,12 +15,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for handling adding a Composition.
+ * This servlet is accessed from:
+ * @author Renee Grittner
+ */
 @WebServlet(
         urlPatterns = {"/ensemble/addComposition"}
 )
 public class AddComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * doGet method populates composer select items with current list of composers
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao<>(Composer.class);
@@ -30,6 +42,14 @@ public class AddComposition extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
+    /**
+     * doPost method handles adding a composition to the database
+     * This method is accessed from addComposition.jsp
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -37,17 +57,16 @@ public class AddComposition extends HttpServlet {
 
         String titleFromForm = req.getParameter("title");
         String composerIdFromForm = req.getParameter("composer");
-        logger.debug("composer as string" + composerIdFromForm);
         String arrangerFromForm = req.getParameter("arranger");
         String durationFromForm = req.getParameter("duration");
         String yearFromForm = req.getParameter("year");
         String clocksCommissionFromForm = req.getParameter("clocksCommission");
         String numberOfPlayersFromForm = req.getParameter("numberOfPlayers");
         String notesFromform = "notes";
-
+        //TODO notes? This should be nullable
+        
         // Convert String data to correct data type for variable in entity
         Integer composerIdAsInteger = Integer.parseInt(composerIdFromForm);
-        logger.debug("composer id as integer" + composerIdAsInteger);
         Integer durationAsInteger = Integer.parseInt(durationFromForm);
         Integer yearAsInteger = Integer.parseInt(yearFromForm);
         Boolean clocksCommissionAsBool = Boolean.parseBoolean(clocksCommissionFromForm);
@@ -80,7 +99,7 @@ public class AddComposition extends HttpServlet {
         GenericDao genericDao = new GenericDao<>(Composition.class);
         genericDao.insert(compositionToBeAdded);
 
-
+        // Return user to list of all compositions
         String url = "/concertPlanner/ensemble/compositions ";
 
         resp.sendRedirect(url);

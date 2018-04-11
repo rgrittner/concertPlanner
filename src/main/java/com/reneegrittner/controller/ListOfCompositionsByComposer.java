@@ -34,6 +34,5 @@ public class ListOfCompositionsByComposer extends HttpServlet {
         req.setAttribute("composerName", composerFullName);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/compositionsOfComposer.jsp");
         dispatcher.forward(req, resp);
-        logger.debug("from servlet: " + dao.getByPropertyEqualComposition(idFromParam));
     }
 }
