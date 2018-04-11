@@ -21,11 +21,7 @@
         <div class="more-btn">
             <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn">Return to ${composition.title}</button></a>
         </div>
-        <c:if test="${nextPlayer < maxPlayer}">
-            <div class="more-btn">
-                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><button type="button" class="btn">Add Instruments for player ${nextPlayer}</button></a>
-            </div>
-        </c:if>
+
     </div>
     <div class="row"><div class="col-sm-12">  <br/> <br></div></div>
     <div class="row"><div class="col-sm-12">  <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3> </div></div>
@@ -50,6 +46,16 @@
     <div class="row"><div class="col-sm-12">  <br/> </div></div>
 
     </c:forEach>
+
+
+        <c:if test="${nextPlayer <= maxPlayer}">
+    <h3>I'm done adding all instruments for player ${playerNumber}, click the button below to begin adding for player ${nextPlayer}</h3>
+    <div class="lines">
+            <div class="more-btn">
+                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><button type="button" class="btn">Add Instruments for player ${nextPlayer}</button></a>
+            </div>
+    </div>
+        </c:if>
 
 
 

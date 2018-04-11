@@ -105,13 +105,18 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         List<Instrument> listOfInstrumentsOfCategory = dao.getByPropertyEqual("instrumentCategory", categoryId);
         for(Instrument currentInstrument: listOfInstrumentsOfCategory) {
             Integer currentId = currentInstrument.getId();
+            //Check if this instrument has a qty in the form
+            if(req.getParameter("instrumentId" + currentId).length() > 0){
+                CompositionInstrument compositionInstrument = new CompositionInstrument();
+                compositionInstrument.setInstrument(currentInstrument);
+                compositionInstrument.setPlayerNumber(playerNumber);
+                compositionInstrument.setComposition(composition);
+                compositionInstrument.setInstrumentQuantity(Integer.parseInt(req.getParameter("instrumentId" + currentId)));
+                compositionInstrumentGenericDao.insert(compositionInstrument);
+            }
+
             // get quantity from form
-            CompositionInstrument compositionInstrument = new CompositionInstrument();
-            compositionInstrument.setInstrument(currentInstrument);
-            compositionInstrument.setPlayerNumber(playerNumber);
-            compositionInstrument.setComposition(composition);
-            compositionInstrument.setInstrumentQuantity(Integer.parseInt(req.getParameter("instrumentId" + currentId)));
-            compositionInstrumentGenericDao.insert(compositionInstrument);
+
         }
 
 

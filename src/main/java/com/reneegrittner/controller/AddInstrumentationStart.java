@@ -47,7 +47,7 @@ public class AddInstrumentationStart extends HttpServlet {
         int maxNumberOfPlayers = currentComposition.getNumberOfPlayers();
         int nextPlayer = 0;
 
-        if(playerFromParam < maxNumberOfPlayers){
+        if(playerFromParam <= maxNumberOfPlayers){
             nextPlayer = playerFromParam + 1;
         }
 

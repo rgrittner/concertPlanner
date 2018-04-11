@@ -48,6 +48,7 @@
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
@@ -57,6 +58,7 @@
 
                             <tr>
                                 <td>${current.instrument.name}</td>
+                                <td>${current.instrument.instrumentCategory.category}</td>
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
                         </c:forEach>
@@ -80,16 +82,27 @@
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${playerTwoInstruments}" var="current">
+                    <c:if test="${not empty playerTwoInstruments}">
+                        <c:forEach items="${playerTwoInstruments}" var="current">
+                            <tr>
+                                <td>${current.instrument.name}</td>
+                                <td>${current.instrument.instrumentCategory.category}</td>
+                                <td>${current.instrumentQuantity}</td>
+                            </tr>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty playerTwoInstruments}">
                         <tr>
-                            <td>${current.instrument.name}</td>
-                            <td>${current.instrumentQuantity}</td>
+                            <td>
+                                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=2&compositionId=${compositionInformation.id}">
+                                    Add Instruments</a></td>
                         </tr>
-                    </c:forEach>
+                    </c:if>
                     </tbody>
                 </table>
             </div>
@@ -103,6 +116,7 @@
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
@@ -110,9 +124,17 @@
                     <c:forEach items="${playerThreeInstruments}" var="current">
                         <tr>
                             <td>${current.instrument.name}</td>
+                            <td>${current.instrument.instrumentCategory.category}</td>
                             <td>${current.instrumentQuantity}</td>
                         </tr>
                     </c:forEach>
+                    <c:if test="${empty playerThreeInstruments}">
+                        <tr>
+                            <td>
+                                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=3&compositionId=${compositionInformation.id}">
+                                    Add Instruments</a></td>
+                        </tr>
+                    </c:if>
                     </tbody>
                 </table>
             </div>
@@ -122,6 +144,7 @@
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
@@ -129,9 +152,17 @@
                     <c:forEach items="${playerFourInstruments}" var="current">
                         <tr>
                             <td>${current.instrument.name}</td>
+                            <td>${current.instrument.instrumentCategory.category}</td>
                             <td>${current.instrumentQuantity}</td>
                         </tr>
                     </c:forEach>
+                    <c:if test="${empty playerFourInstruments}">
+                        <tr>
+                            <td>
+                                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=4&compositionId=${compositionInformation.id}">
+                                    Add Instruments</a></td>
+                        </tr>
+                    </c:if>
                     </tbody>
                 </table>
             </div>
