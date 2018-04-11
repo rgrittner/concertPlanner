@@ -26,8 +26,6 @@ public class AddComposer extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao(Nationality.class);
         req.setAttribute("nationality", dao.getAll("nationality"));
-        logger.info("hello?");
-        logger.debug("hello?");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposer.jsp");
         dispatcher.forward(req, resp);
     }
@@ -41,7 +39,6 @@ public class AddComposer extends HttpServlet {
 
         // Get Id of selected Nationality from from, convert to Integer
         Integer nationalityIdFromForm = Integer.parseInt(req.getParameter("nationality"));
-        logger.debug("nationality Id from form: " + nationalityIdFromForm);
 
         // Get the correct Nationality object from the DAO
         nationalityToInsert = (Nationality)nationalityDao.getById(nationalityIdFromForm);

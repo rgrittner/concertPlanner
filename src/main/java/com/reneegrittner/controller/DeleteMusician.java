@@ -23,7 +23,6 @@ public class DeleteMusician extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.parseInt(req.getParameter("idOfMusicianToBeDeleted"));
-        logger.debug("Id from delete doGet: " + id);
         GenericDao dao = new GenericDao(Musician.class);
         req.setAttribute("musician", dao.getById(id));
         //TODO -- Figure out how to send the correct ID along with the get request.
@@ -36,7 +35,6 @@ public class DeleteMusician extends HttpServlet {
         Musician musicianToBeDeleted = new Musician();
         Integer id = Integer.parseInt(req.getParameter("idOfMusicianToBeDeleted"));
         GenericDao dao = new GenericDao<>(Musician.class);
-        musicianToBeDeleted = (Musician) dao.getById(id);
         logger.debug("id from delete doPost" + id);
 
         dao.delete(musicianToBeDeleted);

@@ -37,7 +37,6 @@ public class AddComposition extends HttpServlet {
 
         String titleFromForm = req.getParameter("title");
         String composerIdFromForm = req.getParameter("composer");
-        logger.debug("composer as string" + composerIdFromForm);
         String arrangerFromForm = req.getParameter("arranger");
         String durationFromForm = req.getParameter("duration");
         String yearFromForm = req.getParameter("year");
@@ -47,7 +46,6 @@ public class AddComposition extends HttpServlet {
 
         // Convert String data to correct data type for variable in entity
         Integer composerIdAsInteger = Integer.parseInt(composerIdFromForm);
-        logger.debug("composer id as integer" + composerIdAsInteger);
         Integer durationAsInteger = Integer.parseInt(durationFromForm);
         Integer yearAsInteger = Integer.parseInt(yearFromForm);
         Boolean clocksCommissionAsBool = Boolean.parseBoolean(clocksCommissionFromForm);
