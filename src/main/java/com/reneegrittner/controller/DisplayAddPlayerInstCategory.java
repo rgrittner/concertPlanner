@@ -48,7 +48,7 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Get compositionId, category and playerNumber
+        // Get compositionId, category and playerNumber from request
         String categoryFromForm = req.getParameter("category");
         Integer compositionIdFromForm = Integer.parseInt(req.getParameter("compositionId"));
         int playerNumber = Integer.parseInt(req.getParameter("playerNumber"));
@@ -133,7 +133,11 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
             compositionInstrumentGenericDao.insert(compositionInstrument);
         }
 
+
         String url = "/concertPlanner/ensemble/addPlayerInstrumentation?player="+playerNumber+"&compositionId="+compositionId;
+
+        logger.debug("string url: " + url);
+
         resp.sendRedirect(url);
 
     }
