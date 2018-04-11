@@ -34,3 +34,21 @@
 [INFO ] 2018-04-11 00:44:51.094 [http-nio-8080-exec-18] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
 [INFO ] 2018-04-11 00:44:51.609 [http-nio-8080-exec-18] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
 [INFO ] 2018-04-11 00:44:52.944 [http-nio-8080-exec-18] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2018-04-11 00:53:26.867 [http-nio-8080-exec-25] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-04-11 00:53:26.870 [http-nio-8080-exec-25] Environment - HHH000206: hibernate.properties not found
+[INFO ] 2018-04-11 00:53:27.028 [http-nio-8080-exec-25] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] 2018-04-11 00:53:27.187 [http-nio-8080-exec-25] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
+[INFO ] 2018-04-11 00:53:27.187 [http-nio-8080-exec-25] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-04-11 00:53:27.187 [http-nio-8080-exec-25] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-04-11 00:53:27.352 [http-nio-8080-exec-25] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[INFO ] 2018-04-11 00:53:27.768 [http-nio-8080-exec-25] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2018-04-11 00:53:29.080 [http-nio-8080-exec-25] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2018-04-11 00:54:48.887 [http-nio-8080-exec-38] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-04-11 00:54:48.890 [http-nio-8080-exec-38] Environment - HHH000206: hibernate.properties not found
+[INFO ] 2018-04-11 00:54:49.046 [http-nio-8080-exec-38] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] 2018-04-11 00:54:49.222 [http-nio-8080-exec-38] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
+[INFO ] 2018-04-11 00:54:49.222 [http-nio-8080-exec-38] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-04-11 00:54:49.222 [http-nio-8080-exec-38] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-04-11 00:54:49.383 [http-nio-8080-exec-38] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[INFO ] 2018-04-11 00:54:49.795 [http-nio-8080-exec-38] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2018-04-11 00:54:51.122 [http-nio-8080-exec-38] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory

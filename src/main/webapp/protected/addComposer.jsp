@@ -18,7 +18,8 @@
     </div>
     <jsp:include page="nav.jsp" />
     <div>
-        <h3>Please note! At this time </h3>
+        <h3>Please note!</h3>
+        <p>At this time adding a new nationality will reset form data, please check the nationality you need is in the list before proceeding</p>
         <div class="lines">
             <div class="more-btn">
                 <button type="button" class="btn" data-toggle="modal" data-target="#NationalityModal">Add New Nationality</button>
