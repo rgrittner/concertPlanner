@@ -17,7 +17,31 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
+
 <h1>CompositionId: </h1> ${compositionId}
+
+    <c:forEach items="${instrumentCat}" var="current">
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2 centering">
+            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
+                <div class="more-btn">
+                    <input type="hidden" name="category" value="${current.category}">
+                    <input type="hidden" name="compositionId" value="${compositionId}">
+                    <input type="hidden" name="playerNumber" value="${playerNumber}">
+                    <input type="hidden" name="categoryId" value="${current.id}">
+                    <button type="submit" class="btn">${current.category}</button></a>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+    <div class="row"><div class="col-sm-12">  <br/> </div></div>
+
+    </c:forEach>
+
+
+    <h4>OLD BELOW</h4>
     <%-- Keyboard --%>
     <div class="row">
         <div class="col-sm-5"></div>
@@ -27,6 +51,7 @@
                     <input type="hidden" name="category" value="Keyboards">
                     <input type="hidden" name="compositionId" value="${compositionId}">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
+                    <input type="hidden" name="categoryId" value="1">
                     <button type="button" class="btn">Keyboards</button></a>
                 </div>
             </form>
