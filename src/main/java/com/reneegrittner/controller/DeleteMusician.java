@@ -14,41 +14,60 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This servlet handles deleting of Musicians.
+ * Only musicians who are not in use in a Program can be deleted
+ *
+ * @author Renee Grittner
+ */
 @WebServlet(
         urlPatterns = {"/ensemble/deleteMusician"}
 )
 
 public class DeleteMusician extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    GenericDao dao = new GenericDao(Musician.class);
+
+    /**
+     * The doGet retrieves the information about the musician to be deleted, making it available to the delete jsp.
+     * This method is accessed from TODO fill this out
+     * @param req access to items in the request
+     * @param resp send the response
+     * @throws ServletException when there is an error
+     * @throws IOException when there is an error
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.parseInt(req.getParameter("idOfMusicianToBeDeleted"));
-        GenericDao dao = new GenericDao(Musician.class);
+
         req.setAttribute("musician", dao.getById(id));
-        //TODO -- Figure out how to send the correct ID along with the get request.
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/deleteMusician.jsp");
         dispatcher.forward(req, resp);
     }
 
+    /**
+     * Handles the actual deleting.
+     * This method is accessed from: deleteMusician.jsp.
+     * @param req the id of the musician to be deleted.
+     * @param resp redirect to the list of musicians.
+     * @throws IOException when there is an error.
+     */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Musician musicianToBeDeleted = new Musician();
-        Integer id = Integer.parseInt(req.getParameter("idOfMusicianToBeDeleted"));
-        GenericDao dao = new GenericDao<>(Musician.class);
-        logger.debug("id from delete doPost" + id);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        // Get id from the form, this is a hidden input field
+        Integer idFromForm = Integer.parseInt(req.getParameter("idOfMusicianToBeDeleted"));
 
+        // Get the Musician as an object by the id
+        Musician musicianToBeDeleted = (Musician) dao.getById(idFromForm);
+
+        // Delete the musician
         dao.delete(musicianToBeDeleted);
 
-
-
-
-
-
-
+        // Redirect back to list of musicians
         String url = "/concertPlanner/ensemble/musicians";
-
         resp.sendRedirect(url);
 
+        //TODO add error handling for when a musician cannot be deleted
 
     }
 }

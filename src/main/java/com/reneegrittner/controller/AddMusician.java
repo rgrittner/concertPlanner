@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This servlet handles adding a new Musician.
+ * This servlet is accessed from TODO fill this out
+ * @author Renee Grittner
+ */
 @WebServlet(
         urlPatterns = {"/ensemble/addMusician"}
 )

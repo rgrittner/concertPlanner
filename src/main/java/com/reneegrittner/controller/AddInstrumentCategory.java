@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This servlet handles adding instrument categories.
+ * This servlet is accessed from TODO fill this out
+ * @author Renee Grittner
+ */
 @WebServlet(
         urlPatterns = {"/ensemble/addInstrumentCategory"}
 )
@@ -18,6 +23,7 @@ public class AddInstrumentCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //TODO correct this redirect url
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addMusician.jsp");
         dispatcher.forward(req, resp);
     }
@@ -27,14 +33,9 @@ public class AddInstrumentCategory extends HttpServlet {
         InstrumentCategory categoryToBeAdded = new InstrumentCategory();
         categoryToBeAdded.setCategory(req.getParameter("category"));
 
-
-
         GenericDao genericDao = new GenericDao(InstrumentCategory.class);
 
-
         genericDao.insert(categoryToBeAdded);
-
-
 
         String url = "/concertPlanner/ensemble/instruments";
 
@@ -43,3 +44,5 @@ public class AddInstrumentCategory extends HttpServlet {
         //TODO Data verifications
     }
 }
+
+//TODO finish up comments for methods in here

@@ -17,14 +17,17 @@ import java.io.IOException;
         urlPatterns = {"/ensemble/compositions"}
 )
 
-
+/**
+ * This servlet queries the DB for all compositions, makes result set available to the jsp.
+ * Accessed from: nav.jsp.
+ * @author Renee Grittner
+ */
 public class DisplayCompositions extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Composition.class);
+        GenericDao<Composition> dao = new GenericDao<>(Composition.class);
         req.setAttribute("compositions", dao.getAll("title"));
-
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/allCompositions.jsp");
         dispatcher.forward(req, resp);

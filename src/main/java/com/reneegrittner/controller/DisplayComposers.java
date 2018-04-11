@@ -17,13 +17,17 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/ensemble/composers"}
 )
-
+/**
+ * This servlet queries the DB for all composers and makes the result set available to the jsp.
+ * Accessed from: nav.jsp
+ * @author Renee Grittner
+ */
 public class DisplayComposers extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Composer.class);
+        GenericDao<Composer> dao = new GenericDao<>(Composer.class);
         req.setAttribute("composers", dao.getAll("lastName"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composer.jsp");

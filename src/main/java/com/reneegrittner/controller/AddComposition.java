@@ -64,7 +64,7 @@ public class AddComposition extends HttpServlet {
         String numberOfPlayersFromForm = req.getParameter("numberOfPlayers");
         String notesFromform = "notes";
         //TODO notes? This should be nullable
-        
+
         // Convert String data to correct data type for variable in entity
         Integer composerIdAsInteger = Integer.parseInt(composerIdFromForm);
         Integer durationAsInteger = Integer.parseInt(durationFromForm);

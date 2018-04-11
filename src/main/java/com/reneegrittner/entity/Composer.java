@@ -9,6 +9,8 @@ import java.util.Set;
 
 /**
  * The type Composer.
+ * Birth and death year are not required fields
+ * @author Renee Grittner
  */
 @Entity(name = "Composer")
 @Table(name = "Composer")

@@ -18,12 +18,18 @@ import java.util.List;
 @WebServlet(
         urlPatterns = {"/ensemble/instruments"}
 )
+/**
+ * This servlet queries the DB for all Instruments and their categories, makes the result set available to the jsp.
+ * @author Renee Grittner
+ */
 public class DisplayInstruments extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Instrument.class);
-        GenericDao dao2 = new GenericDao(InstrumentCategory.class);
+        GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
+        GenericDao<InstrumentCategory> dao2 = new GenericDao<>(InstrumentCategory.class);
 
+        //TODO Does this page really need to set the categories and the instruments?
+        //TODO Arent the categtoeis accessable on the instruments themselves?
         req.setAttribute("instruments", dao.getAll("name"));
         req.setAttribute("categories", dao2.getAll("category"));
 
