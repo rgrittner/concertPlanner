@@ -14,14 +14,26 @@
     <div class="content-wrap">
         <div class="main-title">
             <ul class="grid effect-8" id="grid">
-                <li><h1>Lorem ipsum</h1>
-                    <h4>Donec nec justo eget felis facilisis fermentum.<br>
-                        Aliquam porttit or mauris sit amet orci. Aenean dignissim pellentesque felis.</h4></li>
+                <li><h1>Upcoming Performances</h1>
             </ul>
-            <ul class="grid effect-8">
-                <li><a href="/concertPlanner/ensemble/home">Log in</a></li>
-            </ul>
-
+        </div>
+        <div>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Location</td>
+                        <td>Program Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5/23/2019</td>
+                        <td>CSU</td>
+                        <td>Tentative</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="lines">
@@ -42,13 +54,6 @@
 
 
 
-<ul class="grid effect-8">
-    <li><a href="/concertPlanner/musicians">Get All Musicians</a></li>
-    <li><a href="/concertPlanner/addMusician">Add a Musician</a></li>
-    <li><a href="/concertPlanner/composers">Get All Composers</a></li>
-    <li><a href="/concertPlanner/addComposer">Add a Composer</a></li>
-    <li><a href="/concertPlanner/compositions">Get All Compositions</a></li>
-</ul>
 
 </body>
 </html>
