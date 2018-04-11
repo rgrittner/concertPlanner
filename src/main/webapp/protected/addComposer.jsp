@@ -19,11 +19,11 @@
     <jsp:include page="nav.jsp" />
     <div>
         <h3>Please note! At this time </h3>
-        <div class="lines">
+
             <div class="more-btn">
                 <button type="button" class="btn" data-toggle="modal" data-target="#NationalityModal">Add New Nationality</button>
             </div>
-        </div>
+
     </div>
     <div class="form-horizontal">
         <form action="addComposer" method="post">
