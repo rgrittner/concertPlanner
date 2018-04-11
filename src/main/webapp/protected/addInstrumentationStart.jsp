@@ -25,7 +25,9 @@
             <button type="button" class="btn" data-toggle="modal" data-target="#InstrumentModal">Add Instruments for player ${nextPlayer}</button>
         </div>
     </div>
-    <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3>
+    <div class="row"><div class="col-sm-12">  <br/> <br></div></div>
+    <div class="row"><div class="col-sm-12">  <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3> </div></div>
+    <div class="row"><div class="col-sm-12">  <br/> </div></div>
 
     <c:forEach items="${instrumentCat}" var="current">
     <div class="row">
