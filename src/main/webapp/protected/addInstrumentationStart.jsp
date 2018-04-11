@@ -100,6 +100,7 @@
                     <input type="hidden" name="category" value="Accessory">
                     <input type="hidden" name="compositionId" value="${compositionId}">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
+                    <input type="hidden" name="categoryId" value="7">
                     <button type="submit" class="btn">Accessory</button></a>
                 </div>
             </form>
