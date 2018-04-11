@@ -13,6 +13,7 @@ import java.io.IOException;
 
 /**
  * This servlet sets attributes for use by the addInstrumentStart.jsp.
+ * This is the first step in the add instrumentation process. See DisplayAddPlayerInstCategoty for step 2.
  * This servlet is accessed from: singleComposition.jsp when a user clicks "Add Instrumentation" for a
  * player that has no instrumentation for the viewed composition.
  * Sets the attributes for: Instrument Category, player number, and composition Id.

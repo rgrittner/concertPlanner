@@ -17,12 +17,34 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The main player instrumentation addition servlet.
+ * This is the second step in adding instrumentation
+ * The doGet method populates the available instruments for the chosen category in step 1.
+ * The doPost handles adding to the Composition_Instrument table.
+ * After adding instruments of one category the user is redirected to AddInstrumentStart.
+ * @author Renee Grittner
+ */
 @WebServlet(
         urlPatterns = {"/ensemble/PlayerInstrumentationCategory"}
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The Dao.
+     */
     GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
+
+    /**
+     * Retrieves information sent along in the request (player number, composition id, instrument category id)
+     * Queries DB for composition information
+     * Queries DB for list of instruments of chosen category
+     * Makes composition, list of instruments, and player number available to the jsp
+     * @param req the request
+     * @param resp the response
+     * @throws ServletException when there is an error
+     * @throws IOException when there is an error
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -71,6 +93,17 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
+    /**
+     * Collects instrument category id, player number and composition id from hidden input fields,
+     * Generates a list of instruments of the chosen category,
+     * for every instrument in the list, checks the request to see what data came over.
+     * TODO check if this instrument currently exists for this player/composition combo
+     * TODO if so, save/update, else insert
+     * then adds to the Composition_Instrument table
+     * @param req the request
+     * @param resp the response
+     * @throws IOException when there is an error
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // get category id
