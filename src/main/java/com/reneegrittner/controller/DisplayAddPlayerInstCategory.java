@@ -65,30 +65,11 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         int categoryId = category.get(0).getId();
         req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));
 
-        // Send the playerNumber as well
+        // Send the playerNumber and category id as well
         req.setAttribute("playerNumber", playerNumber);
         req.setAttribute("categoryId", categoryIdFromForm);
 
-
-        // Redirect depending on which type... may be able to reduce this to a single page.
-//        String url = "";
-//        switch (categoryFromForm) {
-//            case "Keyboards": url = "/protected/addKeyboards.jsp";
-//                    break;
-//            case "Skins": url = "/protected/addSkins.jsp";
-//                    break;
-//            case "Woods": url = "/protected/addWoods.jsp";
-//                    break;
-//            case "Metals": url = "/protected/addMetals.jsp";
-//                    break;
-//            case "Other": url = "/protected/addOther.jsp";
-//                    break;
-//            case "Timpani": url = "/protected/addTimpani.jsp";
-//                    break;
-//            case "Accessory": url = "/protected/addAccessory.jsp";
-//                    break;
-//        }
-
+        //redirect back to add page
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addAccessory.jsp");
         dispatcher.forward(req, resp);
     }
@@ -136,14 +117,9 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
 
         String url = "/concertPlanner/ensemble/addPlayerInstrumentation?player="+playerNumber+"&compositionId="+compositionId;
 
-        logger.debug("string url: " + url);
 
         resp.sendRedirect(url);
 
     }
 }
 
-//TODO -- figure this shit out!
-// string valie from form
-// name = the instrument id, so we can find out how many instruments of a category there are.
-// in a while loop keep getting the next id up and then add it to the linking table?
