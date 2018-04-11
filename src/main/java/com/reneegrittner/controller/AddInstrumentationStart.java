@@ -1,10 +1,7 @@
 package com.reneegrittner.controller;
 
-import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
-import com.reneegrittner.entity.Musician;
 import com.reneegrittner.persistence.GenericDao;
-import sun.net.www.content.text.Generic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,23 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(
-        urlPatterns = {"/ensemble/instruments"}
+        urlPatterns = {"/ensemble/addPlayerInstrumentation"}
 )
-public class DisplayInstruments extends HttpServlet {
+public class AddInstrumentationStart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Instrument.class);
-        GenericDao dao2 = new GenericDao(InstrumentCategory.class);
+        Integer playerFromParam = Integer.parseInt(req.getParameter("player"));
 
-        req.setAttribute("instruments", dao.getAll("name"));
-        req.setAttribute("categories", dao2.getAll("category"));
+        GenericDao dao = new GenericDao(InstrumentCategory.class);
+        req.setAttribute("instrumentCat", dao.getAll("category"));
+        req.setAttribute("playerNumber", playerFromParam);
+        req.setAttribute("compositionId", req.getParameter("compositionId"));
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrumentationStart.jsp");
         dispatcher.forward(req, resp);
-
-
     }
 }

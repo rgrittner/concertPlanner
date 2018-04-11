@@ -39,11 +39,24 @@ public class GenericDao<T> {
      *
      * @return the all
      */
+    public List<T> getAll(String columnToOrderOn) {
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.orderBy(builder.asc(root.get(columnToOrderOn)));
+
+        List<T> list = session.createQuery(query).getResultList();
+        session.close();
+        return list;
+    }
+
     public List<T> getAll() {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
+
         List<T> list = session.createQuery(query).getResultList();
         session.close();
         return list;
@@ -71,6 +84,8 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get(propertyName), value));
+
+
         List<T> list = session.createQuery(query).getResultList();
 
         logger.debug("list from get By proerty equal after adding join annotation: " + list);
@@ -84,8 +99,8 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get("composer"), value));
+
         List<T> list = session.createQuery(query).getResultList();
-        logger.debug("mid pumping idea?" + list);
         return list;
     }
 
@@ -94,9 +109,10 @@ public class GenericDao<T> {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get("playerNumber"), playerNumber)).having(builder.equal(root.get("composition"), compositionId));
+        query.select(root).where(builder.and(builder.equal(root.get("composition"), compositionId), builder.equal(root.get("playerNumber"), playerNumber)));
+        logger.debug("Query: " + query);
+        //https://stackoverflow.com/questions/46449407/how-to-use-and-in-hibernate-5-2-criteria
         List<T> list = session.createQuery(query).getResultList();
-        logger.debug("mid pumping idea?" + list);
         return list;
     }
 

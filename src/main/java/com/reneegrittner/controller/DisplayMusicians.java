@@ -20,7 +20,7 @@ public class DisplayMusicians extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao(Musician.class);
-        req.setAttribute("musicians", dao.getAll());
+        req.setAttribute("musicians", dao.getAll("lastName"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/musician.jsp");
         dispatcher.forward(req, resp);

@@ -1044,7 +1044,6 @@
     <column id="259" parent="233" name="notes">
       <Position>8</Position>
       <DataType>varchar(300)|0</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="260" parent="233" name="Composer_Id">

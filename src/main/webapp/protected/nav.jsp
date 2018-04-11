@@ -17,7 +17,6 @@
                         <li><a href="/concertPlanner/ensemble/addMusician">Add a Musician</a></li>
                         <li><a href="/concertPlanner/ensemble/addComposer">Add a Composer</a></li>
                         <li><a href="/concertPlanner/ensemble/addComposition">Add a Composition</a></li>
-                        <li><a href="#">Something else here</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">

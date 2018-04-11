@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="head.jsp"/>
@@ -15,6 +16,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 <p>
+                    <c:if test="${compositionInformation.arranger != null}">Arranger: ${compositionInformation.arranger}<br/></c:if>
                  Composed: ${compositionInformation.yearComposed} <br>
                  Duration: ${compositionInformation.duration} minutes<br>
                 Players: ${compositionInformation.numberOfPlayers}<br>
@@ -24,7 +26,7 @@
                 <p>
                 Composer: ${composerInformation.lastName}, ${composerInformation.firstName}<br>
                 Born: ${composerInformation.birthYear}<br>
-                Death: ${composerInformation.deathYear}<br>
+                <c:if test="${composerInformation.deathYear != null}">Death: ${composerInformation.deathYear}<br></c:if>
                 Nationality: ${composerInformation.nationality.nationality}
                 </p>
             </div>
@@ -48,14 +50,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <c:if test="${not empty playerOneInstruments}">
                         <c:forEach items="${playerOneInstruments}" var="current">
+
                             <tr>
                                 <td>${current.instrument.name}</td>
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
                         </c:forEach>
+                        </c:if>
+                            <c:if test="${empty playerOneInstruments}">
+                                <tr><td><a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=1&compositionId=${compositionInformation.id}">Add Instruments</a></td></tr>
+                            </c:if>
+
+
                     </tbody>
                 </table>
+
             </div>
             <div class="col-sm-5">
                 <h4>Player 2</h4>
@@ -136,3 +147,4 @@
 
 </body>
 </html>
+<jsp:include page="scripts.jsp" />

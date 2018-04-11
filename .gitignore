@@ -55,3 +55,4 @@ logs/hibernate.log
 logs/hibernate.log
 *.pem
 src/main/resources/hibernate.cfg.xml
+src/main/resources/hibernate.cfg.xml
