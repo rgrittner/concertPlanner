@@ -17,24 +17,41 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
-    <h1>Currently working on:</h1>
-    <h3>Composition: ${composition.title}</h3>
-    <h3>Player: ${playerNumber}</h3>
-    <div class="form-horizontal">
-    <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="post">
-        <input type="hidden" name="playerNumber" value="${playerNumber}"/>
-        <input type="hidden" name="compositionId"
-    <c:forEach items="${instruments}" var="current">
-    <label for="${current.name}">${current.name}</label>
-    <input type="number" name="instrumentId${current.id}" id="${current.name}" min="0"/><br>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">Composition: ${composition.title}</h3>
+            <h3 class="panel-title">Player: ${playerNumber}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="post">
+                    <c:forEach items="${instruments}" var="current">
+                        <div class="form-group">
+                            <label for="${current.name}" class="col-sm-2 control-label">${current.name}</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="instrumentId${current.id}" id="${current.name}" min="0"/>
+                            </div>
+                        </div>
+                    </c:forEach>
+                    <input type="hidden" value="${composition.id}" name="idOfComposition">
+                    <input type="hidden" value="${playerNumber}" name="playerNumber">
+                    <input type="hidden" value="${categoryId}" name="categoryId">
+                    <div class="form-group">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-offset-2 col-sm-10 more-btn">
+                            <button type="submit" class="btn">Add</button>
+                        </div>
 
-    </c:forEach>
-        <input type="hidden" value="${composition.id}" name="idOfComposition">
-        <input type="hidden" value="${playerNumber}" name="playerNumber">
-        <input type="hidden" value="${categoryId}" name="categoryId">
-        <button type="submit">Add</button>
-    </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+         <div class="panel-footer">
+            <button type="button">Return to Main Player ${playerNumber} Category Selection</button>
+         </div>
     </div>
+</div>
 </body>
-<jsp:include page="scripts.jsp" />
+<script src="../js/jquery-1.9.1.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>
