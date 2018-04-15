@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity(name = "Program")
 @Table(name = "Program")
@@ -112,6 +113,38 @@ public class Program {
         this.zipcode = zipcode;
     }
 
+    @Override
+    public String toString() {
+        return "Program{" +
+                "id=" + id +
+                ", date=" + date +
+                ", concertTitle='" + concertTitle + '\'' +
+                ", location='" + location + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode=" + zipcode +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Program program = (Program) o;
+        return id == program.id &&
+                Objects.equals(date, program.date) &&
+                Objects.equals(concertTitle, program.concertTitle) &&
+                Objects.equals(location, program.location) &&
+                Objects.equals(address, program.address) &&
+                Objects.equals(city, program.city) &&
+                Objects.equals(state, program.state) &&
+                Objects.equals(zipcode, program.zipcode);
+    }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, date, concertTitle, location, address, city, state, zipcode);
+    }
 }
