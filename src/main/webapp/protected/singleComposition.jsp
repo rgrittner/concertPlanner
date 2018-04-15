@@ -9,81 +9,105 @@
     <jsp:include page="nav.jsp"/>
     <div class="content-wrap">
         <div class="row">
-
             <div class="col-sm-12"><h1>${compositionInformation.title}</h1><br></div>
         </div>
+
+        <%--Row--%>
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 <p>
-                    <c:if test="${compositionInformation.arranger != null}">Arranger: ${compositionInformation.arranger}<br/></c:if>
-                 Composed: ${compositionInformation.yearComposed} <br>
-                 Duration: ${compositionInformation.duration} minutes<br>
-                Players: ${compositionInformation.numberOfPlayers}<br>
+                    <c:if test="${compositionInformation.arranger != null}">Arranger: ${compositionInformation.arranger}
+                        <br/></c:if>
+                    Composed: ${compositionInformation.yearComposed} <br>
+                    Duration: ${compositionInformation.duration} minutes<br>
+                    Players: ${compositionInformation.numberOfPlayers}<br>
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
-                Composer: ${composerInformation.lastName}, ${composerInformation.firstName}<br>
-                Born: ${composerInformation.birthYear}<br>
-                <c:if test="${composerInformation.deathYear != null}">Death: ${composerInformation.deathYear}<br></c:if>
-                Nationality: ${composerInformation.nationality.nationality}
+                    Composer: ${composerInformation.lastName}, ${composerInformation.firstName}<br>
+                    Born: ${composerInformation.birthYear}<br>
+                    <c:if test="${composerInformation.deathYear != null}">Death: ${composerInformation.deathYear}
+                        <br></c:if>
+                    Nationality: ${composerInformation.nationality.nationality}
                 </p>
             </div>
             <div class="col-sm-5"></div>
 
         </div>
+
+        <%--ROW--%>
         <div class="row">
             <div class="col-sm-12"><h3>Instrumentation</h3></div>
         </div>
+
+        <%--ROW--%>
         <div class="row"><br></div>
+
+        <%--ROW--%>
         <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-5">
-            <h4>Player 1</h4>
-
+            <div class="col-sm-10">
+                <h4>Player 1</h4>
                 <table class="table table-sm">
                     <thead>
                         <tr>
                             <td>Instrument</td>
+                            <td>Category</td>
                             <td>Quantity</td>
                         </tr>
                     </thead>
                     <tbody>
-                    <c:if test="${not empty playerOneInstruments}">
                         <c:forEach items="${playerOneInstruments}" var="current">
-
                             <tr>
                                 <td>${current.instrument.name}</td>
+                                <td>${current.instrument.instrumentCategory.category}</td>
                                 <td>${current.instrumentQuantity}</td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${empty playerOneInstruments}">
+                            <tr>
+                                <td><a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=1&compositionId=${compositionInformation.id}">Add Instruments</a></td>
+                            </tr>
                         </c:if>
-                            <c:if test="${empty playerOneInstruments}">
-                                <tr><td><a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=1&compositionId=${compositionInformation.id}">Add Instruments</a></td></tr>
-                            </c:if>
-
-
                     </tbody>
                 </table>
-
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-1"></div>
+        </div>
+        <%--ROW--%>
+        <div class="row"><br></div>
+        <%--ROW--%>
+        <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
                 <h4>Player 2</h4>
                 <table class="table table-sm">
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${playerTwoInstruments}" var="current">
+                    <c:if test="${not empty playerTwoInstruments}">
+                        <c:forEach items="${playerTwoInstruments}" var="current">
+                            <tr>
+                                <td>${current.instrument.name}</td>
+                                <td>${current.instrument.instrumentCategory.category}</td>
+                                <td>${current.instrumentQuantity}</td>
+                            </tr>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty playerTwoInstruments}">
                         <tr>
-                            <td>${current.instrument.name}</td>
-                            <td>${current.instrumentQuantity}</td>
+                            <td>
+                                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=2&compositionId=${compositionInformation.id}">
+                                    Add Instruments</a></td>
                         </tr>
-                    </c:forEach>
+                    </c:if>
                     </tbody>
                 </table>
             </div>
@@ -91,12 +115,13 @@
         </div>
         <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-5">
+            <div class="col-sm-10">
                 <h4>Player 3</h4>
                 <table class="table table-sm">
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
@@ -104,18 +129,31 @@
                     <c:forEach items="${playerThreeInstruments}" var="current">
                         <tr>
                             <td>${current.instrument.name}</td>
+                            <td>${current.instrument.instrumentCategory.category}</td>
                             <td>${current.instrumentQuantity}</td>
                         </tr>
                     </c:forEach>
+                    <c:if test="${empty playerThreeInstruments}">
+                        <tr>
+                            <td>
+                                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=3&compositionId=${compositionInformation.id}">
+                                    Add Instruments</a></td>
+                        </tr>
+                    </c:if>
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
                 <h4>Player 4</h4>
                 <table class="table table-sm">
                     <thead>
                     <tr>
                         <td>Instrument</td>
+                        <td>Category</td>
                         <td>Quantity</td>
                     </tr>
                     </thead>
@@ -123,9 +161,17 @@
                     <c:forEach items="${playerFourInstruments}" var="current">
                         <tr>
                             <td>${current.instrument.name}</td>
+                            <td>${current.instrument.instrumentCategory.category}</td>
                             <td>${current.instrumentQuantity}</td>
                         </tr>
                     </c:forEach>
+                    <c:if test="${empty playerFourInstruments}">
+                        <tr>
+                            <td>
+                                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=4&compositionId=${compositionInformation.id}">
+                                    Add Instruments</a></td>
+                        </tr>
+                    </c:if>
                     </tbody>
                 </table>
             </div>
@@ -134,12 +180,38 @@
         <div class="row"><br></div>
         <div class="row">
             <div class="col-sm-12"><h3>Attachments</h3></div>
-            <div class="row"><div class="col-sm-12">Coming Soon</div></div>
+        </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">Coming Soon</div>
+                <div class="col-sm-1"></div>
+            </div>
         </div>
         <br><br>
         <div class="row">
-            <div class="row"><div class="col-sm-12">Coming Soon</div></div>
-            <div class="row">         Coming Soon</div>
+            <div class="col-sm-12"><h3>Previous Performances</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Location</td>
+                            <td>Player 1</td>
+                            <td>Player 2</td>
+                            <td>Player 3</td>
+                            <td>Player 4</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-1"></div>
+
         </div>
     </div>
 
@@ -147,4 +219,4 @@
 
 </body>
 </html>
-<jsp:include page="scripts.jsp" />
+<jsp:include page="scripts.jsp"/>

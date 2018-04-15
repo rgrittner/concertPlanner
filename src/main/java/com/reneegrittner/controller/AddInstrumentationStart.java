@@ -1,5 +1,7 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.persistence.GenericDao;
 
@@ -38,10 +40,24 @@ public class AddInstrumentationStart extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer playerFromParam = Integer.parseInt(req.getParameter("player"));
 
-        GenericDao dao = new GenericDao(InstrumentCategory.class);
+        GenericDao<InstrumentCategory> dao = new GenericDao<>(InstrumentCategory.class);
+        GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
+
+        Composition currentComposition = compositionGenericDao.getById(Integer.parseInt(req.getParameter("compositionId")));
+        int maxNumberOfPlayers = currentComposition.getNumberOfPlayers();
+        int nextPlayer = 0;
+
+        if(playerFromParam <= maxNumberOfPlayers){
+            nextPlayer = playerFromParam + 1;
+        }
+
+
         req.setAttribute("instrumentCat", dao.getAll("category"));
         req.setAttribute("playerNumber", playerFromParam);
         req.setAttribute("compositionId", req.getParameter("compositionId"));
+        req.setAttribute("composition", currentComposition);
+        req.setAttribute("nextPlayer", nextPlayer);
+        req.setAttribute("maxPlayer", maxNumberOfPlayers);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrumentationStart.jsp");
         dispatcher.forward(req, resp);

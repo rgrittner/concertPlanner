@@ -3,7 +3,6 @@ package com.reneegrittner.controller;
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
 import com.reneegrittner.persistence.GenericDao;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
