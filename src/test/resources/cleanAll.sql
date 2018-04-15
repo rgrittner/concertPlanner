@@ -90,3 +90,10 @@ INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (3, 1, 3, 2, 1);
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id` ) VALUES (4, 1, 4, 2, 1);
 COMMIT;
+START TRANSACTION;
+USE `test_concertPlanner`;
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (1, '2018-04-15', 'House Show', 'Living Room', '123 Sessame St', 'Rainbow', 'AZ', 53716);
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (2, '2019-01-03', 'Winter Tour', 'UW Madison', '123 Sessame St', 'Rainbow', 'WI', 53716);
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (3, '2019-04-20', 'Spring Tour', 'CSU', '123 Sessame St', 'Rainbow', 'OH', 53716);
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (4, '2019-09-10', 'Fall Tour', 'Western MI', '123 Sessame St', 'Rainbow', 'MI', 53716);
+COMMIT;
