@@ -27,11 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>5/23/2019</td>
-                        <td>CSU</td>
-                        <td>Tentative</td>
-                    </tr>
+                    <c:forEach items="${programs}" var="current">
+                        <tr>
+                            <td>${current.date}</td>
+                            <td>${current.location}: ${current.city}, ${current.state}</td>
+                            <td>${current.status}</td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

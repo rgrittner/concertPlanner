@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composition_Instrument` (`id` 
 DROP TABLE IF EXISTS `test_concertPlanner`.`Musician`;
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Musician` (`id` INT(11) NOT NULL AUTO_INCREMENT, `first_name` VARCHAR(50) NOT NULL, `last_name` VARCHAR(50) NOT NULL, `phone_number` VARCHAR(20) NULL, `email` VARCHAR(50) NULL, `status` VARCHAR(50) NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Program`;
-CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Program` (`id` INT(11) NOT NULL AUTO_INCREMENT, `date` DATE NOT NULL, `title` VARCHAR(100) NOT NULL, `location` VARCHAR(100) NOT NULL, `address` VARCHAR(100) NOT NULL, `city` VARCHAR(100) NOT NULL, `state` VARCHAR(2) NOT NULL, `zipcode` INT(11) NOT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Program` (`id` INT(11) NOT NULL AUTO_INCREMENT, `date` DATE NOT NULL, `title` VARCHAR(100) NOT NULL, `location` VARCHAR(100) NOT NULL, `address` VARCHAR(100) NOT NULL, `city` VARCHAR(100) NOT NULL, `state` VARCHAR(2) NOT NULL, `zipcode` INT(11) NOT NULL, status VARCHAR(20) NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `test_concertPlanner`.`Composition_Program`;
 CREATE TABLE IF NOT EXISTS `test_concertPlanner`.`Composition_Program` (`id` INT(11) NOT NULL AUTO_INCREMENT, `player` INT(11) NOT NULL, `Composition_id` INT(11) NOT NULL, `Musician_id` INT(11) NOT NULL, `Program_id` INT(11) NOT NULL, PRIMARY KEY (`id`), INDEX `Composition_Program_Composition` (`Composition_id` ASC), INDEX `Composition_Program_Musician` (`Musician_id` ASC), INDEX `Composition_Program_Program` (`Program_id` ASC), CONSTRAINT `Composition_Program_Composition` FOREIGN KEY (`Composition_id`) REFERENCES `test_concertPlanner`.`Composition` (`id`), CONSTRAINT `Composition_Program_Musician` FOREIGN KEY (`Musician_id`) REFERENCES `test_concertPlanner`.`Musician` (`id`), CONSTRAINT `Composition_Program_Program` FOREIGN KEY (`Program_id`) REFERENCES `test_concertPlanner`.`Program` (`id`)) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 START TRANSACTION;
@@ -92,8 +92,15 @@ INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player
 COMMIT;
 START TRANSACTION;
 USE `test_concertPlanner`;
-INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (1, '2018-04-15', 'House Show', 'Living Room', '123 Sessame St', 'Rainbow', 'AZ', 53716);
-INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (2, '2019-01-03', 'Winter Tour', 'UW Madison', '123 Sessame St', 'Rainbow', 'WI', 53716);
-INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (3, '2019-04-20', 'Spring Tour', 'CSU', '123 Sessame St', 'Rainbow', 'OH', 53716);
-INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode) VALUES (4, '2019-09-10', 'Fall Tour', 'Western MI', '123 Sessame St', 'Rainbow', 'MI', 53716);
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode, status) VALUES (1, '2018-04-15', 'House Show', 'Living Room', '123 Sessame St', 'Rainbow', 'AZ', 53716, 'Complete');
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode, status) VALUES (2, '2019-01-03', 'Winter Tour', 'UW Madison', '123 Sessame St', 'Rainbow', 'WI', 53716, 'In Progress');
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode, status) VALUES (3, '2019-04-20', 'Spring Tour', 'CSU', '123 Sessame St', 'Rainbow', 'OH', 53716, 'TBD');
+INSERT INTO `test_concertPlanner`.`Program` (Id, date, title, location, address, city, state, zipcode, status) VALUES (4, '2019-09-10', 'Fall Tour', 'Western MI', '123 Sessame St', 'Rainbow', 'MI', 53716, 'TBD');
+COMMIT;
+START TRANSACTION;
+USE `test_concertPlanner`;
+INSERT INTO test_concertPlanner.Composition_Program (id, player, Composition_id, Musician_id, Program_id) VALUES (1, 1, 1, 1, 1);
+INSERT INTO test_concertPlanner.Composition_Program (id, player, Composition_id, Musician_id, Program_id) VALUES (2, 2, 1, 2, 1);
+INSERT INTO test_concertPlanner.Composition_Program (id, player, Composition_id, Musician_id, Program_id) VALUES (3, 3, 1, 3, 1);
+INSERT INTO test_concertPlanner.Composition_Program (id, player, Composition_id, Musician_id, Program_id) VALUES (4, 4, 1, 4, 1);
 COMMIT;

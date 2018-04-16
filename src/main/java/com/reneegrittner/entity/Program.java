@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "Program")
@@ -36,10 +37,16 @@ public class Program {
     @Column(name = "zipcode")
     private Integer zipcode;
 
+    @Column(name = "status")
+    private String status;
+
+    @OneToMany(mappedBy = "program", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<ProgramComposition> listOfProgramComposition;
+
     public Program() {
     }
 
-    public Program(LocalDate date, String concertTitle, String location, String address, String city, String state, Integer zipcode) {
+    public Program(LocalDate date, String concertTitle, String location, String address, String city, String state, Integer zipcode, String status) {
         this.date = date;
         this.concertTitle = concertTitle;
         this.location = location;
@@ -47,6 +54,7 @@ public class Program {
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
+        this.status = status;
     }
 
     public int getId() {
@@ -113,6 +121,22 @@ public class Program {
         this.zipcode = zipcode;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<ProgramComposition> getListOfProgramComposition() {
+        return listOfProgramComposition;
+    }
+
+    public void setListOfProgramComposition(List<ProgramComposition> listOfProgramComposition) {
+        this.listOfProgramComposition = listOfProgramComposition;
+    }
+
     @Override
     public String toString() {
         return "Program{" +
@@ -124,6 +148,7 @@ public class Program {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipcode=" + zipcode +
+                ", status=" + status +
                 '}';
     }
 
@@ -139,12 +164,13 @@ public class Program {
                 Objects.equals(address, program.address) &&
                 Objects.equals(city, program.city) &&
                 Objects.equals(state, program.state) &&
-                Objects.equals(zipcode, program.zipcode);
+                Objects.equals(zipcode, program.zipcode) &&
+                Objects.equals(status, program.status);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, date, concertTitle, location, address, city, state, zipcode);
+        return Objects.hash(id, date, concertTitle, location, address, city, state, zipcode, status);
     }
 }
