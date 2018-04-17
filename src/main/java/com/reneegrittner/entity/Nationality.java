@@ -26,6 +26,9 @@ public class Nationality {
     @Column(name = "nationality")
     private String nationality;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Composer> composers = new HashSet<>();
 

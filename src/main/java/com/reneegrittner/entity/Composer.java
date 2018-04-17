@@ -33,6 +33,9 @@ public class Composer {
     @Column(name = "death_year")
     private Integer deathYear;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @ManyToOne
     private Nationality nationality;
 

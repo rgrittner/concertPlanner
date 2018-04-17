@@ -41,6 +41,9 @@ public class Composition {
     @Column(name = "clocks_commission")
     private boolean clocksCommission;
 
+    @Column(name = "user_Id")
+    private int userId;
+
 
     @ManyToOne
     private Composer composer;

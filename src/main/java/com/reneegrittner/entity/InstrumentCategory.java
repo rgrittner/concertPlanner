@@ -25,6 +25,9 @@ public class InstrumentCategory {
     @Column(name = "category")
     private String category;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @OneToMany(mappedBy = "instrumentCategory", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 
     private Set<Instrument> instruments = new HashSet<>();

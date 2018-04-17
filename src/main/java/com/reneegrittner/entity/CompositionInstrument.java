@@ -24,6 +24,9 @@ public class CompositionInstrument {
     @Column(name = "qty")
     private int instrumentQuantity;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @ManyToOne
     private Instrument instrument;
 

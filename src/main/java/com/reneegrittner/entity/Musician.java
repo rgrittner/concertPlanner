@@ -33,6 +33,9 @@ public class Musician {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     /**
      * Instantiates a new Musician.
      */
