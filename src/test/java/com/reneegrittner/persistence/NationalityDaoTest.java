@@ -21,7 +21,7 @@ public class NationalityDaoTest {
      * The Dao.
      */
 
-    GenericDao genericDao;
+    private GenericDao<Nationality> genericDao = new GenericDao<>(Nationality.class);
 
     /**
      * Set up.
@@ -33,7 +33,6 @@ public class NationalityDaoTest {
         database.runSQL("cleanAll.sql");
 
 
-        genericDao = new GenericDao(Nationality.class);
     }
 
     /**
@@ -41,7 +40,7 @@ public class NationalityDaoTest {
      */
     @Test
     void getByIdSuccess(){
-        Nationality retrievedNationality = (Nationality) genericDao.getById(1);
+        Nationality retrievedNationality = genericDao.getById(1);
         assertEquals("American", retrievedNationality.getNationality());
     }
 
@@ -59,7 +58,7 @@ public class NationalityDaoTest {
      */
     @Test
     void insertSuccess() {
-        Nationality newNationality = new Nationality("English");
+        Nationality newNationality = new Nationality("English", 1);
         int id = genericDao.insert(newNationality);
         assertNotEquals(0, id);
         Nationality insertedNationality = (Nationality) genericDao.getById(id);
@@ -70,20 +69,20 @@ public class NationalityDaoTest {
     /**
      *  Verify successful insert of nationality with Composer.
      */
-    @Test
-    void insertWithComposerSuccess() {
-        Nationality newNationality = new Nationality("English");
-
-        Composer composer = new Composer("New", "Musician", 1912, 1983, newNationality);
-
-        newNationality.addComposer(composer);
-
-        int id = genericDao.insert(newNationality);
-        assertNotEquals(0, id);
-        Nationality insertedNationality = (Nationality) genericDao.getById(id);
-        assertEquals(newNationality, insertedNationality);
-        assertEquals(1, insertedNationality.getComposers().size());
-    }
+//    @Test
+//    void insertWithComposerSuccess() {
+//        Nationality newNationality = new Nationality("English", 1);
+//
+//        Composer composer = new Composer("New", "Musician", 1912, 1983, newNationality);
+//
+//        newNationality.addComposer(composer);
+//
+//        int id = genericDao.insert(newNationality);
+//        assertNotEquals(0, id);
+//        Nationality insertedNationality = (Nationality) genericDao.getById(id);
+//        assertEquals(newNationality, insertedNationality);
+//        assertEquals(1, insertedNationality.getComposers().size());
+//    }
 
     /**
      * Verify successful save or update of nationality
