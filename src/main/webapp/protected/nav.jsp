@@ -17,6 +17,7 @@
                         <li><a href="/concertPlanner/ensemble/addMusician">Add a Musician</a></li>
                         <li><a href="/concertPlanner/ensemble/addComposer">Add a Composer</a></li>
                         <li><a href="/concertPlanner/ensemble/addComposition">Add a Composition</a></li>
+                        <li><a href="/concertPlanner/ensemble/instruments">Add Instruments</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
@@ -25,7 +26,7 @@
                         <li><a href="/concertPlanner/ensemble/musicians">View Musicians</a></li>
                         <li><a href="/concertPlanner/ensemble/composers">View Composers</a></li>
                         <li><a href="/concertPlanner/ensemble/compositions">View Compositions</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="/concertPlanner/ensemble/instruments">View Instruments</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Services</a></li>

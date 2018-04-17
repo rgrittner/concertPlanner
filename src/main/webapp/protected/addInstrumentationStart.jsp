@@ -17,17 +17,27 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
-<h1>CompositionId: </h1> ${compositionId}
-    <%-- Keyboard --%>
+    <div class="lines">
+        <div class="more-btn">
+            <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn">Return to ${composition.title}</button></a>
+        </div>
+
+    </div>
+    <div class="row"><div class="col-sm-12">  <br/> <br></div></div>
+    <div class="row"><div class="col-sm-12">  <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3> </div></div>
+    <div class="row"><div class="col-sm-12">  next player = ${nextPlayer}, max players = ${maxPlayer}<br/> </div></div>
+
+    <c:forEach items="${instrumentCat}" var="current">
     <div class="row">
         <div class="col-sm-5"></div>
         <div class="col-sm-2 centering">
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
                 <div class="more-btn">
-                    <input type="hidden" name="category" value="Keyboards">
+                    <input type="hidden" name="category" value="${current.category}">
                     <input type="hidden" name="compositionId" value="${compositionId}">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <button type="button" class="btn">Keyboards</button></a>
+                    <input type="hidden" name="categoryId" value="${current.id}">
+                    <button type="submit" class="btn">${current.category}</button></a>
                 </div>
             </form>
         </div>
@@ -35,120 +45,21 @@
     </div>
     <div class="row"><div class="col-sm-12">  <br/> </div></div>
 
-    <%--Metals--%>
+    </c:forEach>
 
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 centering">
-            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
-                    <input type="hidden" name="category" value="Metals">
-                    <input type="hidden" name="compositionId" value="${compositionId}">
-                    <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <button type="submit" class="btn">Metals</button></a>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5"></div>
+
+        <c:if test="${nextPlayer <= maxPlayer}">
+    <h3>I'm done adding all instruments for player ${playerNumber}, click the button below to begin adding for player ${nextPlayer}</h3>
+    <div class="lines">
+            <div class="more-btn">
+                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><button type="button" class="btn">Add Instruments for player ${nextPlayer}</button></a>
+            </div>
     </div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
+        </c:if>
 
-    <%-- Skins --%>
 
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 centering">
-            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
-                    <input type="hidden" name="category" value="Skins">
-                    <input type="hidden" name="compositionId" value="${compositionId}">
-                    <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <button type="button" class="btn">Skins</button></a>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5"></div>
-    </div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
 
-<%-- Woods --%>
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 centering">
-
-            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
-                    <input type="hidden" name="category" value="Woods">
-                    <input type="hidden" name="compositionId" value="${compositionId}">
-                    <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <button type="button" class="btn">Woods</button></a>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5"></div>
-    </div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
-
-    <%-- Accessory --%>
-
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 centering">
-
-            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
-                    <input type="hidden" name="category" value="Accessory">
-                    <input type="hidden" name="compositionId" value="${compositionId}">
-                    <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <input type="hidden" name="categoryId" value="7">
-                    <button type="submit" class="btn">Accessory</button></a>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5"></div>
-    </div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
-
-<%-- Other --%>
-
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 centering">
-
-            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
-                    <input type="hidden" name="category" value="Other">
-                    <input type="hidden" name="compositionId" value="${compositionId}">
-                    <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <button type="button" class="btn">Other</button></a>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5"></div>
-    </div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
-
-    <%-- Timpani --%>
-
-    <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 centering">
-
-            <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
-                    <input type="hidden" name="category" value="Timpani">
-                    <input type="hidden" name="compositionId" value="${compositionId}">
-                    <input type="hidden" name="playerNumber" value="${playerNumber}">
-                    <button type="button" class="btn">Timpani</button></a>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5"></div>
-    </div>
-    <div class="row"><div class="col-sm-12">  <br/> </div></div>
-
-    <%-- END BUTTONS--%>
-
+</div>
 </body>
 </html>
 <jsp:include page="../scripts.jsp" />

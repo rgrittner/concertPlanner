@@ -17,6 +17,15 @@
         </div>
     </div>
     <jsp:include page="nav.jsp" />
+    <div>
+        <h3>Please note!</h3>
+        <p>At this time adding a new nationality will reset form data, please check the nationality you need is in the list before proceeding</p>
+        <div class="lines">
+            <div class="more-btn">
+                <button type="button" class="btn" data-toggle="modal" data-target="#NationalityModal">Add New Nationality</button>
+            </div>
+        </div>
+    </div>
     <div class="form-horizontal">
         <form action="addComposer" method="post">
             <div class="form-group">
@@ -62,6 +71,43 @@
 
             </div>
         </form>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="NationalityModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add New Nationality</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <form action="/concertPlanner/ensemble/addNationality" method="post">
+                            <div class="form-group">
+                                <label for="newNationality" class="col-sm-2 control-label">New Nationality</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="newNationality" name="newNationality" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-offset-2 col-sm-10 ">
+                                    <button type="submit" class="btn">Add</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 <script src="../js/jquery-1.9.1.js"></script>

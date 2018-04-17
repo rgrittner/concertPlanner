@@ -11,18 +11,9 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav ">
                 <li><a href="index.jsp">Home</a></li>
-                <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown">About <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+
+                <li><a href="/concertPlanner/ensemble/home">Log in</a></li>
+
             </ul>
 
         </div><!--/.navbar-collapse -->
