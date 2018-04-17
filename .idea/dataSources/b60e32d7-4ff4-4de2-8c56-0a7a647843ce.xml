@@ -992,7 +992,11 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
+<<<<<<< HEAD
     <column id="251" parent="234" name="user_Id">
+=======
+    <column id="251" parent="234" name="userId">
+>>>>>>> master
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
@@ -1433,14 +1437,22 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
+<<<<<<< HEAD
     <column id="330" parent="244" name="id">
+=======
+    <column id="330" parent="244" name="user_name">
+>>>>>>> master
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
+<<<<<<< HEAD
     <column id="331" parent="244" name="user_name">
+=======
+    <column id="331" parent="244" name="user_password">
+>>>>>>> master
       <Position>2</Position>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
@@ -1452,12 +1464,23 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
+<<<<<<< HEAD
     <column id="333" parent="244" name="ensemble_name">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="334" parent="244" name="PRIMARY">
+=======
+    <column id="332" parent="244" name="id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="333" parent="244" name="PRIMARY">
+>>>>>>> master
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
