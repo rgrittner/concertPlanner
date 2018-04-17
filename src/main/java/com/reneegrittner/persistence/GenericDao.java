@@ -88,7 +88,6 @@ public class GenericDao<T> {
 
         List<T> list = session.createQuery(query).getResultList();
 
-        logger.debug("list from get By proerty equal after adding join annotation: " + list);
         return list;
     }
 

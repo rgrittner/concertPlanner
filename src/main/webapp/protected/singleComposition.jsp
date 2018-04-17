@@ -206,7 +206,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach items="${listOfPerformances}" var="current">
+                            <tr>
+                                <td>${current.program.date}</td>
+                                <td>${current.program.location}: ${current.program.city}, ${current.program.state}</td>
 
+                            </tr>
+
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

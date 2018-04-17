@@ -121,14 +121,14 @@
 
 </body>
 </html>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">--%>
 <!-- js for jquery  -->
 <script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 <!-- js for jquery datatables -->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-<script type="text/javascript" class="init">
-    $(document).ready( function () {
-        $('#resultTable').DataTable();
-    } );
-</script>
+<%--<script type="text/javascript" class="init">--%>
+    <%--$(document).ready( function () {--%>
+        <%--$('#resultTable').DataTable();--%>
+    <%--} );--%>
+<%--</script>--%>
