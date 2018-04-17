@@ -3,10 +3,12 @@ package com.reneegrittner.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * A class to represent a musician.
+ *
  * @author Renee Grittner
  */
 @Entity(name = "Musician")
@@ -33,6 +35,9 @@ public class Musician {
     @Column(name = "status")
     private String status;
 
+    @OneToMany(mappedBy = "musician", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<ProgramComposition> listOfProgramComposition;
+
     /**
      * Instantiates a new Musician.
      */
@@ -45,6 +50,8 @@ public class Musician {
      * @param firstName   the first name
      * @param lastName    the last name
      * @param phoneNumber the phone number
+     * @param email       the email
+     * @param status      the status
      */
     public Musician(String firstName, String lastName, String phoneNumber, String email, String status) {
 
@@ -156,6 +163,24 @@ public class Musician {
      * @param status the status
      */
     public void setStatus(String status) { this.status = status; }
+
+    /**
+     * Gets list of program composition.
+     *
+     * @return the list of program composition
+     */
+    public List<ProgramComposition> getListOfProgramComposition() {
+        return listOfProgramComposition;
+    }
+
+    /**
+     * Sets list of program composition.
+     *
+     * @param listOfProgramComposition the list of program composition
+     */
+    public void setListOfProgramComposition(List<ProgramComposition> listOfProgramComposition) {
+        this.listOfProgramComposition = listOfProgramComposition;
+    }
 
     @Override
     public String toString(){

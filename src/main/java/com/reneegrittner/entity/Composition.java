@@ -9,6 +9,7 @@ import java.util.Objects;
 
 /**
  * The type Composition.
+ *
  * @author Renee Grittner
  */
 @Entity(name = "Composition")
@@ -47,6 +48,9 @@ public class Composition {
 
     @OneToMany(mappedBy = "composition", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<CompositionInstrument> listOfInstruments;
+
+    @OneToMany(mappedBy = "composition", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<ProgramComposition> listOfProgramComposition;
 
 
     /**
@@ -256,6 +260,24 @@ public class Composition {
      */
     public void setListOfInstruments(List<CompositionInstrument> listOfInstruments) {
         this.listOfInstruments = listOfInstruments;
+    }
+
+    /**
+     * Gets list of program composition.
+     *
+     * @return the list of program composition
+     */
+    public List<ProgramComposition> getListOfProgramComposition() {
+        return listOfProgramComposition;
+    }
+
+    /**
+     * Sets list of program composition.
+     *
+     * @param listOfProgramComposition the list of program composition
+     */
+    public void setListOfProgramComposition(List<ProgramComposition> listOfProgramComposition) {
+        this.listOfProgramComposition = listOfProgramComposition;
     }
 
     @Override

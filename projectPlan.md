@@ -41,8 +41,8 @@
 - [x] Build the composer search jsp
 - [x] Build the composer add
 - [ ] Build the composer update/delete jsp
-- [ ] Build the composition search jsp
-- [ ] Build the composition add/update/delete jsp
+- [ ] Build the compositionForProgram search jsp
+- [ ] Build the compositionForProgram add/update/delete jsp
 - [x] Prepare for Checkpoint 2: Database designed and created, at least one DAO implemented with Hibernate, DAO is unit tested, Log4J is implemented (no System.out.printlns), class design and any other diagrams you plan to use have been created. 
 
 

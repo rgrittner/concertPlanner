@@ -19,7 +19,7 @@
     <jsp:include page="nav.jsp" />
     <div class="panel panel-danger">
         <div class="panel-heading">
-            <h3 class="panel-title">Composition: ${composition.title}</h3>
+            <h3 class="panel-title">Composition: ${compositionForProgram.title}</h3>
             <h3 class="panel-title">Player: ${playerNumber}</h3>
         </div>
         <div class="panel-body">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                     </c:forEach>
-                    <input type="hidden" value="${composition.id}" name="idOfComposition">
+                    <input type="hidden" value="${compositionForProgram.id}" name="idOfComposition">
                     <input type="hidden" value="${playerNumber}" name="playerNumber">
                     <input type="hidden" value="${categoryId}" name="categoryId">
                     <div class="form-group">
