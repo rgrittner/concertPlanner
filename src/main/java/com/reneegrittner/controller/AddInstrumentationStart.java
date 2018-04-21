@@ -38,6 +38,8 @@ public class AddInstrumentationStart extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userIdFromSignIn = 1;
+
         Integer playerFromParam = Integer.parseInt(req.getParameter("player"));
 
         GenericDao<InstrumentCategory> dao = new GenericDao<>(InstrumentCategory.class);
@@ -52,7 +54,7 @@ public class AddInstrumentationStart extends HttpServlet {
         }
 
 
-        req.setAttribute("instrumentCat", dao.getAll("category"));
+        req.setAttribute("instrumentCat", dao.getAll("category", userIdFromSignIn));
         req.setAttribute("playerNumber", playerFromParam);
         req.setAttribute("compositionId", req.getParameter("compositionId"));
         req.setAttribute("composition", currentComposition);

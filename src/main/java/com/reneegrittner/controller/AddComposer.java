@@ -24,6 +24,7 @@ import java.io.IOException;
 
 public class AddComposer extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private int userIdFromSignIn = 1;
 
     /**
      * doGet method handles populating the Nationality select options with currently available nationalities
@@ -34,8 +35,9 @@ public class AddComposer extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         GenericDao dao = new GenericDao(Nationality.class);
-        req.setAttribute("nationality", dao.getAll("nationality"));
+        req.setAttribute("nationality", dao.getAll("nationality", userIdFromSignIn));
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposer.jsp");
         dispatcher.forward(req, resp);
     }
@@ -49,15 +51,16 @@ public class AddComposer extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         Composer composerToBeAdded = new Composer();
         Nationality nationalityToInsert = new Nationality();
-        GenericDao nationalityDao = new GenericDao(Nationality.class);
+        GenericDao<Nationality> nationalityDao = new GenericDao<>(Nationality.class);
 
         // Get Id of selected Nationality from from, convert to Integer
         Integer nationalityIdFromForm = Integer.parseInt(req.getParameter("nationality"));
 
         // Get the correct Nationality object from the DAO
-        nationalityToInsert = (Nationality)nationalityDao.getById(nationalityIdFromForm);
+        nationalityToInsert = nationalityDao.getById(nationalityIdFromForm);
 
         // Get Birth & Death year fields, check if they are null. If not convert to Integer, otherwise set to null
         String checkBirthYear = req.getParameter("birthYear");
@@ -87,7 +90,7 @@ public class AddComposer extends HttpServlet {
         //TODO add data verification
         //TODO check for exisiting composer
 
-        GenericDao genericDao = new GenericDao(Composer.class);
+        GenericDao<Composer> genericDao = new GenericDao<>(Composer.class);
 
         genericDao.insert(composerToBeAdded);
 

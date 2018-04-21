@@ -24,6 +24,8 @@ import java.io.IOException;
  */
 public class ListOfCompositionsByComposer extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private int userIdFromSignIn = 1;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -36,7 +38,7 @@ public class ListOfCompositionsByComposer extends HttpServlet {
         String composerFullName = composer.getLastName() + ", " + composer.getFirstName();
 
         GenericDao<Composition> dao = new GenericDao<>(Composition.class);
-        req.setAttribute("composerCompositions", dao.getByPropertyEqualComposition(idFromParam));
+        req.setAttribute("composerCompositions", dao.getByPropertyEqual("composition", idFromParam, userIdFromSignIn));
         req.setAttribute("composerName", composerFullName);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/compositionsOfComposer.jsp");
         dispatcher.forward(req, resp);

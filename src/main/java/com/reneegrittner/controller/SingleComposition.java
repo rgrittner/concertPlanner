@@ -31,6 +31,7 @@ import java.util.List;
  */
 public class SingleComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private int userIdFromSignIn = 1;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -45,23 +46,23 @@ public class SingleComposition extends HttpServlet {
         GenericDao<CompositionInstrument> linkingDao = new GenericDao<>(CompositionInstrument.class);
 
         // Retrieve requested composition & get it's id
-        Composition composition = compositionDao.getById(idFromParam);
+        Composition composition =  compositionDao.getById(idFromParam);
         Integer composerId = composition.getComposer().getId();
 
         // Retrieve composer of requested composition & get their id
-        Composer composer = dao2.getById(composerId);
+        Composer composer =  dao2.getById(composerId);
         Integer compositionId = composition.getId();
 
         // Retrieve all performances of requested composition
-        List<ProgramComposition> listOfProgramsOfThisComposition = programCompositionGenericDao.getByPropertyEqual("composition", compositionId);
+        List<ProgramComposition> listOfProgramsOfThisComposition = programCompositionGenericDao.getByPropertyEqual("composition", compositionId, userIdFromSignIn);
         logger.debug("List of lots of shit: " + listOfProgramsOfThisComposition);
 
         req.setAttribute("compositionInformation", composition);
         req.setAttribute("composerInformation", composer);
-        req.setAttribute("playerOneInstruments", linkingDao.getByPropertyEqualCompositionInstrument(1, compositionId));
-        req.setAttribute("playerTwoInstruments", linkingDao.getByPropertyEqualCompositionInstrument(2, compositionId));
-        req.setAttribute("playerThreeInstruments", linkingDao.getByPropertyEqualCompositionInstrument(3, compositionId));
-        req.setAttribute("playerFourInstruments", linkingDao.getByPropertyEqualCompositionInstrument(4, compositionId));
+        req.setAttribute("playerOneInstruments", linkingDao.getByPropertyEqualCompositionInstrument(1, compositionId, userIdFromSignIn));
+        req.setAttribute("playerTwoInstruments", linkingDao.getByPropertyEqualCompositionInstrument(2, compositionId, userIdFromSignIn));
+        req.setAttribute("playerThreeInstruments", linkingDao.getByPropertyEqualCompositionInstrument(3, compositionId, userIdFromSignIn));
+        req.setAttribute("playerFourInstruments", linkingDao.getByPropertyEqualCompositionInstrument(4, compositionId, userIdFromSignIn));
         req.setAttribute("listOfPerformances", listOfProgramsOfThisComposition);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/singleComposition.jsp");

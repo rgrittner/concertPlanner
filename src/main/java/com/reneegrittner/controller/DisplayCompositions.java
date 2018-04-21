@@ -26,8 +26,9 @@ public class DisplayCompositions extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userIdFromSignIn = 1;
         GenericDao<Composition> dao = new GenericDao<>(Composition.class);
-        req.setAttribute("compositions", dao.getAll("title"));
+        req.setAttribute("compositions", dao.getAll("title", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/allCompositions.jsp");
         dispatcher.forward(req, resp);

@@ -35,13 +35,12 @@ public class Musician {
     @Column(name = "status")
     private String status;
 
-<<<<<<< HEAD
     @Column(name = "user_Id")
     private int userId;
-=======
+
     @OneToMany(mappedBy = "musician", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<ProgramComposition> listOfProgramComposition;
->>>>>>> master
+
 
     /**
      * Instantiates a new Musician.

@@ -27,8 +27,9 @@ public class DisplayComposers extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userIdFromSignIn = 1;
         GenericDao<Composer> dao = new GenericDao<>(Composer.class);
-        req.setAttribute("composers", dao.getAll("lastName"));
+        req.setAttribute("composers", dao.getAll("lastName", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composer.jsp");
         dispatcher.forward(req, resp);

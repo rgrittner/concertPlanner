@@ -24,10 +24,12 @@ public class DisplayInstruments extends HttpServlet {
         GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
         GenericDao<InstrumentCategory> dao2 = new GenericDao<>(InstrumentCategory.class);
 
+        int userIdFromSignIn = 1;
+
         //TODO Does this page really need to set the categories and the instruments?
-        //TODO Arent the categtoeis accessable on the instruments themselves?
-        req.setAttribute("instruments", dao.getAll("name"));
-        req.setAttribute("categories", dao2.getAll("category"));
+        //TODO Aren't the categories acessable on the instruments themselves?
+        req.setAttribute("instruments", dao.getAll("name", userIdFromSignIn));
+        req.setAttribute("categories", dao2.getAll("category", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
         dispatcher.forward(req, resp);

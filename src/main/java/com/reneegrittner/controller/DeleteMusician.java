@@ -25,7 +25,9 @@ import java.io.IOException;
 
 public class DeleteMusician extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    GenericDao dao = new GenericDao(Musician.class);
+    private int userIdFromSignIn = 1;
+
+    private GenericDao<Musician> dao = new GenericDao<>(Musician.class);
 
     /**
      * The doGet retrieves the information about the musician to be deleted, making it available to the delete jsp.
@@ -57,7 +59,7 @@ public class DeleteMusician extends HttpServlet {
         Integer idFromForm = Integer.parseInt(req.getParameter("idOfMusicianToBeDeleted"));
 
         // Get the Musician as an object by the id
-        Musician musicianToBeDeleted = (Musician) dao.getById(idFromForm);
+        Musician musicianToBeDeleted =  dao.getById(idFromForm);
 
         // Delete the musician
         dao.delete(musicianToBeDeleted);

@@ -36,7 +36,7 @@ public class ProgramCompositionDaoTest {
     @Test
     void getAllSuccess(){
 
-        List<ProgramComposition> programCompositions = genericDao.getAll();
+        List<ProgramComposition> programCompositions = genericDao.getAll(1);
         assertEquals(4, programCompositions.size());
     }
 
@@ -46,15 +46,15 @@ public class ProgramCompositionDaoTest {
         GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
         GenericDao<Program> programGenericDao = new GenericDao<>(Program.class);
 
-        Musician musicianToInsert = musicianGenericDao.getById(1);
-        Composition compsitionToInsert = compositionGenericDao.getById(1);
-        Program programToInsert = programGenericDao.getById(1);
+        Musician musicianToInsert =  musicianGenericDao.getById(1);
+        Composition compositionToInsert =  compositionGenericDao.getById(1);
+        Program programToInsert =  programGenericDao.getById(1);
 
-        ProgramComposition toInsertIntoLinkingTable = new ProgramComposition(1, musicianToInsert, programToInsert, compsitionToInsert);
+        ProgramComposition toInsertIntoLinkingTable = new ProgramComposition(1, musicianToInsert, programToInsert, compositionToInsert, 1);
 
         genericDao.insert(toInsertIntoLinkingTable);
 
-        assertEquals(5, genericDao.getAll().size());
+        assertEquals(5, genericDao.getAll(1).size());
 
     }
 }

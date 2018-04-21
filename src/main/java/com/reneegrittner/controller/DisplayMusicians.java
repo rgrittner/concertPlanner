@@ -22,8 +22,9 @@ import java.io.IOException;
 public class DisplayMusicians extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userIdFromSignIn = 1;
         GenericDao<Musician> dao = new GenericDao<>(Musician.class);
-        req.setAttribute("musicians", dao.getAll("lastName"));
+        req.setAttribute("musicians", dao.getAll("lastName", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/musician.jsp");
         dispatcher.forward(req, resp);

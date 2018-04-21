@@ -21,7 +21,7 @@ public class NationalityDaoTest {
      * The Dao.
      */
 
-    private GenericDao<Nationality> genericDao = new GenericDao<>(Nationality.class);
+    private GenericDao<Nationality> genericDao;
 
     /**
      * Set up.
@@ -31,7 +31,7 @@ public class NationalityDaoTest {
     void setUp(){
         DatabaseTwo database = DatabaseTwo.getInstance();
         database.runSQL("cleanAll.sql");
-
+        genericDao = new GenericDao<>(Nationality.class);
 
     }
 
@@ -49,7 +49,7 @@ public class NationalityDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Nationality> nationalityList = genericDao.getAll();
+        List<Nationality> nationalityList = genericDao.getAll(1);
         assertEquals(3, nationalityList.size());
     }
 
@@ -61,7 +61,7 @@ public class NationalityDaoTest {
         Nationality newNationality = new Nationality("English", 1);
         int id = genericDao.insert(newNationality);
         assertNotEquals(0, id);
-        Nationality insertedNationality = (Nationality) genericDao.getById(id);
+        Nationality insertedNationality =  genericDao.getById(id);
         assertEquals(newNationality, insertedNationality);
     }
 
@@ -69,20 +69,20 @@ public class NationalityDaoTest {
     /**
      *  Verify successful insert of nationality with Composer.
      */
-//    @Test
-//    void insertWithComposerSuccess() {
-//        Nationality newNationality = new Nationality("English", 1);
-//
-//        Composer composer = new Composer("New", "Musician", 1912, 1983, newNationality);
-//
-//        newNationality.addComposer(composer);
-//
-//        int id = genericDao.insert(newNationality);
-//        assertNotEquals(0, id);
-//        Nationality insertedNationality = (Nationality) genericDao.getById(id);
-//        assertEquals(newNationality, insertedNationality);
-//        assertEquals(1, insertedNationality.getComposers().size());
-//    }
+    @Test
+    void insertWithComposerSuccess() {
+        Nationality newNationality = new Nationality("English", 1);
+
+        Composer composer = new Composer("New", "Musician", 1912, 1983, 1, newNationality);
+
+        newNationality.addComposer(composer);
+
+        int id = genericDao.insert(newNationality);
+        assertNotEquals(0, id);
+        Nationality insertedNationality =  genericDao.getById(id);
+        assertEquals(newNationality, insertedNationality);
+        assertEquals(1, insertedNationality.getComposers().size());
+    }
 
     /**
      * Verify successful save or update of nationality
@@ -90,21 +90,15 @@ public class NationalityDaoTest {
     @Test
     void saveOrUpdateSuccess(){
         String newNationality = "testing";
-        Nationality nationalityToUpdate = (Nationality) genericDao.getById(2);
+        Nationality nationalityToUpdate =  genericDao.getById(2);
         nationalityToUpdate.setNationality(newNationality);
         genericDao.saveOrUpdate(nationalityToUpdate);
-        Nationality retrievedNationality = (Nationality) genericDao.getById(2);
+        Nationality retrievedNationality =  genericDao.getById(2);
         assertEquals(nationalityToUpdate, retrievedNationality);
     }
 
 
-    @Test
-    void deleteExceptionTesting() {
-        Throwable exception = assertThrows(PersistenceException.class, () -> {
-            genericDao.delete(genericDao.getById(1));
-        });
-        assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
-    }
+
 
 
 }

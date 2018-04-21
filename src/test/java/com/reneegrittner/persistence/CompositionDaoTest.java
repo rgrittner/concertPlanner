@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CompositionDaoTest {
-    GenericDao genericDao;
+    private GenericDao<Composition> genericDao;
 
     /**
      * Set up.
@@ -25,7 +25,7 @@ public class CompositionDaoTest {
         DatabaseTwo database = DatabaseTwo.getInstance();
         database.runSQL("cleanAll.sql");
 
-        genericDao = new GenericDao(Composition.class);
+        genericDao = new GenericDao<>(Composition.class);
     }
 
     /**
@@ -33,7 +33,7 @@ public class CompositionDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Composition> compositionList = genericDao.getAll();
+        List<Composition> compositionList = genericDao.getAll(1);
         assertEquals(5, compositionList.size());
     }
 
@@ -43,15 +43,15 @@ public class CompositionDaoTest {
     @Test
     void insertSuccess() {
 
-        GenericDao localDao = new GenericDao(Composer.class);
-        Composer composer = (Composer) localDao.getById(2);
+        GenericDao<Composer> localDao = new GenericDao<>(Composer.class);
+        Composer composer =  localDao.getById(2);
 
         Composition newComposition = new Composition("Prelude", null, 10, 2010, 4, null, true, composer);
         composer.addComposition(newComposition);
 
         int id = genericDao.insert(newComposition);
         assertNotEquals(0, id);
-        Composition insertedCompositon = (Composition) genericDao.getById(id);
+        Composition insertedCompositon =  genericDao.getById(id);
         assertEquals(newComposition, insertedCompositon);
     }
 
@@ -60,7 +60,7 @@ public class CompositionDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<Composition> compositions = genericDao.getByPropertyEqual("title", "Gravity");
+        List<Composition> compositions = genericDao.getByPropertyEqual("title", "Gravity", 1);
         assertEquals(1, compositions.size());
         assertEquals(1, compositions.get(0).getId());
     }
@@ -71,24 +71,12 @@ public class CompositionDaoTest {
     @Test
     void getByPropertyEqualIntegerSuccess() {
         Integer value = 1;
-        List<Composition> compositions = genericDao.getByPropertyEqual("id", value);
+        List<Composition> compositions = genericDao.getByPropertyEqual("id", value, 1);
         assertEquals(1, compositions.size());
     }
 
 
-    @Test
-    void takeTwo() {
-        GenericDao localDao = new GenericDao<>(Composition.class);
-        Integer id = 1;
-        List<Composition> list = localDao.getByPropertyEqualComposition(id);
-        assertEquals(2, list.size());
 
-    }
-
-
-
-
-// Remove comment when there is a dependency to Composition.
 //    @Test
 //    void deleteExceptionTesting() {
 //        Throwable exception = assertThrows(PersistenceException.class, () -> {

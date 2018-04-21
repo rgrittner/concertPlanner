@@ -24,6 +24,8 @@ import java.io.IOException;
 )
 public class AddComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private int userIdFromSignIn = 1;
+
 
     /**
      * doGet method populates composer select items with current list of composers
@@ -35,7 +37,7 @@ public class AddComposition extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao dao = new GenericDao<>(Composer.class);
-        req.setAttribute("composers", dao.getAll("lastName"));
+        req.setAttribute("composers", dao.getAll("lastName", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposition.jsp");
         dispatcher.forward(req, resp);
@@ -72,8 +74,8 @@ public class AddComposition extends HttpServlet {
         Integer numberOfPlayersAsInteger = Integer.parseInt(numberOfPlayersFromForm);
 
         // Get Composer as an object
-        GenericDao composerDao = new GenericDao<>(Composer.class);
-        Composer composerToBeAdded = (Composer) composerDao.getById(composerIdAsInteger);
+        GenericDao<Composer> composerDao = new GenericDao<>(Composer.class);
+        Composer composerToBeAdded = composerDao.getById(composerIdAsInteger);
 
         //Create new Composition object and set it's properties
         Composition compositionToBeAdded = new Composition();

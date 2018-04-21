@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InstrumentDaoTest {
-    GenericDao genericDao;
+    private GenericDao<Instrument> genericDao;
     /**
      * Set up.
      * Reset the Nationality table to a known state.
@@ -23,7 +23,7 @@ public class InstrumentDaoTest {
         DatabaseTwo database = new DatabaseTwo();
         database.runSQL("cleanAll.sql");
 
-        genericDao = new GenericDao(Instrument.class);
+        genericDao = new GenericDao<>(Instrument.class);
     }
 
     /**
@@ -32,16 +32,16 @@ public class InstrumentDaoTest {
     @Test
     void insertSuccess() {
 
-        GenericDao localDao = new GenericDao(InstrumentCategory.class);
-        InstrumentCategory instrumentCategory = (InstrumentCategory) localDao.getById(2);
+        GenericDao<InstrumentCategory> localDao = new GenericDao<>(InstrumentCategory.class);
+        InstrumentCategory instrumentCategory =  localDao.getById(2);
 
-        Instrument anotherInstrument = new Instrument("Instrument", instrumentCategory);
+        Instrument anotherInstrument = new Instrument("Instrument", instrumentCategory, 1);
 
         instrumentCategory.addInstrument(anotherInstrument);
 
         int id = genericDao.insert(anotherInstrument);
         assertNotEquals(0, id);
-        Instrument insertedInstrument = (Instrument) genericDao.getById(id);
+        Instrument insertedInstrument =  genericDao.getById(id);
         assertEquals(anotherInstrument, insertedInstrument);
 
     }
@@ -51,7 +51,7 @@ public class InstrumentDaoTest {
      */
     @Test
     void getAllSuccess(){
-        List<Instrument> instrumentList = genericDao.getAll();
+        List<Instrument> instrumentList = genericDao.getAll(1);
         assertEquals(20, instrumentList.size());
     }
 
@@ -72,7 +72,7 @@ public class InstrumentDaoTest {
     @Test
     void getByPropertyEqualSuccess() {
 
-        List<Instrument> instruments = genericDao.getByPropertyEqual("name", "Marimba");
+        List<Instrument> instruments = genericDao.getByPropertyEqual("name", "Marimba", 1);
         assertEquals(1, instruments.size());
         assertEquals(1, instruments.get(0).getId());
     }
@@ -82,7 +82,7 @@ public class InstrumentDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<Instrument> instruments = genericDao.getByPropertyLike("name", "marimba");
+        List<Instrument> instruments = genericDao.getByPropertyLike("name", "marimba", 1);
         assertEquals(2, instruments.size());
     }
 
@@ -94,10 +94,10 @@ public class InstrumentDaoTest {
     @Test
     void saveOrUpdateSuccess(){
         String newInstrumentName = "TaDa!";
-        Instrument instrumentToUpdate = (Instrument) genericDao.getById(4);
+        Instrument instrumentToUpdate =  genericDao.getById(4);
         instrumentToUpdate.setName(newInstrumentName);
         genericDao.saveOrUpdate(instrumentToUpdate);
-        Instrument retrievedInstrument = (Instrument) genericDao.getById(4);
+        Instrument retrievedInstrument =  genericDao.getById(4);
         assertEquals(instrumentToUpdate, retrievedInstrument);
     }
 

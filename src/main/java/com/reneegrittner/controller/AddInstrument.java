@@ -23,6 +23,7 @@ import java.io.IOException;
 )
 public class AddInstrument extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private int userIdFromSignIn = 1;
 
     /**
      * doGet method handles populating the instrument category select item
@@ -34,8 +35,9 @@ public class AddInstrument extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         GenericDao dao = new GenericDao<>(InstrumentCategory.class);
-        req.setAttribute("category", dao.getAll("category"));
+        req.setAttribute("category", dao.getAll("category", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrument.jsp");
         dispatcher.forward(req, resp);
@@ -51,14 +53,14 @@ public class AddInstrument extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Instrument instrument = new Instrument();
-        GenericDao categoryDao = new GenericDao<>(InstrumentCategory.class);
+        GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
 
         // Get Id of selected Category from from, convert to Integer
         Integer categoryIdFromForm = Integer.parseInt(req.getParameter("newInstrumentCategory"));
 
 
         // Get the correct Category object from the DAO
-        InstrumentCategory categoryToInsert = (InstrumentCategory) categoryDao.getById(categoryIdFromForm);
+        InstrumentCategory categoryToInsert = categoryDao.getById(categoryIdFromForm);
 
 
         instrument.setName(req.getParameter("instrument"));

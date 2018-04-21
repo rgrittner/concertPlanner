@@ -24,10 +24,9 @@ public class GenericDao<T> {
      * @return the newly created id
      */
     public int insert(T entity) {
-        int id = 0;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(entity);
+        int id = (int)session.save(entity);
         logger.debug("id from DAO: " + id);
         transaction.commit();
         session.close();
@@ -39,24 +38,35 @@ public class GenericDao<T> {
      *
      * @return the all
      */
-    public List<T> getAll(String columnToOrderOn) {
+    public List<T> getAll(String columnToOrderOn, int userId) {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        query.orderBy(builder.asc(root.get(columnToOrderOn)));
-
+        query.where(builder
+                .equal(root.get("userId"), userId))
+                .orderBy(builder.asc(root.get(columnToOrderOn)));
         List<T> list = session.createQuery(query).getResultList();
         session.close();
         return list;
     }
 
-    public List<T> getAll() {
+    public List<T> getAll(int userId) {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
+        query.where(builder.equal(root.get("userId"), userId));
+        List<T> list = session.createQuery(query).getResultList();
+        session.close();
+        return list;
+    }
 
+    public List<T> getAllUsers() {
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
         List<T> list = session.createQuery(query).getResultList();
         session.close();
         return list;
@@ -77,38 +87,40 @@ public class GenericDao<T> {
      * @param value        the value
      * @return the list
      */
-    public List<T> getByPropertyEqual(String propertyName, Object value){
+    public List<T> getByPropertyEqual(String propertyName, Object value, int userId){
         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get(propertyName), value));
-
-
+        query.select(root).where(builder.and(builder.equal(root.get(propertyName), value)), builder.equal(root.get("userId"), userId));
         List<T> list = session.createQuery(query).getResultList();
 
         return list;
     }
 
-    public List<T> getByPropertyEqualComposition(Object value){
-        Session session = getSession();
+//    public List<T> getByPropertyEqualComposition(Object value){
+//        Session session = getSession();
+//
+//        CriteriaBuilder builder = session.getCriteriaBuilder();
+//        CriteriaQuery<T> query = builder.createQuery(type);
+//        Root<T> root = query.from(type);
+//        query.select(root).where(builder.equal(root.get("composer"), value));
+//
+//        List<T> list = session.createQuery(query).getResultList();
+//        return list;
+//    }
 
+    public List<T> getByPropertyEqualCompositionInstrument(Object playerNumber, Object compositionId, int userId){
+        Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        query.select(root).where(builder.equal(root.get("composer"), value));
-
-        List<T> list = session.createQuery(query).getResultList();
-        return list;
-    }
-
-    public List<T> getByPropertyEqualCompositionInstrument(Object playerNumber, Object compositionId){
-        Session session = getSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery(type);
-        Root<T> root = query.from(type);
-        query.select(root).where(builder.and(builder.equal(root.get("composition"), compositionId), builder.equal(root.get("playerNumber"), playerNumber)));
+        query.select(root).where(
+                builder.and(
+                        builder.equal(root.get("composition"), compositionId)
+                        , builder.equal(root.get("playerNumber"), playerNumber)
+                        , builder.equal(root.get("userId"), userId)));
         logger.debug("Query: " + query);
         //https://stackoverflow.com/questions/46449407/how-to-use-and-in-hibernate-5-2-criteria
         List<T> list = session.createQuery(query).getResultList();
@@ -125,7 +137,7 @@ public class GenericDao<T> {
      * @param value        the value
      * @return the by property like
      */
-    public List<T> getByPropertyLike(String propertyName, String value) {
+    public List<T> getByPropertyLike(String propertyName, String value, int userId) {
         Session session = getSession();
 
         logger.debug("Searching for " + type + " {} = {}", propertyName, value);
@@ -135,7 +147,10 @@ public class GenericDao<T> {
         Root<T> root = query.from(type);
         Expression<String> propertyPath = root.get(propertyName);
 
-        query.where(builder.like(propertyPath, "%" + value + "%"));
+        query.where(
+                builder.and(
+                    builder.equal(root.get("userId"), userId),
+                    builder.like(propertyPath, "%" + value + "%")));
         List<T> list = session.createQuery(query).getResultList();
         session.close();
         return list;

@@ -30,10 +30,11 @@ import java.util.List;
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private int userIdFromSignIn = 1;
     /**
      * The Dao.
      */
-    GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
+    private GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
 
     /**
      * Retrieves information sent along in the request (player number, composition id, instrument category id)
@@ -56,14 +57,14 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
 
         // Get the composition information to send along to jsp
         GenericDao<Composition> compositionDao = new GenericDao<>(Composition.class);
-        Composition composition = (Composition) compositionDao.getById(compositionIdFromForm);
+        Composition composition =  compositionDao.getById(compositionIdFromForm);
         req.setAttribute("composition", composition);
 
         // Get all instruments of given category and send along to the jsp
         GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
-        List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm);
+        List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm, userIdFromSignIn);
         int categoryId = category.get(0).getId();
-        req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));
+        req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId, userIdFromSignIn));
 
         // Send the playerNumber and category id as well
         req.setAttribute("playerNumber", playerNumber);
@@ -97,12 +98,12 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
 
         // get composition object
         GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
-        Composition composition = compositionGenericDao.getById(compositionId);
+        Composition composition =  compositionGenericDao.getById(compositionId);
 
         GenericDao<CompositionInstrument> compositionInstrumentGenericDao = new GenericDao<>(CompositionInstrument.class);
         // Find out how many instruments there currently are in current category
        // GenericDao<InstrumentCategory> categoryGenericDao = new GenericDao<>(InstrumentCategory.class);
-        List<Instrument> listOfInstrumentsOfCategory = dao.getByPropertyEqual("instrumentCategory", categoryId);
+        List<Instrument> listOfInstrumentsOfCategory = dao.getByPropertyEqual("instrumentCategory", categoryId, userIdFromSignIn);
         for(Instrument currentInstrument: listOfInstrumentsOfCategory) {
             Integer currentId = currentInstrument.getId();
             //Check if this instrument has a qty in the form

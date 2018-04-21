@@ -27,11 +27,12 @@ import java.io.IOException;
  */
 public class DisplayEnsembleHomePage extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    int userIdFromSignIn = 1;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao<Program> programGenericDao = new GenericDao<>(Program.class);
-        req.setAttribute("programs", programGenericDao.getAll());
+        req.setAttribute("programs", programGenericDao.getAll(userIdFromSignIn));
         String url = "/protected/ensembleHome.jsp";
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
