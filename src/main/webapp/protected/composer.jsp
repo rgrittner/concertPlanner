@@ -17,10 +17,10 @@
             <h1>Composers  </h1>
         </div>
 <jsp:include page="nav.jsp" />
+    </div>
 
-<div class="container">
 
-    <div>
+    <div class="dataTables_wrapper">
         <table id="resultTable" class="table table-sm">
             <thead>
             <tr>
@@ -43,8 +43,7 @@
         </table>
     </div>
 </div>
-    </div>
-</div>
+
 <jsp:include page="scripts.jsp" />
 
 </body>
