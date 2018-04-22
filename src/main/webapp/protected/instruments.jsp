@@ -34,6 +34,8 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Edit</th>
+                    <td scope="<col>">Delete</td>
 
                 </tr>
                 </thead>
@@ -42,6 +44,8 @@
                     <tr>
                         <td>${current.name}</td>
                         <td>${current.instrumentCategory.category}</td>
+                        <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#${current.id}-Modal"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                        <td><form action="/concertPlanner/ensemble/deleteInstrument" method="get"><input type="hidden" value="${current.id}" name="idOfInstrumentToBeDeleted"><button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span></button></form></td>
 
                     </tr>
                 </c:forEach>
