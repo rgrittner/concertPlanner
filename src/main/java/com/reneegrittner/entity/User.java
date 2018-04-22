@@ -4,6 +4,7 @@ package com.reneegrittner.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity(name = "User")
@@ -15,11 +16,14 @@ public class User {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+
     @Column(name = "user_name")
     private String userName;
 
+
     @Column(name = "user_password")
     private String userPassword;
+
 
     @Column(name = "ensemble_name")
     private String ensembleName;

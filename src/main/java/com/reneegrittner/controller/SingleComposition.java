@@ -1,9 +1,6 @@
 package com.reneegrittner.controller;
 
-import com.reneegrittner.entity.Composer;
-import com.reneegrittner.entity.Composition;
-import com.reneegrittner.entity.CompositionInstrument;
-import com.reneegrittner.entity.ProgramComposition;
+import com.reneegrittner.entity.*;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,9 +28,14 @@ import java.util.List;
  */
 public class SingleComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private int userIdFromSignIn = 1;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
 
         //TODO use something more descriptive than param
         Integer idFromParam = Integer.parseInt(req.getParameter("param"));

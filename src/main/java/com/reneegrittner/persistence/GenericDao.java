@@ -27,7 +27,6 @@ public class GenericDao<T> {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         int id = (int)session.save(entity);
-        logger.debug("id from DAO: " + id);
         transaction.commit();
         session.close();
         return id;
@@ -99,6 +98,18 @@ public class GenericDao<T> {
         return list;
     }
 
+    public List<T> getUser(String propertyName, Object value){
+        Session session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root).where(builder.equal(root.get(propertyName), value));
+        List<T> list = session.createQuery(query).getResultList();
+
+        return list;
+    }
+
 //    public List<T> getByPropertyEqualComposition(Object value){
 //        Session session = getSession();
 //
@@ -121,7 +132,6 @@ public class GenericDao<T> {
                         builder.equal(root.get("composition"), compositionId)
                         , builder.equal(root.get("playerNumber"), playerNumber)
                         , builder.equal(root.get("userId"), userId)));
-        logger.debug("Query: " + query);
         //https://stackoverflow.com/questions/46449407/how-to-use-and-in-hibernate-5-2-criteria
         List<T> list = session.createQuery(query).getResultList();
         return list;
@@ -139,8 +149,6 @@ public class GenericDao<T> {
      */
     public List<T> getByPropertyLike(String propertyName, String value, int userId) {
         Session session = getSession();
-
-        logger.debug("Searching for " + type + " {} = {}", propertyName, value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);

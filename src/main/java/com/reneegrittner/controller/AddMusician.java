@@ -1,6 +1,7 @@
 package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Musician;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -28,13 +29,19 @@ public class AddMusician extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         Musician musicianToBeAdded = new Musician();
         musicianToBeAdded.setFirstName(req.getParameter("firstName"));
         musicianToBeAdded.setLastName(req.getParameter("lastName"));
         musicianToBeAdded.setPhoneNumber(req.getParameter("phone"));
         musicianToBeAdded.setEmail(req.getParameter("email"));
         musicianToBeAdded.setStatus(req.getParameter("status"));
+        musicianToBeAdded.setUserId(userIdFromSignIn);
         String musicianIdFromForm = req.getParameter("musicianId");
         Integer musicianId = null;
         GenericDao genericDao = new GenericDao(Musician.class);

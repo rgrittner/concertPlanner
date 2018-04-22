@@ -1,13 +1,9 @@
-[INFO ] 2018-04-21 16:18:05.019 [main] Version - HHH000412: Hibernate Core {5.2.12.Final}
-[INFO ] 2018-04-21 16:18:05.023 [main] Environment - HHH000206: hibernate.properties not found
-[INFO ] 2018-04-21 16:18:05.561 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-[INFO ] 2018-04-21 16:18:05.840 [main] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test_concertPlanner
-[INFO ] 2018-04-21 16:18:05.840 [main] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
-[INFO ] 2018-04-21 16:18:05.840 [main] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
-[INFO ] 2018-04-21 16:18:06.160 [main] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
-[INFO ] 2018-04-21 16:18:06.424 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-[INFO ] 2018-04-21 16:18:09.366 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-[WARN ] 2018-04-21 16:18:13.003 [main] SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
-[ERROR] 2018-04-21 16:18:13.004 [main] SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`test_concertplanner`.`instrument`, CONSTRAINT `Instrument_Instrument_Category` FOREIGN KEY (`Instrument_Category_id`) REFERENCES `Instrument_Category` (`id`))
-[INFO ] 2018-04-21 16:18:13.005 [main] AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
-[ERROR] 2018-04-21 16:18:13.006 [main] ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[INFO ] 2018-04-22 12:34:44.434 [http-nio-8080-exec-6] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-04-22 12:34:44.437 [http-nio-8080-exec-6] Environment - HHH000206: hibernate.properties not found
+[INFO ] 2018-04-22 12:34:44.882 [http-nio-8080-exec-6] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] 2018-04-22 12:34:45.098 [http-nio-8080-exec-6] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
+[INFO ] 2018-04-22 12:34:45.099 [http-nio-8080-exec-6] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-04-22 12:34:45.099 [http-nio-8080-exec-6] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-04-22 12:34:45.359 [http-nio-8080-exec-6] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[INFO ] 2018-04-22 12:34:45.924 [http-nio-8080-exec-6] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2018-04-22 12:34:47.938 [http-nio-8080-exec-6] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory

@@ -2,6 +2,7 @@ package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +25,7 @@ import java.io.IOException;
 )
 public class AddComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private int userIdFromSignIn = 1;
+
 
 
     /**
@@ -36,6 +37,11 @@ public class AddComposition extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
         GenericDao dao = new GenericDao<>(Composer.class);
         req.setAttribute("composers", dao.getAll("lastName", userIdFromSignIn));
 
@@ -52,7 +58,11 @@ public class AddComposition extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
         // Get data from form
 
@@ -86,6 +96,7 @@ public class AddComposition extends HttpServlet {
         compositionToBeAdded.setComposer(composerToBeAdded);
         compositionToBeAdded.setClocksCommission(clocksCommissionAsBool);
         compositionToBeAdded.setTitle(titleFromForm);
+        compositionToBeAdded.setUserId(userIdFromSignIn);
 
         //Check nullable fields for data
         if (arrangerFromForm.length() > 0) {

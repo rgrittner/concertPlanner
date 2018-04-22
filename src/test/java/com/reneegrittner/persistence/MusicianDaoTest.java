@@ -39,7 +39,7 @@ public class MusicianDaoTest {
      */
     @Test
     void insertSuccess() {
-        Musician newMusician = new Musician("New", "Musician", "123-125-3456", "new@newEmail.com", "Active");
+        Musician newMusician = new Musician("New", "Musician", "123-125-3456", "new@newEmail.com", "Active", 1);
         int id = genericDao.insert(newMusician);
         assertNotEquals(0, id);
         Musician insertedMusician =  genericDao.getById(id);

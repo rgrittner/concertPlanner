@@ -57,7 +57,7 @@ public class InstrumentCategoryDaoTest {
      */
     @Test
     void insertSuccess() {
-        InstrumentCategory newCategory = new InstrumentCategory("Test");
+        InstrumentCategory newCategory = new InstrumentCategory("Test", 1);
         int id = genericDao.insert(newCategory);
         assertNotEquals(0, id);
         InstrumentCategory insertedCategory = genericDao.getById(id);
@@ -70,7 +70,7 @@ public class InstrumentCategoryDaoTest {
      */
     @Test
     void insertWithInstrumentSuccess() {
-        InstrumentCategory newInstrumentCategory = new InstrumentCategory("Bananas");
+        InstrumentCategory newInstrumentCategory = new InstrumentCategory("Bananas", 1);
 
         Instrument instrument = new Instrument("New Instrument", newInstrumentCategory, 1);
 
@@ -102,7 +102,7 @@ public class InstrumentCategoryDaoTest {
      */
     @Test
     void deleteItemWithNoFKConstraintSuccess(){
-        InstrumentCategory newCategory = new InstrumentCategory("Test");
+        InstrumentCategory newCategory = new InstrumentCategory("Test", 1);
         int id = genericDao.insert(newCategory);
         genericDao.delete(genericDao.getById(id));
         assertNull(genericDao.getById(id));

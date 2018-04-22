@@ -73,8 +73,9 @@ public class Composition {
      * @param notes            the notes
      * @param clocksCommission the clocks commission (was this piece commissioned by the ensemble)
      * @param composer         the composer
+     * @param userId           the user id
      */
-    public Composition(String title, String arranger, Integer duration, Integer yearComposed, Integer numberOfPlayers, String notes, boolean clocksCommission, Composer composer) {
+    public Composition(String title, String arranger, Integer duration, Integer yearComposed, Integer numberOfPlayers, String notes, boolean clocksCommission, Composer composer, int userId) {
         this.title = title;
         this.arranger = arranger;
         this.duration = duration;
@@ -83,6 +84,7 @@ public class Composition {
         this.notes = notes;
         this.clocksCommission = clocksCommission;
         this.composer = composer;
+        this.userId = userId;
     }
 
     /**
@@ -230,6 +232,24 @@ public class Composition {
     }
 
     /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
      * Gets composer.
      *
      * @return the composer
@@ -290,13 +310,14 @@ public class Composition {
                 ", title='" + title + '\'' +
                 ", arranger='" + arranger + '\'' +
                 ", duration=" + duration +
-                ", yearComposed='" + yearComposed + '\'' +
+                ", yearComposed=" + yearComposed +
                 ", numberOfPlayers=" + numberOfPlayers +
                 ", notes='" + notes + '\'' +
                 ", clocksCommission=" + clocksCommission +
+                ", userId=" + userId +
+                ", composer=" + composer +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -305,6 +326,7 @@ public class Composition {
         Composition that = (Composition) o;
         return id == that.id &&
                 clocksCommission == that.clocksCommission &&
+                userId == that.userId &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(arranger, that.arranger) &&
                 Objects.equals(duration, that.duration) &&
@@ -317,6 +339,6 @@ public class Composition {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, title, arranger, duration, yearComposed, numberOfPlayers, notes, clocksCommission, composer);
+        return Objects.hash(id, title, arranger, duration, yearComposed, numberOfPlayers, notes, clocksCommission, userId, composer);
     }
 }

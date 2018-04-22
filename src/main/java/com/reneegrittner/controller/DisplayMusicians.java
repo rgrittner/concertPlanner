@@ -2,7 +2,10 @@ package com.reneegrittner.controller;
 
 
 import com.reneegrittner.entity.Musician;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,9 +23,14 @@ import java.io.IOException;
  * @author Renee Grittner
  */
 public class DisplayMusicians extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int userIdFromSignIn = 1;
+        logger.info("Display Musicians");
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         GenericDao<Musician> dao = new GenericDao<>(Musician.class);
         req.setAttribute("musicians", dao.getAll("lastName", userIdFromSignIn));
 

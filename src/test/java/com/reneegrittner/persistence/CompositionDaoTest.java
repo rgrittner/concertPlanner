@@ -46,7 +46,7 @@ public class CompositionDaoTest {
         GenericDao<Composer> localDao = new GenericDao<>(Composer.class);
         Composer composer =  localDao.getById(2);
 
-        Composition newComposition = new Composition("Prelude", null, 10, 2010, 4, null, true, composer);
+        Composition newComposition = new Composition("Prelude", null, 10, 2010, 4, null, true, composer, 1);
         composer.addComposition(newComposition);
 
         int id = genericDao.insert(newComposition);

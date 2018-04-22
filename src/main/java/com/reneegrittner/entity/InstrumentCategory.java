@@ -11,6 +11,7 @@ import java.util.Set;
  * Represents the different types of instruments that may be encountered.
  * Percussionists utilize a wide range of instrumentation, and providing
  * categories will allow for better display and sorting.
+ *
  * @author Renee Grittner
  */
 @Entity(name = "InstrumentCategory")
@@ -42,10 +43,12 @@ public class InstrumentCategory {
      * Instantiates a new Instrument category.
      *
      * @param category the category
+     * @param userId   the user id
      */
-    public InstrumentCategory(String category) {
+    public InstrumentCategory(String category, int userId) {
 
         this.category = category;
+        this.userId = userId;
     }
 
     /**
@@ -84,6 +87,41 @@ public class InstrumentCategory {
         this.category = category;
     }
 
+    /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * Gets instruments.
+     *
+     * @return the instruments
+     */
+    public Set<Instrument> getInstruments() {
+        return instruments;
+    }
+
+    /**
+     * Sets instruments.
+     *
+     * @param instruments the instruments
+     */
+    public void setInstruments(Set<Instrument> instruments) {
+        this.instruments = instruments;
+    }
 
     /**
      * Add Instrument.
@@ -106,24 +144,28 @@ public class InstrumentCategory {
     }
 
 
-
     @Override
-    public String toString(){
-        return "Instrument Category {id= " + id + " category= " + category;
+    public String toString() {
+        return "InstrumentCategory{" +
+                "id=" + id +
+                ", category='" + category + '\'' +
+                ", userId=" + userId +
+                '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        InstrumentCategory that = (InstrumentCategory) o;
-        return id == that.id &&
-                Objects.equals(category, that.category);
+        InstrumentCategory category1 = (InstrumentCategory) o;
+        return id == category1.id &&
+                userId == category1.userId &&
+                Objects.equals(category, category1.category);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, category);
+        return Objects.hash(id, category, userId);
     }
 }

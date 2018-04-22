@@ -101,6 +101,17 @@ public class InstrumentDaoTest {
         assertEquals(instrumentToUpdate, retrievedInstrument);
     }
 
+    @Test
+    void saveOrUpdateCategorySuccess(){
+        GenericDao<InstrumentCategory> categoryGenericDao = new GenericDao<>(InstrumentCategory.class);
+        InstrumentCategory newInstrumentCategory = categoryGenericDao.getById(2);
+        Instrument instrumentToUpdate =  genericDao.getById(4);
+        instrumentToUpdate.setInstrumentCategory(newInstrumentCategory);
+        genericDao.saveOrUpdate(instrumentToUpdate);
+        Instrument retrievedInstrument =  genericDao.getById(4);
+        assertEquals(instrumentToUpdate, retrievedInstrument);
+    }
+
 //    /**
 //     * Verify unable to delete an Instrument with a dependency.
 //     */

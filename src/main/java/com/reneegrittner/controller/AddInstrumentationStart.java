@@ -3,6 +3,7 @@ package com.reneegrittner.controller;
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -38,7 +39,10 @@ public class AddInstrumentationStart extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int userIdFromSignIn = 1;
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
         Integer playerFromParam = Integer.parseInt(req.getParameter("player"));
 

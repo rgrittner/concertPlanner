@@ -1,9 +1,6 @@
 package com.reneegrittner.controller;
 
-import com.reneegrittner.entity.Composition;
-import com.reneegrittner.entity.CompositionInstrument;
-import com.reneegrittner.entity.Instrument;
-import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.entity.*;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +27,7 @@ import java.util.List;
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private int userIdFromSignIn = 1;
+
     /**
      * The Dao.
      */
@@ -48,6 +45,10 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
         // Get compositionId, category and playerNumber from request
         String categoryFromForm = req.getParameter("category");
@@ -58,6 +59,7 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         // Get the composition information to send along to jsp
         GenericDao<Composition> compositionDao = new GenericDao<>(Composition.class);
         Composition composition =  compositionDao.getById(compositionIdFromForm);
+        logger.debug("Where's the composition information? " + composition);
         req.setAttribute("composition", composition);
 
         // Get all instruments of given category and send along to the jsp
@@ -88,6 +90,11 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         // get category id
         Integer categoryId = Integer.parseInt(req.getParameter("categoryId"));
         // get player number
@@ -113,6 +120,7 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
                 compositionInstrument.setPlayerNumber(playerNumber);
                 compositionInstrument.setComposition(composition);
                 compositionInstrument.setInstrumentQuantity(Integer.parseInt(req.getParameter("instrumentId" + currentId)));
+                compositionInstrument.setUserId(userIdFromSignIn);
                 compositionInstrumentGenericDao.insert(compositionInstrument);
             }
 

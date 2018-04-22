@@ -2,6 +2,7 @@ package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,19 +22,20 @@ import java.io.IOException;
 public class DisplayInstruments extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
         GenericDao<InstrumentCategory> dao2 = new GenericDao<>(InstrumentCategory.class);
 
-        int userIdFromSignIn = 1;
-
-        //TODO Does this page really need to set the categories and the instruments?
-        //TODO Aren't the categories acessable on the instruments themselves?
         req.setAttribute("instruments", dao.getAll("name", userIdFromSignIn));
+
+        // Make categories available to the add category modal
         req.setAttribute("categories", dao2.getAll("category", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
         dispatcher.forward(req, resp);
-
-
     }
 }

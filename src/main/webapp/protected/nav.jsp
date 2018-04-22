@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<nav>
 <div class="menu">
 
 
@@ -13,6 +15,10 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav ">
+                <c:if test='<%=request.isUserInRole("admin")%>'>
+                    <li><a href="/concertPlanner/ensemble/admin">Admin</a></li>
+
+                </c:if>
                 <li><a href="/concertPlanner/ensemble/home">Ensemble Home</a></li>
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Add <b class="caret"></b></a>
@@ -32,27 +38,18 @@
                         <li><a href="/concertPlanner/ensemble/instruments">View Instruments</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+
+                    <li><a href="/concertPlanner/logout">Logout</a></li>
+                    <%--<li><a href="#">Portfolio</a></li>--%>
+                    <%--<li><a href="#">Contact</a></li>--%>
+
+
+
             </ul>
 
         </div><!--/.navbar-collapse -->
 
     </div>
-    <div class="mini-menu">
-        <label>
-            <select class="selectnav">
-                <option value="#" selected="">Home</option>
-                <option value="#">About</option>
-                <option value="#">→ Another action</option>
-                <option value="#">→ Something else here</option>
-                <option value="#">→ Another action</option>
-                <option value="#">→ Something else here</option>
-                <option value="#">Services</option>
-                <option value="#">Portfolio</option>
-                <option value="#">Contact</option>
-            </select>
-        </label>
-    </div>
+
 </div>
+</nav>

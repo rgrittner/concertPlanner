@@ -57,13 +57,14 @@ public class Musician {
      * @param email       the email
      * @param status      the status
      */
-    public Musician(String firstName, String lastName, String phoneNumber, String email, String status) {
+    public Musician(String firstName, String lastName, String phoneNumber, String email, String status, int userId) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.status = status;
+        this.userId = userId;
     }
 
     /**
@@ -169,6 +170,24 @@ public class Musician {
     public void setStatus(String status) { this.status = status; }
 
     /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
      * Gets list of program composition.
      *
      * @return the list of program composition
@@ -202,6 +221,7 @@ public class Musician {
         if (o == null || getClass() != o.getClass()) return false;
         Musician musician = (Musician) o;
         return id == musician.id &&
+                userId == musician.userId &&
                 Objects.equals(firstName, musician.firstName) &&
                 Objects.equals(lastName, musician.lastName) &&
                 Objects.equals(phoneNumber, musician.phoneNumber) &&
@@ -212,6 +232,6 @@ public class Musician {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, phoneNumber, email, status);
+        return Objects.hash(id, firstName, lastName, phoneNumber, email, status, userId);
     }
 }
