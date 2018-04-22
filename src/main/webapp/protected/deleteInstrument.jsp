@@ -14,7 +14,7 @@
 <div class="container page-styling">
     <div class="header-wrapper">
         <div class="site-name">
-            <h1>Delete Musician</h1>
+            <h1>Delete Instrument</h1>
         </div>
     </div>
     <jsp:include page="nav.jsp" />
@@ -23,13 +23,10 @@
             <div class="form-horizontal">
                 <form action="/concertPlanner/ensemble/deleteInstrument" method="post">
                     Are you sure you want to delete: <br>
-                    First Name: ${musician.firstName}<br>
-                    Last Name: ${musician.lastName}<br>
-                    Email: ${musician.email}<br>
-                    Phone: ${musician.phoneNumber}<br>
-                    Status: ${musician.status}
+                    Name: ${instrument.name}<br>
+
                     <div class="form-group">
-                        <input type="hidden" name="idOfMusicianToBeDeleted" value="${musician.id}" />
+                        <input type="hidden" name="idOfInstrumentToBeDeleted" value="${instrument.id}" />
                         <div class="col-sm-2"></div>
                         <div class="col-sm-offset-2 col-sm-10 more-btn">
                             <button type="submit" class="btn">Delete</button>
@@ -44,10 +41,11 @@
                     ${instrument.name} is listed in the following compositions and cannot be deleted:
             <ul>
                 <c:forEach items="${compositions}" var="current">
-                    <li>${current.title}</li>
+                    <li>${current.composition.title}, player ${current.playerNumber}</li>
                 </c:forEach>
             </ul>
             </p>
+            <a href="/concertPlanner/ensemble/instruments"><button type="button" class="btn btn-danger">Return To Instruments</button></a>
         </c:if>
     </div>
 
