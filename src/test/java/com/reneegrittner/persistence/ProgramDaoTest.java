@@ -43,10 +43,10 @@ public class ProgramDaoTest
     @Test
     void insertSuccess() {
 
-        Program newProgram = new Program(LocalDate.of(2018, 07, 15), "House Show", "Living Room", "123 Sessame St", "Rainbow", "AZ", 53716, "TBD");
+        Program newProgram = new Program(LocalDate.of(2018, 07, 15), "House Show", "Living Room", "123 Sessame St", "Rainbow", "AZ", 53716, "TBD", 1);
         int id = genericDao.insert(newProgram);
         assertNotEquals(0, id);
-        Program insertedMusician = genericDao.getById(id);
+        Program insertedMusician =  genericDao.getById(id);
         assertEquals(newProgram, insertedMusician);
     }
 
@@ -55,7 +55,7 @@ public class ProgramDaoTest
      */
     @Test
     void getByIdSuccess(){
-        Program retrievedProgram = genericDao.getById(1);
+        Program retrievedProgram =  genericDao.getById(1);
         assertEquals("123 Sessame St", retrievedProgram.getAddress());
 
     }
@@ -65,7 +65,7 @@ public class ProgramDaoTest
      */
     @Test
     void getAllSuccess(){
-        List<Program> ProgramList = genericDao.getAll();
+        List<Program> ProgramList = genericDao.getAll(1);
         assertEquals(4, ProgramList.size());
     }
 
@@ -74,7 +74,7 @@ public class ProgramDaoTest
      */
     @Test
     void getByPropertyEqualOnLastNameSuccess(){
-        List<Program> programs = genericDao.getByPropertyEqual("location", "CSU");
+        List<Program> programs = genericDao.getByPropertyEqual("location", "CSU", 1);
         assertEquals(1, programs.size());
         assertEquals(3, programs.get(0).getId());
 
@@ -85,7 +85,7 @@ public class ProgramDaoTest
      */
     @Test
     void getByPropertyLikeOnLastNameSuccess(){
-        List<Program> programs = genericDao.getByPropertyLike("state", "a");
+        List<Program> programs = genericDao.getByPropertyLike("state", "a", 1);
         assertEquals(1, programs.size());
     }
 
@@ -95,10 +95,10 @@ public class ProgramDaoTest
     @Test
     void saveOrUpdateSuccess(){
         String newtitle = "testing";
-        Program programToUpdate = genericDao.getById(1);
+        Program programToUpdate =  genericDao.getById(1);
         programToUpdate.setConcertTitle(newtitle);
         genericDao.saveOrUpdate(programToUpdate);
-        Program retrievedProgram = genericDao.getById(1);
+        Program retrievedProgram =  genericDao.getById(1);
         assertEquals(programToUpdate, retrievedProgram);
     }
 

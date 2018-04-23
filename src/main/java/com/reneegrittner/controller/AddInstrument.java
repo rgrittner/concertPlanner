@@ -2,6 +2,7 @@ package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,10 +24,12 @@ import java.io.IOException;
 )
 public class AddInstrument extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
+
 
     /**
      * doGet method handles populating the instrument category select item
-     * This method is accessed from //TODO fill this out
+     * This method is accessed from instruments.jsp
      * @param req
      * @param resp
      * @throws ServletException
@@ -34,8 +37,12 @@ public class AddInstrument extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao<>(InstrumentCategory.class);
-        req.setAttribute("category", dao.getAll("category"));
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
+        req.setAttribute("category", categoryDao.getAll("category", userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrument.jsp");
         dispatcher.forward(req, resp);
@@ -50,23 +57,59 @@ public class AddInstrument extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         Instrument instrument = new Instrument();
-        GenericDao categoryDao = new GenericDao<>(InstrumentCategory.class);
-
-        // Get Id of selected Category from from, convert to Integer
-        Integer categoryIdFromForm = Integer.parseInt(req.getParameter("newInstrumentCategory"));
-
-
-        // Get the correct Category object from the DAO
-        InstrumentCategory categoryToInsert = (InstrumentCategory) categoryDao.getById(categoryIdFromForm);
-
-
-        instrument.setName(req.getParameter("instrument"));
-        instrument.setInstrumentCategory(categoryToInsert);
 
         GenericDao<Instrument> genericDao = new GenericDao<>(Instrument.class);
 
-        genericDao.insert(instrument);
+        Integer categoryIdFromForm;
+        InstrumentCategory categoryToInsert;
+
+        /*
+            Switch based on hidden input field in modal forms
+            1 = new Instrument
+            2 = edit of Instrument
+         */
+        Integer editOrAddition = Integer.parseInt(req.getParameter("addOrEdit"));
+        logger.debug("edit or addition value = " + editOrAddition);
+        switch(editOrAddition){
+            case 1:
+                // Get Id of selected Category from from, convert to Integer
+                categoryIdFromForm = Integer.parseInt(req.getParameter("newInstrumentCategory"));
+
+                // Get the correct Category object from the DAO
+                categoryToInsert = categoryDao.getById(categoryIdFromForm);
+
+                instrument.setName(req.getParameter("instrument"));
+                instrument.setInstrumentCategory(categoryToInsert);
+                instrument.setUserId(userIdFromSignIn);
+
+                //genericDao.insert(instrument);
+                break;
+            case 2:
+                // Get Instrument by id
+                instrument = genericDao.getById(Integer.parseInt(req.getParameter("instrumentId")));
+
+                // Get Id of selected Category from from, convert to Integer
+                categoryIdFromForm = Integer.parseInt(req.getParameter("editInstrumentCategory"));
+
+                // Get the correct Category object from the DAO
+                categoryToInsert = categoryDao.getById(categoryIdFromForm);
+
+                instrument.setName(req.getParameter("instrumentEdit"));
+                instrument.setInstrumentCategory(categoryToInsert);
+                //instrument.setUserId(userIdFromSignIn);
+
+                genericDao.saveOrUpdate(instrument);
+                break;
+
+        }
+
+
 
         String url = "/concertPlanner/ensemble/instruments";
 

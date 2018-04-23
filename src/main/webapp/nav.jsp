@@ -13,6 +13,7 @@
                 <li><a href="index.jsp">Home</a></li>
 
                 <li><a href="/concertPlanner/ensemble/home">Log in</a></li>
+                <li><a href="/concertPlanner/signUp">Sign Up</a></li>
 
             </ul>
 

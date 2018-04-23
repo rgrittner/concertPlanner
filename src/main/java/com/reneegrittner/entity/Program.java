@@ -40,13 +40,16 @@ public class Program {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @OneToMany(mappedBy = "program", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<ProgramComposition> listOfProgramComposition;
 
     public Program() {
     }
 
-    public Program(LocalDate date, String concertTitle, String location, String address, String city, String state, Integer zipcode, String status) {
+    public Program(LocalDate date, String concertTitle, String location, String address, String city, String state, Integer zipcode, String status, int userId) {
         this.date = date;
         this.concertTitle = concertTitle;
         this.location = location;
@@ -55,6 +58,7 @@ public class Program {
         this.state = state;
         this.zipcode = zipcode;
         this.status = status;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -129,6 +133,10 @@ public class Program {
         this.status = status;
     }
 
+    public int getUserId() { return userId; }
+
+    public void setUserId(int userId) { this.userId = userId; }
+
     public List<ProgramComposition> getListOfProgramComposition() {
         return listOfProgramComposition;
     }
@@ -149,6 +157,7 @@ public class Program {
                 ", state='" + state + '\'' +
                 ", zipcode=" + zipcode +
                 ", status=" + status +
+                ", userId=" + userId +
                 '}';
     }
 
@@ -158,6 +167,7 @@ public class Program {
         if (o == null || getClass() != o.getClass()) return false;
         Program program = (Program) o;
         return id == program.id &&
+                userId == program.userId &&
                 Objects.equals(date, program.date) &&
                 Objects.equals(concertTitle, program.concertTitle) &&
                 Objects.equals(location, program.location) &&
@@ -171,6 +181,6 @@ public class Program {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, date, concertTitle, location, address, city, state, zipcode, status);
+        return Objects.hash(id, date, concertTitle, location, address, city, state, zipcode, status, userId);
     }
 }

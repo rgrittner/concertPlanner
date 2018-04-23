@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * The type Composer.
  * Birth and death year are not required fields
+ *
  * @author Renee Grittner
  */
 @Entity(name = "Composer")
@@ -33,6 +34,9 @@ public class Composer {
     @Column(name = "death_year")
     private Integer deathYear;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @ManyToOne
     private Nationality nationality;
 
@@ -52,7 +56,9 @@ public class Composer {
      *
      * @param firstName   the first name
      * @param lastName    the last name
-
+     * @param birthYear   the birth year
+     * @param deathYear   the death year
+     * @param userId      the user id
      * @param nationality the nationality
      */
 //    public Composer(String firstName, String lastName, Nationality nationality) {
@@ -61,11 +67,13 @@ public class Composer {
 //        this.nationality = nationality;
 //    }
 
-    public Composer(String firstName, String lastName, Integer birthYear, Integer deathYear, Nationality nationality) {
+
+    public Composer(String firstName, String lastName, Integer birthYear, Integer deathYear, int userId, Nationality nationality) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
         this.deathYear = deathYear;
+        this.userId = userId;
         this.nationality = nationality;
     }
 
@@ -177,20 +185,57 @@ public class Composer {
         this.nationality = nationality;
     }
 
+    /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
 
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * Gets compositions.
+     *
+     * @return the compositions
+     */
     public Set<Composition> getCompositions() {
         return compositions;
     }
 
+    /**
+     * Sets compositions.
+     *
+     * @param compositions the compositions
+     */
     public void setCompositions(Set<Composition> compositions) {
         this.compositions = compositions;
     }
 
+    /**
+     * Add composition.
+     *
+     * @param composition the composition
+     */
     public void addComposition(Composition composition) {
         compositions.add(composition);
         composition.setComposer(this);
     }
 
+    /**
+     * Remove composition.
+     *
+     * @param composition the composition
+     */
     public void removeComposition(Composition composition) {
         compositions.add(composition);
         composition.setComposer(null);
@@ -205,15 +250,17 @@ public class Composer {
                 ", birthYear=" + birthYear +
                 ", deathYear=" + deathYear +
                 ", nationality=" + nationality +
+                ", userId=" + userId +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Composer)) return false;
         Composer composer = (Composer) o;
         return id == composer.id &&
+                userId == composer.userId &&
                 Objects.equals(firstName, composer.firstName) &&
                 Objects.equals(lastName, composer.lastName) &&
                 Objects.equals(birthYear, composer.birthYear) &&
@@ -224,6 +271,6 @@ public class Composer {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, birthYear, deathYear, nationality);
+        return Objects.hash(id, firstName, lastName, birthYear, deathYear, userId, nationality);
     }
 }

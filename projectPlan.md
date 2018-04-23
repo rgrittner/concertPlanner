@@ -5,7 +5,7 @@
 - [x] Create project structure in intellij and push
 - [x] Add link to list of indie projects in student repo.
 - [x] Complete Problem Statement
-- [ ] Determine possible Web Services or APIs to use
+- [x] Determine possible Web Services or APIs to use
 - [x] Weekly journal entry
 - [x] Write project plan
 - [x] Document application flow in text and pictures - I'll use wireframes that have clickable links for the screen design. 
@@ -51,10 +51,10 @@
 - [ ] Build the program search jsp
 - [ ] Build the program add/update/delete jsp
 - [ ] Weekly journal entry
-- [ ] Set up authentication locally
-- [ ] Set up authentication on AWS
+- [x] Set up authentication locally
+- [x] Set up authentication on AWS
 
-- [ ] Review and incorporate any feedback from Checkpoint 2.
+- [x] Review and incorporate any feedback from Checkpoint 2.
 
 
 ### Week 8

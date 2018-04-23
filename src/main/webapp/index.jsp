@@ -15,7 +15,7 @@
         <jsp:include page="banner.jsp"/>
         <div class="content-wrap">
             <div class="main-title">
-                <ul class="grid effect-8" id="grid">
+                <ul class= id="grid">
                     <li><h1>Lorem ipsum</h1>
                         <h4>Donec nec justo eget felis facilisis fermentum.<br>
                             Aliquam porttit or mauris sit amet orci. Aenean dignissim pellentesque felis.</h4></li>
@@ -34,7 +34,7 @@
         <div class="content-wrap">
 
             <div class="main-title spacing-bt">
-                <ul class="grid effect-8">
+                <ul >
                     <li><h1>Vivamus vest</h1>
                         <h4>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel,
                             velit. <br>
@@ -51,10 +51,9 @@
                             <i class="fw-icon-pencil icon"></i>
                         </div>
                         <div class="block">
-                            <h5>Fusce pellentesque<br>suscipit nibh</h5>
-                            <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero
-                                eu augue. Morbi purus libero, id... </p>
-                            <a href="#" class="more">more info <i class="fw-icon-chevron-right"></i></a>
+                            <h5>View Repository</h5>
+                            <p>Concert Planner is open source and avaiable for review on GitHub </p>
+                            <a href="https://github.com/rgrittner/concertPlanner" class="more">View on GitHub <i class="fw-icon-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +63,7 @@
                             <i class="fw-icon-group icon"></i>
                         </div>
                         <div class="block">
-                            <h5>Integer vitae libero<br>ac risus egestas</h5>
+                            <h5>Watch Demonstration Video</h5>
                             <p>Ced egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero
                                 eu augue. Morbi purus libero... </p>
                             <a href="#" class="more">more info <i class="fw-icon-chevron-right"></i></a>

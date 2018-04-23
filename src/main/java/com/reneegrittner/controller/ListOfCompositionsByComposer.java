@@ -2,6 +2,7 @@ package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,11 +25,14 @@ import java.io.IOException;
  */
 public class ListOfCompositionsByComposer extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
-        //TODO find out why there is composerIDFromForm and idFromParam.
-        String composerIdFromForm = req.getParameter("composerId");
         Integer idFromParam = Integer.parseInt(req.getParameter("param"));
 
         GenericDao<Composer> dao2 = new GenericDao<>(Composer.class);
@@ -36,7 +40,7 @@ public class ListOfCompositionsByComposer extends HttpServlet {
         String composerFullName = composer.getLastName() + ", " + composer.getFirstName();
 
         GenericDao<Composition> dao = new GenericDao<>(Composition.class);
-        req.setAttribute("composerCompositions", dao.getByPropertyEqualComposition(idFromParam));
+        req.setAttribute("composerCompositions", dao.getByPropertyEqual("composition", idFromParam, userIdFromSignIn));
         req.setAttribute("composerName", composerFullName);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/compositionsOfComposer.jsp");
         dispatcher.forward(req, resp);

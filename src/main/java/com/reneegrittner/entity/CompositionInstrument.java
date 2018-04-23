@@ -7,6 +7,7 @@ import java.util.Objects;
 
 /**
  * The type Composition instrument.
+ *
  * @author Renee Grittner
  */
 @Entity(name = "CompositionInstrument")
@@ -23,6 +24,9 @@ public class CompositionInstrument {
 
     @Column(name = "qty")
     private int instrumentQuantity;
+
+    @Column(name = "user_Id")
+    private int userId;
 
     @ManyToOne
     private Instrument instrument;
@@ -43,12 +47,14 @@ public class CompositionInstrument {
      * @param instrumentQuantity the instrument quantity
      * @param instrument         the instrument
      * @param composition        the composition
+     * @param userId             the user id
      */
-    public CompositionInstrument(int playerNumber, int instrumentQuantity, Instrument instrument, Composition composition) {
+    public CompositionInstrument(int playerNumber, int instrumentQuantity, Instrument instrument, Composition composition, int userId) {
         this.playerNumber = playerNumber;
         this.instrumentQuantity = instrumentQuantity;
         this.instrument = instrument;
         this.composition = composition;
+        this.userId = userId;
     }
 
 
@@ -104,6 +110,24 @@ public class CompositionInstrument {
      */
     public void setInstrumentQuantity(int instumentQuantity) {
         this.instrumentQuantity = instumentQuantity;
+    }
+
+    /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     /**
@@ -163,6 +187,7 @@ public class CompositionInstrument {
         return id == that.id &&
                 playerNumber == that.playerNumber &&
                 instrumentQuantity == that.instrumentQuantity &&
+                userId == that.userId &&
                 Objects.equals(instrument, that.instrument) &&
                 Objects.equals(composition, that.composition);
     }
@@ -170,6 +195,6 @@ public class CompositionInstrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, playerNumber, instrumentQuantity, instrument, composition);
+        return Objects.hash(id, playerNumber, instrumentQuantity, userId, instrument, composition);
     }
 }

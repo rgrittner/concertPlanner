@@ -26,6 +26,9 @@ public class Nationality {
     @Column(name = "nationality")
     private String nationality;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Composer> composers = new HashSet<>();
 
@@ -41,8 +44,10 @@ public class Nationality {
      *
      * @param nationality the nationality
      */
-    public Nationality(String nationality) {
+    public Nationality(String nationality, int userId) {
+
         this.nationality = nationality;
+        this.userId = userId;
     }
 
     /**
@@ -70,6 +75,24 @@ public class Nationality {
      */
     public String getNationality() {
         return nationality;
+    }
+
+    /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     /**
@@ -109,6 +132,11 @@ public class Nationality {
         composer.setNationality(this);
     }
 
+    /**
+     * Remove composer.
+     *
+     * @param composer the composer
+     */
     public void removeComposer(Composer composer) {
         composers.remove( composer );
         composer.setNationality( null );
@@ -126,12 +154,13 @@ public class Nationality {
         if (o == null || getClass() != o.getClass()) return false;
         Nationality that = (Nationality) o;
         return id == that.id &&
+                userId == that.userId &&
                 Objects.equals(nationality, that.nationality);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, nationality);
+        return Objects.hash(id, nationality, userId);
     }
 }

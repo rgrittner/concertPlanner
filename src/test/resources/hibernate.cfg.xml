@@ -23,6 +23,10 @@
         <mapping class="com.reneegrittner.entity.Instrument" />
         <mapping class="com.reneegrittner.entity.Composition" />
         <mapping class="com.reneegrittner.entity.CompositionInstrument" />
+        <mapping class="com.reneegrittner.entity.Program" />
+        <mapping class="com.reneegrittner.entity.ProgramComposition" />
+        <mapping class="com.reneegrittner.entity.User" />
+        <mapping class="com.reneegrittner.entity.UserRole" />
 
 
     </session-factory>

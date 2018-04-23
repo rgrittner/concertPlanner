@@ -1,9 +1,6 @@
 package com.reneegrittner.controller;
 
-import com.reneegrittner.entity.Composition;
-import com.reneegrittner.entity.CompositionInstrument;
-import com.reneegrittner.entity.Instrument;
-import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.entity.*;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,10 +27,11 @@ import java.util.List;
 )
 public class DisplayAddPlayerInstCategory extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     /**
      * The Dao.
      */
-    GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
+    private GenericDao<Instrument> dao = new GenericDao<>(Instrument.class);
 
     /**
      * Retrieves information sent along in the request (player number, composition id, instrument category id)
@@ -47,6 +45,10 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
         // Get compositionId, category and playerNumber from request
         String categoryFromForm = req.getParameter("category");
@@ -56,14 +58,15 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
 
         // Get the composition information to send along to jsp
         GenericDao<Composition> compositionDao = new GenericDao<>(Composition.class);
-        Composition composition = (Composition) compositionDao.getById(compositionIdFromForm);
+        Composition composition =  compositionDao.getById(compositionIdFromForm);
+        logger.debug("Where's the composition information? " + composition);
         req.setAttribute("composition", composition);
 
         // Get all instruments of given category and send along to the jsp
         GenericDao<InstrumentCategory> categoryDao = new GenericDao<>(InstrumentCategory.class);
-        List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm);
+        List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm, userIdFromSignIn);
         int categoryId = category.get(0).getId();
-        req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId));
+        req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId, userIdFromSignIn));
 
         // Send the playerNumber and category id as well
         req.setAttribute("playerNumber", playerNumber);
@@ -87,6 +90,11 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         // get category id
         Integer categoryId = Integer.parseInt(req.getParameter("categoryId"));
         // get player number
@@ -97,12 +105,12 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
 
         // get composition object
         GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
-        Composition composition = compositionGenericDao.getById(compositionId);
+        Composition composition =  compositionGenericDao.getById(compositionId);
 
         GenericDao<CompositionInstrument> compositionInstrumentGenericDao = new GenericDao<>(CompositionInstrument.class);
         // Find out how many instruments there currently are in current category
        // GenericDao<InstrumentCategory> categoryGenericDao = new GenericDao<>(InstrumentCategory.class);
-        List<Instrument> listOfInstrumentsOfCategory = dao.getByPropertyEqual("instrumentCategory", categoryId);
+        List<Instrument> listOfInstrumentsOfCategory = dao.getByPropertyEqual("instrumentCategory", categoryId, userIdFromSignIn);
         for(Instrument currentInstrument: listOfInstrumentsOfCategory) {
             Integer currentId = currentInstrument.getId();
             //Check if this instrument has a qty in the form
@@ -112,6 +120,7 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
                 compositionInstrument.setPlayerNumber(playerNumber);
                 compositionInstrument.setComposition(composition);
                 compositionInstrument.setInstrumentQuantity(Integer.parseInt(req.getParameter("instrumentId" + currentId)));
+                compositionInstrument.setUserId(userIdFromSignIn);
                 compositionInstrumentGenericDao.insert(compositionInstrument);
             }
 

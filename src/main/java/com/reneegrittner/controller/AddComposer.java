@@ -3,6 +3,7 @@ package com.reneegrittner.controller;
 import com.reneegrittner.entity.Composer;
 
 import com.reneegrittner.entity.Nationality;
+import com.reneegrittner.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.reneegrittner.persistence.GenericDao;
@@ -25,6 +26,7 @@ import java.io.IOException;
 public class AddComposer extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+
     /**
      * doGet method handles populating the Nationality select options with currently available nationalities
      * @param req
@@ -34,8 +36,13 @@ public class AddComposer extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Nationality.class);
-        req.setAttribute("nationality", dao.getAll("nationality"));
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
+        GenericDao<Nationality> dao = new GenericDao<>(Nationality.class);
+        req.setAttribute("nationality", dao.getAll("nationality", userIdFromSignIn));
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addComposer.jsp");
         dispatcher.forward(req, resp);
     }
@@ -49,15 +56,19 @@ public class AddComposer extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         Composer composerToBeAdded = new Composer();
-        Nationality nationalityToInsert = new Nationality();
-        GenericDao nationalityDao = new GenericDao(Nationality.class);
+        GenericDao<Nationality> nationalityDao = new GenericDao<>(Nationality.class);
 
         // Get Id of selected Nationality from from, convert to Integer
         Integer nationalityIdFromForm = Integer.parseInt(req.getParameter("nationality"));
 
         // Get the correct Nationality object from the DAO
-        nationalityToInsert = (Nationality)nationalityDao.getById(nationalityIdFromForm);
+        Nationality nationalityToInsert = nationalityDao.getById(nationalityIdFromForm);
 
         // Get Birth & Death year fields, check if they are null. If not convert to Integer, otherwise set to null
         String checkBirthYear = req.getParameter("birthYear");
@@ -83,11 +94,12 @@ public class AddComposer extends HttpServlet {
         composerToBeAdded.setNationality(nationalityToInsert);
         composerToBeAdded.setBirthYear(birthYear);
         composerToBeAdded.setDeathYear(deathYear);
+        composerToBeAdded.setUserId(userIdFromSignIn);
 
         //TODO add data verification
         //TODO check for exisiting composer
 
-        GenericDao genericDao = new GenericDao(Composer.class);
+        GenericDao<Composer> genericDao = new GenericDao<>(Composer.class);
 
         genericDao.insert(composerToBeAdded);
 

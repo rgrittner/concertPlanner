@@ -45,6 +45,11 @@
     </div>
     <div>
         <button type="button" name="button">IPhone X</button>
+        <p>
+            Testing: <%= request.getRemoteUser()%><br/>
+            Is user in role admin? <%= request.isUserInRole("admin")%>
+
+        </p>
     </div>
 
 </div>

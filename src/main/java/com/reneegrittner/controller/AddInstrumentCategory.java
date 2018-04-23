@@ -1,6 +1,7 @@
 package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.InstrumentCategory;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -23,17 +24,23 @@ public class AddInstrumentCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //TODO correct this redirect url
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addMusician.jsp");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         InstrumentCategory categoryToBeAdded = new InstrumentCategory();
         categoryToBeAdded.setCategory(req.getParameter("category"));
+        categoryToBeAdded.setUserId(userIdFromSignIn);
 
-        GenericDao genericDao = new GenericDao(InstrumentCategory.class);
+        GenericDao<InstrumentCategory> genericDao = new GenericDao<>(InstrumentCategory.class);
 
         genericDao.insert(categoryToBeAdded);
 

@@ -2,7 +2,7 @@ package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.CompositionInstrument;
 import com.reneegrittner.entity.Instrument;
-import com.reneegrittner.entity.Musician;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,7 +23,7 @@ import java.util.List;
  * @author Renee Grittner
  */
 @WebServlet(
-        urlPatterns = {"/ensemble/deleteMusician"}
+        urlPatterns = {"/ensemble/deleteInstrument"}
 )
 
 public class DeleteInstrument extends HttpServlet {
@@ -40,10 +40,15 @@ public class DeleteInstrument extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+
         Integer id = Integer.parseInt(req.getParameter("idOfInstrumentToBeDeleted"));
 
         GenericDao<CompositionInstrument> compositionInstrumentGenericDao = new GenericDao<>(CompositionInstrument.class);
-        List<CompositionInstrument> compositionList = compositionInstrumentGenericDao.getByPropertyEqual("instrument", id);
+        List<CompositionInstrument> compositionList = compositionInstrumentGenericDao.getByPropertyEqual("instrument", id, userIdFromSignIn);
 
         if(compositionList.size() > 0){
             req.setAttribute("okToDelete", false);
@@ -85,3 +90,4 @@ public class DeleteInstrument extends HttpServlet {
 
     }
 }
+

@@ -19,7 +19,7 @@
         </div>
         <jsp:include page="nav.jsp" />
 
-        <div class="container">
+
 
             <div>
                 <table id="resultTable" class="table table-sm">
@@ -52,7 +52,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+
     </div>
 </div>
 <jsp:include page="scripts.jsp" />

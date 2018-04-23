@@ -23,6 +23,9 @@ public class Instrument {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     @ManyToOne
     @JoinColumn(name = "Instrument_Category_id", foreignKey = @ForeignKey(name = "Instrument_Instrument_Category"))
     private InstrumentCategory instrumentCategory;
@@ -41,11 +44,13 @@ public class Instrument {
      *
      * @param name               the name
      * @param instrumentCategory the instrument category
+     * @param userId             the user id
      */
-    public Instrument(String name, InstrumentCategory instrumentCategory) {
+    public Instrument(String name, InstrumentCategory instrumentCategory, int userId) {
 
         this.name = name;
         this.instrumentCategory = instrumentCategory;
+        this.userId = userId;
     }
 
     /**
@@ -120,12 +125,30 @@ public class Instrument {
         this.listOfCompositions = listOfCompositions;
     }
 
+    /**
+     * Gets user id.
+     *
+     * @return the user id
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets user id.
+     *
+     * @param userId the user id
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "Instrument{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", instrumentCategory=" + instrumentCategory +
+                ", userId=" + userId +
                 '}';
     }
 
@@ -135,6 +158,7 @@ public class Instrument {
         if (o == null || getClass() != o.getClass()) return false;
         Instrument that = (Instrument) o;
         return id == that.id &&
+                userId == that.userId &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(instrumentCategory, that.instrumentCategory);
     }
@@ -142,6 +166,6 @@ public class Instrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, instrumentCategory);
+        return Objects.hash(id, name, userId);
     }
 }

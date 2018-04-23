@@ -26,14 +26,18 @@ public class ProgramComposition {
     @ManyToOne
     private Composition composition;
 
+    @Column(name = "user_Id")
+    private int userId;
+
     public ProgramComposition() {
     }
 
-    public ProgramComposition(int playerNumber, Musician musician, Program program, Composition composition) {
+    public ProgramComposition(int playerNumber, Musician musician, Program program, Composition composition, int userId) {
         this.playerNumber = playerNumber;
         this.musician = musician;
         this.program = program;
         this.composition = composition;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -76,13 +80,30 @@ public class ProgramComposition {
         this.composition = composition;
     }
 
+    public int getUserId() {return userId; }
+
+    public void setUserId(int userId) { this.userId = userId; }
+
+    @Override
+    public String toString() {
+        return "ProgramComposition{" +
+                "id=" + id +
+                ", playerNumber=" + playerNumber +
+                ", musician=" + musician +
+                ", program=" + program +
+                ", composition=" + composition +
+                ", userId=" + userId +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ProgramComposition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         ProgramComposition that = (ProgramComposition) o;
         return id == that.id &&
                 playerNumber == that.playerNumber &&
+                userId == that.userId &&
                 Objects.equals(musician, that.musician) &&
                 Objects.equals(program, that.program) &&
                 Objects.equals(composition, that.composition);
@@ -91,6 +112,6 @@ public class ProgramComposition {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, playerNumber, musician, program, composition);
+        return Objects.hash(id, playerNumber, musician, program, composition, userId);
     }
 }

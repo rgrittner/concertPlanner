@@ -1,7 +1,7 @@
 package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Composer;
-import com.reneegrittner.entity.Nationality;
+import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,9 +27,16 @@ public class DisplayComposers extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao<Composer> dao = new GenericDao<>(Composer.class);
-        req.setAttribute("composers", dao.getAll("lastName"));
+        //Get the user's Information
+        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+        String userNameFromSignIn = req.getUserPrincipal().getName();
+        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
+        //Query for all composers for given user id, order on last Name. Set into request attribute
+        GenericDao<Composer> dao = new GenericDao<>(Composer.class);
+        req.setAttribute("composers", dao.getAll("lastName", userIdFromSignIn));
+
+        // redirect user to composer list
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composer.jsp");
         dispatcher.forward(req, resp);
     }

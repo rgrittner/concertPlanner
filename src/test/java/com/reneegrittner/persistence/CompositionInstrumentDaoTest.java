@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CompositionInstrumentDaoTest {
-    GenericDao genericDao;
+    private GenericDao<CompositionInstrument> genericDao;
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
@@ -24,7 +24,7 @@ public class CompositionInstrumentDaoTest {
         DatabaseTwo database = DatabaseTwo.getInstance();
         database.runSQL("cleanAll.sql");
 
-        genericDao = new GenericDao(CompositionInstrument.class);
+        genericDao = new GenericDao<>(CompositionInstrument.class);
     }
 
     /**
@@ -33,7 +33,7 @@ public class CompositionInstrumentDaoTest {
     @Test
     void getAllSuccess(){
 
-        List<CompositionInstrument> compositionInstruments = genericDao.getAll();
+        List<CompositionInstrument> compositionInstruments = genericDao.getAll(1);
         assertEquals(4, compositionInstruments.size());
     }
 
@@ -42,22 +42,17 @@ public class CompositionInstrumentDaoTest {
      */
     @Test
     void getByIdSuccess(){
-        CompositionInstrument retrievedCompositionInstrument = (CompositionInstrument) genericDao.getById(3);
+        CompositionInstrument retrievedCompositionInstrument =  genericDao.getById(3);
         assertEquals("Mellits", retrievedCompositionInstrument.getComposition().getComposer().getLastName());
 
     }
 
     @Test
     void getInstrumentsOfCompositionByPlayer(){
-       List<CompositionInstrument> instruments = genericDao.getByPropertyEqualCompositionInstrument(1, 1);
+       List<CompositionInstrument> instruments = genericDao.getByPropertyEqualCompositionInstrument(1, 1, 1);
        assertEquals(1, instruments.size());
 
     }
 
-//    @Test
-//    void getInstrumentListOfACompositionForPlayer4(){
-//        List<CompositionInstrument> retrievedCompositionInstrument = genericDao.getByTwoPropertyEqual("dummytext", 1, "dummytext", 2);
-//        assertEquals("Marimba", retrievedCompositionInstrument.get(0).getInstrument().getName());
-//    }
 
 }

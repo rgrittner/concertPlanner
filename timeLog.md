@@ -17,3 +17,13 @@
 |2/24/18 | Getting started with AWS, instance up, MySQL working and root password is changed. Updated ReadMe | 1 | |
 |2/25/18 | Getting Composition connected to Composer, able to display compositions and composer to website | 2 | |
 |2/26/18 | Getting UI set up, implemented better layout to pages. Added insert to Musician but no data verification | 3 | |
+|3/1/18| Trying diary commits using branches and a squash commit. Added UI functionality for Composers and Musicians | 5 | |
+|3/6/18| Figuring out some DB issues, changing cascade type to persist | 2 | |
+|3/26/18 | Added fields to Musician, implemented full CRUD on Musician | 1 | |
+|3/29/19| Added Composition entity and UI | 3 | |
+|3/30/18| Correcting navigation, mocking out other jsps | 4 | |
+|3/31/18| Solved many-many issues | 12 | | 
+|4/10/18| CRUD for Composer, Display Instruments | 6 | |
+|4/11/18| Add instruments per player routes worked out | 12 | |
+
+
