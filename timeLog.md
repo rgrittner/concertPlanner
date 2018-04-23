@@ -25,5 +25,8 @@
 |3/31/18| Solved many-many issues | 12 | | 
 |4/10/18| CRUD for Composer, Display Instruments | 6 | |
 |4/11/18| Add instruments per player routes worked out | 12 | |
+|4/17/18| Adding userId | 3 | |
+|4/22/18| Delete instrument, jQuery dataTables, User sign up & admin pages | 12 | |
+|4/23/18| Removing unused imports, cleaning up | 3 | |
 
 
