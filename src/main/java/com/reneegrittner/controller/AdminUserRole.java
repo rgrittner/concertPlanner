@@ -1,7 +1,6 @@
 package com.reneegrittner.controller;
 
 
-import com.reneegrittner.entity.User;
 import com.reneegrittner.entity.UserRole;
 import com.reneegrittner.persistence.GenericDao;
 

@@ -1,7 +1,6 @@
 package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Composer;
-import com.reneegrittner.entity.Nationality;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;

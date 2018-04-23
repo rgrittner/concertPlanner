@@ -33,8 +33,6 @@ public class ListOfCompositionsByComposer extends HttpServlet {
         String userNameFromSignIn = req.getUserPrincipal().getName();
         int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
-        //TODO find out why there is composerIDFromForm and idFromParam.
-        String composerIdFromForm = req.getParameter("composerId");
         Integer idFromParam = Integer.parseInt(req.getParameter("param"));
 
         GenericDao<Composer> dao2 = new GenericDao<>(Composer.class);

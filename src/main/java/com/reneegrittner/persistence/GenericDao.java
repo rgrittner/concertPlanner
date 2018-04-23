@@ -65,7 +65,7 @@ public class GenericDao<T> {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
-        Root<T> root = query.from(type);
+        //Root<T> root = query.from(type);
         List<T> list = session.createQuery(query).getResultList();
         session.close();
         return list;
@@ -105,9 +105,9 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get(propertyName), value));
-        List<T> list = session.createQuery(query).getResultList();
+        List<T> listOfUsers = session.createQuery(query).getResultList();
 
-        return list;
+        return listOfUsers;
     }
 
 //    public List<T> getByPropertyEqualComposition(Object value){

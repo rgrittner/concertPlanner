@@ -25,7 +25,6 @@ import java.io.IOException;
 
 public class DeleteMusician extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private int userIdFromSignIn = 1;
 
     private GenericDao<Musician> dao = new GenericDao<>(Musician.class);
 

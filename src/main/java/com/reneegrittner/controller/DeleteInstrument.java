@@ -2,7 +2,6 @@ package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.CompositionInstrument;
 import com.reneegrittner.entity.Instrument;
-import com.reneegrittner.entity.Musician;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;

@@ -5,7 +5,6 @@ import com.reneegrittner.entity.UserRole;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import sun.net.www.content.text.Generic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

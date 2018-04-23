@@ -1,6 +1,5 @@
 package com.reneegrittner.controller;
 
-import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;

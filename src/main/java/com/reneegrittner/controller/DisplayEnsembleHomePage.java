@@ -3,7 +3,6 @@ package com.reneegrittner.controller;
 
 
 import com.reneegrittner.entity.Program;
-import com.reneegrittner.entity.ProgramComposition;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
