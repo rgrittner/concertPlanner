@@ -92,7 +92,7 @@
                                     <div class="col-sm-10">
                                         <select name="editInstrumentCategory" id="editInstrumentCategory">
                                             <option selected
-                                                    value="${current.instrumentCategory.category}">${current.instrumentCategory.category}</option>
+                                                    value="${current.instrumentCategory.id}">${current.instrumentCategory.category}</option>
                                             <c:forEach items="${categories}" var="current2">
                                                 <option value="${current2.id}">${current2.category}</option>
                                             </c:forEach>
