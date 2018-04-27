@@ -1,5 +1,6 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.controllerLogic.MusicianLogic;
 import com.reneegrittner.entity.Musician;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
@@ -35,29 +36,28 @@ public class AddMusician extends HttpServlet {
         String userNameFromSignIn = req.getUserPrincipal().getName();
         int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
-        Musician musicianToBeAdded = new Musician();
-        musicianToBeAdded.setFirstName(req.getParameter("firstName"));
-        musicianToBeAdded.setLastName(req.getParameter("lastName"));
-        musicianToBeAdded.setPhoneNumber(req.getParameter("phone"));
-        musicianToBeAdded.setEmail(req.getParameter("email"));
-        musicianToBeAdded.setStatus(req.getParameter("status"));
-        musicianToBeAdded.setUserId(userIdFromSignIn);
-        String musicianIdFromForm = req.getParameter("musicianId");
+        MusicianLogic musicianLogic = new MusicianLogic();
+
+        Musician musician = musicianLogic.createOrUpdateMusician(
+                req.getParameter("musicianId")
+                ,req.getParameter("firstName")
+                ,req.getParameter("lastName")
+                ,req.getParameter("phone")
+                ,req.getParameter("email")
+                ,req.getParameter("status")
+                , userIdFromSignIn
+        );
+
         Integer musicianId = null;
         GenericDao genericDao = new GenericDao(Musician.class);
-        if(musicianIdFromForm != null) {
-            musicianId = Integer.parseInt(musicianIdFromForm);
-            musicianToBeAdded.setId(musicianId);
-        }
-
+        musicianId = musician.getId();
         if(musicianId == null){
-            genericDao.insert(musicianToBeAdded);
+            genericDao.insert(musician);
         }
 
         if(musicianId != null){
-            genericDao.saveOrUpdate(musicianToBeAdded);
+            genericDao.saveOrUpdate(musician);
         }
-
 
         String url = "/concertPlanner/ensemble/musicians";
 
