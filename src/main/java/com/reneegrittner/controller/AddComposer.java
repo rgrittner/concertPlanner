@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Servlet to handle adding a new Composer, contains a doGet and doPost method.
@@ -61,47 +63,80 @@ public class AddComposer extends HttpServlet {
         String userNameFromSignIn = req.getUserPrincipal().getName();
         int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
-        Composer composerToBeAdded = new Composer();
+        // For data validation
+        Map<String, String> messages = new HashMap<>();
+        req.setAttribute("messages", messages);
+
+        // New up a DAO for Nationality, DAO for Composer
         GenericDao<Nationality> nationalityDao = new GenericDao<>(Nationality.class);
+        GenericDao<Composer> composerGenericDao = new GenericDao<>(Composer.class);
 
-        // Get Id of selected Nationality from from, convert to Integer
+        // Get Id of selected Nationality from from, convert to Integer, get correct Nationality as an object
         Integer nationalityIdFromForm = Integer.parseInt(req.getParameter("nationality"));
-
-        // Get the correct Nationality object from the DAO
         Nationality nationalityToInsert = nationalityDao.getById(nationalityIdFromForm);
 
         // Get Birth & Death year fields, check if they are null. If not convert to Integer, otherwise set to null
+        // Required task for both add and update
         String checkBirthYear = req.getParameter("birthYear");
         String checkDeathYear = req.getParameter("deathYear");
+        logger.debug("Birthyear as string: " + checkBirthYear + " Death year as string: " + checkDeathYear);
         Integer birthYear;
         Integer deathYear;
 
         if(checkBirthYear.length() > 0){
             birthYear = Integer.parseInt(checkBirthYear);
+            logger.debug("birthyear from if >0" + birthYear);
         } else {
             birthYear = null;
+            logger.debug("birthyear from else" + birthYear);
         }
 
         if(checkDeathYear.length() > 0){
             deathYear = Integer.parseInt(checkDeathYear);
+            logger.debug("death year from if >0" + deathYear);
         } else {
             deathYear = null;
+            logger.debug("deathyear from else" + deathYear);
+        }
+
+        // Is request a new composer or update to existing composer? 1 = new composer; 2 = update
+        Integer isComposerNewOrUpdate = Integer.parseInt(req.getParameter("ComposerAddOrUpdate"));
+
+        switch(isComposerNewOrUpdate){
+            case 1:
+                Composer composerToBeAdded = new Composer();
+                composerToBeAdded.setNationality(nationalityToInsert);
+                composerToBeAdded.setFirstName(req.getParameter("firstName"));
+                composerToBeAdded.setLastName(req.getParameter("lastName"));
+                composerToBeAdded.setBirthYear(birthYear);
+                composerToBeAdded.setDeathYear(birthYear);
+                composerToBeAdded.setUserId(userIdFromSignIn);
+
+                composerGenericDao.insert(composerToBeAdded);
+                break;
+            case 2:
+                Composer composerToUpdate = composerGenericDao.getById(Integer.parseInt(req.getParameter("composerId")));
+                composerToUpdate.setFirstName(req.getParameter("firstName"));
+                composerToUpdate.setLastName(req.getParameter("lastName"));
+                logger.debug("deathyear from case: " + deathYear);
+                logger.debug("birthyear from case: " + birthYear);
+
+                composerToUpdate.setBirthYear(birthYear);
+                composerToUpdate.setDeathYear(deathYear);
+
+
+                composerGenericDao.saveOrUpdate(composerToUpdate);
+                break;
         }
 
 
-        composerToBeAdded.setFirstName(req.getParameter("firstName"));
-        composerToBeAdded.setLastName(req.getParameter("lastName"));
-        composerToBeAdded.setNationality(nationalityToInsert);
-        composerToBeAdded.setBirthYear(birthYear);
-        composerToBeAdded.setDeathYear(deathYear);
-        composerToBeAdded.setUserId(userIdFromSignIn);
+
 
         //TODO add data verification
         //TODO check for exisiting composer
 
-        GenericDao<Composer> genericDao = new GenericDao<>(Composer.class);
 
-        genericDao.insert(composerToBeAdded);
+
 
 
         String url = "/concertPlanner/ensemble/composers";

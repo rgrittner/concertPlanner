@@ -1,36 +1,13 @@
-[INFO ] 2018-04-23 13:16:10.226 [http-nio-8080-exec-10] Version - HHH000412: Hibernate Core {5.2.12.Final}
-[INFO ] 2018-04-23 13:16:10.229 [http-nio-8080-exec-10] Environment - HHH000206: hibernate.properties not found
-[INFO ] 2018-04-23 13:16:10.652 [http-nio-8080-exec-10] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-[INFO ] 2018-04-23 13:16:10.870 [http-nio-8080-exec-10] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
-[INFO ] 2018-04-23 13:16:10.870 [http-nio-8080-exec-10] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
-[INFO ] 2018-04-23 13:16:10.870 [http-nio-8080-exec-10] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
-[INFO ] 2018-04-23 13:16:11.141 [http-nio-8080-exec-10] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
-[INFO ] 2018-04-23 13:16:11.768 [http-nio-8080-exec-10] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-[INFO ] 2018-04-23 13:16:14.031 [http-nio-8080-exec-10] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-[INFO ] 2018-04-23 13:18:09.056 [http-nio-8080-exec-12] Version - HHH000412: Hibernate Core {5.2.12.Final}
-[INFO ] 2018-04-23 13:18:09.059 [http-nio-8080-exec-12] Environment - HHH000206: hibernate.properties not found
-[INFO ] 2018-04-23 13:18:09.276 [http-nio-8080-exec-12] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-[INFO ] 2018-04-23 13:18:09.474 [http-nio-8080-exec-12] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
-[INFO ] 2018-04-23 13:18:09.474 [http-nio-8080-exec-12] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
-[INFO ] 2018-04-23 13:18:09.474 [http-nio-8080-exec-12] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
-[INFO ] 2018-04-23 13:18:09.700 [http-nio-8080-exec-12] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
-[INFO ] 2018-04-23 13:18:10.169 [http-nio-8080-exec-12] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-[INFO ] 2018-04-23 13:18:11.884 [http-nio-8080-exec-12] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-[INFO ] 2018-04-23 13:19:33.998 [http-nio-8080-exec-18] Version - HHH000412: Hibernate Core {5.2.12.Final}
-[INFO ] 2018-04-23 13:19:34.002 [http-nio-8080-exec-18] Environment - HHH000206: hibernate.properties not found
-[INFO ] 2018-04-23 13:19:34.182 [http-nio-8080-exec-18] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-[INFO ] 2018-04-23 13:19:34.356 [http-nio-8080-exec-18] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
-[INFO ] 2018-04-23 13:19:34.356 [http-nio-8080-exec-18] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
-[INFO ] 2018-04-23 13:19:34.356 [http-nio-8080-exec-18] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
-[INFO ] 2018-04-23 13:19:34.566 [http-nio-8080-exec-18] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
-[INFO ] 2018-04-23 13:19:35.025 [http-nio-8080-exec-18] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-[INFO ] 2018-04-23 13:19:36.589 [http-nio-8080-exec-18] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-[INFO ] 2018-04-23 13:31:47.428 [http-nio-8080-exec-21] Version - HHH000412: Hibernate Core {5.2.12.Final}
-[INFO ] 2018-04-23 13:31:47.432 [http-nio-8080-exec-21] Environment - HHH000206: hibernate.properties not found
-[INFO ] 2018-04-23 13:31:47.613 [http-nio-8080-exec-21] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-[INFO ] 2018-04-23 13:31:47.793 [http-nio-8080-exec-21] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/concertPlanner
-[INFO ] 2018-04-23 13:31:47.793 [http-nio-8080-exec-21] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
-[INFO ] 2018-04-23 13:31:47.793 [http-nio-8080-exec-21] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
-[INFO ] 2018-04-23 13:31:48.000 [http-nio-8080-exec-21] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
-[INFO ] 2018-04-23 13:31:48.448 [http-nio-8080-exec-21] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-[INFO ] 2018-04-23 13:31:50.006 [http-nio-8080-exec-21] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2018-04-24 20:03:21.887 [main] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-04-24 20:03:21.890 [main] Environment - HHH000206: hibernate.properties not found
+[INFO ] 2018-04-24 20:03:22.498 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] 2018-04-24 20:03:22.834 [main] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test_concertPlanner
+[INFO ] 2018-04-24 20:03:22.834 [main] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-04-24 20:03:22.835 [main] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-04-24 20:03:23.233 [main] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[INFO ] 2018-04-24 20:03:23.556 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2018-04-24 20:03:26.620 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+[WARN ] 2018-04-24 20:03:30.502 [main] SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+[ERROR] 2018-04-24 20:03:30.502 [main] SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`test_concertplanner`.`instrument`, CONSTRAINT `Instrument_Instrument_Category` FOREIGN KEY (`Instrument_Category_id`) REFERENCES `Instrument_Category` (`id`))
+[INFO ] 2018-04-24 20:03:30.504 [main] AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+[ERROR] 2018-04-24 20:03:30.505 [main] ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]

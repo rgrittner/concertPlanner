@@ -1,6 +1,7 @@
 package com.reneegrittner.controller;
 
 import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Nationality;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
@@ -32,9 +33,13 @@ public class DisplayComposers extends HttpServlet {
         String userNameFromSignIn = req.getUserPrincipal().getName();
         int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
-        //Query for all composers for given user id, order on last Name. Set into request attribute
+       //Query for all composers for given user id, order on last Name. Set into request attribute
         GenericDao<Composer> dao = new GenericDao<>(Composer.class);
         req.setAttribute("composers", dao.getAll("lastName", userIdFromSignIn));
+
+        //Gather nationalities for the update modal
+        GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
+        req.setAttribute("nationality", nationalityGenericDao.getAll("nationality", userIdFromSignIn));
 
         // redirect user to composer list
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/composer.jsp");

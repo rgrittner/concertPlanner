@@ -28,6 +28,8 @@
                 <th scope="col">Birth Year</th>
                 <th scope="col">Death Year</th>
                 <th scope="col">Nationality</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -37,10 +39,95 @@
                     <td>${current.birthYear}</td>
                     <td>${current.deathYear}</td>
                     <td>${current.nationality.nationality}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                data-target="#${current.id}-Modal"><span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <form action="/concertPlanner/ensemble/deleteInstrument" method="get"><input type="hidden"
+                                                                                                     value="${current.id}"
+                                                                                                     name="idOfInstrumentToBeDeleted">
+                            <button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
+
+        <c:forEach items="${composers}" var="current">
+            <!-- EDIT COMPOSER MODAL -->
+            <div class="modal fade" id="${current.id}-Modal" role="dialog">
+                <div class="modal-dialog">
+
+                    <%--<!-- Modal content-->--%>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit ${current.lastName}, ${current.firstName}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <form action="addComposer" method="post">
+                                    <div class="form-group">
+                                        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="firstName" name="firstName" value="${current.firstName}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="lastName" name="lastName" value="${current.lastName}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nationality" class="col-sm-2 control-label">Nationality </label>
+                                        <div class="col-sm-10">
+                                            <select name="nationality" id="nationality">
+                                                    <option value="${current.nationality.id}" selected>${current.nationality.nationality}</option>
+                                                <c:forEach items="${nationality}" var="currentNat">
+                                                    <option value="${currentNat.id}">${currentNat.nationality}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birthYear" class="col-sm-2 control-label">Birth Year</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" id="birthYear" name="birthYear" value="${current.birthYear}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deathYear" class="col-sm-2 control-label">Death Year</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" id="deathYear" name="deathYear" value="${current.deathYear}"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-2"></div>
+                                        <input type="hidden" name="ComposerAddOrUpdate" value="2">
+                                        <input type="hidden" name="composerId" value="${current.id}">
+                                        <div class="col-sm-offset-2 col-sm-10 more-btn">
+                                            <button type="submit" class="btn">Edit</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </c:forEach>
+
     </div>
 </div>
 

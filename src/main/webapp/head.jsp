@@ -16,8 +16,5 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/font-awesome-ie7.css">
 
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
 
 </head>
