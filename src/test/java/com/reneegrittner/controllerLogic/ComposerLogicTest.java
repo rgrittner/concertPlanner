@@ -32,8 +32,8 @@ class ComposerLogicTest {
     void addComposer() {
         GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
         Nationality nationality = nationalityGenericDao.getById(1);
-        int id = composerLogic.addComposer("firstName", "lastName", 123, 123, nationality);
-        assertEquals(1, id);
+        Composer composer = composerLogic.createComposer("firstName", "lastName", "123", "123", "1", 1);
+        assertEquals("firstName", composer.getFirstName());
 
     }
 }
