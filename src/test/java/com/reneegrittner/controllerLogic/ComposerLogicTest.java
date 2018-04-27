@@ -1,6 +1,7 @@
 package com.reneegrittner.controllerLogic;
 
 import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Nationality;
 import com.reneegrittner.persistence.GenericDao;
 import com.reneegrittner.util.DatabaseTwo;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ComposerLogicTest {
     private GenericDao<Composer> genericDao;
-    private ComposerLogic composerLogic;
+    private ComposerLogic composerLogic = new ComposerLogic();
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
@@ -29,8 +30,10 @@ class ComposerLogicTest {
 
     @Test
     void addComposer() {
-        int id = composerLogic.addComposer();
-        //assertEquals(1, id);
+        GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
+        Nationality nationality = nationalityGenericDao.getById(1);
+        int id = composerLogic.addComposer("firstName", "lastName", 123, 123, nationality);
+        assertEquals(1, id);
 
     }
 }

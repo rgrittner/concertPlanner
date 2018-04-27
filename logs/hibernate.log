@@ -1,0 +1,8 @@
+[INFO ] 2018-04-26 19:49:23.495 [main] Version - HHH000412: Hibernate Core {5.2.12.Final}
+[INFO ] 2018-04-26 19:49:23.497 [main] Environment - HHH000206: hibernate.properties not found
+[INFO ] 2018-04-26 19:49:23.899 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] 2018-04-26 19:49:24.014 [main] C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test_concertPlanner
+[INFO ] 2018-04-26 19:49:24.014 [main] C3P0ConnectionProvider - HHH10001001: Connection properties: {user=root, password=****}
+[INFO ] 2018-04-26 19:49:24.015 [main] C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+[INFO ] 2018-04-26 19:49:24.186 [main] C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+[INFO ] 2018-04-26 19:49:24.301 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
