@@ -1,5 +1,6 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.controllerLogic.CompositionLogic;
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.User;
@@ -64,52 +65,23 @@ public class AddComposition extends HttpServlet {
         String userNameFromSignIn = req.getUserPrincipal().getName();
         int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
-        // Get data from form
+        CompositionLogic compositionLogic = new CompositionLogic();
 
-        String titleFromForm = req.getParameter("title");
-        String composerIdFromForm = req.getParameter("composer");
-        String arrangerFromForm = req.getParameter("arranger");
-        String durationFromForm = req.getParameter("duration");
-        String yearFromForm = req.getParameter("year");
-        String clocksCommissionFromForm = req.getParameter("clocksCommission");
-        String numberOfPlayersFromForm = req.getParameter("numberOfPlayers");
-        String notesFromform = "notes";
-        //TODO notes? This should be nullable
+        Composition compositionToBeAddedOrUpdated = compositionLogic.createComposition(
+                req.getParameter("title")
+                ,req.getParameter("arranger")
+                ,req.getParameter("composer")
+                ,req.getParameter("duration")
+                ,req.getParameter("year")
+                ,req.getParameter("clocksCommission")
+                ,req.getParameter("numberOfPlayers")
+                ,req.getParameter("notes")
+                , userIdFromSignIn
+        );
 
-        // Convert String data to correct data type for variable in entity
-        Integer composerIdAsInteger = Integer.parseInt(composerIdFromForm);
-        Integer durationAsInteger = Integer.parseInt(durationFromForm);
-        Integer yearAsInteger = Integer.parseInt(yearFromForm);
-        Boolean clocksCommissionAsBool = Boolean.parseBoolean(clocksCommissionFromForm);
-        Integer numberOfPlayersAsInteger = Integer.parseInt(numberOfPlayersFromForm);
-
-        // Get Composer as an object
-        GenericDao<Composer> composerDao = new GenericDao<>(Composer.class);
-        Composer composerToBeAdded = composerDao.getById(composerIdAsInteger);
-
-        //Create new Composition object and set it's properties
-        Composition compositionToBeAdded = new Composition();
-
-        compositionToBeAdded.setYearComposed(yearAsInteger);
-        compositionToBeAdded.setNumberOfPlayers(numberOfPlayersAsInteger);
-        compositionToBeAdded.setDuration(durationAsInteger);
-        compositionToBeAdded.setComposer(composerToBeAdded);
-        compositionToBeAdded.setClocksCommission(clocksCommissionAsBool);
-        compositionToBeAdded.setTitle(titleFromForm);
-        compositionToBeAdded.setUserId(userIdFromSignIn);
-
-        //Check nullable fields for data
-        if (arrangerFromForm.length() > 0) {
-            compositionToBeAdded.setArranger(arrangerFromForm);
-        }
-        if (notesFromform.length() > 0){
-            compositionToBeAdded.setNotes(notesFromform);
-        }
-
-        //TODO Some sort of validation?
 
         GenericDao genericDao = new GenericDao<>(Composition.class);
-        genericDao.insert(compositionToBeAdded);
+        genericDao.insert(compositionToBeAddedOrUpdated);
 
         // Return user to list of all compositions
         String url = "/concertPlanner/ensemble/compositions ";
