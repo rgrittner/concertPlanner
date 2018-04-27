@@ -24,13 +24,12 @@ public class AddInstrumentCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //Get the user's Information
         GenericDao<User> userGenericDao = new GenericDao<>(User.class);
         String userNameFromSignIn = req.getUserPrincipal().getName();
