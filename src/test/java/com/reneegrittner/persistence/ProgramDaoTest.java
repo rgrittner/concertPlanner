@@ -2,7 +2,6 @@ package com.reneegrittner.persistence;
 
 import com.reneegrittner.entity.Program;
 import com.reneegrittner.util.DatabaseTwo;
-import com.reneegrittner.entity.Musician;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +10,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * The type Program dao test.

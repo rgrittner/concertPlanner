@@ -15,9 +15,9 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/ensemble/instruments"}
 )
-/**
- * This servlet queries the DB for all Instruments and their categories, makes the result set available to the jsp.
- * @author Renee Grittner
+/*
+  This servlet queries the DB for all Instruments and their categories, makes the result set available to the jsp.
+  @author Renee Grittner
  */
 public class DisplayInstruments extends HttpServlet {
     @Override

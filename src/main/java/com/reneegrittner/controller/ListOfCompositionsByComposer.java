@@ -18,10 +18,10 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/ensemble/compositionsByComposer"}
 )
-/**
- * This servlet queries the DB for a list of compositions by a provided composer.
- * Accessed from: TODO fill this out
- * @author Renee Grittner
+/*
+  This servlet queries the DB for a list of compositions by a provided composer.
+  Accessed from: TODO fill this out
+  @author Renee Grittner
  */
 public class ListOfCompositionsByComposer extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());

@@ -18,9 +18,9 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/ensemble/musicians"}
 )
-/**
- * This servlet queries the DB for all musicians, making the result set available to the jsp
- * @author Renee Grittner
+/*
+  This servlet queries the DB for all musicians, making the result set available to the jsp
+  @author Renee Grittner
  */
 public class DisplayMusicians extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());

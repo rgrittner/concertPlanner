@@ -7,7 +7,6 @@ import com.reneegrittner.entity.Instrument;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.PersistenceException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -60,7 +59,7 @@ public class InstrumentDaoTest {
      */
     @Test
     void getByIdSuccess(){
-        Instrument retrievedComposer = (Instrument) genericDao.getById(3);
+        Instrument retrievedComposer = genericDao.getById(3);
         assertEquals("Marimba - Quarter Tone", retrievedComposer.getName());
 
 

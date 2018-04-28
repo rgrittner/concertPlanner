@@ -1,14 +1,12 @@
 package com.reneegrittner.persistence;
 
 
-import com.reneegrittner.entity.Composition;
 import com.reneegrittner.util.DatabaseTwo;
 import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Nationality;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.PersistenceException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

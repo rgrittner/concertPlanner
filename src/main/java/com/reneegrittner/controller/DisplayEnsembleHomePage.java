@@ -19,11 +19,11 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/ensemble/home"}
 )
-/**
- * This servlet generates the home page for the ensemble.
- * Accessed from: after successful login.
- * TODO Add table for upcoming performances
- * @author Renee Grittner
+/*
+  This servlet generates the home page for the ensemble.
+  Accessed from: after successful login.
+  TODO Add table for upcoming performances
+  @author Renee Grittner
  */
 public class DisplayEnsembleHomePage extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());

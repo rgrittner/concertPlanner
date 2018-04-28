@@ -18,10 +18,10 @@ import java.io.IOException;
         urlPatterns = {"/ensemble/compositions"}
 )
 
-/**
- * This servlet queries the DB for all compositions, makes result set available to the jsp.
- * Accessed from: nav.jsp.
- * @author Renee Grittner
+/*
+  This servlet queries the DB for all compositions, makes result set available to the jsp.
+  Accessed from: nav.jsp.
+  @author Renee Grittner
  */
 public class DisplayCompositions extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());

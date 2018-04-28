@@ -18,13 +18,13 @@ import java.util.List;
         urlPatterns = {"/ensemble/singleComposition"}
 )
 
-/** Generates all information needed to display a single composition.
- * Queries DB for Composer information, makes available to the jsp.
- * Queries DB for Composition information, makes available to the jsp.
- * Queries for instrumentation by player, if instrumentation is found makes available to the jsp,
- * otherwise provides a link to add instrumentation.
- * Accessed from: TODO fill this out
- * @author Renee Grittner
+/* Generates all information needed to display a single composition.
+  Queries DB for Composer information, makes available to the jsp.
+  Queries DB for Composition information, makes available to the jsp.
+  Queries for instrumentation by player, if instrumentation is found makes available to the jsp,
+  otherwise provides a link to add instrumentation.
+  Accessed from: TODO fill this out
+  @author Renee Grittner
  */
 public class SingleComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
