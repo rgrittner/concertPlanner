@@ -62,6 +62,7 @@ public class InstrumentCategoryDaoTest {
         assertNotEquals(0, id);
         InstrumentCategory insertedCategory = genericDao.getById(id);
         assertEquals(newCategory, insertedCategory);
+        assertEquals(1, insertedCategory.getUserId());
     }
 
 
@@ -110,9 +111,7 @@ public class InstrumentCategoryDaoTest {
 
     @Test
     void deleteExceptionTesting() {
-        Throwable exception = assertThrows(PersistenceException.class, () -> {
-            genericDao.delete(genericDao.getById(1));
-        });
+        Throwable exception = assertThrows(PersistenceException.class, () -> genericDao.delete(genericDao.getById(1)));
         assertEquals("org.hibernate.exception.ConstraintViolationException: could not execute statement", exception.getMessage());
     }
 
