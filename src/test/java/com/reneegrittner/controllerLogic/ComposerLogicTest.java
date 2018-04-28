@@ -1,7 +1,6 @@
 package com.reneegrittner.controllerLogic;
 
 import com.reneegrittner.entity.Composer;
-import com.reneegrittner.entity.Nationality;
 import com.reneegrittner.persistence.GenericDao;
 import com.reneegrittner.util.DatabaseTwo;
 import org.apache.logging.log4j.LogManager;
@@ -30,10 +29,14 @@ class ComposerLogicTest {
 
     @Test
     void addComposer() {
-        GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
-        Nationality nationality = nationalityGenericDao.getById(1);
+
         Composer composer = composerLogic.createComposer("firstName", "lastName", "123", "123", "1", 1);
         assertEquals("firstName", composer.getFirstName());
+        Integer year = 123;
+        assertEquals(year, composer.getBirthYear());
+        assertEquals(year, composer.getDeathYear());
+        assertEquals("American", composer.getNationality().getNationality());
+        assertEquals(1, composer.getUserId());
 
     }
 }

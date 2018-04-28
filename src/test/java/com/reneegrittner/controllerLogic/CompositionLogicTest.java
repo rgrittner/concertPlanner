@@ -23,6 +23,15 @@ class CompositionLogicTest {
         Composition composition = compositionLogic.createComposition("title", "arranger","1", "10", "2008", "1", "4", "", 1);
         assertEquals("arranger", composition.getArranger());
         assertEquals(1, composition.getComposer().getId());
+        assertEquals("title", composition.getTitle());
+        Integer duration = 10;
+        Integer year = 2008;
+        Integer players = 4;
+        assertEquals(duration, composition.getDuration());
+        assertEquals(year, composition.getYearComposed());
+        assertEquals("", composition.getNotes());
+        assertEquals(players, composition.getNumberOfPlayers());
+        assertEquals(1, composition.getUserId());
 
     }
 }

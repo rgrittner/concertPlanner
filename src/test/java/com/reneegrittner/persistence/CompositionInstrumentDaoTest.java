@@ -44,6 +44,8 @@ public class CompositionInstrumentDaoTest {
     void getByIdSuccess(){
         CompositionInstrument retrievedCompositionInstrument =  genericDao.getById(3);
         assertEquals("Mellits", retrievedCompositionInstrument.getComposition().getComposer().getLastName());
+        assertEquals(3, retrievedCompositionInstrument.getPlayerNumber());
+        assertEquals(1, retrievedCompositionInstrument.getInstrumentQuantity());
 
     }
 
@@ -53,6 +55,7 @@ public class CompositionInstrumentDaoTest {
        assertEquals(1, instruments.size());
 
     }
+
 
 
 }

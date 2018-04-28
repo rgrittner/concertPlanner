@@ -103,7 +103,19 @@ public class ComposerDaoTest {
     }
 
 
-    static class UserTest {
+    @Test
+    void deleteComposerNotNationality(){
+        GenericDao<Nationality> localDao = new GenericDao<>(Nationality.class);
+        Nationality nationality =  localDao.getById(2);
+         Composer newComposer = new Composer("New", "Musician", 1912, 1983, 1, nationality);
 
+        int id = genericDao.insert(newComposer);
+        assertEquals(7, id);
+
+        genericDao.delete(newComposer);
+
+        assertNull(genericDao.getById(id));
+
+        assertEquals(nationality, localDao.getById(2));
     }
 }
