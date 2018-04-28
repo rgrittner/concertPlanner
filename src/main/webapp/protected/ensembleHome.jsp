@@ -38,28 +38,10 @@
             </table>
         </div>
     </div>
-    <div class="lines">
-        <div class="more-btn">
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </div>
-    <div>
-        <button type="button" name="button">IPhone X</button>
-        <p>
-            Testing: <%= request.getRemoteUser()%><br/>
-            Is user in role admin? <%= request.isUserInRole("admin")%>
 
-        </p>
-    </div>
 
 </div>
-<div class="container">
-    <div class="copy-rights">
-        Copyright(c) website name.<br>
-        Designed by:<a href="http://www.alltemplateneeds.com"> www.alltemplateneeds.com</a> / Images from:<a
-            href="http://www.wallpaperswide.com"> www.wallpaperswide.com</a>
-    </div>
-</div>
+
 
 
 
