@@ -9,6 +9,8 @@ import com.reneegrittner.persistence.GenericDao;
  * This method is accessed from AddComposer Servlet.
  */
 public class ComposerLogic {
+    private GenericDao<Composer> composerGenericDao = new GenericDao<>(Composer.class);
+    private GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
 
     /**
      * Create composer composer.
@@ -21,9 +23,15 @@ public class ComposerLogic {
      * @param userId        the user id
      * @return the composer
      */
-    public Composer createComposer(String firstName, String lastName, String birthYear, String deathYear, String nationalityId, int userId){
-        // Set up
-        Composer composerToAdd = new Composer();
+    public Composer createComposer(String firstName, String lastName, String birthYear, String deathYear, String nationalityId, String composerIdString, int userId){
+        Composer composerToAdd;
+
+        // New composer or update existing?
+        if(composerIdString == null){
+            composerToAdd = new Composer();
+        } else {
+            composerToAdd = getComposerFromDB(composerIdString);
+        }
 
         // Get Nationality object
         Nationality nationalityToAdd = getNationality(Integer.parseInt(nationalityId));
@@ -44,6 +52,13 @@ public class ComposerLogic {
         return composerToAdd;
     }
 
+    private Composer getComposerFromDB(String composerIdString) {
+        Integer id = Integer.parseInt(composerIdString);
+        Composer composer = composerGenericDao.getById(id);
+        return composer;
+    }
+
+
     /**
      * Uses the DAO to retrieve associated Nationality object.
      * Composers require this type for insertion.
@@ -51,8 +66,8 @@ public class ComposerLogic {
      * @return nationality
      */
     private Nationality getNationality(int nationalityId) {
-        GenericDao<Nationality> nationalityDao = new GenericDao<>(Nationality.class);
-        Nationality nationality = nationalityDao.getById(nationalityId);
+
+        Nationality nationality = nationalityGenericDao.getById(nationalityId);
         return nationality;
 
     }
@@ -73,4 +88,6 @@ public class ComposerLogic {
 
         return birthOrDeathYear;
     }
+
+
 }

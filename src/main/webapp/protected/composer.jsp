@@ -45,9 +45,9 @@
                         </button>
                     </td>
                     <td>
-                        <form action="/concertPlanner/ensemble/deleteInstrument" method="get"><input type="hidden"
+                        <form action="/concertPlanner/ensemble/deleteComposer" method="get"><input type="hidden"
                                                                                                      value="${current.id}"
-                                                                                                     name="idOfInstrumentToBeDeleted">
+                                                                                                     name="idOfComposerToBeDeleted">
                             <button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </form>

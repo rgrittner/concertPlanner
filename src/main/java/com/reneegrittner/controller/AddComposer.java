@@ -79,6 +79,7 @@ public class AddComposer extends HttpServlet {
                 req.getParameter("birthYear"),
                 req.getParameter("deathYear"),
                 req.getParameter("nationality"),
+                req.getParameter("composerId"),
                 userIdFromSignIn);
 
         switch(isComposerNewOrUpdate){

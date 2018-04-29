@@ -30,7 +30,7 @@ class ComposerLogicTest {
     @Test
     void addComposer() {
 
-        Composer composer = composerLogic.createComposer("firstName", "lastName", "123", "123", "1", 1);
+        Composer composer = composerLogic.createComposer("firstName", "lastName", "123", "123", "1", "",1);
         assertEquals("firstName", composer.getFirstName());
         Integer year = 123;
         assertEquals(year, composer.getBirthYear());
