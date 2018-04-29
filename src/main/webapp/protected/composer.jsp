@@ -132,7 +132,7 @@
             </div>
         </c:forEach>
 
-        <!-- EDIT COMPOSER MODAL -->
+        <!-- ADD COMPOSER MODAL -->
         <div class="modal fade" id="AddComposerModal" role="dialog">
             <div class="modal-dialog">
 
@@ -146,13 +146,13 @@
                         <div class="form-horizontal">
                             <form action="addComposer" method="post">
                                 <div class="form-group">
-                                    <label for="firstName" class="col-sm-2 control-label">First Name</label>
+                                    <label for="firstNameNew" class="col-sm-2 control-label">First Name</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="firstNameNew" name="firstName" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+                                    <label for="lastNameNew" class="col-sm-2 control-label">Last Name</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="lastNameNew" name="lastName" />
                                     </div>
