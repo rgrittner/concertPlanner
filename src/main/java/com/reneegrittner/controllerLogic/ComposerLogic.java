@@ -111,9 +111,17 @@ public class ComposerLogic {
         return compositionsForComposer;
     }
 
-    public void deleteComposer(Integer composerId, int userId) {
+    public String deleteComposer(Integer composerId, int userId) {
+        String message;
         boolean okToDelete = canThisComposerBeDeleted(composerId, userId);
-        Composer composerToBeDeleted = getComposerFromDB(composerId);
-        composerGenericDao.delete(composerToBeDeleted);
+        if(okToDelete) {
+            Composer composerToBeDeleted = getComposerFromDB(composerId);
+            composerGenericDao.delete(composerToBeDeleted);
+            message = "Ok to delete";
+        } else {
+            message = "Delete Failed";
+        }
+
+        return message;
     }
 }

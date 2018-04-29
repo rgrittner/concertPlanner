@@ -80,6 +80,7 @@
             <div class="form-group">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-offset-2 col-sm-10 more-btn">
+                    <input type="hidden" name="CompositionAddOrUpdate" value="1">
                     <button type="submit" class="btn">Add</button>
                 </div>
 

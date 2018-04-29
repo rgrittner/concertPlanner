@@ -1,5 +1,8 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.controllerLogic.ComposerLogic;
+import com.reneegrittner.controllerLogic.CompositionLogic;
+import com.reneegrittner.entity.Composer;
 import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
@@ -25,16 +28,21 @@ import java.io.IOException;
  */
 public class DisplayCompositions extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private GenericDao<Composer> composerGenericDao = new GenericDao<>(Composer.class);
+    private GenericDao<User> userGenericDao = new GenericDao<>(User.class);
+    private  GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Get the user's Information
-        GenericDao<User> userGenericDao = new GenericDao<>(User.class);
         String userNameFromSignIn = req.getUserPrincipal().getName();
-        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+        int userId = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
 
         // Query the database for all compositions for a given user Id. Order on title. Set request attribute
-        GenericDao<Composition> dao = new GenericDao<>(Composition.class);
-        req.setAttribute("compositions", dao.getAll("title", userIdFromSignIn));
+        req.setAttribute("compositions", compositionGenericDao.getAll("title", userId));
+
+        //Query for Composers to populate add modal select options
+        req.setAttribute("composers", composerGenericDao.getAll("lastName", userId));
 
         //Redirect the user
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/allCompositions.jsp");
