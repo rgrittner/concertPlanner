@@ -28,6 +28,7 @@
                         <input type="hidden" name="idOfComposerToBeDeleted" value="${composer.id}" />
                         <div class="col-sm-2"></div>
                         <div class="col-sm-offset-2 col-sm-10 more-btn">
+                            <a href="/concertPlanner/ensemble/composers"><button type="button" class="btn btn-danger">Return To Composers</button></a>
                             <button type="submit" class="btn">Delete</button>
                         </div>
 
@@ -37,10 +38,10 @@
         </c:if>
         <c:if test="${not okToDelete}">
             <p>
-                    ${composer.name} is listed as the composer for the following compositions and cannot be deleted:
+                    ${composer.firstName} ${composer.lastName} is listed as the composer for the following compositions and cannot be deleted:
             <ul>
                 <c:forEach items="${compositions}" var="current">
-                    <li>${current.composition.title}</li>
+                    <li>${current.title}</li>
                 </c:forEach>
             </ul>
             </p>

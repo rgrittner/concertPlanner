@@ -18,7 +18,11 @@
         </div>
 <jsp:include page="nav.jsp" />
     </div>
-
+    <div class="lines">
+        <div class="more-btn">
+            <button type="button" class="btn" data-toggle="modal" data-target="#AddComposerModal">Add Composer</button>
+        </div>
+    </div>
 
     <div class="dataTables_wrapper">
         <table id="resultTable" class="table table-sm">
@@ -127,6 +131,76 @@
                 </div>
             </div>
         </c:forEach>
+
+        <!-- EDIT COMPOSER MODAL -->
+        <div class="modal fade" id="AddComposerModal" role="dialog">
+            <div class="modal-dialog">
+
+                <%--<!-- Modal content-->--%>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Composer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal">
+                            <form action="addComposer" method="post">
+                                <div class="form-group">
+                                    <label for="firstName" class="col-sm-2 control-label">First Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="firstNameNew" name="firstName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="lastNameNew" name="lastName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationalityNew" class="col-sm-2 control-label">Nationality </label>
+                                    <div class="col-sm-10">
+                                        <select name="nationality" id="nationalityNew">
+                                            <option value="00" selected>--- SELECT NATIONALITY ---</option>
+                                            <c:forEach items="${nationality}" var="currentNat">
+                                                <option value="${currentNat.id}">${currentNat.nationality}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthYearNew" class="col-sm-2 control-label">Birth Year</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" id="birthYearNew" name="birthYear" value="${current.birthYear}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="deathYearNew" class="col-sm-2 control-label">Death Year</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" id="deathYearNew" name="deathYear" value="${current.deathYear}"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-2"></div>
+                                    <input type="hidden" name="ComposerAddOrUpdate" value="1">
+
+                                    <div class="col-sm-offset-2 col-sm-10 more-btn">
+                                        <button type="submit" class="btn">Add</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
     </div>
 </div>

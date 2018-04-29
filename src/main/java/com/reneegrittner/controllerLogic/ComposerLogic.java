@@ -1,8 +1,11 @@
 package com.reneegrittner.controllerLogic;
 
 import com.reneegrittner.entity.Composer;
+import com.reneegrittner.entity.Composition;
 import com.reneegrittner.entity.Nationality;
 import com.reneegrittner.persistence.GenericDao;
+
+import java.util.List;
 
 /**
  * The Composer Logic class handles the creation of new Composer Objects.
@@ -11,6 +14,7 @@ import com.reneegrittner.persistence.GenericDao;
 public class ComposerLogic {
     private GenericDao<Composer> composerGenericDao = new GenericDao<>(Composer.class);
     private GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
+    private GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
 
     /**
      * Create composer composer.
@@ -30,7 +34,7 @@ public class ComposerLogic {
         if(composerIdString == null){
             composerToAdd = new Composer();
         } else {
-            composerToAdd = getComposerFromDB(composerIdString);
+            composerToAdd = getComposerFromDB(Integer.parseInt(composerIdString));
         }
 
         // Get Nationality object
@@ -52,8 +56,8 @@ public class ComposerLogic {
         return composerToAdd;
     }
 
-    private Composer getComposerFromDB(String composerIdString) {
-        Integer id = Integer.parseInt(composerIdString);
+    private Composer getComposerFromDB(Integer id) {
+        //Integer id = Integer.parseInt(composerIdString);
         Composer composer = composerGenericDao.getById(id);
         return composer;
     }
@@ -90,4 +94,26 @@ public class ComposerLogic {
     }
 
 
+    public boolean canThisComposerBeDeleted(Integer id, int userId) {
+        List<Composition> areThereAnyCompositionsForThisComposer = listOfCompositionsForThisComposer(id, userId);
+        boolean okToDelete;
+        if(areThereAnyCompositionsForThisComposer.size() > 0){
+            okToDelete = false;
+        } else {
+            okToDelete = true;
+        }
+
+        return okToDelete;
+    }
+
+    public List<Composition> listOfCompositionsForThisComposer(Integer id, int userId){
+        List<Composition> compositionsForComposer  = compositionGenericDao.getByPropertyEqual("composer", id, userId);
+        return compositionsForComposer;
+    }
+
+    public void deleteComposer(Integer composerId, int userId) {
+        boolean okToDelete = canThisComposerBeDeleted(composerId, userId);
+        Composer composerToBeDeleted = getComposerFromDB(composerId);
+        composerGenericDao.delete(composerToBeDeleted);
+    }
 }
