@@ -28,7 +28,7 @@ public class deleteInstrumentFromComposition extends HttpServlet {
         Integer id = Integer.parseInt(req.getParameter("compositionInstrumentId"));
         compositionInstrumentLogic.deleteInstrumentFromCompositionById(id);
 
-        String url = "http://localhost:8080/concertPlanner/ensemble/singleComposition?param=" + compositionId;
+        String url = "/concertPlanner/ensemble/singleComposition?param=" + compositionId;
         resp.sendRedirect(url);
 
 
