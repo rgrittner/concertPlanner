@@ -1,5 +1,6 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.controllerLogic.AdminLogic;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.entity.UserRole;
 import com.reneegrittner.persistence.GenericDao;
@@ -19,6 +20,8 @@ import java.io.IOException;
 )
 public class Admin extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private AdminLogic adminLogic = new AdminLogic();
+    private String errorMessage = "";
 
     @Override
 
@@ -30,6 +33,7 @@ public class Admin extends HttpServlet {
         GenericDao<UserRole> userRoleGenericDao = new GenericDao<>(UserRole.class);
         req.setAttribute("userRoles", userRoleGenericDao.getAllUsers());
 
+        req.setAttribute("errorMessage", errorMessage);
 
         logger.debug("All Users = " + userGenericDao.getAllUsers());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/admin.jsp");
@@ -43,6 +47,8 @@ public class Admin extends HttpServlet {
                 1: Update User Information
                 2: Update User Role
                 3: Add New User Role
+                4: Delete User
+                5: Delete user role
          */
         GenericDao<UserRole> userRoleGenericDao = new GenericDao<>(UserRole.class);
         Integer submissionType = Integer.parseInt(req.getParameter("submissionType"));
@@ -50,55 +56,69 @@ public class Admin extends HttpServlet {
         String userRole;
         Integer userId;
 
+        boolean doesUserNameExist = adminLogic.doesUsernameExist(req.getParameter("userName"));
 
-        switch(submissionType){
-            case 1:
-                userName = req.getParameter("userName");
-                String ensembleName = req.getParameter("ensembleName");
-                userId = Integer.parseInt(req.getParameter("userId"));
-                String userPass = req.getParameter("userPassword");
+        if(doesUserNameExist == false) {
 
 
-                User userToUpdate = new User();
+            User userToAddOrUpdate = adminLogic.createOrUpdateUserInformation(
+                    req.getParameter("userName")
+                    , req.getParameter("ensembleName")
+                    , req.getParameter("userPassword")
+                    , req.getParameter("userId"));
 
-                userToUpdate.setId(userId);
-                userToUpdate.setUserName(userName);
-                userToUpdate.setEnsembleName(ensembleName);
-                userToUpdate.setUserPassword(userPass);
+            switch (submissionType) {
+                case 1:
 
-                GenericDao<User> userGenericDao = new GenericDao<>(User.class);
-
-
-                userGenericDao.saveOrUpdate(userToUpdate);
-
-                break;
-            case 2:
-                userName = req.getParameter("update-role-userName");
-                userRole = req.getParameter("update-role-userRole");
-                userId = Integer.parseInt(req.getParameter("update-role-userRoleId"));
-
-                UserRole userRoleToUpdate = new UserRole();
-
-                userRoleToUpdate.setId(userId);
-                userRoleToUpdate.setUserName(userName);
-                userRoleToUpdate.setUserRole(userRole);
+//                userName = req.getParameter("userName");
+//                String ensembleName = req.getParameter("ensembleName");
+//                userId = Integer.parseInt(req.getParameter("userId"));
+//                String userPass = req.getParameter("userPassword");
+//
+//
+//                User userToUpdate = new User();
+//
+//                userToUpdate.setId(userId);
+//                userToUpdate.setUserName(userName);
+//                userToUpdate.setEnsembleName(ensembleName);
+//                userToUpdate.setUserPassword(userPass);
+//
+                    GenericDao<User> userGenericDao = new GenericDao<>(User.class);
 
 
-                userRoleGenericDao.saveOrUpdate(userRoleToUpdate);
+                    userGenericDao.saveOrUpdate(userToAddOrUpdate);
 
-                break;
-            case 3:
-                userName = req.getParameter("new-role-userName");
-                userRole = req.getParameter("new-role-userRole");
+                    break;
+                case 2:
+                    userName = req.getParameter("update-role-userName");
+                    userRole = req.getParameter("update-role-userRole");
+                    userId = Integer.parseInt(req.getParameter("update-role-userRoleId"));
 
-                UserRole newUserRoleToAdd = new UserRole();
+                    UserRole userRoleToUpdate = new UserRole();
 
-                newUserRoleToAdd.setUserName(userName);
-                newUserRoleToAdd.setUserRole(userRole);
-                logger.debug(newUserRoleToAdd);
-                userRoleGenericDao.insert(newUserRoleToAdd);
+                    userRoleToUpdate.setId(userId);
+                    userRoleToUpdate.setUserName(userName);
+                    userRoleToUpdate.setUserRole(userRole);
 
-                break;
+
+                    userRoleGenericDao.saveOrUpdate(userRoleToUpdate);
+
+                    break;
+                case 3:
+                    userName = req.getParameter("new-role-userName");
+                    userRole = req.getParameter("new-role-userRole");
+
+                    UserRole newUserRoleToAdd = new UserRole();
+
+                    newUserRoleToAdd.setUserName(userName);
+                    newUserRoleToAdd.setUserRole(userRole);
+                    logger.debug(newUserRoleToAdd);
+                    userRoleGenericDao.insert(newUserRoleToAdd);
+
+                    break;
+            }
+        } else {
+            errorMessage = "This username already exists";
         }
 
         String url = "/concertPlanner/ensemble/admin";
