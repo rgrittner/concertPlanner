@@ -93,7 +93,7 @@
                                                 <label for="composer" class="col-sm-2 control-label">Composer</label>
                                                 <div class="col-sm-10">
                                                     <select id="composer" name="composer">
-                                                            <option value="${current.id}" selected>${current.composer.lastName}, ${current.composer.firstName}</option>
+                                                            <option value="${current.composer.id}" selected>${current.composer.lastName}, ${current.composer.firstName}</option>
                                                         <c:forEach items="${composers}" var="current2">
                                                             <option value="${current2.id}">${current2.lastName}, ${current2.firstName}</option>
                                                         </c:forEach>
@@ -145,6 +145,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-2"></div>
                                                 <div class="col-sm-offset-2 col-sm-10 more-btn">
+                                                    <input type="hidden" name="compositionId" value="${current.id}">
                                                     <input type="hidden" name="CompositionAddOrUpdate" value="2">
                                                     <button type="submit" class="btn">Edit ${current.title}</button>
                                                 </div>
