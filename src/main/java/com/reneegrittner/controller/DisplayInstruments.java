@@ -4,6 +4,9 @@ import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +23,7 @@ import java.io.IOException;
   @author Renee Grittner
  */
 public class DisplayInstruments extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Get the user's Information
@@ -34,6 +38,9 @@ public class DisplayInstruments extends HttpServlet {
 
         // Make categories available to the add category modal
         req.setAttribute("categories", dao2.getAll("category", userIdFromSignIn));
+
+        logger.debug(req.getParameter("categoryAddError"));
+        req.setAttribute("categoryAddError", req.getParameter("categoryError"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/instruments.jsp");
         dispatcher.forward(req, resp);
