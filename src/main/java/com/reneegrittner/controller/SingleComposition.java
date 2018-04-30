@@ -46,6 +46,9 @@ public class SingleComposition extends HttpServlet {
         GenericDao<Composition> compositionDao = new GenericDao<>(Composition.class);
         GenericDao<ProgramComposition> programCompositionGenericDao = new GenericDao<>(ProgramComposition.class);
         GenericDao<CompositionInstrument> linkingDao = new GenericDao<>(CompositionInstrument.class);
+        GenericDao<Nationality> nationalityGenericDao = new GenericDao<>(Nationality.class);
+
+
 
         // Retrieve requested composition & get it's id
         Composition composition =  compositionDao.getById(idFromParam);
@@ -66,6 +69,7 @@ public class SingleComposition extends HttpServlet {
         req.setAttribute("playerThreeInstruments", linkingDao.getByPropertyEqualCompositionInstrument(3, compositionId, userIdFromSignIn));
         req.setAttribute("playerFourInstruments", linkingDao.getByPropertyEqualCompositionInstrument(4, compositionId, userIdFromSignIn));
         req.setAttribute("listOfPerformances", listOfProgramsOfThisComposition);
+        req.setAttribute("nationality", nationalityGenericDao.getAll(userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/singleComposition.jsp");
         dispatcher.forward(req, resp);
