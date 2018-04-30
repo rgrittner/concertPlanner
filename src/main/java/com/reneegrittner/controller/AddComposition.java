@@ -26,6 +26,7 @@ import java.io.IOException;
 )
 public class AddComposition extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private GenericDao<Composition> compositionGenericDao = new GenericDao<>(Composition.class);
 
 
 
@@ -67,8 +68,10 @@ public class AddComposition extends HttpServlet {
 
         CompositionLogic compositionLogic = new CompositionLogic();
 
+
         Composition compositionToBeAddedOrUpdated = compositionLogic.createComposition(
-                req.getParameter("title")
+                req.getParameter("compositionId")
+                ,req.getParameter("title")
                 ,req.getParameter("arranger")
                 ,req.getParameter("composer")
                 ,req.getParameter("duration")
@@ -79,12 +82,29 @@ public class AddComposition extends HttpServlet {
                 , userIdFromSignIn
         );
 
+        int isCompositionNewOrUpdate = Integer.parseInt(req.getParameter("CompositionAddOrUpdate"));
+        switch(isCompositionNewOrUpdate){
+            case 1:
+
+                compositionGenericDao.insert(compositionToBeAddedOrUpdated);
+                break;
+            case 2:
+
+                compositionGenericDao.saveOrUpdate(compositionToBeAddedOrUpdated);
+                break;
+        }
 
         GenericDao genericDao = new GenericDao<>(Composition.class);
-        genericDao.insert(compositionToBeAddedOrUpdated);
+        //genericDao.insert(compositionToBeAddedOrUpdated);
 
-        // Return user to list of all compositions
-        String url = "/concertPlanner/ensemble/compositions ";
+        String url = "";
+        if(req.getParameter("returnToComposition") == null){
+            url = "/concertPlanner/ensemble/compositions";
+        } else {
+            String compositionId = req.getParameter("returnToComposition");
+            url = "/concertPlanner/ensemble/singleComposition?param=" + compositionId;
+        }
+
 
         resp.sendRedirect(url);
 
