@@ -63,6 +63,13 @@ public class CompositionDaoTest {
         assertEquals(1, compositions.get(0).getId());
     }
 
+    @Test
+    void getByPropertyEqualBooleanSuccess() {
+        List<Composition> compositions = genericDao.getByPropertyEqual("clocksCommission", true, 1);
+        assertEquals(4, compositions.size());
+        assertEquals(1, compositions.get(0).getId());
+    }
+
     /**
      * Verify successful get by property (like match)
      */
