@@ -18,6 +18,12 @@
     </div>
     <jsp:include page="nav.jsp" />
 <body>
+<c:if test="${errorMessage.length() > 1}">
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Warning!</strong> ${errorMessage}
+</div>
+</c:if>
 <h1>Edit User Information</h1>
 <div>
     <table id="resultTable2" class="table table-sm">
@@ -85,7 +91,10 @@
 
 
                 </td>
-                <td><form action="/concertPlanner/deleteUser" method="get"><input type="hidden" value="${current.id}" name="idOfUserToBeDeleted"><button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span></button></form></td>
+                <td><form action="admin" method="get">
+                    <input type="hidden" value="${current.id}" name="idOfUserToBeDeleted">
+                    <input type="hidden" value="4" name="submissionType">
+                    <button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span></button></form></td>
             </tr>
         </c:forEach>
         </tbody>
