@@ -158,6 +158,16 @@
                                 <td>${current.instrument.name}</td>
                                 <td>${current.instrument.instrumentCategory.category}</td>
                                 <td>${current.instrumentQuantity}</td>
+                                <td>
+                                    <form action="/concertPlanner/ensemble/deleteInstrumentFromComposition" method="post">
+
+                                        <input type="hidden" value="${current.id}" name="compositionInstrumentId">
+                                        <input type="hidden" value="${compositionInformation.id}" name="compositionId">
+
+                                        <button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         </c:forEach>
                     </c:if>
@@ -191,6 +201,16 @@
                             <td>${current.instrument.name}</td>
                             <td>${current.instrument.instrumentCategory.category}</td>
                             <td>${current.instrumentQuantity}</td>
+                            <td>
+                                <form action="/concertPlanner/ensemble/deleteInstrumentFromComposition" method="post">
+
+                                    <input type="hidden" value="${current.id}" name="compositionInstrumentId">
+                                    <input type="hidden" value="${compositionInformation.id}" name="compositionId">
+
+                                    <button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                     <c:if test="${empty playerThreeInstruments}">
@@ -224,6 +244,16 @@
                             <td>${current.instrument.name}</td>
                             <td>${current.instrument.instrumentCategory.category}</td>
                             <td>${current.instrumentQuantity}</td>
+                            <td>
+                                <form action="/concertPlanner/ensemble/deleteInstrumentFromComposition" method="post">
+
+                                    <input type="hidden" value="${current.id}" name="compositionInstrumentId">
+                                    <input type="hidden" value="${compositionInformation.id}" name="compositionId">
+
+                                    <button type="submit" class="btn"><span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                     <c:if test="${empty playerFourInstruments}">
