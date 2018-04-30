@@ -4,7 +4,10 @@ import com.reneegrittner.entity.Instrument;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.persistence.GenericDao;
 
+import java.util.List;
+
 public class InstrumentLogic {
+    private GenericDao<InstrumentCategory> instrumentCategoryGenericDao = new GenericDao<>(InstrumentCategory.class);
 
     public Instrument createOrUpdateInstrument(String instrumentName, String categoryIdString, int userId, String instrumentIdString){
         Instrument instrument;
@@ -37,4 +40,27 @@ public class InstrumentLogic {
 
         return instrumentCategory;
     }
+
+    public boolean checkIfCategoryAlreadyExists(String categoryNameToCheck, int userId) {
+        boolean okToInsert = false;
+
+        List<InstrumentCategory> instrumentCategory = instrumentCategoryGenericDao.getByPropertyEqual("category", categoryNameToCheck, userId);
+        if (instrumentCategory.isEmpty()) {
+            okToInsert = true;
+        }
+
+        return okToInsert;
+    }
+
+    public int addNewInstrumentCategory(String category, int userId){
+        int id;
+        InstrumentCategory categoryToBeAdded = new InstrumentCategory();
+        categoryToBeAdded.setUserId(userId);
+        categoryToBeAdded.setCategory(category);
+
+        id = instrumentCategoryGenericDao.insert(categoryToBeAdded);
+        return id;
+    }
+
 }
+
