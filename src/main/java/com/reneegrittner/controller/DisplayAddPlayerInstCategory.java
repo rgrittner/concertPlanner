@@ -67,10 +67,12 @@ public class DisplayAddPlayerInstCategory extends HttpServlet {
         List<InstrumentCategory> category = categoryDao.getByPropertyEqual("category", categoryFromForm, userIdFromSignIn);
         int categoryId = category.get(0).getId();
         req.setAttribute("instruments", dao.getByPropertyEqual("instrumentCategory", categoryId, userIdFromSignIn));
-
+        logger.debug(dao.getByPropertyEqual("instrumentCategory", categoryId, userIdFromSignIn));
+        String categoryName = category.get(0).getCategory();
         // Send the playerNumber and category id as well
         req.setAttribute("playerNumber", playerNumber);
         req.setAttribute("categoryId", categoryIdFromForm);
+        req.setAttribute("categoryName", categoryName);
 
         //redirect back to add page
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addAccessory.jsp");
