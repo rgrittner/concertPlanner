@@ -18,26 +18,42 @@
     </div>
     <jsp:include page="nav.jsp" />
     <div class="lines">
-        <div class="more-btn">
-            <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn">Return to ${composition.title}</button></a>
+        <div>
+            <a href="/concertPlanner/ensemble/singleComposition?param=${composition.id}"><button type="button" class="btn btn-info">Return to <br><h1>${composition.title}</h1></button></a>
         </div>
 
     </div>
-    <div class="row"><div class="col-sm-12">  <br/> <br></div></div>
-    <div class="row"><div class="col-sm-12">  <h3>Adding Instrumentation for: ${composition.title}, player ${playerNumber}</h3> </div></div>
-    <div class="row"><div class="col-sm-12">  next player = ${nextPlayer}, max players = ${maxPlayer}<br/> </div></div>
+    <div class="row"><div class="col-sm-12">  <br/> </div></div>
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-2 text-center" style="padding-left: 4%" >
+            <c:if test="${previousPlayer != 0}">
+                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${previousPlayer}&compositionId=${composition.id}"><h3 class="pull-left"><span class="label label-default" ><i class="glyphicon glyphicon-chevron-left"></i>Player ${previousPlayer} </span></h3></a>
+            </c:if>
+        </div>
+        <div class="col-sm-2 text-center" style="padding-left: 4%">
+            <h3 class="pull-left"><span class="label label-danger" >Player ${playerNumber} </span></h3>
+        </div>
+        <div class="col-sm-2 text-center" style="padding-left: 4%">
+            <c:if test="${nextPlayer != 0}">
+                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><h3 class="pull-left"><span class="label label-default" >Player ${nextPlayer} <i class="glyphicon glyphicon-chevron-right"></i></span></h3></a>
+            </c:if>
+        </div>
+    <div class="col-sm-3 text-center"></div>
+    </div>
 
+    <div class="row"><div class="col-sm-12">  <br/> </div></div>
     <c:forEach items="${instrumentCat}" var="current">
     <div class="row">
         <div class="col-sm-5"></div>
         <div class="col-sm-2 centering">
             <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="get">
-                <div class="more-btn">
+                <div>
                     <input type="hidden" name="category" value="${current.category}">
                     <input type="hidden" name="compositionId" value="${compositionId}">
                     <input type="hidden" name="playerNumber" value="${playerNumber}">
                     <input type="hidden" name="categoryId" value="${current.id}">
-                    <button type="submit" class="btn">${current.category}</button></a>
+                    <button type="submit" class="btn btn-danger">${current.category}&nbsp;&nbsp;<span class="badge badge-default">0</span></button></a>
                 </div>
             </form>
         </div>
@@ -49,10 +65,9 @@
 
 
         <c:if test="${nextPlayer <= maxPlayer}">
-    <h3>I'm done adding all instruments for player ${playerNumber}, click the button below to begin adding for player ${nextPlayer}</h3>
     <div class="lines">
-            <div class="more-btn">
-                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><button type="button" class="btn">Add Instruments for player ${nextPlayer}</button></a>
+            <div>
+                <a href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${nextPlayer}&compositionId=${composition.id}"><span class="label label-default">Add Instruments for player ${nextPlayer}</span></a>
             </div>
     </div>
         </c:if>
