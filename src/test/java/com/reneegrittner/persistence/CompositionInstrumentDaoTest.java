@@ -69,7 +69,7 @@ public class CompositionInstrumentDaoTest {
         CompositionInstrument newInstrumentForComposition = new CompositionInstrument(2, 1, instrument, composition, 1);
 
         int id = genericDao.insert(newInstrumentForComposition);
-        assertEquals(5, id);
+        assertEquals(10005, id);
 
         genericDao.delete(newInstrumentForComposition);
 
