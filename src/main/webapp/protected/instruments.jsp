@@ -16,8 +16,14 @@
         <div class="site-name">
             <h1>Instruments</h1>
         </div>
+        <h1>${categoryAddError}</h1>
         <jsp:include page="nav.jsp"/>
-
+        <c:if test="${categoryAddError.length() > 1}">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        </div>
+        </c:if>
         <div class="lines">
             <div class="more-btn">
                 <button type="button" class="btn" data-toggle="modal" data-target="#CategoryModal">Add Category</button>
