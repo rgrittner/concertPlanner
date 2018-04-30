@@ -20,7 +20,7 @@ class CompositionLogicTest {
 
     @Test
     void createComposition() {
-        Composition composition = compositionLogic.createComposition("title", "arranger","1", "10", "2008", "1", "4", "", 1);
+        Composition composition = compositionLogic.createComposition(null,"title", "arranger","1", "10", "2008", "1", "4", "", 1);
         assertEquals("arranger", composition.getArranger());
         assertEquals(1, composition.getComposer().getId());
         assertEquals("title", composition.getTitle());
