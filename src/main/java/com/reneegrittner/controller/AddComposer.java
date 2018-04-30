@@ -61,7 +61,7 @@ public class AddComposer extends HttpServlet {
         GenericDao<User> userGenericDao = new GenericDao<>(User.class);
         String userNameFromSignIn = req.getUserPrincipal().getName();
         int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
-
+logger.debug("testing");
         // For data validation
 //        Map<String, String> messages = new HashMap<>();
 //        req.setAttribute("messages", messages);
