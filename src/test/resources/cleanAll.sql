@@ -91,6 +91,10 @@ INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (2, 1, 2, 1, 1, 1);
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (3, 1, 3, 2, 1, 1);
 INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (4, 1, 4, 2, 1, 1);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (10001, 1, 1, 1, 1, 100);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (10002, 1, 2, 1, 1, 100);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (10003, 1, 3, 2, 1, 100);
+INSERT INTO `test_concertPlanner`.`Composition_Instrument` (`Id`, `qty`, `player`, `Instrument_id`, `Composition_id`, `user_Id` ) VALUES (10004, 1, 4, 2, 1, 100);
 COMMIT;
 START TRANSACTION;
 USE `test_concertPlanner`;
