@@ -51,9 +51,17 @@ public class AddInstrumentationStart extends HttpServlet {
         Composition currentComposition = compositionGenericDao.getById(Integer.parseInt(req.getParameter("compositionId")));
         int maxNumberOfPlayers = currentComposition.getNumberOfPlayers();
         int nextPlayer = 0;
+        int previousPlayer = 0;
 
-        if(playerFromParam <= maxNumberOfPlayers){
+        if(playerFromParam < maxNumberOfPlayers){
             nextPlayer = playerFromParam + 1;
+            previousPlayer = playerFromParam - 1;
+
+        }
+
+        if(playerFromParam == maxNumberOfPlayers){
+            nextPlayer = 0;
+            previousPlayer = playerFromParam -1;
         }
 
 
@@ -63,6 +71,7 @@ public class AddInstrumentationStart extends HttpServlet {
         req.setAttribute("composition", currentComposition);
         req.setAttribute("nextPlayer", nextPlayer);
         req.setAttribute("maxPlayer", maxNumberOfPlayers);
+        req.setAttribute("previousPlayer", previousPlayer);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/addInstrumentationStart.jsp");
         dispatcher.forward(req, resp);
