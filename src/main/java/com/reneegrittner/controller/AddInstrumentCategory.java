@@ -1,8 +1,11 @@
 package com.reneegrittner.controller;
 
+import com.reneegrittner.controllerLogic.InstrumentLogic;
 import com.reneegrittner.entity.InstrumentCategory;
 import com.reneegrittner.entity.User;
 import com.reneegrittner.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +24,8 @@ import java.io.IOException;
         urlPatterns = {"/ensemble/addInstrumentCategory"}
 )
 public class AddInstrumentCategory extends HttpServlet {
+    private InstrumentLogic instrumentLogic = new InstrumentLogic();
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -29,21 +34,26 @@ public class AddInstrumentCategory extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         //Get the user's Information
         GenericDao<User> userGenericDao = new GenericDao<>(User.class);
         String userNameFromSignIn = req.getUserPrincipal().getName();
-        int userIdFromSignIn = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+        int userId = userGenericDao.getUser("userName", userNameFromSignIn).get(0).getId();
+        String errorMessage = "";
+        String categoryToAdd = req.getParameter("category");
+        boolean okToInsert = instrumentLogic.checkIfCategoryAlreadyExists(categoryToAdd, userId);
 
-        InstrumentCategory categoryToBeAdded = new InstrumentCategory();
-        categoryToBeAdded.setCategory(req.getParameter("category"));
-        categoryToBeAdded.setUserId(userIdFromSignIn);
+        if(okToInsert){
+            instrumentLogic.addNewInstrumentCategory(categoryToAdd, userId);
+        } else {
+            errorMessage = categoryToAdd + " already Exists";
 
-        GenericDao<InstrumentCategory> genericDao = new GenericDao<>(InstrumentCategory.class);
+            logger.debug(errorMessage);
+        }
 
-        genericDao.insert(categoryToBeAdded);
-
+        req.setAttribute("categoryAddError", errorMessage);
         String url = "/concertPlanner/ensemble/instruments";
+
 
         resp.sendRedirect(url);
 
