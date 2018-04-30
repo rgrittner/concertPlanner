@@ -13,17 +13,20 @@
 <div class="container page-styling">
     <div class="header-wrapper">
         <div class="site-name">
-            <h1>Add Accessory for Player ${playerNumber}</h1>
+            <h1>Add ${categoryName} for Player ${playerNumber}</h1>
         </div>
     </div>
     <jsp:include page="nav.jsp" />
-    <div class="panel panel-danger">
+    <div class="row">
+        <div class="col-sm-4"></div>
+    <div class="panel panel-default col-sm-4">
         <div class="panel-heading">
-            <h3 class="panel-title">Composition: ${composition.title}</h3>
-            <h3 class="panel-title">Player: ${playerNumber}</h3>
+            <h1 class="panel-title" align="center">Composition: ${composition.title} </h1>
+            <h3 class="panel-title" align="center">Player: ${playerNumber}</h3>
         </div>
         <div class="panel-body">
-            <div class="form-horizontal">
+
+            <div class="form-horizontal ">
                 <form action="/concertPlanner/ensemble/PlayerInstrumentationCategory" method="post">
                     <c:forEach items="${instruments}" var="current">
                         <div class="form-group">
@@ -45,10 +48,15 @@
                     </div>
                 </form>
             </div>
+
+
         </div>
          <div class="panel-footer">
-            <button type="button">Return to Main Player ${playerNumber} Category Selection</button>
+             <a style="text-decoration: none; color: white;" href="/concertPlanner/ensemble/addPlayerInstrumentation?player=${playerNumber}&compositionId=${composition.id}">
+                 <h4 align="center"><span  class="label label-info">Return to Player ${playerNumber} Category Selection</span></h4></a>
          </div>
+    </div>
+        <div class="col-sm-4"></div>
     </div>
 </div>
 </body>
