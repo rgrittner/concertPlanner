@@ -95,8 +95,15 @@ public class AddComposer extends HttpServlet {
 
         //TODO add data verification
         //TODO check for exisiting composer
+        String url = "";
+        if(req.getParameter("returnToComposition") == null){
+            url = "/concertPlanner/ensemble/composers";
+        } else {
+            String compositionId = req.getParameter("returnToComposition");
+            url = "/concertPlanner/ensemble/singleComposition?param=" + compositionId;
+        }
 
-        String url = "/concertPlanner/ensemble/composers";
+        //String url = "/concertPlanner/ensemble/composers";
 
         resp.sendRedirect(url);
 
