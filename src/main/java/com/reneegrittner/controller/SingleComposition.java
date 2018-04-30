@@ -59,8 +59,8 @@ public class SingleComposition extends HttpServlet {
         Integer compositionId = composition.getId();
 
         // Retrieve all performances of requested composition
-        List<ProgramComposition> listOfProgramsOfThisComposition = programCompositionGenericDao.getByPropertyEqual("composition", compositionId, userIdFromSignIn);
-        logger.debug("List of lots of shit: " + listOfProgramsOfThisComposition);
+       // List<ProgramComposition> listOfProgramsOfThisComposition = programCompositionGenericDao.getByPropertyEqual("composition", compositionId, userIdFromSignIn);
+       // logger.debug("List of lots of shit: " + listOfProgramsOfThisComposition);
 
         req.setAttribute("compositionInformation", composition);
         req.setAttribute("composerInformation", composer);
@@ -68,7 +68,7 @@ public class SingleComposition extends HttpServlet {
         req.setAttribute("playerTwoInstruments", linkingDao.getByPropertyEqualCompositionInstrument(2, compositionId, userIdFromSignIn));
         req.setAttribute("playerThreeInstruments", linkingDao.getByPropertyEqualCompositionInstrument(3, compositionId, userIdFromSignIn));
         req.setAttribute("playerFourInstruments", linkingDao.getByPropertyEqualCompositionInstrument(4, compositionId, userIdFromSignIn));
-        req.setAttribute("listOfPerformances", listOfProgramsOfThisComposition);
+       // req.setAttribute("listOfPerformances", listOfProgramsOfThisComposition);
         req.setAttribute("nationality", nationalityGenericDao.getAll(userIdFromSignIn));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/protected/singleComposition.jsp");
